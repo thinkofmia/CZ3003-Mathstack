@@ -3,6 +3,7 @@
 [ext_resource path="res://buttons/MenuButton.tscn" type="PackedScene" id=1]
 
 [node name="NormalModeButton" instance=ExtResource( 1 )]
+scene_to_load = "res://menus/NormalModeSelectWorld.tscn"
 
 [node name="Label" parent="." index="0"]
 margin_left = -123.396
