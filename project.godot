@@ -17,7 +17,11 @@ _global_script_class_icons={
 
 config/name="Mathstack"
 run/main_scene="res://menus/gameModes/PlayMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://textures/icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [rendering]
 

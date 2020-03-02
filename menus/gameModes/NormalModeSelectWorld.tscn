@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=1]
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=2]
 [ext_resource path="res://buttons/BackButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/interface/returnToPlayMenu.gd" type="Script" id=4]
+[ext_resource path="res://menus/util/CompletionBox.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node"]
 
@@ -20,22 +21,23 @@ margin_left = -314.449
 margin_top = 98.4559
 margin_right = 303.551
 margin_bottom = -55.5441
+rect_min_size = Vector2( 618, 446 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Menu" type="VBoxContainer" parent="PlayBoard"]
-margin_left = 120.0
-margin_top = 80.0
-margin_right = 500.0
-margin_bottom = 400.0
+margin_left = 25.0
+margin_top = 22.0
+margin_right = 597.0
+margin_bottom = 413.0
+rect_min_size = Vector2( 572, 391 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="VBoxContainer" parent="PlayBoard/Menu"]
-margin_right = 380.0
-custom_constants/separation = 70
+[node name="CompletionBox" parent="PlayBoard/Menu" instance=ExtResource( 5 )]
+margin_bottom = 40.0
 
 [node name="Texture" type="Sprite" parent="PlayBoard"]
 modulate = Color( 0.501961, 0.419608, 0.419608, 1 )
