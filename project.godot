@@ -19,6 +19,10 @@ config/name="Mathstack"
 run/main_scene="res://menus/gameModes/PlayMenu.tscn"
 config/icon="res://textures/icon.png"
 
+[autoload]
+
+global="*res://scripts/global.gd"
+
 [display]
 
 window/stretch/mode="viewport"

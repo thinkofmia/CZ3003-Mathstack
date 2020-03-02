@@ -1,8 +1,9 @@
 extends Button
+var worldSelected
 
 func _on_WorldButton_pressed():
 	#Save selected world into variables
-	var worldSelected = $Label.get_text()
+	worldSelected = $Label.get_text()
 	
 	#Debug
 	print("World Selected: "+worldSelected)
