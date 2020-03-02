@@ -8,3 +8,4 @@ Students will enhance their knowledge through playing the game and have more fun
 ## Credits for free images
 - Flaticon (returnButton.png)
 - Free Stock Textures (woodTexture.jpg)
+- freepik (mountainView.jpg)
