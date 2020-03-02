@@ -32,12 +32,39 @@ margin_top = 22.0
 margin_right = 597.0
 margin_bottom = 413.0
 rect_min_size = Vector2( 572, 391 )
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CompletionBox" parent="PlayBoard/Menu" instance=ExtResource( 5 )]
 margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayBoard/Menu"]
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 250, 350 )
+size_flags_horizontal = 0
+
+[node name="WorldButton" type="Button" parent="PlayBoard/Menu/HBoxContainer"]
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="PlayBoard/Menu/HBoxContainer/WorldButton"]
+margin_right = 83.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 83, 32 )
+rect_scale = Vector2( 3, 3 )
+text = "World #???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Texture" type="Sprite" parent="PlayBoard"]
 modulate = Color( 0.501961, 0.419608, 0.419608, 1 )

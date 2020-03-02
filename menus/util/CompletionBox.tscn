@@ -10,16 +10,15 @@ __meta__ = {
 
 [node name="CompletionText" type="Label" parent="."]
 margin_right = 572.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_bottom = 14.0
+size_flags_vertical = 0
 size_flags_stretch_ratio = 22.02
 text = "Completion Total"
 clip_text = true
 uppercase = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_top = 34.0
+margin_top = 18.0
 margin_right = 572.0
-margin_bottom = 48.0
+margin_bottom = 32.0
 value = 55.0
