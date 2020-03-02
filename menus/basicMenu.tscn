@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=4]
+[ext_resource path="res://buttons/BackButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=6]
+
+[node name="World" type="Node"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 515.31, 302.627 )
+scale = Vector2( 0.35292, 0.335103 )
+texture = ExtResource( 6 )
+
+[node name="PlayBoard" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -314.449
+margin_top = 98.4559
+margin_right = 303.551
+margin_bottom = -55.5441
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Texture" type="Sprite" parent="PlayBoard"]
+modulate = Color( 0.501961, 0.419608, 0.419608, 1 )
+show_behind_parent = true
+position = Vector2( 309.065, 224 )
+scale = Vector2( 0.270134, 0.126654 )
+texture = ExtResource( 4 )
+
+[node name="Header" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Header"]
+anchor_right = 10.0
+margin_left = 450.0
+margin_top = 20.0
+margin_right = 523.0
+margin_bottom = 37.0
+rect_scale = Vector2( 3, 4 )
+rect_clip_content = false
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+text = "Label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Header/RichTextLabel"]
+self_modulate = Color( 0.607843, 0.45098, 0.45098, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -19.0452
+margin_top = -1.36037
+margin_right = -19.0452
+margin_bottom = -1.36037
+color = Color( 0.415686, 0.223529, 0.223529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" parent="." instance=ExtResource( 5 )]
+margin_left = 32.463
+margin_top = 492.0
+margin_right = 134.463
+margin_bottom = 580.0
