@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="WorldButton" type="Button"]
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 250, 100 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 83.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 83, 32 )
+rect_scale = Vector2( 3, 3 )
+text = "World #???"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

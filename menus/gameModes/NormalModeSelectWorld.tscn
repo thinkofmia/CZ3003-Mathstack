@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=1]
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=2]
 [ext_resource path="res://buttons/BackButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/interface/returnToPlayMenu.gd" type="Script" id=4]
 [ext_resource path="res://menus/util/CompletionBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://buttons/worldButtons/World1Button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://buttons/worldButtons/World3Button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://buttons/worldButtons/World4Button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://buttons/worldButtons/World2Button.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node"]
 
@@ -30,7 +34,7 @@ __meta__ = {
 margin_left = 25.0
 margin_top = 22.0
 margin_right = 597.0
-margin_bottom = 413.0
+margin_bottom = 422.0
 rect_min_size = Vector2( 572, 391 )
 custom_constants/separation = 10
 __meta__ = {
@@ -42,29 +46,41 @@ margin_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayBoard/Menu"]
 margin_top = 50.0
-margin_right = 250.0
+margin_right = 572.0
 margin_bottom = 400.0
+custom_constants/separation = 30
+
+[node name="LeftContainer" type="VBoxContainer" parent="PlayBoard/Menu/HBoxContainer"]
+margin_right = 250.0
+margin_bottom = 350.0
 rect_min_size = Vector2( 250, 350 )
 size_flags_horizontal = 0
+custom_constants/separation = 20
 
-[node name="WorldButton" type="Button" parent="PlayBoard/Menu/HBoxContainer"]
-margin_right = 250.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 250, 100 )
+[node name="World1Button" parent="PlayBoard/Menu/HBoxContainer/LeftContainer" instance=ExtResource( 6 )]
+
+[node name="World3Button" parent="PlayBoard/Menu/HBoxContainer/LeftContainer" instance=ExtResource( 7 )]
+margin_top = 120.0
+margin_bottom = 220.0
+
+[node name="RightContainer" type="VBoxContainer" parent="PlayBoard/Menu/HBoxContainer"]
+margin_left = 280.0
+margin_right = 530.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 250, 350 )
 size_flags_horizontal = 0
-size_flags_vertical = 0
+custom_constants/separation = 20
 
-[node name="Label" type="Label" parent="PlayBoard/Menu/HBoxContainer/WorldButton"]
-margin_right = 83.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 83, 32 )
-rect_scale = Vector2( 3, 3 )
-text = "World #???"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="World2Button" parent="PlayBoard/Menu/HBoxContainer/RightContainer" instance=ExtResource( 9 )]
+
+[node name="World4Button" parent="PlayBoard/Menu/HBoxContainer/RightContainer" instance=ExtResource( 8 )]
+margin_top = 120.0
+margin_bottom = 220.0
+
+[node name="VScrollBar" type="VScrollBar" parent="PlayBoard/Menu/HBoxContainer"]
+margin_left = 560.0
+margin_right = 572.0
+margin_bottom = 350.0
 
 [node name="Texture" type="Sprite" parent="PlayBoard"]
 modulate = Color( 0.501961, 0.419608, 0.419608, 1 )

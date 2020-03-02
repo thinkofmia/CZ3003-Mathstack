@@ -4,9 +4,6 @@
 margin_right = 572.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 550, 40 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CompletionText" type="Label" parent="."]
 margin_right = 572.0
