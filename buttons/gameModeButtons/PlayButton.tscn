@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="PlayButton" type="Button"]
+margin_left = 335.0
+margin_right = 500.0
+margin_bottom = 100.0
+
+[node name="PlayLabel" type="Label" parent="."]
+margin_right = 55.0
+margin_bottom = 34.0
+rect_scale = Vector2( 3, 3 )
+text = "Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

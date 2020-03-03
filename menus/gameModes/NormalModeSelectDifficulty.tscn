@@ -21,12 +21,12 @@ __meta__ = {
 }
 
 [node name="CompletionBox" parent="PlayBoard/Menu" index="0" instance=ExtResource( 3 )]
-margin_right = 608.0
+margin_right = 583.0
 margin_bottom = 50.0
 
 [node name="TopicName" type="Label" parent="PlayBoard/Menu" index="1"]
 margin_top = 54.0
-margin_right = 608.0
+margin_right = 583.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 250, 50 )
 size_flags_vertical = 0
@@ -35,7 +35,7 @@ align = 1
 
 [node name="DifficultyDiv" type="HBoxContainer" parent="PlayBoard/Menu" index="2"]
 margin_top = 108.0
-margin_right = 608.0
+margin_right = 583.0
 margin_bottom = 408.0
 rect_min_size = Vector2( 0, 300 )
 custom_constants/separation = 29
