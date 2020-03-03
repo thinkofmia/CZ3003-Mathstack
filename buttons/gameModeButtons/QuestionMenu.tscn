@@ -60,3 +60,4 @@ margin_top = 40.0
 margin_bottom = 60.0
 rect_scale = Vector2( 1, 1 )
 text = "314"
+[connection signal="pressed" from="row/columnLeft/AnswerButton" to="." method="_on_AnswerButton_pressed"]
