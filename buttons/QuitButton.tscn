@@ -1,0 +1,29 @@
+[gd_scene format=2]
+
+[node name="QuitButton" type="Button"]
+margin_left = 1.463
+margin_top = 2.0
+margin_right = 103.463
+margin_bottom = 90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Label" parent="."]
+margin_right = 26.0
+margin_bottom = 22.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0.94902, 0.313726, 0.313726, 1 )
+text = "X"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 70.0
+margin_right = 70.0
+margin_bottom = 84.0
+text = "Quit"
