@@ -22,12 +22,12 @@ __meta__ = {
 }
 
 [node name="CompletionBox" parent="PlayBoard/Menu" index="0" instance=ExtResource( 5 )]
-margin_bottom = 40.0
+margin_bottom = 50.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayBoard/Menu" index="1"]
-margin_top = 50.0
+margin_top = 60.0
 margin_right = 572.0
-margin_bottom = 400.0
+margin_bottom = 410.0
 custom_constants/separation = 30
 
 [node name="LeftContainer" type="VBoxContainer" parent="PlayBoard/Menu/HBoxContainer" index="0"]

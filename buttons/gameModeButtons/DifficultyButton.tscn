@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="DifficultyButton" type="Button"]
+margin_right = 175.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 175, 275 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 35.0359
+margin_top = 200.0
+margin_right = 88.0359
+margin_bottom = 214.0
+rect_scale = Vector2( 2, 2 )
+text = "Diffculty"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

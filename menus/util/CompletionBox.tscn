@@ -3,7 +3,7 @@
 [node name="CompletionBox" type="VBoxContainer"]
 margin_right = 572.0
 margin_bottom = 48.0
-rect_min_size = Vector2( 550, 40 )
+rect_min_size = Vector2( 550, 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
