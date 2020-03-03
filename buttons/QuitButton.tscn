@@ -1,10 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/interface/returnToPlayMenu.gd" type="Script" id=1]
 
 [node name="QuitButton" type="Button"]
 margin_left = 1.463
 margin_top = 2.0
 margin_right = 103.463
 margin_bottom = 90.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,3 +30,7 @@ margin_top = 70.0
 margin_right = 70.0
 margin_bottom = 84.0
 text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_QuitButton_pressed"]

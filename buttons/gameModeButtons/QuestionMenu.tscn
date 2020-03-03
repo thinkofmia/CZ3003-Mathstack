@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://buttons/gameModeButtons/AnswerButton.tscn" type="PackedScene" id=1]
+
+[node name="QuestionMenu" type="VBoxContainer"]
+margin_right = 205.0
+margin_bottom = 121.0
+rect_scale = Vector2( 5, 5 )
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionLabel" type="Label" parent="."]
+margin_right = 205.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 1, 1 )
+text = "Q6) What is 6x6x6?"
+
+[node name="row" type="HBoxContainer" parent="."]
+margin_top = 34.0
+margin_right = 205.0
+margin_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 205, 90 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
+alignment = 1
+
+[node name="columnLeft" type="VBoxContainer" parent="row"]
+margin_left = 46.0
+margin_right = 82.0
+margin_bottom = 90.0
+custom_constants/separation = 20
+
+[node name="AnswerButton" parent="row/columnLeft" instance=ExtResource( 1 )]
+rect_scale = Vector2( 1, 1 )
+text = "216"
+
+[node name="AnswerButton3" parent="row/columnLeft" instance=ExtResource( 1 )]
+margin_top = 40.0
+margin_bottom = 60.0
+rect_scale = Vector2( 1, 1 )
+text = "999"
+
+[node name="columRight" type="VBoxContainer" parent="row"]
+margin_left = 122.0
+margin_right = 158.0
+margin_bottom = 90.0
+custom_constants/separation = 20
+
+[node name="AnswerButton3" parent="row/columRight" instance=ExtResource( 1 )]
+rect_scale = Vector2( 1, 1 )
+text = "100"
+
+[node name="AnswerButton4" parent="row/columRight" instance=ExtResource( 1 )]
+margin_top = 40.0
+margin_bottom = 60.0
+rect_scale = Vector2( 1, 1 )
+text = "314"

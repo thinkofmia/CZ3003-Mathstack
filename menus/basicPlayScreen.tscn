@@ -15,18 +15,19 @@ texture = ExtResource( 2 )
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -314.449
-margin_top = 98.4559
-margin_right = 303.551
-margin_bottom = -55.5441
+margin_left = -125.357
+margin_top = 99.8163
+margin_right = 492.643
+margin_bottom = -54.1837
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Texture" type="Sprite" parent="PlayBoard"]
 modulate = Color( 0.501961, 0.419608, 0.419608, 1 )
 show_behind_parent = true
-position = Vector2( 484.553, 221.279 )
+position = Vector2( 307.705, 221.279 )
 scale = Vector2( 0.270134, 0.126654 )
 texture = ExtResource( 3 )
 
