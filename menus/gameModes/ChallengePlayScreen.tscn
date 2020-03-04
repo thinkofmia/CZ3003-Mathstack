@@ -69,3 +69,4 @@ __meta__ = {
 
 [node name="Block" parent="BlockTower" index="0" instance=ExtResource( 4 )]
 position = Vector2( -0.697098, 322.235 )
+[connection signal="gui_input" from="BlockTower" to="BlockTower" method="_on_BlockTower_gui_input"]

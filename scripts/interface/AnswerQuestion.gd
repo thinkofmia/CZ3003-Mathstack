@@ -1,6 +1,6 @@
 extends Button
 var answer = true
-#Check if correct answer was click
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,8 +10,9 @@ func _ready():
 		answer = false
 	
 func _on_AnswerButton_pressed():
-	if (answer):
+	if (answer):#Check if correct answer was click
 		print("Correct!")
+		
 	else:
 		print("Wrong!")
 	pass
