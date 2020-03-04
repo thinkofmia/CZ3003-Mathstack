@@ -5,6 +5,40 @@
 
 [node name="World" instance=ExtResource( 1 )]
 
+[node name="OptionsRow" type="HBoxContainer" parent="PlayBoard" index="1"]
+margin_left = 31.0
+margin_top = 22.0
+margin_right = 311.0
+margin_bottom = 203.0
+rect_scale = Vector2( 2, 2 )
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AllQuizButton" type="Button" parent="PlayBoard/OptionsRow" index="0"]
+margin_right = 125.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 125, 0 )
+text = "All Available Quiz"
+align = 0
+
+[node name="MyQuizButton" type="Button" parent="PlayBoard/OptionsRow" index="1"]
+margin_left = 150.0
+margin_right = 275.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 125, 181 )
+text = "My Quizzes"
+
+[node name="InputBox" type="LineEdit" parent="PlayBoard" index="2"]
+margin_left = 34.0
+margin_top = 396.0
+margin_right = 308.0
+margin_bottom = 420.0
+rect_scale = Vector2( 2, 2 )
+text = "Enter Code ID here"
+align = 1
+
 [node name="RichTextLabel" parent="Header" index="0"]
 margin_left = 387.0
 margin_right = 481.0
