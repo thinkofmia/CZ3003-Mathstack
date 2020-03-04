@@ -1,0 +1,35 @@
+[gd_scene format=2]
+
+[node name="PlayAgainButton" type="Button"]
+margin_left = 1.463
+margin_top = 2.0
+margin_right = 103.463
+margin_bottom = 90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Label" parent="."]
+margin_left = 3.0
+margin_top = -1.0
+margin_right = 28.0
+margin_bottom = 21.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0.333333, 0.313726, 0.94902, 1 )
+text = "@"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 70.0
+margin_right = 98.0
+margin_bottom = 84.0
+text = "Play Again"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

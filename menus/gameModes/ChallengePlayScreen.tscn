@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menus/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/util/Character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/util/Block.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/interface/BlockTower.gd" type="Script" id=5]
+[ext_resource path="res://scripts/interface/Gameover.gd" type="Script" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -49,6 +50,7 @@ margin_left = 910.193
 margin_top = 502.617
 margin_right = 1012.19
 margin_bottom = 590.617
+script = ExtResource( 6 )
 
 [node name="SelectedCharacter" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 130.596, 482.932 )
