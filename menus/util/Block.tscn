@@ -17,3 +17,4 @@ __meta__ = {
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 37.1515, 38.4783 )
 shape = SubResource( 1 )
+one_way_collision = true

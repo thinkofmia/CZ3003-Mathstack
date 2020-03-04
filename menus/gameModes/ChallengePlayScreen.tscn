@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menus/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/util/Character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/util/Block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/interface/BlockTower.gd" type="Script" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="World" instance=ExtResource( 1 )]
 
@@ -32,6 +40,10 @@ rect_scale = Vector2( 3, 3 )
 [node name="RichTextLabel" parent="Header" index="0"]
 text = "Time"
 
+[node name="ColorRect" parent="Header/RichTextLabel" index="1"]
+self_modulate = Color( 0.619608, 0.290196, 0.290196, 1 )
+material = SubResource( 1 )
+
 [node name="QuitButton" parent="." index="4"]
 margin_left = 910.193
 margin_top = 502.617
@@ -41,4 +53,19 @@ margin_bottom = 590.617
 [node name="SelectedCharacter" parent="." index="5" instance=ExtResource( 3 )]
 position = Vector2( 130.596, 482.932 )
 
-[node name="Block" parent="." index="6" instance=ExtResource( 4 )]
+[node name="BlockTower" type="VBoxContainer" parent="." index="6"]
+margin_left = 94.0
+margin_top = 196.0
+margin_right = 171.0
+margin_bottom = 597.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block" parent="BlockTower" index="0" instance=ExtResource( 4 )]
+position = Vector2( -0.697098, 322.235 )

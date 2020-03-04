@@ -22,12 +22,12 @@ func _physics_process(delta):
 		#for jumping
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = JUMP_HEIGHT	
-			
+		
 	#Set motion to 0,0 if no motion
 	motion = move_and_slide(motion, UP)
 	
 	#For debugging
-	print(motion)
+	#print(motion)
 	
 	#End
 	pass

@@ -1,8 +1,17 @@
-extends Control
-
+extends Button
+var answer = true
 #Check if correct answer was click
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if (get_text()=="216"):
+		answer = true
+	else:
+		answer = false
+	
 func _on_AnswerButton_pressed():
-	#get_canvas_item()
-	#.visible = true
+	if (answer):
+		print("Correct!")
+	else:
+		print("Wrong!")
 	pass
