@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menus/basicPlayScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menus/util/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menus/util/Block.tscn" type="PackedScene" id=4]
+
+[node name="World" instance=ExtResource( 1 )]
+
+[node name="Floor" type="ColorRect" parent="." index="1"]
+margin_left = 3.63965
+margin_top = 571.0
+margin_right = 1042.64
+margin_bottom = 611.0
+color = Color( 0.262745, 0.376471, 0.227451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBoard" parent="." index="2"]
+margin_left = -119.915
+margin_top = 50.8428
+margin_right = 498.085
+margin_bottom = -103.157
+
+[node name="QuestionMenu" parent="PlayBoard" index="1" instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 140.0
+rect_scale = Vector2( 3, 3 )
+
+[node name="RichTextLabel" parent="Header" index="0"]
+text = "Time"
+
+[node name="QuitButton" parent="." index="4"]
+margin_left = 910.193
+margin_top = 502.617
+margin_right = 1012.19
+margin_bottom = 590.617
+
+[node name="SelectedCharacter" parent="." index="5" instance=ExtResource( 3 )]
+position = Vector2( 130.596, 482.932 )
+
+[node name="Block" parent="." index="6" instance=ExtResource( 4 )]
