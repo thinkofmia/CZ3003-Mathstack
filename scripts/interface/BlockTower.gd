@@ -16,3 +16,5 @@ func _physics_process(delta):
 		add_child(block)
 		#Increment box number
 		noOfBoxes+=1
+	if Input.is_action_just_pressed("ui_right"):
+		get_parent().remove_child(self)
