@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://buttons/gameModeButtons/NormalModeButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://buttons/gameModeButtons/ChallengeModeButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://buttons/gameModeButtons/CustomModeButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/basicMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/interface/ReturnToMainMenu.gd" type="Script" id=5]
 [ext_resource path="res://scripts/interface/playMenuScript.gd" type="Script" id=7]
 
 [node name="World" instance=ExtResource( 4 )]
@@ -46,3 +47,7 @@ text = "Play Menu"
 [node name="ColorRect" parent="Header/RichTextLabel" index="1"]
 margin_left = -2.72071
 margin_right = -2.7207
+
+[node name="BackButton" parent="." index="3"]
+script = ExtResource( 5 )
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
