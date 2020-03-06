@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://menus/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://menus/util/Block.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/interface/BlockTower.gd" type="Script" id=5]
 [ext_resource path="res://scripts/interface/Gameover.gd" type="Script" id=6]
+[ext_resource path="res://scripts/logic/Timer.gd" type="Script" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -39,7 +40,7 @@ margin_right = 140.0
 rect_scale = Vector2( 3, 3 )
 
 [node name="RichTextLabel" parent="Header" index="0"]
-text = "Time"
+text = ""
 
 [node name="ColorRect" parent="Header/RichTextLabel" index="1"]
 self_modulate = Color( 0.619608, 0.290196, 0.290196, 1 )
@@ -71,4 +72,19 @@ position = Vector2( -0.697098, 322.235 )
 
 [node name="SelectedCharacter" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( 130.596, 482.932 )
+
+[node name="Timer" type="Timer" parent="." index="7"]
+autostart = true
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="Timer" index="0"]
+margin_right = 73.0
+margin_bottom = 23.0
+rect_scale = Vector2( 3, 3 )
+text = "00:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="gui_input" from="BlockTower" to="BlockTower" method="_on_BlockTower_gui_input"]

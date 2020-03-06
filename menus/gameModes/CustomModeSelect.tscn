@@ -40,6 +40,9 @@ margin_bottom = 420.0
 rect_scale = Vector2( 2, 2 )
 text = "Enter Code ID here"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel" parent="Header" index="0"]
 margin_left = 387.0
