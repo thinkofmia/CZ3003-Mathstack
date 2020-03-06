@@ -25,7 +25,9 @@ func _physics_process(delta):
 		
 	#Set motion to 0,0 if no motion
 	motion = move_and_slide(motion, UP)
-	
+	print(motion.y)
+	if motion.y > 1000:
+		get_tree().change_scene("res://menus/gameModes/Gameover.tscn")
 	#For debugging
 	#print(motion)
 	
