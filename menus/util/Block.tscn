@@ -18,3 +18,14 @@ __meta__ = {
 position = Vector2( 37.1515, 38.4783 )
 shape = SubResource( 1 )
 one_way_collision = true
+
+[node name="Label" type="Label" parent="."]
+margin_right = 15.0
+margin_bottom = 15.0
+rect_scale = Vector2( 5, 5 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

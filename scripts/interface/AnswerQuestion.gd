@@ -12,7 +12,8 @@ func _ready():
 func _on_AnswerButton_pressed():
 	if (answer):#Check if correct answer was click
 		print("Correct!")
-		
+		return 1
 	else:
 		print("Wrong!")
+		return 0
 	pass
