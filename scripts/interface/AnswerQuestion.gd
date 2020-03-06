@@ -1,7 +1,7 @@
 extends Button
+var question
+var answer
 
-#Save file locations as a boolean
-export(bool) var answer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
