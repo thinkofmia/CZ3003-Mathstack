@@ -10,6 +10,10 @@ const JUMP_HEIGHT = -500
 var motion = Vector2()
 # Shorter than motionx = 0, motiony = 0;
 
+func jump():
+	motion.y = JUMP_HEIGHT	
+	motion = move_and_slide(motion, UP)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#Adds motion at every frame/gravity
@@ -21,11 +25,10 @@ func _physics_process(delta):
 		#print("On floor.")
 		#for jumping
 		if Input.is_action_just_pressed("ui_up"):
-			motion.y = JUMP_HEIGHT	
+			jump()
 		
 	#Set motion to 0,0 if no motion
 	motion = move_and_slide(motion, UP)
-	print(motion.y)
 	if motion.y > 1000:
 		get_tree().change_scene("res://menus/gameModes/Gameover.tscn")
 	#For debugging
