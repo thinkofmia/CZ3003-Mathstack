@@ -52,10 +52,7 @@ margin_right = 1012.19
 margin_bottom = 590.617
 script = ExtResource( 6 )
 
-[node name="SelectedCharacter" parent="." index="5" instance=ExtResource( 3 )]
-position = Vector2( 130.596, 482.932 )
-
-[node name="BlockTower" type="VBoxContainer" parent="." index="6"]
+[node name="BlockTower" type="VBoxContainer" parent="." index="5"]
 margin_left = 94.0
 margin_top = 196.0
 margin_right = 171.0
@@ -71,4 +68,7 @@ __meta__ = {
 
 [node name="Block" parent="BlockTower" index="0" instance=ExtResource( 4 )]
 position = Vector2( -0.697098, 322.235 )
+
+[node name="SelectedCharacter" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 130.596, 482.932 )
 [connection signal="gui_input" from="BlockTower" to="BlockTower" method="_on_BlockTower_gui_input"]
