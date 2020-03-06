@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="CustomQuizButton" type="Button"]
+margin_right = 143.0
+margin_bottom = 53.0
+rect_scale = Vector2( 2, 2 )
+text = "Custom Quiz #1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
