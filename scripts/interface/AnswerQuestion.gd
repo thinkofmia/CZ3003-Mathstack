@@ -26,4 +26,7 @@ func _on_AnswerButton_pressed():
 		
 	else:
 		print("Wrong!")
+		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+		character.hearts -= 1
+		character.fixHearts()
 	pass

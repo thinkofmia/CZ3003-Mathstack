@@ -24,13 +24,12 @@ particles_anim_loop = false
 scroll_offset = Vector2( 0, 4000 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 19.1857, 618.747 )
 
 [node name="BgBox" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -24.1859
-margin_top = -2154.36
-margin_right = 2975.81
-margin_bottom = 4033.64
+margin_left = 4.59302
+margin_top = -1545.2
+margin_right = 3004.59
+margin_bottom = 4642.8
 grow_horizontal = 0
 grow_vertical = 0
 rect_scale = Vector2( 0.35, 0.35 )

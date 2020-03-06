@@ -19,7 +19,49 @@ texture = ExtResource( 1 )
 position = Vector2( 0.363052, 0 )
 shape = SubResource( 1 )
 
-[node name="Health" type="Sprite" parent="."]
-position = Vector2( -0.0224609, -61.6758 )
-scale = Vector2( 0.0127339, 0.012853 )
+[node name="healthBar" type="HBoxContainer" parent="."]
+margin_left = -117.042
+margin_top = -79.5664
+margin_right = 23279.0
+margin_bottom = 4596.43
+grow_horizontal = 2
+rect_scale = Vector2( 0.01, 0.01 )
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="health4" type="TextureRect" parent="healthBar"]
+margin_right = 4676.0
+margin_bottom = 4676.0
 texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="health2" type="TextureRect" parent="healthBar"]
+margin_left = 4680.0
+margin_right = 9356.0
+margin_bottom = 4676.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="health1" type="TextureRect" parent="healthBar"]
+margin_left = 9360.0
+margin_right = 14036.0
+margin_bottom = 4676.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="health3" type="TextureRect" parent="healthBar"]
+margin_left = 14040.0
+margin_right = 18716.0
+margin_bottom = 4676.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="health5" type="TextureRect" parent="healthBar"]
+margin_left = 18720.0
+margin_right = 23396.0
+margin_bottom = 4676.0
+texture = ExtResource( 3 )
+stretch_mode = 4
