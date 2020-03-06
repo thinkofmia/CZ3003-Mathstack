@@ -20,11 +20,17 @@ particles_anim_loop = false
 
 [node name="World" type="Node"]
 
-[node name="BgBox" type="VBoxContainer" parent="."]
-margin_left = -4.99976
-margin_top = -1549.97
-margin_right = 2995.0
-margin_bottom = 5906.03
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2( 0, 4000 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 19.1857, 618.747 )
+
+[node name="BgBox" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = -24.1859
+margin_top = -2154.36
+margin_right = 2975.81
+margin_bottom = 4033.64
 grow_horizontal = 0
 grow_vertical = 0
 rect_scale = Vector2( 0.35, 0.35 )
@@ -35,21 +41,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BgBlue" type="TextureRect" parent="BgBox"]
+[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_right = 3000.0
 margin_bottom = 1230.0
 texture = ExtResource( 10 )
 stretch_mode = 1
 flip_v = true
 
-[node name="BgBlue2" type="TextureRect" parent="BgBox"]
+[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_top = 1230.0
 margin_right = 3000.0
 margin_bottom = 2460.0
 texture = ExtResource( 10 )
 stretch_mode = 1
 
-[node name="BgGreen4" type="TextureRect" parent="BgBox"]
+[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_top = 2460.0
 margin_right = 3000.0
 margin_bottom = 4324.0
@@ -57,7 +63,7 @@ texture = ExtResource( 1 )
 stretch_mode = 5
 flip_v = true
 
-[node name="BgGreen3" type="TextureRect" parent="BgBox"]
+[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_top = 4324.0
 margin_right = 3000.0
 margin_bottom = 6188.0
