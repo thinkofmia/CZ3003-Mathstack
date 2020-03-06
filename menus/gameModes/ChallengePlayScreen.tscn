@@ -69,6 +69,140 @@ margin_bottom = 6188.0
 texture = ExtResource( 1 )
 stretch_mode = 5
 
+[node name="BgBox2" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = 1059.82
+margin_top = -1511.63
+margin_right = 4059.82
+margin_bottom = 4676.37
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_scale = Vector2( 0.35, 0.35 )
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
+margin_right = 3000.0
+margin_bottom = 1230.0
+texture = ExtResource( 10 )
+stretch_mode = 1
+flip_v = true
+
+[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
+margin_top = 1230.0
+margin_right = 3000.0
+margin_bottom = 2460.0
+texture = ExtResource( 10 )
+stretch_mode = 1
+
+[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
+margin_top = 2460.0
+margin_right = 3000.0
+margin_bottom = 4324.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+flip_v = true
+
+[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
+margin_top = 4324.0
+margin_right = 3000.0
+margin_bottom = 6188.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+
+[node name="BgBox4" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = 4.59302
+margin_top = -5816.33
+margin_right = 3004.59
+margin_bottom = 371.67
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.35, 0.35 )
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
+margin_right = 3000.0
+margin_bottom = 1230.0
+texture = ExtResource( 10 )
+stretch_mode = 1
+flip_v = true
+
+[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
+margin_top = 1230.0
+margin_right = 3000.0
+margin_bottom = 2460.0
+texture = ExtResource( 10 )
+stretch_mode = 1
+
+[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
+margin_top = 2460.0
+margin_right = 3000.0
+margin_bottom = 4324.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+flip_v = true
+
+[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
+margin_top = 4324.0
+margin_right = 3000.0
+margin_bottom = 6188.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+
+[node name="BgBox3" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = 1059.82
+margin_top = -5782.75
+margin_right = 4059.82
+margin_bottom = 405.245
+grow_horizontal = 0
+grow_vertical = 0
+rect_rotation = 180.0
+rect_scale = Vector2( 0.35, 0.35 )
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
+margin_right = 3000.0
+margin_bottom = 1230.0
+texture = ExtResource( 10 )
+stretch_mode = 1
+flip_v = true
+
+[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
+margin_top = 1230.0
+margin_right = 3000.0
+margin_bottom = 2460.0
+texture = ExtResource( 10 )
+stretch_mode = 1
+
+[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
+margin_top = 2460.0
+margin_right = 3000.0
+margin_bottom = 4324.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+flip_v = true
+
+[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
+margin_top = 4324.0
+margin_right = 3000.0
+margin_bottom = 6188.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+
 [node name="Floor" type="ColorRect" parent="."]
 margin_left = 3.63965
 margin_top = 571.0
