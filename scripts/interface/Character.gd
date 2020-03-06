@@ -11,6 +11,7 @@ var motion = Vector2()
 # Shorter than motionx = 0, motiony = 0;
 
 func jump():
+	#move character
 	motion.y = JUMP_HEIGHT	
 	motion = move_and_slide(motion, UP)
 

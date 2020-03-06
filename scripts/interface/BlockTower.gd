@@ -26,3 +26,6 @@ func addBlock():
 	var level = str(noOfBoxes)
 	block.get_node("Label").set_text(level)
 	add_child(block)
+	if (int(noOfBoxes)%10 == 0):
+		var background = get_tree().get_root().get_node("World").find_node("BgBlue")
+		background.duplicate()
