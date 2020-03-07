@@ -19,20 +19,14 @@ position = Vector2( -0.250336, -0.751038 )
 texture = ExtResource( 1 )
 
 [node name="SSSprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 6.72594, -2.12109 )
 scale = Vector2( 0.136742, 0.116925 )
 texture = ExtResource( 4 )
 
 [node name="MrISprite" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1.63672, -8.40723 )
 scale = Vector2( 0.0491765, 0.0551799 )
 texture = ExtResource( 5 )
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( 0.363052, 0 )
-shape = SubResource( 1 )
 
 [node name="healthBar" type="HBoxContainer" parent="."]
 margin_left = -117.042
@@ -80,6 +74,10 @@ margin_right = 23396.0
 margin_bottom = 4676.0
 texture = ExtResource( 3 )
 stretch_mode = 4
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0.363052, 0 )
+shape = SubResource( 1 )
 
 [node name="PowerButton" type="TextureButton" parent="."]
 margin_left = -24.4553

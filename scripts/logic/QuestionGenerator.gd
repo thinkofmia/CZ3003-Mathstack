@@ -41,8 +41,8 @@ func randomizeQuestion():
 		if level >= 100: #Stop at level 100
 			blockTower.selfDestruct()
 	#Randomize operands
-	var operand1 = int(floor(rand_range(1,100)))
-	var operand2 = int(floor(rand_range(1,100)))
+	var operand1 = int(floor(rand_range(10,100)))
+	var operand2 = int(floor(rand_range(10,100)))
 	#Randomize operations
 	var operation = int(floor(rand_range(1,5)))
 	print(operation)
