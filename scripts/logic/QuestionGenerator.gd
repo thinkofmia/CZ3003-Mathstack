@@ -4,6 +4,7 @@ var option1
 var option2
 var option3
 var option4
+var correctAns
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,16 +20,17 @@ func setQuestion(operand1, operand2, operation):
 	#0 = operand1, 1 = operand2, 2 = operation, 3 = correct Answer
 	var correctAnswer = 0
 	match operation:
-		_: #default/1
-			correctAnswer = operand1+operand2
+		1: #default/1
+			correctAnswer = int(operand1+operand2)
 		2:
-			correctAnswer = operand1-operand2
+			correctAnswer = int(operand1-operand2)
 		3:
-			correctAnswer = operand1*operand2
+			correctAnswer = int(operand1*operand2)
 		4:
-			correctAnswer = operand1%operand2
-			
-	self.question = [operand1,operand2,operation,correctAnswer] 
+			correctAnswer = int(operand1%operand2)
+	question = []		
+	question = [operand1,operand2,operation,correctAnswer] 
+	correctAns = correctAnswer
 	
 func randomizeQuestion():
 	#Randomize operands
@@ -36,10 +38,11 @@ func randomizeQuestion():
 	var operand2 = int(floor(rand_range(1,10)))
 	#Randomize operations
 	var operation = int(floor(rand_range(1,5)))
-	var operationStr = "+"
+	print(operation)
+	var operationStr = ""
 		#1 = Addition, 2 = Subtraction, 3 = Multiplication, 4 = Mod
 	match operation:
-		_:
+		1:
 			operationStr = "+"
 		2: 
 			operationStr = "-"
@@ -62,7 +65,7 @@ func randomizeQuestion():
 
 
 func checkAnswer(option):
-	if (str(question[3])==option.get_text()):#Check if correct answer was click
+	if (str(correctAns)==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		
 		#Add block
@@ -77,6 +80,8 @@ func checkAnswer(option):
 		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
 		character.hearts -= 1
 		character.fixHearts()
+		if (character.hearts == 0):
+			self.hide()
 	pass
 	randomizeQuestion()
 
