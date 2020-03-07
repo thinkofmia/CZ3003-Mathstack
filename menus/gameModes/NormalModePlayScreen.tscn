@@ -11,6 +11,7 @@ margin_left = 20.0
 margin_top = 30.0
 margin_right = 140.0
 rect_scale = Vector2( 3, 3 )
+script = null
 
 [node name="DisplayStatus" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
 margin_right = 238.0
