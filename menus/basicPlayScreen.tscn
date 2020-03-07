@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://buttons/QuitButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=2]
 [ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=3]
+[ext_resource path="res://menus/util/PlayMusic.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node"]
 
@@ -71,3 +72,5 @@ margin_left = 20.5082
 margin_top = 509.419
 margin_right = 122.508
 margin_bottom = 597.419
+
+[node name="PlayMusic" parent="." instance=ExtResource( 4 )]

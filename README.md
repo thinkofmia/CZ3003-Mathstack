@@ -19,9 +19,11 @@ Cheats:
 - Press right button to remove all blocks
 
 
-## Credits for free images
+## Credits for free images and music
 - Flaticon (returnButton.png)
 - Free Stock Textures (woodTexture.jpg)
 - freepik (mountainView.jpg, heart.png, flame.jpg)
 - vecteezy (dummySprite.jpg)
 - Anson Fu (Mr I.png)
+
+- Bensound (Energy.ogg, EndlessMotion.ogg)

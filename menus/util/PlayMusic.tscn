@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menus/util/MainMusic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/music/bensound-endlessmotion.ogg" type="AudioStream" id=2]
+
+[node name="PlayMusic" instance=ExtResource( 1 )]
+stream = ExtResource( 2 )

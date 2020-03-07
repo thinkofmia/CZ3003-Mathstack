@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Labels/Exit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/mountain.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Labels/Settings.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Labels/Leaderboard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/randy_scripts/Label.gd" type="Script" id=10]
+[ext_resource path="res://menus/util/MainMusic.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -132,6 +133,8 @@ scene_to_load = "res://Screens/LoginScreen.tscn"
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
 visible = false
+
+[node name="MainMusic" parent="." instance=ExtResource( 11 )]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Button4" to="." method="_on_Button4_pressed"]

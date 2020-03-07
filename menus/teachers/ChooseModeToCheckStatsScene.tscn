@@ -58,6 +58,25 @@ position = Vector2( 496.906, 370.966 )
 scale = Vector2( 0.789451, 0.896056 )
 texture = ExtResource( 12 )
 
+[node name="Title" type="Label" parent="Board"]
+margin_left = -290.151
+margin_top = -344.664
+margin_right = -171.151
+margin_bottom = -330.664
+rect_scale = Vector2( 5, 5 )
+text = "Teachers Statistics"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile BG" type="ColorRect" parent="Board/Title"]
+show_behind_parent = true
+margin_left = 0.303825
+margin_top = -3.10197
+margin_right = 121.304
+margin_bottom = 14.898
+color = Color( 0.54902, 0.972549, 0.443137, 1 )
+
 [node name="ButtonsContainer" type="VBoxContainer" parent="Board"]
 margin_left = -350.0
 margin_top = -150.0
@@ -105,7 +124,7 @@ position = Vector2( 220.839, -8.59558 )
 scale = Vector2( 0.487084, 0.531251 )
 frames = SubResource( 4 )
 animation = "idle"
-frame = 5
+frame = 4
 playing = true
 flip_h = true
 
