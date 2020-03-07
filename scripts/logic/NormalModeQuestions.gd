@@ -4,6 +4,7 @@ var option1
 var option2
 var option3
 var option4
+var level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +12,7 @@ func _ready():
 	option2 = $row/columnLeft/Option2
 	option3 = $row/columnRight/Option3
 	option4 = $row/columnRight/Option4
-	print(option1)
+	level = 0
 	randomizeQuestion()
 
 #Sets question and store it
@@ -33,12 +34,6 @@ func setQuestion(operand1, operand2, operation):
 	print(question)
 	
 func randomizeQuestion():
-	#Get level
-	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
-		if level >= 100: #Stop at level 100
-			blockTower.selfDestruct()
 	#Randomize operands
 	var operand1 = int(floor(rand_range(1,10)))
 	var operand2 = int(floor(rand_range(1,10)))
@@ -63,30 +58,27 @@ func randomizeQuestion():
 	option4.set_text(str(operand1%operand2))
 	setQuestion(operand1, operand2, operation)
 	
-	#Set Question Label
-	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
-		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
+	#Set QnLabel
+	find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
 
 
 func checkAnswer(option):
 	if (str(question[3])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
-		
-		#Add block
-		var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-		blockTower.addBlock()
-		#Make sprite jump!!
-		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
-		character.jump()
+		#Update score
+		global.highscore +=1
+		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
+		scoreBoard.set_text("Score: "+str(global.highscore))
+		#Display msg
+		var outcome = get_tree().get_root().get_node("World").find_node("DisplayCorrect")
+		outcome.appear()
 		
 	else:
 		print("Wrong!")
-		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
-		character.hearts -= 1
-		character.fixHearts()
-		if (character.hearts == 0):
-			self.hide()
+		#Display msg
+		var outcome = get_tree().get_root().get_node("World").find_node("DisplayWrong")
+		outcome.appear()
+		
 	pass
 	randomizeQuestion()
 

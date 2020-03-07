@@ -3,8 +3,7 @@
 [ext_resource path="res://buttons/QuitButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/interface/OutcomeDisplay.gd" type="Script" id=2]
 
-
-[node name="DisplayStatus" type="VBoxContainer"]
+[node name="CorrectStatus" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 18.0
@@ -45,7 +44,7 @@ rect_scale = Vector2( 4, 4 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 2
-text = "6*6*6 is 216! Go use a calculator or something!"
+text = "Insert Reason Here"
 align = 1
 autowrap = true
 __meta__ = {

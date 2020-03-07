@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menus/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/util/CorrectDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/logic/NormalModeQuestions.gd" type="Script" id=4]
+[ext_resource path="res://menus/util/WrongDisplay.tscn" type="PackedScene" id=5]
 
 [node name="World" instance=ExtResource( 1 )]
 
@@ -11,11 +13,19 @@ margin_left = 20.0
 margin_top = 30.0
 margin_right = 140.0
 rect_scale = Vector2( 3, 3 )
-script = null
+script = ExtResource( 4 )
 
-[node name="DisplayStatus" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
+[node name="DisplayCorret" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
+visible = false
 margin_right = 238.0
 margin_bottom = 121.0
+
+[node name="WrongStatus" parent="PlayBoard" index="3" instance=ExtResource( 5 )]
+visible = false
+margin_left = 9.0
+margin_top = 18.0
+margin_right = 247.0
+margin_bottom = 153.0
 
 [node name="Header" parent="." index="2"]
 position = Vector2( -383.625, -19.0452 )
@@ -34,7 +44,7 @@ margin_bottom = -1.0
 [node name="ScoreBoard" type="Node2D" parent="." index="4"]
 position = Vector2( -392.095, 75.2544 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScoreBoard" index="0"]
+[node name="Score" type="RichTextLabel" parent="ScoreBoard" index="0"]
 anchor_right = 10.0
 margin_left = 394.0
 margin_top = 20.0
@@ -44,12 +54,12 @@ rect_scale = Vector2( 3, 4 )
 rect_clip_content = false
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
-text = "Score Now: "
+text = "Score Now: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="ScoreBoard/RichTextLabel" index="1"]
+[node name="ColorRect" type="ColorRect" parent="ScoreBoard/Score" index="1"]
 self_modulate = Color( 0.607843, 0.45098, 0.45098, 1 )
 show_behind_parent = true
 anchor_right = 1.0
