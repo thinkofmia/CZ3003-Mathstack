@@ -70,13 +70,13 @@ func checkAnswer(option):
 		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
 		scoreBoard.set_text("Score: "+str(global.highscore))
 		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("DisplayCorrect")
+		var outcome = get_tree().get_root().get_node("World").find_node("CorrectStatus")
 		outcome.appear()
 		
 	else:
 		print("Wrong!")
 		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("DisplayWrong")
+		var outcome = get_tree().get_root().get_node("World").find_node("WrongStatus")
 		outcome.appear()
 		
 	pass

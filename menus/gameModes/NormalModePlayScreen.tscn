@@ -15,7 +15,7 @@ margin_right = 140.0
 rect_scale = Vector2( 3, 3 )
 script = ExtResource( 4 )
 
-[node name="DisplayCorret" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
+[node name="CorrectStatus" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
 visible = false
 margin_right = 238.0
 margin_bottom = 121.0
