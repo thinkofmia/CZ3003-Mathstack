@@ -1,3 +1,4 @@
 extends Node
 
-var worldSelected = ""
+var time = ""
+var highscore = 0

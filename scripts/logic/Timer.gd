@@ -11,7 +11,10 @@ func _ready():
 func _process(delta):
 		timer += delta #Decrement timer by delta
 		updateTime()
-	
+
+func getTime():
+	return $Label.get_text()
+
 func updateTime(): #Logic to set countdown timer in terms of mins and seconds
 	var seconds = int(floor(timer))
 	var mins = floor(seconds/60)

@@ -17,6 +17,12 @@ func _physics_process(delta):
 		selfDestruct()
 
 func selfDestruct():
+	#Save global vars
+	global.highscore = noOfBoxes
+	global.time = get_tree().get_root().get_node("World").find_node("Timer").getTime()
+	print(global.highscore)
+	print(global.time)
+	#self destruct
 	get_parent().remove_child(self)
 
 func addBlock():
