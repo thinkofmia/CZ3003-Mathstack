@@ -11,6 +11,21 @@ var motion = Vector2()
 # Shorter than motionx = 0, motiony = 0;
 var hearts = 1
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#Hide all sprites
+	hideAllSprites()
+	#Show character and set character
+	match global.characterSelected:
+		"Swee Soldier":
+			$SSSprite.show()
+		_:
+			$GodotSprite.show()
+
+func hideAllSprites():
+	$SSSprite.hide()
+	$GodotSprite.hide()
+
 func jump():
 	#move character
 	motion.y = JUMP_HEIGHT	

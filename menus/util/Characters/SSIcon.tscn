@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Characters/Warrior/Idle (1).png" type="Texture" id=1]
+[ext_resource path="res://menus/util/CharacterIcon.tscn" type="PackedScene" id=2]
+
+[node name="SSIcon" instance=ExtResource( 2 )]
+
+[node name="FaceIcon" parent="." index="0"]
+position = Vector2( 38.1564, 37.6906 )
+scale = Vector2( 0.12895, 0.105642 )
+texture = ExtResource( 1 )
