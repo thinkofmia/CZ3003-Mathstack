@@ -10,7 +10,7 @@ Answer correctly to build blocks. Every 10 blocks you get 1 life. Answer wrongly
 
 Playable Characters:
 - Godot (No Powers)
-- Swee Soldier
+- Swee Soldier (Add 2 lives)
 - Mister I (Auto-clear 3 levels)
 
 Cheats:

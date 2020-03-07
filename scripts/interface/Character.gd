@@ -31,7 +31,9 @@ func callPower():
 	$PowerButton.hide()
 	match global.characterSelected:
 		"Swee Soldier":
-			pass
+			#Add 2 lives
+			addLife()
+			addLife()
 		"Mister I":
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
