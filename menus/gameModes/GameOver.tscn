@@ -127,8 +127,17 @@ margin_right = 240.0
 margin_bottom = 27.0
 text = "Insert Speed/Qn here"
 
+[node name="Header" parent="." index="2"]
+position = Vector2( -439.401, -16.3245 )
+
 [node name="RichTextLabel" parent="Header" index="0"]
-text = "Time"
+text = "Gameover"
+
+[node name="ColorRect" parent="Header/RichTextLabel" index="1"]
+margin_left = -3.62763
+margin_top = -1.02028
+margin_right = -3.62762
+margin_bottom = -1.02028
 
 [node name="QuitButton" parent="." index="3"]
 margin_left = 906.112
