@@ -46,8 +46,12 @@ func fixHearts(): #set # of Hearts Displayed
 			hpBar.get_node("health4").show()
 			hpBar.get_node("health5").show()
 		_: #Default case
+			#Get blkTower
+			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+			if is_instance_valid(blkTower): #Check if still exists
+				blkTower.selfDestruct()
 			#Gameover
-			get_tree().change_scene("res://menus/gameModes/Gameover.tscn")
+			#get_tree().change_scene("res://menus/gameModes/Gameover.tscn")
 
 func addLife():
 	if (hearts<5):

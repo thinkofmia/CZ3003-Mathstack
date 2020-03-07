@@ -12,7 +12,10 @@ func _physics_process(delta):
 	#	addBlock()
 		
 	if Input.is_action_just_pressed("ui_right"):
-		get_parent().remove_child(self)
+		selfDestruct()
+
+func selfDestruct():
+	get_parent().remove_child(self)
 
 func addBlock():
 	var scene = load("res://menus/util/Block.tscn")
