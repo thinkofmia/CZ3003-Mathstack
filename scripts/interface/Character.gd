@@ -19,12 +19,15 @@ func _ready():
 	match global.characterSelected:
 		"Swee Soldier":
 			$SSSprite.show()
+		"Mister I":
+			$MrISprite.show()
 		_:
 			$GodotSprite.show()
 
 func hideAllSprites():
 	$SSSprite.hide()
 	$GodotSprite.hide()
+	$MrISprite.hide()
 
 func jump():
 	#move character
