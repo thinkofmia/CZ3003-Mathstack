@@ -5,9 +5,11 @@ var noOfBoxes = 1 #Also represents the scores
 func _ready():
 	noOfBoxes = 1
 
+func getNoOfBoxes():
+	return noOfBoxes
+
 func _physics_process(delta):
 	var scene = load("res://menus/util/Block.tscn")
-	var block = scene.instance()
 	#if Input.is_action_just_pressed("ui_down"):
 	#	addBlock()
 		
