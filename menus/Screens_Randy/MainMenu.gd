@@ -23,11 +23,13 @@ func _on_Button2_pressed():
 
 
 func _on_Button3_pressed():
-	get_tree().change_scene("res://menus/Screens_Randy/LeaderboardScreen.tscn")
+	get_tree().change_scene("res://menus/teachers/LeaderboardScene.tscn")
 
 
 func _on_Button5_pressed():
-	get_tree().change_scene("res://menus/Screens_Randy/SettingsScreen.tscn")
+	#get_tree().change_scene("res://menus/Screens_Randy/SettingsScreen.tscn")
+	#For debugging
+	get_tree().change_scene("res://menus/teachers/ChooseModeToCheckStatsScene.tscn")
 
 
 func _on_Button6_pressed():

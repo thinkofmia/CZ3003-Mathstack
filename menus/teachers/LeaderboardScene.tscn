@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://textures/board.png" type="Texture" id=1]
+[ext_resource path="res://textures/BG.png" type="Texture" id=2]
+[ext_resource path="res://scripts/statistics/leaderBoard.gd" type="Script" id=3]
+[ext_resource path="res://SnesItalic-AegA.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Object/Sign_1.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+use_filter = true
+extra_spacing_space = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="MainBGSprite" type="Sprite"]
+position = Vector2( -2, 1.455 )
+scale = Vector2( 1.024, 0.79869 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="leaderBoard" type="Sprite" parent="."]
+position = Vector2( 163.898, 110.198 )
+scale = Vector2( 0.789, 0.896 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 3 )
+
+[node name="VSplitContainer" type="VSplitContainer" parent="leaderBoard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 120.0
+margin_right = -50.0
+margin_bottom = -110.0
+split_offset = -130
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="leaderBoard/VSplitContainer"]
+margin_right = 743.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NameLabel" type="Label" parent="leaderBoard/VSplitContainer/HBoxContainer"]
+margin_right = 245.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 1 )
+text = "Name"
+align = 1
+valign = 1
+
+[node name="ScoreLabel" type="Label" parent="leaderBoard/VSplitContainer/HBoxContainer"]
+margin_left = 249.0
+margin_right = 494.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 2 )
+text = "Score"
+align = 1
+valign = 1
+
+[node name="TimeLabel" type="Label" parent="leaderBoard/VSplitContainer/HBoxContainer"]
+margin_left = 498.0
+margin_right = 743.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 3 )
+text = "Time"
+align = 1
+valign = 1
+
+[node name="ItemList" type="ItemList" parent="leaderBoard/VSplitContainer"]
+margin_top = 62.0
+margin_right = 743.0
+margin_bottom = 355.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+select_mode = 1
+
+[node name="BackSprite" type="Sprite" parent="."]
+position = Vector2( 31.0547, 619.959 )
+scale = Vector2( 1.73648, 1.40897 )
+texture = ExtResource( 5 )
+centered = false
+region_filter_clip = true
+
+[node name="BackButton" type="Button" parent="."]
+anchor_top = 0.00155225
+anchor_right = 1.0
+anchor_bottom = 1.00155
+margin_left = 25.1406
+margin_top = 609.523
+margin_right = -855.859
+margin_bottom = -54.4773
+custom_fonts/font = SubResource( 5 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="BackButton" to="leaderBoard" method="_on_BackButton_pressed"]
