@@ -37,6 +37,7 @@ func randomizeQuestion():
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 	if is_instance_valid(blockTower):
 		var level = blockTower.getNoOfBoxes()
+		global.highscore = level
 		if level >= 100: #Stop at level 100
 			blockTower.selfDestruct()
 	#Randomize operands

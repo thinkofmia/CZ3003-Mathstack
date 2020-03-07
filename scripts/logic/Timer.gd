@@ -22,3 +22,4 @@ func updateTime(): #Logic to set countdown timer in terms of mins and seconds
 	if (seconds<10):
 		 seconds = "0" +str(seconds)
 	$Label.set_text(str(mins)+":"+str(seconds))
+	global.time = getTime()
