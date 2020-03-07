@@ -15,6 +15,8 @@ var hearts = 1
 func _ready():
 	#Hide all sprites
 	hideAllSprites()
+	#Show PowerButton
+	$PowerButton.show()
 	#Show character and set character
 	match global.characterSelected:
 		"Swee Soldier":
@@ -23,11 +25,38 @@ func _ready():
 			$MrISprite.show()
 		_:
 			$GodotSprite.show()
+			$PowerButton.hide()
+
+func callPower():
+	$PowerButton.hide()
+	match global.characterSelected:
+		"Swee Soldier":
+			pass
+		"Mister I":
+			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+			qnMenu.hide()
+			#Jump three times
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			#Randomise Qn
+			qnMenu.show()
+			qnMenu.randomizeQuestion()
+		_:
+			pass
 
 func hideAllSprites():
 	$SSSprite.hide()
 	$GodotSprite.hide()
 	$MrISprite.hide()
+	$PowerButton.hide()
 
 func jump():
 	#move character
@@ -99,3 +128,7 @@ func _physics_process(delta):
 	
 	#End
 	pass
+
+
+func _on_PowerButton_pressed():
+	callPower()
