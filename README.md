@@ -9,9 +9,9 @@ Students will enhance their knowledge through playing the game and have more fun
 Answer correctly to build blocks. Every 10 blocks you get 1 life. Answer wrongly you lose 1 life.
 
 Playable Characters:
-- Godot
+- Godot (No Powers)
 - Swee Soldier
-- Mister I
+- Mister I (Auto-clear 3 levels)
 
 Cheats:
 - Press up button to jump
@@ -22,5 +22,6 @@ Cheats:
 ## Credits for free images
 - Flaticon (returnButton.png)
 - Free Stock Textures (woodTexture.jpg)
-- freepik (mountainView.jpg, heart.png)
+- freepik (mountainView.jpg, heart.png, flame.jpg)
 - vecteezy (dummySprite.jpg)
+- Anson Fu (Mr I.png)
