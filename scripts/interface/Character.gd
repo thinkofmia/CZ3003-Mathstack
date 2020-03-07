@@ -31,14 +31,22 @@ func callPower():
 	$PowerButton.hide()
 	match global.characterSelected:
 		"Swee Soldier":
-			#Add 2 lives
+			#Add 4 lives
+			addLife()
+			addLife()
 			addLife()
 			addLife()
 		"Mister I":
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 			qnMenu.hide()
-			#Jump three times
+			#Jump five times
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
 			blkTower.addBlock()
 			self.jump()
 			yield(get_tree().create_timer(1.0), "timeout")
