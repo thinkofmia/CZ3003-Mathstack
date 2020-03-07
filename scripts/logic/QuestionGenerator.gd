@@ -4,7 +4,6 @@ var option1
 var option2
 var option3
 var option4
-var correctAns
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,9 +27,10 @@ func setQuestion(operand1, operand2, operation):
 			correctAnswer = int(operand1*operand2)
 		4:
 			correctAnswer = int(operand1%operand2)
-	question = []		
+	
+	#Save question set
 	question = [operand1,operand2,operation,correctAnswer] 
-	correctAns = correctAnswer
+	print(question)
 	
 func randomizeQuestion():
 	#Randomize operands
@@ -65,7 +65,7 @@ func randomizeQuestion():
 
 
 func checkAnswer(option):
-	if (str(correctAns)==option.get_text()):#Check if correct answer was click
+	if (str(question[3])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		
 		#Add block
@@ -92,7 +92,7 @@ func _on_Option1_pressed():
 
 
 func _on_Option4_pressed():
-	checkAnswer(option2)
+	checkAnswer(option4)
 	pass # Replace with function body.
 
 
@@ -102,5 +102,5 @@ func _on_Option3_pressed():
 
 
 func _on_Option2_pressed():
-	checkAnswer(option4)
+	checkAnswer(option2)
 	pass # Replace with function body.
