@@ -20,25 +20,25 @@ rect_scale = Vector2( 0.85, 0.85 )
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
 margin_right = 1296.0
-margin_bottom = 1066.0
+margin_bottom = 1184.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
 margin_right = 1296.0
-margin_bottom = 1066.0
+margin_bottom = 1184.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
 margin_right = 946.0
-margin_bottom = 916.0
-custom_constants/separation = 50
+margin_bottom = 1034.0
+custom_constants/separation = 55
 
 [node name="Title" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 896.0
 text = "New Account"
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
-margin_top = 128.0
+margin_top = 133.0
 margin_right = 896.0
-margin_bottom = 726.0
+margin_bottom = 839.0
 custom_constants/vseparation = 50
 custom_constants/hseparation = 10
 columns = 2
@@ -86,12 +86,12 @@ margin_right = 896.0
 margin_bottom = 274.0
 rect_min_size = Vector2( 500, 0 )
 
-[node name="Label4" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="6"]
+[node name="Label7" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="6"]
 margin_top = 324.0
 margin_right = 386.0
 margin_bottom = 382.0
 custom_fonts/font = ExtResource( 2 )
-text = "School: "
+text = "Account Type:"
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="7"]
@@ -101,34 +101,49 @@ margin_right = 896.0
 margin_bottom = 382.0
 rect_min_size = Vector2( 500, 0 )
 
-[node name="Label5" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="8"]
+[node name="Label4" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="8"]
 margin_top = 432.0
 margin_right = 386.0
 margin_bottom = 490.0
 custom_fonts/font = ExtResource( 2 )
-text = "Class:  "
+text = "School: "
 align = 2
 
-[node name="OptionButton2" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="9"]
+[node name="OptionButton3" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="9"]
 margin_left = 396.0
 margin_top = 432.0
 margin_right = 896.0
 margin_bottom = 490.0
 rect_min_size = Vector2( 500, 0 )
 
-[node name="Label6" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="10"]
+[node name="Label5" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="10"]
 margin_top = 540.0
 margin_right = 386.0
 margin_bottom = 598.0
 custom_fonts/font = ExtResource( 2 )
-text = "Character:"
+text = "Class:  "
 align = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="11"]
+[node name="OptionButton2" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="11"]
 margin_left = 396.0
 margin_top = 540.0
 margin_right = 896.0
 margin_bottom = 598.0
+rect_min_size = Vector2( 500, 0 )
+
+[node name="Label6" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="12"]
+margin_top = 648.0
+margin_right = 386.0
+margin_bottom = 706.0
+custom_fonts/font = ExtResource( 2 )
+text = "Character:"
+align = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="13"]
+margin_left = 396.0
+margin_top = 648.0
+margin_right = 896.0
+margin_bottom = 706.0
 custom_constants/separation = 30
 
 [node name="Char 1" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/HBoxContainer" index="0" instance=ExtResource( 4 )]
@@ -146,9 +161,9 @@ margin_left = 200.0
 margin_right = 270.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
-margin_top = 776.0
+margin_top = 894.0
 margin_right = 896.0
-margin_bottom = 866.0
+margin_bottom = 984.0
 custom_constants/separation = 50
 alignment = 1
 

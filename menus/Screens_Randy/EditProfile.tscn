@@ -11,8 +11,6 @@
 [ext_resource path="res://menus/Screens_Randy/EditProfile.gd" type="Script" id=9]
 [ext_resource path="res://Labels/Cancel.tscn" type="PackedScene" id=10]
 
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
@@ -34,15 +32,15 @@ anchor_bottom = 1.00166
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
 margin_right = 1170.0
-margin_bottom = 1031.0
+margin_bottom = 991.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
 margin_right = 1170.0
-margin_bottom = 1031.0
+margin_bottom = 991.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
 margin_right = 820.0
-margin_bottom = 881.0
+margin_bottom = 841.0
 
 [node name="Title" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 770.0
@@ -73,9 +71,9 @@ expand_to_text_length = true
 [node name="MenuOptions" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 311.0
 margin_right = 770.0
-margin_bottom = 737.0
+margin_bottom = 697.0
 size_flags_vertical = 3
-custom_constants/separation = 30
+custom_constants/separation = 20
 alignment = 1
 
 [node name="Account" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="0"]
@@ -88,9 +86,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="1"]
-margin_top = 88.0
+margin_top = 78.0
 margin_right = 770.0
-margin_bottom = 156.0
+margin_bottom = 146.0
 
 [node name="Nickname" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer2" index="0"]
 margin_top = 5.0
@@ -108,16 +106,16 @@ text = "User"
 align = 1
 
 [node name="School" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="2"]
-margin_top = 186.0
+margin_top = 166.0
 margin_right = 770.0
-margin_bottom = 244.0
+margin_bottom = 224.0
 custom_fonts/font = SubResource( 2 )
 text = "School: NTU"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="3"]
-margin_top = 274.0
+margin_top = 244.0
 margin_right = 770.0
-margin_bottom = 338.0
+margin_bottom = 308.0
 
 [node name="Class" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer3" index="0"]
 margin_top = 3.0
@@ -134,9 +132,9 @@ custom_fonts/font = ExtResource( 6 )
 text = "SS1"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="4"]
-margin_top = 368.0
+margin_top = 328.0
 margin_right = 770.0
-margin_bottom = 426.0
+margin_bottom = 386.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="0"]
@@ -154,9 +152,9 @@ anchor_right = 0.0
 [node name="Char 3" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="3" instance=ExtResource( 3 )]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
-margin_top = 741.0
+margin_top = 701.0
 margin_right = 770.0
-margin_bottom = 831.0
+margin_bottom = 791.0
 custom_constants/separation = 50
 alignment = 1
 
@@ -164,11 +162,12 @@ alignment = 1
 margin_top = 0.0
 margin_right = 360.0
 margin_bottom = 90.0
+scene_to_load = "res://menus/Screens_Randy/Profile.tscn"
 
 [node name="Button2" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2" index="1" instance=ExtResource( 10 )]
 margin_left = 410.0
 margin_top = 0.0
 margin_right = 770.0
 margin_bottom = 90.0
-[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/Button2" to="." method="_on_Button2_pressed"]
+scene_to_load = "res://menus/Screens_Randy/Profile.tscn"
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

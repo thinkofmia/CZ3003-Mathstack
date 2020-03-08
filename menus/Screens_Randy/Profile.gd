@@ -1,24 +1,22 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var scene_path_to_load
+var account_type
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer.get_children():
+		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
+		
+func _on_Button_pressed(scene_to_load):
+	scene_path_to_load = scene_to_load
+	$FadeIn.show()
+	$FadeIn.fade_in()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://menus/Screens_Randy/MainMenu.tscn")
-
-
-func _on_Button2_pressed():
-	get_tree().change_scene("res://menus/Screens_Randy/EditProfile.tscn")
+func _on_FadeIn_fade_finished():
+	account_type = "Teacher"
+	if scene_path_to_load == "res://menus/Screens_Randy/MainMenu.tscn":
+		if account_type == "Teacher":
+			scene_path_to_load = "res://menus/Screens_Randy/MainMenuTeachers.tscn"
+	get_tree().change_scene(scene_path_to_load)
