@@ -4,6 +4,7 @@ var timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global.timeSeconds = 0
 	timer = 0
 	updateTime()
 
@@ -17,6 +18,9 @@ func getTime():
 
 func updateTime(): #Logic to set countdown timer in terms of mins and seconds
 	var seconds = int(floor(timer))
+	#Save time in terms of seconds
+	global.timeSeconds = timer
+	#calculate min
 	var mins = floor(seconds/60)
 	seconds =  seconds%60
 	if (seconds<10):

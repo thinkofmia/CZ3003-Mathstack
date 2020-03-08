@@ -173,10 +173,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Block" type="StaticBody2D" parent="BlockTower" index="0" instance=ExtResource( 6 )]
+[node name="Block" parent="BlockTower" index="0" instance=ExtResource( 6 )]
 position = Vector2( -26.5442, 267.82 )
 
-[node name="SelectedCharacter" type="KinematicBody2D" parent="." index="8" instance=ExtResource( 7 )]
+[node name="SelectedCharacter" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 107.47, 432.598 )
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="gui_input" from="BlockTower" to="BlockTower" method="_on_BlockTower_gui_input"]

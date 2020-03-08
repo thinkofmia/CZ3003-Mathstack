@@ -11,3 +11,7 @@ func _ready():
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
+	#Set Average question per time
+	var avg = stepify(global.highscore/global.timeSeconds,0.01)
+	print(avg)
+	$PlayBoard/AverageSpeedRow/SpeedPerQn.set_text(str(avg)+" qn/s")
