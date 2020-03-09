@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://menus/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/interface/returnToPlayMenu.gd" type="Script" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menus/util/Block.tscn" type="PackedScene" id=5]
 [ext_resource path="res://menus/util/Character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/BG.png" type="Texture" id=7]
 [ext_resource path="res://buttons/gameModeButtons/PlayButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://textures/mountain.png" type="Texture" id=9]
 [ext_resource path="res://scripts/interface/PlayChallengeMode.gd" type="Script" id=15]
 [ext_resource path="res://scripts/logic/ChallengeModeSelection.gd" type="Script" id=16]
 [ext_resource path="res://menus/util/Characters/SSIcon.tscn" type="PackedScene" id=17]
@@ -14,6 +16,18 @@
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 16 )
+
+[node name="Background2" type="Sprite" parent="." index="1"]
+visible = false
+position = Vector2( 511.773, 300.473 )
+scale = Vector2( 0.62293, 0.484697 )
+texture = ExtResource( 9 )
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+visible = false
+position = Vector2( 511.127, 295.303 )
+scale = Vector2( 1.02197, 0.7915 )
+texture = ExtResource( 7 )
 
 [node name="CharacterLabel" type="Label" parent="PlayBoard" index="0"]
 margin_left = 20.0
@@ -170,27 +184,25 @@ margin_top = -1.70046
 margin_right = -2.26724
 margin_bottom = -1.70046
 
-[node name="BackButton" parent="." index="3"]
+[node name="BackButton" parent="." index="5"]
 script = ExtResource( 2 )
 
-[node name="SelectedCharacter" parent="." index="5" instance=ExtResource( 6 )]
+[node name="SelectedCharacter" parent="." index="7" instance=ExtResource( 6 )]
 position = Vector2( 934.577, 442.937 )
+scale = Vector2( -1, 1 )
 
-[node name="BlockTower" type="VBoxContainer" parent="." index="6"]
-margin_left = 94.0
-margin_top = 196.0
-margin_right = 171.0
-margin_bottom = 597.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 10
-alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Block" parent="BlockTower" index="0" instance=ExtResource( 5 )]
-position = Vector2( 801.856, 284.621 )
+[node name="Block" parent="." index="8" instance=ExtResource( 5 )]
+position = Vector2( 895.856, 480.621 )
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton" to="." method="_on_WorldButton_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton2" to="." method="_on_WorldButton2_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton4" to="." method="_on_WorldButton4_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton3" to="." method="_on_WorldButton3_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton8" to="." method="_on_WorldButton8_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton7" to="." method="_on_WorldButton7_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton6" to="." method="_on_WorldButton6_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton5" to="." method="_on_WorldButton5_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton10" to="." method="_on_WorldButton10_pressed"]
+[connection signal="pressed" from="PlayBoard/WorldSelectContainer/WorldSelectRow/WorldButton9" to="." method="_on_WorldButton9_pressed"]
 [connection signal="pressed" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/GodotIcon" to="." method="_on_GodotIcon_pressed"]
 [connection signal="toggled" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/GodotIcon" to="." method="_on_GodotIcon_toggled"]
 [connection signal="pressed" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/SSIcon" to="." method="_on_SSIcon_pressed"]
