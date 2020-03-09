@@ -84,14 +84,12 @@ position = Vector2( 4.5556, -3.71899 )
 scale = Vector2( 0.137321, 0.117383 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="HBSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 9 )
-frame = 4
 playing = true
 flip_h = true
 

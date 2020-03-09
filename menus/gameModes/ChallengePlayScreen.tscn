@@ -42,21 +42,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BgBlue3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
+[node name="BgBlue4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_right = 3000.0
 margin_bottom = 2000.0
 rect_min_size = Vector2( 0, 2000 )
 texture = ExtResource( 12 )
 stretch_mode = 1
-flip_v = true
 
-[node name="BgBlue4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
+[node name="BgBlue3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_top = 2000.0
 margin_right = 3000.0
 margin_bottom = 4000.0
 rect_min_size = Vector2( 0, 2000 )
 texture = ExtResource( 12 )
 stretch_mode = 1
+flip_v = true
 
 [node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
 margin_top = 4000.0
@@ -89,13 +89,12 @@ stretch_mode = 1
 flip_v = true
 
 [node name="BgBox2" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = 1036.57
-margin_top = -1511.63
-margin_right = 4036.57
-margin_bottom = 4676.37
+margin_left = -9.84825
+margin_top = -3676.33
+margin_right = 2990.15
+margin_bottom = 2511.67
 grow_horizontal = 0
 grow_vertical = 0
-rect_rotation = 180.0
 rect_scale = Vector2( 0.35, 0.35 )
 size_flags_vertical = 3
 custom_constants/separation = 0
