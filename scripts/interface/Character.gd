@@ -13,10 +13,13 @@ var hearts = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Hide all sprites
-	hideAllSprites()
 	#Show PowerButton
 	$PowerButton.show()
+	displayCharacter()
+
+func displayCharacter():
+	#Hide all sprites
+	hideAllSprites()
 	#Show character and set character
 	match global.characterSelected:
 		"Swee Soldier":
