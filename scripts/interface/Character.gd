@@ -32,7 +32,8 @@ func displayCharacter():
 
 #Recover Powers
 func recoverPower():
-	$PowerButton.show()
+	if (global.characterSelected != "Godot"):
+		$PowerButton.show()
 
 func callPower():
 	$PowerButton.hide()
