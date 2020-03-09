@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://menus/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/interface/returnToPlayMenu.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://textures/BG.png" type="Texture" id=7]
 [ext_resource path="res://buttons/gameModeButtons/PlayButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://textures/mountain.png" type="Texture" id=9]
+[ext_resource path="res://menus/util/Characters/HBIcon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/interface/PlayChallengeMode.gd" type="Script" id=15]
 [ext_resource path="res://scripts/logic/ChallengeModeSelection.gd" type="Script" id=16]
 [ext_resource path="res://menus/util/Characters/SSIcon.tscn" type="PackedScene" id=17]
@@ -164,6 +165,11 @@ margin_left = 170.0
 margin_right = 245.0
 margin_bottom = 86.0
 
+[node name="HBIcon" parent="PlayBoard/CharacterSelectContainer/CharacterSelectRow" index="3" instance=ExtResource( 10 )]
+margin_left = 255.0
+margin_right = 330.0
+margin_bottom = 86.0
+
 [node name="PlayButton" parent="PlayBoard" index="5" instance=ExtResource( 8 )]
 margin_left = 227.53
 margin_top = 327.85
@@ -207,4 +213,5 @@ position = Vector2( 895.856, 480.621 )
 [connection signal="toggled" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/GodotIcon" to="." method="_on_GodotIcon_toggled"]
 [connection signal="pressed" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/SSIcon" to="." method="_on_SSIcon_pressed"]
 [connection signal="pressed" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/MrIIcon" to="." method="_on_MrIIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectContainer/CharacterSelectRow/HBIcon" to="." method="_on_HBIcon_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

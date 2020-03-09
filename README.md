@@ -24,7 +24,7 @@ Cheats:
 - Flaticon (returnButton.png)
 - Free Stock Textures (woodTexture.jpg)
 - freepik (mountainView.jpg, heart.png, flame.jpg)
-- vecteezy (dummySprite.jpg)
 - Anson Fu (Mr I.png)
+- KingKelpo (bee_spritesheet.png)
 
 - Bensound (Energy.ogg, EndlessMotion.ogg)

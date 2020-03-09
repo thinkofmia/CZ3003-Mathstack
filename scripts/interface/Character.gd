@@ -10,12 +10,15 @@ const JUMP_HEIGHT = -500
 var motion = Vector2()
 # Shorter than motionx = 0, motiony = 0;
 var hearts = 1
+#Counter
+var counter = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	displayCharacter()
 	#Show PowerButton
 	recoverPower()
+	counter = 5
 
 func displayCharacter():
 	#Hide all sprites
@@ -26,6 +29,8 @@ func displayCharacter():
 			$SSSprite.show()
 		"Mister I":
 			$MrISprite.show()
+		"Humble B":
+			$HBSprite.show()
 		_:
 			$GodotSprite.show()
 			$PowerButton.hide()
@@ -34,6 +39,8 @@ func displayCharacter():
 func recoverPower():
 	if (global.characterSelected != "Godot"):
 		$PowerButton.show()
+	if (global.characterSelected != "Humble B"):
+		counter = 5
 
 func callPower():
 	$PowerButton.hide()
@@ -44,6 +51,14 @@ func callPower():
 			addLife()
 			addLife()
 			addLife()
+		"Humble B":
+			#Randomize Qn. 5 Uses
+			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+			qnMenu.randomizeQuestion()
+			counter -= 1
+			if (counter>0):
+				$PowerButton.show()
+			
 		"Mister I":
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
@@ -75,6 +90,7 @@ func hideAllSprites():
 	$GodotSprite.hide()
 	$MrISprite.hide()
 	$PowerButton.hide()
+	$HBSprite.hide()
 
 func jump():
 	#move character
