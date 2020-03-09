@@ -49,7 +49,7 @@ margin_right = 39.0
 margin_bottom = 18.0
 text = "Score:"
 
-[node name="Highscore" type="Label" parent="PlayBoard/ScoreRow" index="1"]
+[node name="StoryScore" type="Label" parent="PlayBoard/ScoreRow" index="1"]
 margin_left = 43.0
 margin_top = 4.0
 margin_right = 72.0

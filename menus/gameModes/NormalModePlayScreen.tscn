@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menus/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/util/CorrectDisplay.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/logic/NormalModeQuestions.gd" type="Script" id=4]
 [ext_resource path="res://menus/util/WrongDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/interface/NormalMode.gd" type="Script" id=6]
 
 [node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
 
 [node name="QuestionMenu" parent="PlayBoard" index="0" instance=ExtResource( 2 )]
 margin_left = 20.0
@@ -32,7 +34,7 @@ position = Vector2( -383.625, -19.0452 )
 
 [node name="RichTextLabel" parent="Header" index="0"]
 margin_left = 396.0
-margin_right = 518.0
+margin_right = 637.0
 text = "World: Diffculty"
 
 [node name="ColorRect" parent="Header/RichTextLabel" index="1"]
@@ -84,12 +86,12 @@ anchor_right = 10.0
 margin_left = 394.0
 margin_top = 20.0
 margin_right = 505.0
-margin_bottom = 37.0
+margin_bottom = 52.0
 rect_scale = Vector2( 3, 4 )
 rect_clip_content = false
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
-text = "Passing Score: "
+text = "Passing Score: 0/10"
 __meta__ = {
 "_edit_use_anchors_": false
 }

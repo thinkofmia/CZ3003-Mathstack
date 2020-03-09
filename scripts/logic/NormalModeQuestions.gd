@@ -12,7 +12,8 @@ func _ready():
 	option2 = $row/columnLeft/Option2
 	option3 = $row/columnRight/Option3
 	option4 = $row/columnRight/Option4
-	level = 0
+	level = 1
+	global.storyScore = 0
 	randomizeQuestion()
 
 #Sets question and store it
@@ -66,9 +67,9 @@ func checkAnswer(option):
 	if (str(question[3])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		#Update score
-		global.highscore +=1
+		global.storyScore +=1
 		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
-		scoreBoard.set_text("Score: "+str(global.highscore))
+		scoreBoard.set_text("Score: "+str(global.storyScore))
 		#Display msg
 		var outcome = get_tree().get_root().get_node("World").find_node("CorrectStatus")
 		outcome.appear()
