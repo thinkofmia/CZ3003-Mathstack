@@ -13,6 +13,7 @@ Playable Characters:
 - Godot (No Powers)
 - Swee Soldier (Add 4 lives)
 - Mister I (Auto-clear 5 levels)
+- Humble B (Randomize questions, 5 uses)
 
 Cheats:
 - Press up button to jump
