@@ -29,6 +29,10 @@ func _on_HBIcon_pressed():
 	$SelectedCharacter.displayCharacter()
 	print("Humble B has been selected!")
 
+func _on_RRIcon_pressed():
+	global.characterSelected = "Rider Rabbit"
+	$SelectedCharacter.displayCharacter()
+	print("Rider Rabbit has been selected!")
 
 func _on_WorldButton_pressed():
 	selectedBg = 1
@@ -91,5 +95,3 @@ func _on_WorldButton10_pressed():
 func _on_WorldButton9_pressed():
 	selectedBg = 1
 	changeBg()
-
-

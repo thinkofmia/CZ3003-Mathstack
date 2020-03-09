@@ -12,8 +12,9 @@ Recover Power every 2 minutes.
 Playable Characters:
 - Godot (No Powers)
 - Swee Soldier (Add 4 lives)
-- Mister I (Auto-clear 5 levels)
+- Mister I (Auto-clear 3 levels)
 - Humble B (Randomize questions, 5 uses)
+- Riding Rabbit (Slow timer by 0.5 speed for 30 seconds)
 
 Cheats:
 - Press up button to jump
@@ -27,5 +28,6 @@ Cheats:
 - freepik (mountainView.jpg, heart.png, flame.jpg)
 - Anson Fu (Mr I.png)
 - KingKelpo (bee_spritesheet.png)
+- heamomo (Rabbit.png)
 
-- Bensound (Energy.ogg, EndlessMotion.ogg)
+- Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg)

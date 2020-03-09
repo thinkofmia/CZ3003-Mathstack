@@ -31,6 +31,8 @@ func displayCharacter():
 			$MrISprite.show()
 		"Humble B":
 			$HBSprite.show()
+		"Rider Rabbit":
+			$RRSprite.show()
 		_:
 			$GodotSprite.show()
 			$PowerButton.hide()
@@ -58,18 +60,30 @@ func callPower():
 			counter -= 1
 			if (counter>0):
 				$PowerButton.show()
-			
+		"Rider Rabbit":
+			#Slow time for 30 seconds
+			global.rrPower = 0.5
+			var mainMusic = get_tree().get_root().get_node("World").find_node("PlayMusic")
+			mainMusic.stop()
+			var ffMusic = get_tree().get_root().get_node("World").find_node("FFMusic")
+			ffMusic.play()
+			var bg = get_tree().get_root().get_node("World").find_node("Texture")
+			var header = get_tree().get_root().get_node("World").find_node("RichTextLabel")
+			bg.set_self_modulate(Color( 1, 0, 1, 1 )) 
+			header.add_color_override("font_color", Color(1,0,0,1))
+			$RRSprite.set_self_modulate(Color( 1, 0, 1, 1 )) 
+			yield(get_tree().create_timer(30.0), "timeout")
+			ffMusic.stop()
+			mainMusic.play()
+			$RRSprite.set_self_modulate(Color( 1, 1, 1, 1 )) 
+			bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
+			header.add_color_override("font_color", Color(1,1,1,1))
+			global.rrPower = 1
 		"Mister I":
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 			qnMenu.hide()
-			#Jump five times
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
+			#Jump three times
 			blkTower.addBlock()
 			self.jump()
 			yield(get_tree().create_timer(1.0), "timeout")
@@ -91,6 +105,7 @@ func hideAllSprites():
 	$MrISprite.hide()
 	$PowerButton.hide()
 	$HBSprite.hide()
+	$RRSprite.hide()
 
 func jump():
 	#move character

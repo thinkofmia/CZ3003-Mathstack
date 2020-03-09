@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-house.ogg-8df302d50f840119102bdf34a1eafd1a.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/bensound-house.ogg"
+dest_files=[ "res://.import/bensound-house.ogg-8df302d50f840119102bdf34a1eafd1a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
