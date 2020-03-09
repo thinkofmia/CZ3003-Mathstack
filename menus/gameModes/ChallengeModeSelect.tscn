@@ -1,19 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://menus/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/interface/returnToPlayMenu.gd" type="Script" id=2]
 [ext_resource path="res://menus/util/CharacterIcon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://buttons/worldButtons/WorldButton1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://buttons/worldButtons/WorldButton2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://buttons/worldButtons/WorldButton3.tscn" type="PackedScene" id=6]
-[ext_resource path="res://buttons/worldButtons/WorldButton4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=4]
 [ext_resource path="res://buttons/gameModeButtons/PlayButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://buttons/worldButtons/WorldButton8.tscn" type="PackedScene" id=9]
-[ext_resource path="res://buttons/worldButtons/WorldButton9.tscn" type="PackedScene" id=10]
-[ext_resource path="res://buttons/worldButtons/WorldButton10.tscn" type="PackedScene" id=11]
-[ext_resource path="res://buttons/worldButtons/WorldButton6.tscn" type="PackedScene" id=12]
-[ext_resource path="res://buttons/worldButtons/WorldButton7.tscn" type="PackedScene" id=13]
-[ext_resource path="res://buttons/worldButtons/WorldButton5.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/interface/PlayChallengeMode.gd" type="Script" id=15]
 [ext_resource path="res://scripts/logic/ChallengeModeSelection.gd" type="Script" id=16]
 [ext_resource path="res://menus/util/Characters/SSIcon.tscn" type="PackedScene" id=17]
@@ -47,15 +38,16 @@ __meta__ = {
 [node name="WorldSelectContainer" type="ScrollContainer" parent="PlayBoard" index="2"]
 margin_left = 175.0
 margin_top = 125.0
-margin_right = 575.0
-margin_bottom = 252.0
+margin_right = 320.0
+margin_bottom = 162.0
+rect_scale = Vector2( 3, 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WorldSelectRow" type="HBoxContainer" parent="PlayBoard/WorldSelectContainer" index="0"]
-margin_right = 2590.0
-margin_bottom = 100.0
+margin_right = 1090.0
+margin_bottom = 30.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_constants/separation = 10
@@ -63,53 +55,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="World1Button" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="0" instance=ExtResource( 4 )]
-script = null
+[node name="WorldButton" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="0" instance=ExtResource( 4 )]
+rect_scale = Vector2( 1, 1 )
+text = "World #1"
 
-[node name="World2Button" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="1" instance=ExtResource( 5 )]
-margin_left = 260.0
-margin_right = 510.0
-script = null
+[node name="WorldButton2" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="1" instance=ExtResource( 4 )]
+margin_left = 110.0
+margin_right = 210.0
+rect_scale = Vector2( 1, 1 )
+text = "World #2"
 
-[node name="World3Button" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="2" instance=ExtResource( 6 )]
-margin_left = 520.0
-margin_right = 770.0
-script = null
+[node name="WorldButton4" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="2" instance=ExtResource( 4 )]
+margin_left = 220.0
+margin_right = 320.0
+rect_scale = Vector2( 1, 1 )
+text = "World #3"
 
-[node name="World4Button" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="3" instance=ExtResource( 7 )]
-margin_left = 780.0
-margin_right = 1030.0
-script = null
+[node name="WorldButton3" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="3" instance=ExtResource( 4 )]
+margin_left = 330.0
+margin_right = 430.0
+rect_scale = Vector2( 1, 1 )
+text = "World #4"
 
-[node name="WorldButton" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="4" instance=ExtResource( 14 )]
-margin_left = 1040.0
-margin_right = 1290.0
-script = null
+[node name="WorldButton8" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="4" instance=ExtResource( 4 )]
+margin_left = 440.0
+margin_right = 540.0
+rect_scale = Vector2( 1, 1 )
+text = "World #5"
 
-[node name="WorldButton2" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="5" instance=ExtResource( 12 )]
-margin_left = 1300.0
-margin_right = 1550.0
-script = null
+[node name="WorldButton7" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="5" instance=ExtResource( 4 )]
+margin_left = 550.0
+margin_right = 650.0
+rect_scale = Vector2( 1, 1 )
+text = "World #6"
 
-[node name="WorldButton3" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="6" instance=ExtResource( 13 )]
-margin_left = 1560.0
-margin_right = 1810.0
-script = null
+[node name="WorldButton6" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="6" instance=ExtResource( 4 )]
+margin_left = 660.0
+margin_right = 760.0
+rect_scale = Vector2( 1, 1 )
+text = "World #7"
 
-[node name="WorldButton4" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="7" instance=ExtResource( 9 )]
-margin_left = 1820.0
-margin_right = 2070.0
-script = null
+[node name="WorldButton5" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="7" instance=ExtResource( 4 )]
+margin_left = 770.0
+margin_right = 870.0
+rect_scale = Vector2( 1, 1 )
+text = "World #8"
 
-[node name="WorldButton5" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="8" instance=ExtResource( 10 )]
-margin_left = 2080.0
-margin_right = 2330.0
-script = null
+[node name="WorldButton10" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="8" instance=ExtResource( 4 )]
+margin_left = 880.0
+margin_right = 980.0
+rect_scale = Vector2( 1, 1 )
+text = "World #9"
 
-[node name="WorldButton6" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="9" instance=ExtResource( 11 )]
-margin_left = 2340.0
-margin_right = 2590.0
-script = null
+[node name="WorldButton9" parent="PlayBoard/WorldSelectContainer/WorldSelectRow" index="9" instance=ExtResource( 4 )]
+margin_left = 990.0
+margin_right = 1090.0
+rect_scale = Vector2( 1, 1 )
+text = "World #10"
 
 [node name="CharacterSelectContainer" type="ScrollContainer" parent="PlayBoard" index="4"]
 margin_left = 155.0

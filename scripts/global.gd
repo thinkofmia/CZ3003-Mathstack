@@ -9,3 +9,4 @@ var storyScore = 0 #Storyscore for story mode
 var characterSelected = "Godot" #Default char
 var worldSelected = "World #1" #Default world
 var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Advanced
+var modeSelected = "None"

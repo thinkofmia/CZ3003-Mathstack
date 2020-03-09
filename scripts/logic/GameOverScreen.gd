@@ -11,6 +11,8 @@ func _ready():
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
+	#Set World
+	$PlayBoard/WorldVisitedRow/Worlds.set_text(global.worldSelected)
 	#Set Average question per time
 	var avg = stepify(global.highscore/global.timeSeconds,0.01)
 	print(avg)

@@ -27,7 +27,7 @@ scroll_offset = Vector2( 0, 4000 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="BgBox" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = 4.59302
+margin_left = 4.59009
 margin_top = -1545.2
 margin_right = 3004.59
 margin_bottom = 4642.8
@@ -37,7 +37,6 @@ rect_scale = Vector2( 0.35, 0.35 )
 size_flags_vertical = 3
 custom_constants/separation = 0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
