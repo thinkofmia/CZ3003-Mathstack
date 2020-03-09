@@ -7,6 +7,7 @@ Students will enhance their knowledge through playing the game and have more fun
 
 ## Challenge Mode
 Answer correctly to build blocks. Every 10 blocks you get 1 life. Answer wrongly you lose 1 life.
+Recover Power every 2 minutes.
 
 Playable Characters:
 - Godot (No Powers)
