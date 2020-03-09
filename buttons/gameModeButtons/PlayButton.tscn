@@ -2,8 +2,6 @@
 
 [ext_resource path="res://scripts/interface/PlayNormalModeButton.gd" type="Script" id=1]
 
-
-
 [node name="PlayButton" type="Button"]
 margin_left = 335.0
 margin_right = 500.0

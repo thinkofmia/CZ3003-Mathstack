@@ -6,3 +6,5 @@ var time = "" #String form in terms of mm:ss
 var timeSeconds = 0 #Int form in terms of seconds
 var highscore = 0
 var characterSelected = "Godot" #Default char
+var worldSelected = "World #1" #Default world
+var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Advanced

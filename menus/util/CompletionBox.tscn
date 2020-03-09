@@ -1,15 +1,15 @@
 [gd_scene format=2]
 
 [node name="CompletionBox" type="VBoxContainer"]
-margin_right = 572.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 550, 50 )
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CompletionText" type="Label" parent="."]
-margin_right = 572.0
+margin_right = 200.0
 margin_bottom = 14.0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 22.02
@@ -19,6 +19,6 @@ uppercase = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_top = 18.0
-margin_right = 572.0
+margin_right = 200.0
 margin_bottom = 32.0
 value = 50.0

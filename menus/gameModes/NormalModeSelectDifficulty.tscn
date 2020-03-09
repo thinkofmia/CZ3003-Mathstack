@@ -11,44 +11,50 @@
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
-[node name="Menu" type="VBoxContainer" parent="PlayBoard" index="0"]
+[node name="CompletionBox" parent="PlayBoard" index="1" instance=ExtResource( 3 )]
 margin_left = 18.0
 margin_top = 29.0
-margin_right = 599.0
-margin_bottom = 421.0
+margin_right = 300.0
+margin_bottom = 79.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="DifficultyDiv" type="HBoxContainer" parent="PlayBoard" index="2"]
+margin_left = 15.0
+margin_top = 146.883
+margin_right = 598.0
+margin_bottom = 426.883
+rect_min_size = Vector2( 0, 280 )
+custom_constants/separation = 29
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="CompletionBox" parent="PlayBoard/Menu" index="0" instance=ExtResource( 3 )]
-margin_right = 583.0
-margin_bottom = 50.0
+[node name="PrimaryButton" parent="PlayBoard/DifficultyDiv" index="0" instance=ExtResource( 5 )]
+script = null
 
-[node name="TopicName" type="Label" parent="PlayBoard/Menu" index="1"]
-margin_top = 54.0
+[node name="IntermediateButton" parent="PlayBoard/DifficultyDiv" index="1" instance=ExtResource( 6 )]
+margin_left = 204.0
+margin_right = 379.0
+script = null
+
+[node name="AdvancedButton" parent="PlayBoard/DifficultyDiv" index="2" instance=ExtResource( 7 )]
+margin_left = 408.0
 margin_right = 583.0
-margin_bottom = 104.0
-rect_min_size = Vector2( 250, 50 )
+script = null
+
+[node name="TopicName" type="Label" parent="PlayBoard" index="3"]
+margin_left = 148.236
+margin_top = 105.604
+margin_right = 305.236
+margin_bottom = 119.604
+rect_scale = Vector2( 2, 2 )
 size_flags_vertical = 0
 text = "Insert World Name Here"
 align = 1
-
-[node name="DifficultyDiv" type="HBoxContainer" parent="PlayBoard/Menu" index="2"]
-margin_top = 108.0
-margin_right = 583.0
-margin_bottom = 408.0
-rect_min_size = Vector2( 0, 300 )
-custom_constants/separation = 29
-
-[node name="PrimaryButton" parent="PlayBoard/Menu/DifficultyDiv" index="0" instance=ExtResource( 5 )]
-
-[node name="IntermediateButton" parent="PlayBoard/Menu/DifficultyDiv" index="1" instance=ExtResource( 6 )]
-margin_left = 204.0
-margin_right = 379.0
-
-[node name="AdvancedButton" parent="PlayBoard/Menu/DifficultyDiv" index="2" instance=ExtResource( 7 )]
-margin_left = 408.0
-margin_right = 583.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel" parent="Header" index="0"]
 margin_left = 383.757
@@ -65,4 +71,7 @@ margin_bottom = -0.680183
 
 [node name="BackButton" parent="." index="3"]
 script = ExtResource( 2 )
+[connection signal="pressed" from="PlayBoard/DifficultyDiv/PrimaryButton" to="." method="_on_PrimaryButton_pressed"]
+[connection signal="pressed" from="PlayBoard/DifficultyDiv/IntermediateButton" to="." method="_on_IntermediateButton_pressed"]
+[connection signal="pressed" from="PlayBoard/DifficultyDiv/AdvancedButton" to="." method="_on_AdvancedButton_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
