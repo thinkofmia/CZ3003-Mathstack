@@ -43,6 +43,9 @@ margin_top = -1.0
 margin_right = -19.0
 margin_bottom = -1.0
 
+[node name="QuitButton" parent="." index="3"]
+script = null
+
 [node name="ScoreBoard" type="Node2D" parent="." index="4"]
 position = Vector2( -392.095, 75.2544 )
 
@@ -109,3 +112,4 @@ color = Color( 0.415686, 0.223529, 0.223529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
