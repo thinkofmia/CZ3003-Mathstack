@@ -37,6 +37,8 @@ func addBlock():
 	var level = str(noOfBoxes)
 	block.get_node("Label").set_text(level)
 	add_child(block)
+	#Add Life per 10 levels
 	if (int(noOfBoxes)%10 == 0):
 		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
 		character.addLife()
+		

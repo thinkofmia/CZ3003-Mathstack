@@ -11,6 +11,7 @@ func _ready():
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
+	$SelectedCharacter.displayCharacter()
 	#Set World
 	$PlayBoard/WorldVisitedRow/Worlds.set_text(global.worldSelected)
 	#Set Average question per time

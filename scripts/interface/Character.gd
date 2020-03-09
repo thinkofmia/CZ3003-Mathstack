@@ -13,9 +13,9 @@ var hearts = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Show PowerButton
-	$PowerButton.show()
 	displayCharacter()
+	#Show PowerButton
+	recoverPower()
 
 func displayCharacter():
 	#Hide all sprites
@@ -29,6 +29,10 @@ func displayCharacter():
 		_:
 			$GodotSprite.show()
 			$PowerButton.hide()
+
+#Recover Powers
+func recoverPower():
+	$PowerButton.show()
 
 func callPower():
 	$PowerButton.hide()
@@ -129,6 +133,7 @@ func _physics_process(delta):
 		#for jumping
 		if Input.is_action_just_pressed("ui_up"):
 			jump()
+		#Cheat Code
 		if Input.is_action_just_pressed("ui_down"):
 			addLife()
 			fixHearts()

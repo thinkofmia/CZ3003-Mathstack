@@ -20,6 +20,10 @@ func updateTime(): #Logic to set countdown timer in terms of mins and seconds
 	var seconds = int(floor(timer))
 	#Save time in terms of seconds
 	global.timeSeconds = timer
+	#Recover power every 2mins
+	if (seconds % 120)== 0:
+		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+		character.recoverPower()
 	#calculate min
 	var mins = floor(seconds/60)
 	seconds =  seconds%60
