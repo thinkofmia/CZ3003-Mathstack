@@ -14,7 +14,8 @@ func _get_user_info(result: Array) -> Dictionary:
 	var result_body := JSON.parse(result[3].get_string_from_ascii()).result as Dictionary
 	return {
 		"token": result_body.idToken,
-		"id": result_body.localId
+		"id": result_body.localId,
+		"email": result_body.email
 	}
 
 
