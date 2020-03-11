@@ -1,5 +1,8 @@
 extends Control
 
+onready var http : HTTPRequest = $HTTPRequest
+onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit
+onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -21,4 +24,11 @@ func _on_Button2_pressed():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
+	Firebase.register(username.text, password.text, http)
+	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
+
+
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var response_body := JSON.parse(body.get_string_from_ascii())
+	if response_code == 200:
+		get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")

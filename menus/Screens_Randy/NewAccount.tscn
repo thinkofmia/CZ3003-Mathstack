@@ -179,5 +179,8 @@ margin_top = 0.0
 margin_right = 833.0
 margin_bottom = 90.0
 script = null
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

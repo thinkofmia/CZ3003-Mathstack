@@ -101,6 +101,9 @@ margin_left = 460.0
 margin_top = 0.0
 margin_right = 940.0
 margin_bottom = 60.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton" to="." method="_on_LoginButton_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/RegButton" to="." method="_on_RegButton_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ForgotPassButton" to="." method="_on_ForgotPassButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
