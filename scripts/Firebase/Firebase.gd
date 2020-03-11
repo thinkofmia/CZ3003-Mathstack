@@ -23,6 +23,7 @@ func _get_request_headers() -> PoolStringArray:
 	return PoolStringArray([
 		"Content-Type: application/json",
 		"Authorization: Bearer %s" % user_info.token
+		#"Authorization: Bearer zfCt7yOk8TQ1f7QcPegfnEpDnJf2" 
 	])
 
 
@@ -54,7 +55,6 @@ func save_document(path: String, fields: Dictionary, http: HTTPRequest) -> void:
 	var body := to_json(document)
 	var url := FIRESTORE_URL + path
 	http.request(url, _get_request_headers(), false, HTTPClient.METHOD_POST, body)
-
 
 func get_document(path: String, http: HTTPRequest) -> void:
 	var url := FIRESTORE_URL + path

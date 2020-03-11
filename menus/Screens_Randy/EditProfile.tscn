@@ -151,6 +151,8 @@ anchor_right = 0.0
 
 [node name="Char 3" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="3" instance=ExtResource( 3 )]
 
+[node name="HTTPRequest" type="HTTPRequest" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="5"]
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
 margin_top = 701.0
 margin_right = 770.0
@@ -170,4 +172,8 @@ margin_top = 0.0
 margin_right = 770.0
 margin_bottom = 90.0
 scene_to_load = "res://menus/Screens_Randy/Profile.tscn"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
