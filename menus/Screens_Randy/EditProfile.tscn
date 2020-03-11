@@ -151,8 +151,6 @@ anchor_right = 0.0
 
 [node name="Char 3" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="3" instance=ExtResource( 3 )]
 
-[node name="HTTPRequest" type="HTTPRequest" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="5"]
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
 margin_top = 701.0
 margin_right = 770.0

@@ -9,19 +9,27 @@ onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer
 var new_profile := false
 var information_sent := false
 
-
+var classValue
+var class_array = ["1","2","3"]
 
 var profile := {
-	"nickname":{}
-	#"class1":{}
+	"nickname":{},
+	"classValue":{}
 } setget set_profile
+
+func add_class():
+	for item in class_array:
+		class1.add_item(item)
 
 func _ready():
 	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
-	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
-	username.text = Firebase.user_info.email
 	
+	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
+	
+	
+	username.text = Firebase.user_info.email
+	add_class()
 
 func _on_Button_pressed(scene_to_load):
 	scene_path_to_load = scene_to_load
@@ -32,7 +40,8 @@ func _on_Button_pressed(scene_to_load):
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
 
-
+#func on_item_selected(id):
+	#return dropdown.get_item_text(id)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -54,6 +63,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 func _on_Button3_pressed():
 	
 	profile.nickname = { "stringValue": nickname.text }
+	profile.class1 = { "integerValue": class1.get_selected_id() }
 	#profile.class1 = {"stringValue": class1.get_item_text()}
 	match new_profile:
 		#calling save method, basically insertion
@@ -67,4 +77,8 @@ func _on_Button3_pressed():
 func set_profile(value: Dictionary) -> void:
 	profile = value
 	nickname.text=profile.nickname.stringValue
-	#class1.value=profile.class1.get_item_text
+	classValue = profile.class1.integerValue
+	class1.select(int(classValue))
+	#class1.select(1)
+
+
