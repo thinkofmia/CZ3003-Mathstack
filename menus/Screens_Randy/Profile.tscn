@@ -201,4 +201,7 @@ scene_to_load = "res://menus/Screens_Randy/EditProfile.tscn"
 visible = false
 
 [node name="MainMusic" parent="." instance=ExtResource( 11 )]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

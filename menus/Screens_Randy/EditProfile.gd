@@ -3,18 +3,22 @@ extends Control
 var scene_path_to_load
 
 onready var http : HTTPRequest = $HTTPRequest
+onready var account : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Account
 onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/LineEdit
 onready var nickname : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer2/LineEdit
+onready var school : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/School
 onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer3/OptionButton 
 var new_profile := false
 var information_sent := false
 
-var classValue
-var class_array = ["1","2","3"]
+var classId
+var class_array = ["SS1","SS2","SSP1"]
 
 var profile := {
+	"account":{},
 	"nickname":{},
-	"classValue":{}
+	"school":{},
+	"classId":{}
 } setget set_profile
 
 func add_class():
@@ -26,8 +30,6 @@ func _ready():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 	
 	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
-	
-	
 	username.text = Firebase.user_info.email
 	add_class()
 
@@ -62,8 +64,10 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 ###
 func _on_Button3_pressed():
 	
+	profile.account = {"stringValue": "Student"}
 	profile.nickname = { "stringValue": nickname.text }
-	profile.class1 = { "integerValue": class1.get_selected_id() }
+	profile.school = {"stringValue": "NTU"}
+	profile.classId = { "integerValue": class1.get_selected_id() }
 	#profile.class1 = {"stringValue": class1.get_item_text()}
 	match new_profile:
 		#calling save method, basically insertion
@@ -76,9 +80,11 @@ func _on_Button3_pressed():
 	
 func set_profile(value: Dictionary) -> void:
 	profile = value
+	account.text = "Account: %s" % str(profile.account.stringValue)
 	nickname.text=profile.nickname.stringValue
-	classValue = profile.class1.integerValue
-	class1.select(int(classValue))
+	school.text = "School: %s" % str(profile.school.stringValue)
+	classId = profile.classId.integerValue
+	class1.select(int(classId))
 	#class1.select(1)
 
 
