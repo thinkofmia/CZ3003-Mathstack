@@ -40,14 +40,12 @@ custom_constants/separation = 20
 [node name="Option1" parent="row/columnLeft" instance=ExtResource( 1 )]
 rect_scale = Vector2( 1, 1 )
 text = "216"
-script = null
 
 [node name="Option2" parent="row/columnLeft" instance=ExtResource( 1 )]
 margin_top = 40.0
 margin_bottom = 60.0
 rect_scale = Vector2( 1, 1 )
 text = "999"
-script = null
 
 [node name="columnRight" type="VBoxContainer" parent="row"]
 margin_left = 122.0
@@ -58,14 +56,12 @@ custom_constants/separation = 20
 [node name="Option3" parent="row/columnRight" instance=ExtResource( 1 )]
 rect_scale = Vector2( 1, 1 )
 text = "100"
-script = null
 
 [node name="Option4" parent="row/columnRight" instance=ExtResource( 1 )]
 margin_top = 40.0
 margin_bottom = 60.0
 rect_scale = Vector2( 1, 1 )
 text = "314"
-script = null
 [connection signal="pressed" from="row/columnLeft/Option1" to="." method="_on_Option1_pressed"]
 [connection signal="pressed" from="row/columnLeft/Option2" to="." method="_on_Option2_pressed"]
 [connection signal="pressed" from="row/columnRight/Option3" to="." method="_on_Option3_pressed"]

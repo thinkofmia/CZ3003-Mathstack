@@ -19,6 +19,7 @@ tracks/0/keys = {
 }
 
 [node name="FadeIn" type="TextureRect"]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 1642.0
 margin_bottom = 1230.0
 rect_scale = Vector2( 0.75, 0.6 )
