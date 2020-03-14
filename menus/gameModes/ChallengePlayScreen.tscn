@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=1]
 [ext_resource path="res://buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -9,9 +9,7 @@
 [ext_resource path="res://scripts/logic/Timer.gd" type="Script" id=7]
 [ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=8]
 [ext_resource path="res://buttons/QuitButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://textures/mountain.png" type="Texture" id=10]
 [ext_resource path="res://menus/util/PlayMusic.tscn" type="PackedScene" id=11]
-[ext_resource path="res://textures/BG.png" type="Texture" id=12]
 [ext_resource path="res://sounds/music/bensound-house.ogg" type="AudioStream" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=1]
@@ -24,205 +22,23 @@ particles_anim_loop = false
 [node name="World" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-scroll_offset = Vector2( 0, 4000 )
+scroll_limit_end = Vector2( 0, 4000 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 self_modulate = Color( 0.180392, 0.180392, 0.180392, 1 )
 light_mask = 5
+scale = Vector2( 1, 2 )
 
-[node name="BgBox" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -16.3189
-margin_top = -1516.37
-margin_right = 2983.68
-margin_bottom = 8671.63
-grow_horizontal = 0
-grow_vertical = 0
-rect_scale = Vector2( 0.35, 0.35 )
-size_flags_vertical = 3
-custom_constants/separation = 0
+[node name="Background" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+margin_left = -194.665
+margin_top = -607.121
+margin_right = 2805.33
+margin_bottom = 1256.88
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
-
-[node name="BgBlue4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
-margin_right = 3000.0
-margin_bottom = 2000.0
-rect_min_size = Vector2( 0, 2000 )
-texture = ExtResource( 12 )
-stretch_mode = 1
-
-[node name="BgBlue3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
-margin_top = 2000.0
-margin_right = 3000.0
-margin_bottom = 4000.0
-rect_min_size = Vector2( 0, 2000 )
-texture = ExtResource( 12 )
-stretch_mode = 1
-flip_v = true
-
-[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
-margin_top = 4000.0
-margin_right = 3000.0
-margin_bottom = 5864.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-
-[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
-margin_top = 5864.0
-margin_right = 3000.0
-margin_bottom = 7728.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-flip_v = true
-
-[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
-margin_top = 7728.0
-margin_right = 3000.0
-margin_bottom = 8958.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-
-[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox"]
-margin_top = 8958.0
-margin_right = 3000.0
-margin_bottom = 10188.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-flip_v = true
-
-[node name="BgBox2" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -9.84825
-margin_top = -3676.33
-margin_right = 2990.15
-margin_bottom = 2511.67
-grow_horizontal = 0
-grow_vertical = 0
-rect_scale = Vector2( 0.35, 0.35 )
-size_flags_vertical = 3
-custom_constants/separation = 0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
-margin_right = 3000.0
-margin_bottom = 1230.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-flip_v = true
-
-[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
-margin_top = 1230.0
-margin_right = 3000.0
-margin_bottom = 2460.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-
-[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
-margin_top = 2460.0
-margin_right = 3000.0
-margin_bottom = 4324.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-flip_v = true
-
-[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox2"]
-margin_top = 4324.0
-margin_right = 3000.0
-margin_bottom = 6188.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-
-[node name="BgBox4" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -3.86572
-margin_top = -5816.33
-margin_right = 2996.13
-margin_bottom = 371.67
-grow_horizontal = 0
-grow_vertical = 0
-rect_scale = Vector2( 0.35, 0.35 )
-size_flags_vertical = 3
-custom_constants/separation = 0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
-margin_right = 3000.0
-margin_bottom = 1230.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-flip_v = true
-
-[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
-margin_top = 1230.0
-margin_right = 3000.0
-margin_bottom = 2460.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-
-[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
-margin_top = 2460.0
-margin_right = 3000.0
-margin_bottom = 4324.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-flip_v = true
-
-[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox4"]
-margin_top = 4324.0
-margin_right = 3000.0
-margin_bottom = 6188.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-
-[node name="BgBox3" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = 1049.25
-margin_top = -5782.76
-margin_right = 4049.25
-margin_bottom = 405.245
-grow_horizontal = 0
-grow_vertical = 0
-rect_rotation = 180.0
-rect_scale = Vector2( 0.35, 0.35 )
-size_flags_vertical = 3
-custom_constants/separation = 0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="BgBlue" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
-margin_right = 3000.0
-margin_bottom = 1230.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-flip_v = true
-
-[node name="BgBlue2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
-margin_top = 1230.0
-margin_right = 3000.0
-margin_bottom = 2460.0
-texture = ExtResource( 10 )
-stretch_mode = 1
-
-[node name="BgGreen4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
-margin_top = 2460.0
-margin_right = 3000.0
-margin_bottom = 4324.0
-texture = ExtResource( 1 )
-stretch_mode = 5
-flip_v = true
-
-[node name="BgGreen3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/BgBox3"]
-margin_top = 4324.0
-margin_right = 3000.0
-margin_bottom = 6188.0
-texture = ExtResource( 1 )
-stretch_mode = 5
 
 [node name="Floor" type="ColorRect" parent="."]
 margin_left = 3.63965
@@ -250,14 +66,6 @@ __meta__ = {
 
 [node name="Block" parent="BlockTower" instance=ExtResource( 4 )]
 position = Vector2( -0.697098, 322.235 )
-
-[node name="SelectedCharacter" parent="." instance=ExtResource( 3 )]
-position = Vector2( 130.596, 482.932 )
-
-[node name="Camera2D" type="Camera2D" parent="SelectedCharacter"]
-offset = Vector2( 380, -170 )
-current = true
-drag_margin_v_enabled = true
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -348,4 +156,12 @@ script = ExtResource( 6 )
 [node name="FFMusic" parent="." instance=ExtResource( 11 )]
 stream = ExtResource( 13 )
 autoplay = false
+
+[node name="SelectedCharacter" parent="." instance=ExtResource( 3 )]
+position = Vector2( 130.596, 482.932 )
+
+[node name="Camera2D" type="Camera2D" parent="SelectedCharacter"]
+offset = Vector2( 380, -170 )
+current = true
+drag_margin_v_enabled = true
 [connection signal="gui_input" from="BlockTower" to="BlockTower" method="_on_BlockTower_gui_input"]
