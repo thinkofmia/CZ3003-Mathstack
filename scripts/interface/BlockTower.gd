@@ -13,8 +13,8 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("ui_down"):
 	#	addBlock()
 		
-	if Input.is_action_just_pressed("ui_right"):
-		selfDestruct()
+	#if Input.is_action_just_pressed("ui_right"):
+	#	selfDestruct()
 
 func selfDestruct():
 	#Save global vars

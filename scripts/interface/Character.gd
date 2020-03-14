@@ -163,12 +163,19 @@ func _physics_process(delta):
 		#For debugging
 		#print("On floor.")
 		#for jumping
+		var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 		if Input.is_action_just_pressed("ui_up"):
 			jump()
 		#Cheat Code
 		if Input.is_action_just_pressed("ui_down"):
 			addLife()
 			fixHearts()
+		if Input.is_action_just_pressed("ui_left"):
+			if is_instance_valid(blkTower): #Check if Challenge Mode or not
+				motion.x -= SPEED
+		if Input.is_action_just_pressed("ui_right"):
+			if is_instance_valid(blkTower): #Check if Challenge Mode or not
+				motion.x += SPEED
 	#Set motion to 0,0 if no motion
 	motion = move_and_slide(motion, UP)
 	if motion.y > 1000:
