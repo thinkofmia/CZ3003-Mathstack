@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Model/Labels/Confirm.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Model/Labels/Cancel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Model/Labels/RetrievePassHeader.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Control/randy_scripts/Label.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -69,7 +68,6 @@ margin_top = 0.0
 margin_right = 345.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 320, 90 )
-script = ExtResource( 8 )
 
 [node name="Button2" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2" index="1" instance=ExtResource( 6 )]
 margin_left = 395.0
@@ -77,7 +75,6 @@ margin_top = 0.0
 margin_right = 715.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 320, 90 )
-script = ExtResource( 8 )
 
 [node name="Header" parent="." index="3" instance=ExtResource( 7 )]
 margin_top = 20.0

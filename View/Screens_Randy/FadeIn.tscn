@@ -2,7 +2,7 @@
 
 [ext_resource path="res://textures/mountain.png" type="Texture" id=1]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
 
 signal fade_finished
@@ -14,7 +14,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	emit_signal(\"fade_finished\")
 "
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -35,11 +35,11 @@ margin_right = 1642.0
 margin_bottom = 1230.0
 rect_scale = Vector2( 0.75, 0.6 )
 texture = ExtResource( 1 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade_in = SubResource( 3 )
+anims/fade_in = SubResource( 2 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

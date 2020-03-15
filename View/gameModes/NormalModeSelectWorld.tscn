@@ -4,7 +4,7 @@
 [ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=2]
 [ext_resource path="res://Control/interface/NormalModeSelectWorld.gd" type="Script" id=3]
 [ext_resource path="res://View/util/CompletionBox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Model/buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=13]
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

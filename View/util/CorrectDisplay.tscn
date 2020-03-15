@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://buttons/QuitButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Model/buttons/QuitButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Control/interface/OutcomeDisplay.gd" type="Script" id=2]
+
 
 [node name="CorrectStatus" type="VBoxContainer"]
 anchor_right = 1.0

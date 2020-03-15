@@ -4,10 +4,11 @@
 [ext_resource path="res://Control/interface/returnToNormalModeSelectWorld.gd" type="Script" id=2]
 [ext_resource path="res://View/util/CompletionBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Control/interface/NormalModeSelectDifficulty.gd" type="Script" id=4]
-[ext_resource path="res://buttons/gameModeButtons/PrimaryButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://buttons/gameModeButtons/IntermediateButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://buttons/gameModeButtons/AdvancedButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Model/buttons/gameModeButtons/PrimaryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Model/buttons/gameModeButtons/IntermediateButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Model/buttons/gameModeButtons/AdvancedButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=8]
+
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
