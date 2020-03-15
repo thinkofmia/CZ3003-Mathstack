@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Characters/Warrior/Idle (1).png" type="Texture" id=1]
+[ext_resource path="res://Model/Characters/Warrior/Idle (1).png" type="Texture" id=1]
 [ext_resource path="res://menus/util/CharacterIcon.tscn" type="PackedScene" id=2]
 
 [node name="SSIcon" instance=ExtResource( 2 )]
