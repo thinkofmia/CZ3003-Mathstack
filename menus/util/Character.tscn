@@ -20,45 +20,45 @@
 [ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun3.png" type="Texture" id=18]
 [ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun1.png" type="Texture" id=19]
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 0, 60, 26, 30 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 26, 60, 26, 30 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 52, 60, 26, 30 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 78, 60, 26, 30 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 104, 60, 26, 30 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 286, 60, 26, 30 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 8.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
@@ -66,7 +66,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=9]
 resource_local_to_scene = true
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 10 ) ],
@@ -94,23 +94,24 @@ texture = ExtResource( 5 )
 [node name="HBSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
-frames = SubResource( 8 )
-frame = 2
+frames = SubResource( 7 )
+frame = 5
 playing = true
 flip_h = true
 
 [node name="RRSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
-frames = SubResource( 9 )
-frame = 2
+frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
-frames = SubResource( 1 )
+frames = SubResource( 9 )
 animation = "idle"
+frame = 8
 playing = true
 
 [node name="healthBar" type="HBoxContainer" parent="."]

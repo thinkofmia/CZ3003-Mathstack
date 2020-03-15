@@ -10,7 +10,7 @@
 [ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=8]
 [ext_resource path="res://buttons/QuitButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menus/util/PlayMusic.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sounds/music/bensound-house.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Model/sounds/music/bensound-house.ogg" type="AudioStream" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
