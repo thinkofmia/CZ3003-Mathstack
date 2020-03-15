@@ -146,17 +146,6 @@ margin_bottom = 470.0
 rect_scale = Vector2( 1, 1 )
 text = "You are expecting more?"
 
-[node name="RichTextLabel" parent="Header" index="0"]
-margin_left = 223.755
-margin_top = 32.1117
-margin_right = 317.755
-margin_bottom = 48.1117
-text = "Custom Mode"
-
-[node name="ColorRect" parent="Header/RichTextLabel" index="1"]
-margin_left = -4.08109
-margin_right = -4.08109
-
-[node name="BackButton" parent="." index="3"]
+[node name="BackButton" parent="." index="2"]
 script = ExtResource( 2 )
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

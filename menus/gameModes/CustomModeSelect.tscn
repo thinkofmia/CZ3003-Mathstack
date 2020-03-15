@@ -76,20 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" parent="Header" index="0"]
-margin_left = 215.593
-margin_top = 33.472
-margin_right = 309.593
-margin_bottom = 49.472
-text = "Custom Mode"
-
-[node name="ColorRect" parent="Header/RichTextLabel" index="1"]
-margin_left = -3.62764
-margin_top = -2.38065
-margin_right = -3.62764
-margin_bottom = -2.38065
-
-[node name="BackButton" parent="." index="3"]
+[node name="BackButton" parent="." index="2"]
 script = ExtResource( 2 )
 [connection signal="pressed" from="PlayBoard/OptionsRow/AllQuizButton" to="PlayBoard/OptionsRow/AllQuizButton" method="_on_AllQuizButton_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

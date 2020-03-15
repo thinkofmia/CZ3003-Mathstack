@@ -18,3 +18,8 @@ func _ready():
 	var avg = stepify(global.highscore/global.timeSeconds,0.01)
 	print(avg)
 	$PlayBoard/AverageSpeedRow/SpeedPerQn.set_text(str(avg)+" qn/s")
+
+
+func _on_LeaderBoardButton_pressed():
+	
+	get_tree().change_scene("res://menus/teachers/LeaderboardScene.tscn")

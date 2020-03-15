@@ -4,9 +4,9 @@
 [ext_resource path="res://SnesItalic-AegA.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/interface/ChooseWorldStatsScreen.gd" type="Script" id=3]
 [ext_resource path="res://Object/Crate.png" type="Texture" id=4]
-[ext_resource path="res://Labels/Back.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Model/Labels/Back.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Labels/TeachersHeader.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Model/Labels/TeachersHeader.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30

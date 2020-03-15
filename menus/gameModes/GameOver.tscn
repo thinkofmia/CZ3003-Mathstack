@@ -165,4 +165,5 @@ position = Vector2( 67.4558, 463.82 )
 
 [node name="SelectedCharacter" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 107.47, 418.994 )
+[connection signal="pressed" from="LeaderBoardButton" to="." method="_on_LeaderBoardButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]

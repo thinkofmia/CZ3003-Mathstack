@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/interface/goToAllQuiz.gd" type="Script" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://menus/basicMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/randy_scripts/Label.gd" type="Script" id=4]
 [ext_resource path="res://scripts/interface/CustomQuizModePreview.gd" type="Script" id=5]
-[ext_resource path="res://Labels/PlayWithBorders.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Model/Labels/PlayWithBorders.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=7]
 
 [node name="World" instance=ExtResource( 3 )]
@@ -161,17 +162,9 @@ text = "xBMIAtt567"
 margin_top = 313.0
 margin_right = 539.0
 margin_bottom = 403.0
+script = ExtResource( 4 )
 
-[node name="RichTextLabel" parent="Header" index="0"]
-margin_left = 193.025
-margin_right = 285.025
-text = "Custom Mode"
-
-[node name="ColorRect" parent="Header/RichTextLabel" index="1"]
-margin_left = -0.453419
-margin_right = -0.453415
-
-[node name="BackButton" parent="." index="3"]
+[node name="BackButton" parent="." index="2"]
 script = ExtResource( 1 )
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

@@ -4,17 +4,20 @@
 [ext_resource path="res://menus/Screens_Randy/Profile.gd" type="Script" id=2]
 [ext_resource path="res://textures/mountain.png" type="Texture" id=3]
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Labels/Back.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Labels/Edit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Model/Labels/Back.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Model/Labels/Edit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menus/util/CharacterIcon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://menus/util/Characters/HBIcon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menus/util/Characters/MrIIcon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menus/Screens_Randy/FadeIn.tscn" type="PackedScene" id=10]
 [ext_resource path="res://menus/util/MainMusic.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Starzy.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://Labels/Header.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Model/Labels/Header.tscn" type="PackedScene" id=13]
 [ext_resource path="res://menus/util/Characters/SSIcon.tscn" type="PackedScene" id=14]
 [ext_resource path="res://menus/util/Characters/RRIcon.tscn" type="PackedScene" id=15]
+
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 64

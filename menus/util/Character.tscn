@@ -103,6 +103,7 @@ flip_h = true
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 9 )
+frame = 2
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
@@ -110,7 +111,6 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 9
 playing = true
 
 [node name="healthBar" type="HBoxContainer" parent="."]
