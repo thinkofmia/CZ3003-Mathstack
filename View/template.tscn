@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/mountain.png" type="Texture" id=2]
+[ext_resource path="res://View/util/MainMusic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://View/Screens_Randy/FadeIn.tscn" type="PackedScene" id=7]
+
+[node name="TemplateScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1642.0
+margin_bottom = 1230.0
+rect_scale = Vector2( 0.75, 0.6 )
+texture = ExtResource( 2 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_right = -275.0
+margin_bottom = -227.0
+custom_constants/margin_right = 300
+custom_constants/margin_top = 150
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
+}
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer"]
+margin_left = 300.0
+margin_top = 150.0
+margin_right = 1067.0
+margin_bottom = 901.0
+color = Color( 0.192157, 0.392157, 0.552941, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer"]
+margin_left = 300.0
+margin_top = 150.0
+margin_right = 1067.0
+margin_bottom = 901.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 717.0
+margin_bottom = 701.0
+
+[node name="FadeIn" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="MainMusic" parent="." instance=ExtResource( 3 )]

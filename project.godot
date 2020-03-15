@@ -16,13 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Mathstack"
-run/main_scene="res://menus/Screens_Randy/LoginScreen.tscn"
+run/main_scene="res://View/Screens_Randy/LoginScreen.tscn"
 config/icon="res://textures/icon.png"
 
 [autoload]
 
-global="*res://scripts/global.gd"
-Firebase="*res://scripts/Firebase/Firebase.gd"
+global="*res://Control/global.gd"
+Firebase="*res://Control/Firebase/Firebase.gd"
 
 [display]
 

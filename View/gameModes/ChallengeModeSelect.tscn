@@ -1,0 +1,264 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=2]
+[ext_resource path="res://View/util/CharacterIcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=4]
+[ext_resource path="res://View/util/Block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://View/util/Character.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/BG.png" type="Texture" id=7]
+[ext_resource path="res://Model/Labels/PlayWithBorders.tscn" type="PackedScene" id=8]
+[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=9]
+[ext_resource path="res://View/util/Characters/HBIcon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://View/util/Characters/RRIcon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Model/Labels/ChallengeModeHeader.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Control/logic/ChallengeModeSelection.gd" type="Script" id=14]
+[ext_resource path="res://View/util/Characters/SSIcon.tscn" type="PackedScene" id=17]
+[ext_resource path="res://View/util/Characters/MrIIcon.tscn" type="PackedScene" id=18]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 14 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "CHALLENGE MODE"
+
+[node name="Background2" type="Sprite" parent="." index="1"]
+visible = false
+position = Vector2( 511.773, 300.473 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="Background2" index="0"]
+margin_left = -836.0
+margin_top = -603.0
+margin_right = 846.0
+margin_bottom = 706.0
+color = Color( 0.133333, 0.411765, 0.384314, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+visible = false
+position = Vector2( 511.127, 295.303 )
+scale = Vector2( 1.02197, 0.7915 )
+texture = ExtResource( 7 )
+
+[node name="ColorRect2" type="ColorRect" parent="Background3" index="0"]
+margin_left = -286.0
+margin_top = -260.0
+margin_right = 285.0
+margin_bottom = 321.0
+color = Color( 0.952941, 0.619608, 0.490196, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBoard" parent="." index="3"]
+margin_top = 93.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayBoard/MarginContainer" index="0"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 559.0
+margin_bottom = 433.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 30
+alignment = 1
+
+[node name="CharacterLabel" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="0"]
+margin_right = 539.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 12 )
+text = "Character"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterSelectRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="1"]
+margin_top = 69.0
+margin_right = 539.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 500, 75 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GodotIcon" parent="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow" index="0" instance=ExtResource( 3 )]
+margin_left = 62.0
+margin_right = 137.0
+
+[node name="SSIcon" parent="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow" index="1" instance=ExtResource( 17 )]
+margin_left = 147.0
+margin_right = 222.0
+
+[node name="MrIIcon" parent="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow" index="2" instance=ExtResource( 18 )]
+margin_left = 232.0
+margin_right = 307.0
+
+[node name="HBIcon" parent="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow" index="3" instance=ExtResource( 10 )]
+margin_left = 317.0
+margin_right = 392.0
+
+[node name="RRIcon" parent="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow" index="4" instance=ExtResource( 11 )]
+margin_left = 402.0
+margin_right = 477.0
+
+[node name="WorldLabel" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="2"]
+margin_top = 174.0
+margin_right = 539.0
+margin_bottom = 213.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 12 )
+text = "First World"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldSelectContainer" type="ScrollContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="3"]
+margin_top = 243.0
+margin_right = 539.0
+margin_bottom = 293.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldSelectRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer" index="0"]
+margin_right = 1011.0
+margin_bottom = 26.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="0" instance=ExtResource( 4 )]
+margin_right = 91.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #1"
+
+[node name="WorldButton2" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="1" instance=ExtResource( 4 )]
+margin_left = 101.0
+margin_right = 192.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #2"
+
+[node name="WorldButton4" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="2" instance=ExtResource( 4 )]
+margin_left = 202.0
+margin_right = 293.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #3"
+
+[node name="WorldButton3" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="3" instance=ExtResource( 4 )]
+margin_left = 303.0
+margin_right = 394.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #4"
+
+[node name="WorldButton8" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="4" instance=ExtResource( 4 )]
+margin_left = 404.0
+margin_right = 495.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #5"
+
+[node name="WorldButton7" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="5" instance=ExtResource( 4 )]
+margin_left = 505.0
+margin_right = 596.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #6"
+
+[node name="WorldButton6" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="6" instance=ExtResource( 4 )]
+margin_left = 606.0
+margin_right = 697.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #7"
+
+[node name="WorldButton5" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="7" instance=ExtResource( 4 )]
+margin_left = 707.0
+margin_right = 798.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #8"
+
+[node name="WorldButton10" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="8" instance=ExtResource( 4 )]
+margin_left = 808.0
+margin_right = 899.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #9"
+
+[node name="WorldButton9" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="9" instance=ExtResource( 4 )]
+margin_left = 909.0
+margin_right = 1011.0
+margin_bottom = 26.0
+rect_scale = Vector2( 1, 1 )
+text = "World #10"
+
+[node name="Play" parent="PlayBoard/MarginContainer/VBoxContainer" index="4" instance=ExtResource( 8 )]
+margin_top = 323.0
+margin_right = 539.0
+margin_bottom = 413.0
+
+[node name="BackButton" parent="." index="4"]
+script = ExtResource( 2 )
+
+[node name="SelectedCharacter" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( 934.577, 442.937 )
+scale = Vector2( -1, 1 )
+
+[node name="Block" parent="." index="7" instance=ExtResource( 5 )]
+position = Vector2( 895.856, 480.621 )
+
+[node name="Header" parent="." index="8" instance=ExtResource( 13 )]
+margin_top = 20.0
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow/GodotIcon" to="." method="_on_GodotIcon_pressed"]
+[connection signal="toggled" from="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow/GodotIcon" to="." method="_on_GodotIcon_toggled"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow/SSIcon" to="." method="_on_SSIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow/MrIIcon" to="." method="_on_MrIIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow/HBIcon" to="." method="_on_HBIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/CharacterSelectRow/RRIcon" to="." method="_on_RRIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton" to="." method="_on_WorldButton_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton2" to="." method="_on_WorldButton2_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton4" to="." method="_on_WorldButton4_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton3" to="." method="_on_WorldButton3_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton8" to="." method="_on_WorldButton8_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton7" to="." method="_on_WorldButton7_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton6" to="." method="_on_WorldButton6_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton5" to="." method="_on_WorldButton5_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton10" to="." method="_on_WorldButton10_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton9" to="." method="_on_WorldButton9_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

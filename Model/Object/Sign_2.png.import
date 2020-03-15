@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sign_2.png-d595f3038360cfb60d81d96264f747e3.stex"
+path="res://.import/Sign_2.png-b7112ad82333c05da55d6ee26c3a8add.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Object/Sign_2.png"
-dest_files=[ "res://.import/Sign_2.png-d595f3038360cfb60d81d96264f747e3.stex" ]
+source_file="res://Model/Object/Sign_2.png"
+dest_files=[ "res://.import/Sign_2.png-b7112ad82333c05da55d6ee26c3a8add.stex" ]
 
 [params]
 

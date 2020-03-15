@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/interface/WorldButtons.gd" type="Script" id=1]
+[ext_resource path="res://Control/interface/WorldButtons.gd" type="Script" id=1]
 [ext_resource path="res://Xolonium_16.tres" type="DynamicFont" id=2]
 
 [node name="WorldButton" type="Button"]
