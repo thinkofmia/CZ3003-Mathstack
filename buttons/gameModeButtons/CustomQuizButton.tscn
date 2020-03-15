@@ -5,6 +5,7 @@
 [node name="CustomQuizButton" type="Button"]
 margin_right = 143.0
 margin_bottom = 53.0
+rect_min_size = Vector2( 50, 30 )
 rect_scale = Vector2( 2, 2 )
 text = "Custom Quiz #1"
 script = ExtResource( 1 )

@@ -40,12 +40,12 @@ func _on_WorldButton_pressed():
 	
 func changeBg():
 	#Hide all bg
-	$Background.hide()
+	$TemplateScreen/TextureRect.hide()
 	$Background2.hide()
 	$Background3.hide()
 	match selectedBg:
 		1:
-			$Background.show()
+			$TemplateScreen/TextureRect.show()
 		2:
 			$Background2.show()
 		3:
@@ -95,3 +95,7 @@ func _on_WorldButton10_pressed():
 func _on_WorldButton9_pressed():
 	selectedBg = 1
 	changeBg()
+
+
+func _on_Play_pressed():
+	get_tree().change_scene("res://menus/gameModes/ChallengePlayScreen.tscn")

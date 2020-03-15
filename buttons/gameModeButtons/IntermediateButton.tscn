@@ -5,8 +5,8 @@
 [node name="IntermediateButton" instance=ExtResource( 1 )]
 
 [node name="Label" parent="." index="0"]
-margin_left = -1.69422
-margin_top = 205.441
-margin_right = 87.3055
-margin_bottom = 219.441
+margin_left = -2.0
+margin_top = 205.0
+margin_right = 75.0
+margin_bottom = 219.0
 text = "Intermediate"

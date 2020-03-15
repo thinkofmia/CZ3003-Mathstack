@@ -15,6 +15,5 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_BackButton_pressed():
-	get_tree().change_scene("res://menu/teachers/ChooseWorldSeeStatsScreen.tscn")
+func _on_Button_pressed():
+	get_tree().change_scene("res://menus/teachers/ChooseWorldSeeStatsScreen.tscn")

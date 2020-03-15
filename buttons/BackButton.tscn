@@ -24,3 +24,6 @@ margin_top = 70.0
 margin_right = 69.5749
 margin_bottom = 84.0
 text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}

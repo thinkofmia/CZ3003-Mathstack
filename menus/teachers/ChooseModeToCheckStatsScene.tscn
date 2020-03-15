@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Characters/Warrior/Idle (9).png" type="Texture" id=1]
 [ext_resource path="res://Characters/Warrior/Idle (2).png" type="Texture" id=2]
@@ -6,34 +6,20 @@
 [ext_resource path="res://Characters/Warrior/Idle (7).png" type="Texture" id=4]
 [ext_resource path="res://Characters/Warrior/Idle (1).png" type="Texture" id=5]
 [ext_resource path="res://Characters/Warrior/Idle (8).png" type="Texture" id=6]
-[ext_resource path="res://SnesItalic-AegA.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://textures/BG.png" type="Texture" id=8]
-[ext_resource path="res://scripts/statistics/MainScene.gd" type="Script" id=9]
+[ext_resource path="res://menus/template.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Labels/Leaderboard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/statistics/ChooseModeStatsScreen.gd" type="Script" id=9]
 [ext_resource path="res://Characters/Warrior/Idle (4).png" type="Texture" id=10]
 [ext_resource path="res://Characters/Warrior/Idle (5).png" type="Texture" id=11]
-[ext_resource path="res://textures/board.png" type="Texture" id=12]
+[ext_resource path="res://Labels/ChallengeMode.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Characters/Warrior/Idle (6).png" type="Texture" id=13]
 [ext_resource path="res://Characters/Warrior/Idle (10).png" type="Texture" id=14]
-[ext_resource path="res://Object/Sign_2.png" type="Texture" id=15]
-[ext_resource path="res://scripts/interface/ReturnToMainMenu.gd" type="Script" id=16]
-[ext_resource path="res://buttons/BackButton.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Labels/NormalMode.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Labels/Back.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Labels/CustomMode.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Labels/TeachersHeader.tscn" type="PackedScene" id=18]
 
-[sub_resource type="DynamicFont" id=3]
-size = 40
-use_filter = true
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 40
-use_filter = true
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 40
-use_filter = true
-font_data = ExtResource( 7 )
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 14 ) ],
 "loop": true,
@@ -41,120 +27,60 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=6]
-size = 28
-use_filter = true
-font_data = ExtResource( 7 )
-
-[node name="MainBGSprite" type="Sprite"]
-position = Vector2( -2, 1.45495 )
-scale = Vector2( 1.02374, 0.795069 )
-texture = ExtResource( 8 )
-centered = false
+[node name="ChooseModeStatsScreen" instance=ExtResource( 7 )]
 script = ExtResource( 9 )
 
-[node name="Board" type="Sprite" parent="."]
-position = Vector2( 496.906, 370.966 )
-scale = Vector2( 0.789451, 0.896056 )
-texture = ExtResource( 12 )
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+margin_right = 667.0
+margin_bottom = 651.0
+size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="Board"]
-margin_left = -290.151
-margin_top = -344.664
-margin_right = -171.151
-margin_bottom = -330.664
-rect_scale = Vector2( 5, 5 )
-text = "Teachers Statistics"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 667.0
+margin_bottom = 651.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 80
+alignment = 1
 
-[node name="Tile BG" type="ColorRect" parent="Board/Title"]
-show_behind_parent = true
-margin_left = 0.303825
-margin_top = -3.10197
-margin_right = 121.304
-margin_bottom = 14.898
-color = Color( 0.54902, 0.972549, 0.443137, 1 )
+[node name="Normal" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="0" instance=ExtResource( 15 )]
+margin_top = 15.0
+margin_right = 667.0
+margin_bottom = 75.0
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="Board"]
-margin_left = -350.0
-margin_top = -150.0
-margin_right = 90.0
-margin_bottom = 170.0
-custom_constants/separation = 50
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Challenge" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 12 )]
+margin_top = 155.0
+margin_right = 667.0
+margin_bottom = 215.0
 
-[node name="Button_NormalMode" type="Button" parent="Board/ButtonsContainer"]
-margin_right = 440.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 0, 70 )
-custom_fonts/font = SubResource( 3 )
-text = "Normal Mode"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Custom" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="2" instance=ExtResource( 17 )]
+margin_top = 295.0
+margin_right = 667.0
+margin_bottom = 355.0
 
-[node name="Button_ChallengeMode" type="Button" parent="Board/ButtonsContainer"]
-margin_top = 120.0
-margin_right = 440.0
-margin_bottom = 190.0
-rect_min_size = Vector2( 0, 70 )
-custom_fonts/font = SubResource( 4 )
-text = "Challenge Mode"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Leaderboard" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="3" instance=ExtResource( 8 )]
+margin_top = 435.0
+margin_right = 667.0
+margin_bottom = 495.0
+scene_to_load = "res://menus/teachers/LeaderboardScene.tscn"
 
-[node name="Button_CustomMode" type="Button" parent="Board/ButtonsContainer"]
-margin_top = 240.0
-margin_right = 440.0
-margin_bottom = 310.0
-rect_min_size = Vector2( 0, 70 )
-custom_fonts/font = SubResource( 5 )
-text = "Custom Mode"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Back" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="4" instance=ExtResource( 16 )]
+margin_top = 575.0
+margin_right = 667.0
+margin_bottom = 635.0
+scene_to_load = "res://menus/Screens_Randy/MainMenu.tscn"
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Board"]
-position = Vector2( 220.839, -8.59558 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+position = Vector2( 542.172, 181.405 )
 scale = Vector2( 0.487084, 0.531251 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
 flip_h = true
 
-[node name="LeaderboardSprite" type="Sprite" parent="."]
-position = Vector2( 841.059, 584.465 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 15 )
-centered = false
-
-[node name="LeaderboardButton" type="Button" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 844.0
-margin_top = 247.0
-margin_right = -49.0
-margin_bottom = 291.0
-custom_fonts/font = SubResource( 6 )
-text = "Leaderboard"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BackButton" parent="." instance=ExtResource( 17 )]
-margin_left = 20.0
-margin_top = 627.0
-margin_right = 122.0
-margin_bottom = 730.0
-script = ExtResource( 16 )
-[connection signal="pressed" from="Board/ButtonsContainer/Button_NormalMode" to="." method="_on_Button_NormalMode_pressed"]
-[connection signal="pressed" from="LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[node name="Header" parent="." index="3" instance=ExtResource( 18 )]
+margin_top = 20.0
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Normal" to="." method="_on_Normal_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

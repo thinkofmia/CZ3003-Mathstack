@@ -6,8 +6,4 @@
 scene_to_load = "res://menus/gameModes/ChallengeModeSelect.tscn"
 
 [node name="Label" parent="." index="0"]
-margin_left = -155.318
-margin_top = -20.4555
-margin_right = -53.3177
-margin_bottom = -3.45547
-text = "Challenge Mode"
+text = "Challenge"

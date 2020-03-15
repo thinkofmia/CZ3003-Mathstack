@@ -28,18 +28,24 @@ func _ready():
 [node name="World" instance=ExtResource( 1 )]
 script = SubResource( 1 )
 
-[node name="CompletionBox" parent="PlayBoard" index="1" instance=ExtResource( 5 )]
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "NORMAL MODE"
+
+[node name="PlayBoard" parent="." index="1"]
+margin_top = 91.0
+
+[node name="CompletionBox" parent="PlayBoard" index="0" instance=ExtResource( 5 )]
 margin_left = 25.0
-margin_top = 22.0
-margin_right = 307.0
-margin_bottom = 72.0
+margin_top = 18.0
+margin_right = 291.0
+margin_bottom = 68.0
 rect_scale = Vector2( 2, 2 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard" index="2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard" index="1"]
 margin_left = 25.0
-margin_top = 93.0
-margin_right = 256.0
-margin_bottom = 175.0
+margin_top = 134.0
+margin_right = 240.0
+margin_bottom = 207.0
 rect_scale = Vector2( 2.5, 4 )
 size_flags_vertical = 3
 __meta__ = {
@@ -47,92 +53,91 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayBoard/ScrollContainer" index="0"]
-margin_right = 210.0
-margin_bottom = 190.0
+margin_right = 203.0
+margin_bottom = 170.0
 custom_constants/separation = 10
 
 [node name="LeftContainer" type="VBoxContainer" parent="PlayBoard/ScrollContainer/HBoxContainer" index="0"]
-margin_right = 100.0
-margin_bottom = 190.0
+margin_right = 91.0
+margin_bottom = 170.0
 size_flags_horizontal = 0
 custom_constants/separation = 10
 
 [node name="WorldButton" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="0" instance=ExtResource( 13 )]
+margin_right = 91.0
+margin_bottom = 26.0
 rect_scale = Vector2( 1, 1 )
 text = "World #1"
 
 [node name="World3Button" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="1" instance=ExtResource( 13 )]
-margin_top = 40.0
-margin_bottom = 70.0
+margin_top = 36.0
+margin_right = 91.0
+margin_bottom = 62.0
 rect_scale = Vector2( 1, 1 )
 text = "World #3"
 
 [node name="WorldButton2" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="2" instance=ExtResource( 13 )]
-margin_top = 80.0
-margin_bottom = 110.0
+margin_top = 72.0
+margin_right = 91.0
+margin_bottom = 98.0
 rect_scale = Vector2( 1, 1 )
 text = "World #5"
 
 [node name="WorldButton3" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="3" instance=ExtResource( 13 )]
-margin_top = 120.0
-margin_bottom = 150.0
+margin_top = 108.0
+margin_right = 91.0
+margin_bottom = 134.0
 rect_scale = Vector2( 1, 1 )
 text = "World #7"
 
 [node name="WorldButton4" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="4" instance=ExtResource( 13 )]
-margin_top = 160.0
-margin_bottom = 190.0
+margin_top = 144.0
+margin_right = 91.0
+margin_bottom = 170.0
 rect_scale = Vector2( 1, 1 )
 text = "World #9"
 
 [node name="RightContainer" type="VBoxContainer" parent="PlayBoard/ScrollContainer/HBoxContainer" index="1"]
-margin_left = 110.0
-margin_right = 210.0
-margin_bottom = 190.0
+margin_left = 101.0
+margin_right = 203.0
+margin_bottom = 170.0
 size_flags_horizontal = 0
 custom_constants/separation = 10
 
 [node name="WorldButton" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="0" instance=ExtResource( 13 )]
+margin_right = 91.0
+margin_bottom = 26.0
 rect_scale = Vector2( 1, 1 )
 text = "World #2"
 
 [node name="WorldButton2" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="1" instance=ExtResource( 13 )]
-margin_top = 40.0
-margin_bottom = 70.0
+margin_top = 36.0
+margin_right = 91.0
+margin_bottom = 62.0
 rect_scale = Vector2( 1, 1 )
 text = "World #4"
 
 [node name="WorldButton3" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="2" instance=ExtResource( 13 )]
-margin_top = 80.0
-margin_bottom = 110.0
+margin_top = 72.0
+margin_right = 91.0
+margin_bottom = 98.0
 rect_scale = Vector2( 1, 1 )
 text = "World #6"
 
 [node name="WorldButton4" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="3" instance=ExtResource( 13 )]
-margin_top = 120.0
-margin_bottom = 150.0
+margin_top = 108.0
+margin_right = 91.0
+margin_bottom = 134.0
 rect_scale = Vector2( 1, 1 )
 text = "World #8"
 
 [node name="WorldButton5" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="4" instance=ExtResource( 13 )]
-margin_top = 160.0
-margin_bottom = 190.0
+margin_top = 144.0
+margin_right = 102.0
+margin_bottom = 170.0
 rect_scale = Vector2( 1, 1 )
 text = "World #10"
 
-[node name="RichTextLabel" parent="Header" index="0"]
-margin_left = 380.757
-margin_top = 25.4415
-margin_right = 472.757
-margin_bottom = 42.4415
-text = "Normal Mode"
-
-[node name="ColorRect" parent="Header/RichTextLabel" index="1"]
-margin_left = -3.17417
-margin_top = -1.02028
-margin_right = -3.17416
-margin_bottom = -1.02028
-
-[node name="BackButton" parent="." index="3"]
+[node name="BackButton" parent="." index="2"]
 script = ExtResource( 4 )
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

@@ -1,22 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://textures/avatar.jpeg" type="Texture" id=1]
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Characters/Char 3.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/template.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Characters/Char 1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Labels/Confirm.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Characters/Char 2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://menus/Screens_Randy/EditProfile.gd" type="Script" id=9]
 [ext_resource path="res://Labels/Cancel.tscn" type="PackedScene" id=10]
 
-[sub_resource type="DynamicFont" id=1]
-size = 64
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=2]
-size = 48
+size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -29,18 +22,21 @@ script = ExtResource( 9 )
 [node name="MarginContainer" parent="TextureRect" index="0"]
 anchor_top = 0.00166151
 anchor_bottom = 1.00166
+margin_top = 4.15393
+margin_right = -172.0
+margin_bottom = -162.844
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
 margin_right = 1170.0
-margin_bottom = 991.0
+margin_bottom = 963.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
 margin_right = 1170.0
-margin_bottom = 991.0
+margin_bottom = 963.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
 margin_right = 820.0
-margin_bottom = 841.0
+margin_bottom = 763.0
 
 [node name="Title" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 770.0
@@ -63,7 +59,7 @@ texture = ExtResource( 1 )
 margin_left = 328.0
 margin_right = 696.0
 margin_bottom = 225.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Username"
 align = 1
 expand_to_text_length = true
@@ -71,7 +67,7 @@ expand_to_text_length = true
 [node name="MenuOptions" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 311.0
 margin_right = 770.0
-margin_bottom = 697.0
+margin_bottom = 619.0
 size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
@@ -79,7 +75,7 @@ alignment = 1
 [node name="Account" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="0"]
 margin_right = 770.0
 margin_bottom = 58.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Account: Student"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,7 +90,7 @@ margin_bottom = 146.0
 margin_top = 5.0
 margin_right = 272.0
 margin_bottom = 63.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Nickname: "
 
 [node name="LineEdit" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer2" index="1"]
@@ -109,7 +105,7 @@ align = 1
 margin_top = 166.0
 margin_right = 770.0
 margin_bottom = 224.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "School: NTU"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="3"]
@@ -121,7 +117,7 @@ margin_bottom = 308.0
 margin_top = 3.0
 margin_right = 165.0
 margin_bottom = 61.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Class: "
 
 [node name="OptionButton" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer3" index="1"]
@@ -131,30 +127,10 @@ margin_bottom = 64.0
 custom_fonts/font = ExtResource( 6 )
 text = "SS1"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="4"]
-margin_top = 328.0
-margin_right = 770.0
-margin_bottom = 386.0
-custom_constants/separation = 30
-
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="0"]
-margin_right = 274.0
-margin_bottom = 58.0
-custom_fonts/font = SubResource( 3 )
-text = "Character: "
-
-[node name="Char 1" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="1" instance=ExtResource( 5 )]
-anchor_left = 0.0
-anchor_right = 0.0
-
-[node name="Char 2" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="2" instance=ExtResource( 8 )]
-
-[node name="Char 3" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" index="3" instance=ExtResource( 3 )]
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
-margin_top = 701.0
+margin_top = 623.0
 margin_right = 770.0
-margin_bottom = 791.0
+margin_bottom = 713.0
 custom_constants/separation = 50
 alignment = 1
 
@@ -172,6 +148,11 @@ margin_bottom = 90.0
 scene_to_load = "res://menus/Screens_Randy/Profile.tscn"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
+
+[node name="Header" parent="." index="4"]
+margin_left = 0.0
+margin_right = 0.0
+text = "EDIT PROFILE"
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

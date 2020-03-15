@@ -1,150 +1,170 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/interface/goToAllQuiz.gd" type="Script" id=1]
-[ext_resource path="res://buttons/gameModeButtons/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://menus/basicMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/interface/PlayChallengeMode.gd" type="Script" id=4]
+[ext_resource path="res://scripts/interface/CustomQuizModePreview.gd" type="Script" id=5]
+[ext_resource path="res://Labels/PlayWithBorders.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=7]
 
 [node name="World" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
 
-[node name="QuizName" type="Label" parent="PlayBoard" index="1"]
-margin_left = 19.0452
-margin_top = 24.4867
-margin_right = 91.0452
-margin_bottom = 38.4867
-rect_scale = Vector2( 3, 3 )
+[node name="Header" parent="TemplateScreen" index="3"]
+margin_left = 351.102
+margin_top = 23.5869
+margin_right = -536906.0
+margin_bottom = 92.5869
+text = "CUSTOM MODE"
+
+[node name="PlayBoard" parent="." index="1"]
+margin_top = 91.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayBoard/MarginContainer" index="0"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 559.0
+margin_bottom = 432.0
+custom_constants/separation = 10
+
+[node name="QuizName" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="0"]
+margin_right = 539.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 2 )
 text = "Quiz Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AuthorRow" type="HBoxContainer" parent="PlayBoard" index="2"]
-margin_left = 43.5319
-margin_top = 62.5772
-margin_right = 164.532
-margin_bottom = 102.577
-rect_scale = Vector2( 2, 2 )
+[node name="AuthorRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="1"]
+margin_top = 68.0
+margin_right = 539.0
+margin_bottom = 107.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Lefts" type="Label" parent="PlayBoard/AuthorRow" index="0"]
-margin_top = 13.0
-margin_right = 24.0
-margin_bottom = 27.0
+[node name="Lefts" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/AuthorRow" index="0"]
+margin_right = 64.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "By: "
 
-[node name="AuthorName" type="Label" parent="PlayBoard/AuthorRow" index="1"]
-margin_left = 28.0
-margin_top = 13.0
-margin_right = 121.0
-margin_bottom = 27.0
+[node name="AuthorName" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/AuthorRow" index="1"]
+margin_left = 68.0
+margin_right = 316.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "GodOfThunder"
 
-[node name="CreationDateRow" type="HBoxContainer" parent="PlayBoard" index="3"]
-margin_left = 42.1715
-margin_top = 115.632
-margin_right = 177.172
-margin_bottom = 155.632
-rect_scale = Vector2( 2, 2 )
+[node name="CreationDateRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="2"]
+margin_top = 117.0
+margin_right = 539.0
+margin_bottom = 156.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Lefts" type="Label" parent="PlayBoard/CreationDateRow" index="0"]
-margin_top = 13.0
-margin_right = 57.0
-margin_bottom = 27.0
+[node name="Lefts" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/CreationDateRow" index="0"]
+margin_right = 150.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "Created: "
 
-[node name="CreationDate" type="Label" parent="PlayBoard/CreationDateRow" index="1"]
-margin_left = 61.0
-margin_top = 13.0
-margin_right = 135.0
-margin_bottom = 27.0
+[node name="CreationDate" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/CreationDateRow" index="1"]
+margin_left = 154.0
+margin_right = 370.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "06/03/2020"
 
-[node name="NumberQnsRow" type="HBoxContainer" parent="PlayBoard" index="4"]
-margin_left = 47.613
-margin_top = 178.209
-margin_right = 182.613
-margin_bottom = 218.209
-rect_scale = Vector2( 2, 2 )
+[node name="NumberQnsRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="3"]
+margin_top = 166.0
+margin_right = 539.0
+margin_bottom = 205.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Lefts" type="Label" parent="PlayBoard/NumberQnsRow" index="0"]
-margin_top = 13.0
-margin_right = 63.0
-margin_bottom = 27.0
+[node name="Lefts" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/NumberQnsRow" index="0"]
+margin_right = 165.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "# of Qns: "
 
-[node name="NumberOfQns" type="Label" parent="PlayBoard/NumberQnsRow" index="1"]
-margin_left = 67.0
-margin_top = 13.0
-margin_right = 115.0
-margin_bottom = 27.0
+[node name="NumberOfQns" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/NumberQnsRow" index="1"]
+margin_left = 169.0
+margin_right = 307.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "999999"
 
-[node name="WorldsRow" type="HBoxContainer" parent="PlayBoard" index="5"]
-margin_left = 46.2526
-margin_top = 244.867
-margin_right = 227.253
-margin_bottom = 284.867
-rect_scale = Vector2( 2, 2 )
+[node name="WorldsRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="4"]
+margin_top = 215.0
+margin_right = 539.0
+margin_bottom = 254.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Lefts" type="Label" parent="PlayBoard/WorldsRow" index="0"]
-margin_top = 13.0
-margin_right = 53.0
-margin_bottom = 27.0
+[node name="Lefts" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/WorldsRow" index="0"]
+margin_right = 139.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "Worlds: "
 
-[node name="Worlds" type="Label" parent="PlayBoard/WorldsRow" index="1"]
-margin_left = 57.0
-margin_top = 13.0
-margin_right = 181.0
-margin_bottom = 27.0
+[node name="Worlds" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/WorldsRow" index="1"]
+margin_left = 143.0
+margin_right = 463.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "Arithmetic, Vectors"
 
-[node name="IdRow" type="HBoxContainer" parent="PlayBoard" index="6"]
-margin_left = 40.8112
-margin_top = 315.607
-margin_right = 221.811
-margin_bottom = 355.607
-rect_scale = Vector2( 2, 2 )
+[node name="IdRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="5"]
+margin_top = 264.0
+margin_right = 539.0
+margin_bottom = 303.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Lefts" type="Label" parent="PlayBoard/IdRow" index="0"]
-margin_top = 13.0
-margin_right = 20.0
-margin_bottom = 27.0
+[node name="Lefts" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/IdRow" index="0"]
+margin_right = 49.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "id: "
 
-[node name="Id" type="Label" parent="PlayBoard/IdRow" index="1"]
-margin_left = 24.0
-margin_top = 13.0
-margin_right = 100.0
-margin_bottom = 27.0
+[node name="Id" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/IdRow" index="1"]
+margin_left = 53.0
+margin_right = 259.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 7 )
 text = "xBMIAtt567"
 
-[node name="PlayButton" parent="PlayBoard" index="7" instance=ExtResource( 2 )]
-margin_left = 426.145
-margin_top = 321.048
-margin_right = 591.145
-margin_bottom = 421.048
-script = ExtResource( 4 )
+[node name="Button" parent="PlayBoard/MarginContainer/VBoxContainer" index="6" instance=ExtResource( 6 )]
+margin_top = 313.0
+margin_right = 539.0
+margin_bottom = 403.0
 
 [node name="RichTextLabel" parent="Header" index="0"]
-margin_left = 393.0
-margin_right = 485.0
+margin_left = 193.025
+margin_right = 285.025
 text = "Custom Mode"
 
 [node name="ColorRect" parent="Header/RichTextLabel" index="1"]
@@ -153,4 +173,5 @@ margin_right = -0.453415
 
 [node name="BackButton" parent="." index="3"]
 script = ExtResource( 1 )
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

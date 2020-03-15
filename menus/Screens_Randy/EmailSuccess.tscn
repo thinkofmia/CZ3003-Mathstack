@@ -5,14 +5,21 @@
 [ext_resource path="res://Labels/Back.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/Screens_Randy/EmailSuccess.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 2 )
 
 [node name="EmailSuccessScreen" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
+[node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
+margin_bottom = 949.0
+
+[node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
+margin_bottom = 949.0
+
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
+margin_bottom = 749.0
 custom_constants/separation = 240
 
 [node name="Title" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
@@ -22,7 +29,7 @@ text = "Success!"
 margin_top = 318.0
 margin_right = 667.0
 margin_bottom = 399.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Your password has been sent to your email address."
 align = 1
 autowrap = true
@@ -31,4 +38,9 @@ autowrap = true
 margin_top = 639.0
 margin_right = 667.0
 margin_bottom = 699.0
+
+[node name="Header" parent="." index="3"]
+margin_left = 0.0
+margin_right = 0.0
+text = "SUCCESS!"
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

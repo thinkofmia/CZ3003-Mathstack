@@ -5,8 +5,11 @@
 [node name="PrimaryButton" instance=ExtResource( 1 )]
 
 [node name="Label" parent="." index="0"]
-margin_top = 206.396
-margin_bottom = 237.396
+margin_left = 5.0
+margin_top = 206.0
+margin_right = 78.0
+margin_bottom = 237.0
+size_flags_horizontal = 2
 text = "Primary
 "
 valign = 2

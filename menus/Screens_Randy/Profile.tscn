@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://textures/avatar.jpeg" type="Texture" id=1]
 [ext_resource path="res://menus/Screens_Randy/Profile.gd" type="Script" id=2]
@@ -11,26 +11,28 @@
 [ext_resource path="res://Characters/Char 3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menus/Screens_Randy/FadeIn.tscn" type="PackedScene" id=10]
 [ext_resource path="res://menus/util/MainMusic.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Starzy.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Labels/Header.tscn" type="PackedScene" id=13]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 64
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 64
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 48
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 48
-font_data = ExtResource( 4 )
+font_data = ExtResource( 12 )
 
 [node name="ProfileScene" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -88,20 +90,12 @@ margin_bottom = 851.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer"]
 margin_right = 770.0
-margin_bottom = 323.0
+margin_bottom = 225.0
 custom_constants/separation = 20
 
-[node name="Title" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-margin_right = 770.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 1 )
-text = "Profile"
-align = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 98.0
 margin_right = 770.0
-margin_bottom = 323.0
+margin_bottom = 225.0
 custom_constants/separation = 30
 alignment = 1
 
@@ -116,11 +110,11 @@ margin_left = 343.0
 margin_top = 73.0
 margin_right = 681.0
 margin_bottom = 151.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Username"
 
 [node name="MenuOptions" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer"]
-margin_top = 327.0
+margin_top = 229.0
 margin_right = 770.0
 margin_bottom = 737.0
 size_flags_vertical = 3
@@ -128,45 +122,46 @@ custom_constants/separation = 30
 alignment = 1
 
 [node name="Play" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
+margin_top = 49.0
 margin_right = 770.0
-margin_bottom = 58.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 5 )
 text = "Account: Student"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Leaderboard" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 88.0
+margin_top = 137.0
 margin_right = 770.0
-margin_bottom = 146.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 195.0
+custom_fonts/font = SubResource( 5 )
 text = "Nickname: User"
 
 [node name="Profile" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 176.0
+margin_top = 225.0
 margin_right = 770.0
-margin_bottom = 234.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 283.0
+custom_fonts/font = SubResource( 5 )
 text = "School: NTU"
 
 [node name="Exit" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 264.0
+margin_top = 313.0
 margin_right = 770.0
-margin_bottom = 322.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 371.0
+custom_fonts/font = SubResource( 5 )
 text = "Class: SS1"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 352.0
+margin_top = 401.0
 margin_right = 770.0
-margin_bottom = 410.0
+margin_bottom = 459.0
 custom_constants/separation = 30
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer"]
 margin_right = 274.0
 margin_bottom = 58.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 text = "Character: "
 
 [node name="Char 1" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer" instance=ExtResource( 7 )]
@@ -203,5 +198,18 @@ visible = false
 [node name="MainMusic" parent="." instance=ExtResource( 11 )]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Header" type="Label" parent="." instance=ExtResource( 13 )]
+anchor_right = 1.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PROFILE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

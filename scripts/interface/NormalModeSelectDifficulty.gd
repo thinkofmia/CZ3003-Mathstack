@@ -2,7 +2,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$PlayBoard/TopicName.set_text(global.worldSelected)
+	print(global.worldSelected)
+	$PlayBoard/MarginContainer/VBoxContainer/TopicName.set_text(global.worldSelected)
 	pass
 
 #Primary Mode Selected

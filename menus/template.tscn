@@ -1,13 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://textures/mountain.png" type="Texture" id=2]
 [ext_resource path="res://menus/util/MainMusic.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menus/Screens_Randy/FadeIn.tscn" type="PackedScene" id=7]
-
-[sub_resource type="DynamicFont" id=1]
-size = 64
-font_data = ExtResource( 1 )
 
 [node name="TemplateScreen" type="Control"]
 anchor_right = 1.0
@@ -33,7 +28,7 @@ margin_top = 2.0
 margin_right = -275.0
 margin_bottom = -227.0
 custom_constants/margin_right = 300
-custom_constants/margin_top = 100
+custom_constants/margin_top = 150
 custom_constants/margin_left = 300
 custom_constants/margin_bottom = 100
 __meta__ = {
@@ -43,7 +38,7 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer"]
 margin_left = 300.0
-margin_top = 100.0
+margin_top = 150.0
 margin_right = 1067.0
 margin_bottom = 901.0
 color = Color( 0.192157, 0.392157, 0.552941, 1 )
@@ -53,7 +48,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer"]
 margin_left = 300.0
-margin_top = 100.0
+margin_top = 150.0
 margin_right = 1067.0
 margin_bottom = 901.0
 custom_constants/margin_right = 50
@@ -68,17 +63,7 @@ __meta__ = {
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 717.0
-margin_bottom = 751.0
-
-[node name="Title" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer"]
-margin_right = 667.0
-margin_bottom = 78.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 5
-text = "Template"
-align = 1
+margin_bottom = 701.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
 visible = false
