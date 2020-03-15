@@ -16,9 +16,9 @@ var counter = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	displayCharacter()
-	#Show PowerButton
-	recoverPower()
 	counter = 5
+	#recoverPower
+	recoverPower()
 
 func displayCharacter():
 	#Hide all sprites
@@ -53,6 +53,7 @@ func callPower():
 			addLife()
 			addLife()
 			addLife()
+			$PowerButton.hide()
 		"Humble B":
 			#Randomize Qn. 5 Uses
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
@@ -63,6 +64,7 @@ func callPower():
 		"Rider Rabbit":
 			#Slow time for 30 seconds
 			global.rrPower = 0.5
+			$PowerButton.hide()
 			var mainMusic = get_tree().get_root().get_node("World").find_node("PlayMusic")
 			mainMusic.stop()
 			var ffMusic = get_tree().get_root().get_node("World").find_node("FFMusic")
@@ -80,6 +82,7 @@ func callPower():
 			header.add_color_override("font_color", Color(1,1,1,1))
 			global.rrPower = 1
 		"Mister I":
+			$PowerButton.hide()
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 			qnMenu.hide()
