@@ -46,28 +46,50 @@ func randomizeQuestion():
 	#Randomize operations
 	var operation = int(floor(rand_range(1,5)))
 	print(operation)
+	#Set answer
+	var finalAns = 0
 	var operationStr = ""
 		#1 = Addition, 2 = Subtraction, 3 = Multiplication, 4 = Mod
 	match operation:
 		1:
 			operationStr = "+"
+			finalAns = operand1+operand2
 		2: 
 			operationStr = "-"
+			finalAns = operand1-operand2
 		3:
 			operationStr = "*"
+			finalAns = operand1*operand2
 		4:
 			operationStr = "%"
+			finalAns = operand1%operand2
 	#Set options
-	option1.set_text(str(operand1+operand2)) 
-	option2.set_text(str(operand1-operand2))
-	option3.set_text(str(operand1*operand2))
-	option4.set_text(str(operand1%operand2))
+	
+	option1.set_text(str(randCloseAns(finalAns))) 
+	option2.set_text(str(randCloseAns(finalAns)))
+	option3.set_text(str(randCloseAns(finalAns)))
+	option4.set_text(str(randCloseAns(finalAns)))
+	
+	match int(floor(rand_range(1,5))):
+		1:
+			option1.set_text(str(finalAns)) 
+		2: 
+			option2.set_text(str(finalAns)) 
+		3:
+			option3.set_text(str(finalAns)) 
+		4:
+			option4.set_text(str(finalAns)) 
+			
 	setQuestion(operand1, operand2, operation)
 	
 	#Set Question Label
 	if is_instance_valid(blockTower):
 		var level = blockTower.getNoOfBoxes()
 		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
+
+func randCloseAns(ans):
+	var newAns = ans + int(floor(rand_range(-15,15)))
+	return newAns 
 
 
 func checkAnswer(option):
