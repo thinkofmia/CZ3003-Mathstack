@@ -10,6 +10,8 @@ var characterSelected = "Godot" #Default char
 var worldSelected = "World #1" #Default world
 var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Advanced
 var modeSelected = "None"
+#added extra global variable that is assigned at log-in
+var username ="" #string for the user playing
 
 #Special Powers
 var rrPower = 1 #1 means normal speed, #0.5 means x2 Speed

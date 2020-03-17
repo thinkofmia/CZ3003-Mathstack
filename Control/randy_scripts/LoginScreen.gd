@@ -42,4 +42,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	var response_body := JSON.parse(body.get_string_from_ascii())
 	#error
 	if response_code == 200:
+		#added this to be able to access username easily
+		global.username = username.text
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
