@@ -7,18 +7,22 @@ var option4
 var level
 
 onready var questionId
-#Randomize operands
-onready var operand1 #= int(floor(rand_range(1,10)))
-onready var operand2 #= int(floor(rand_range(1,10)))
-#Randomize operations
-onready var operation #= int(floor(rand_range(1,5)))
+onready var qText
+onready var op1
+onready var op2
+onready var op3
+onready var op4
+onready var ans
 
 onready var http : HTTPRequest = $HTTPRequest
 
 var Question := {
-	"operand1":{},
-	"operand2":{},
-	"operation":{}
+	"questionText":{},
+	"Option1":{},
+	"Option2":{},
+	"Option3":{},
+	"Option4":{},
+	"ans":{}
 } setget set_question
 
 # Called when the node enters the scene tree for the first time.
@@ -32,55 +36,33 @@ func _ready():
 	randomizeQuestion()
 
 #Sets question and store it
-func setQuestion(operand1, operand2, operation):
-	#0 = operand1, 1 = operand2, 2 = operation, 3 = correct Answer
-	var correctAnswer = 0
-	match operation:
-		1: #default/1
-			correctAnswer = int(operand1+operand2)
-		2:
-			correctAnswer = int(operand1-operand2)
-		3:
-			correctAnswer = int(operand1*operand2)
-		4:
-			correctAnswer = int(operand1%operand2)
-	
+func setQuestion(option1, option2, option3, option4):
+	var correctAnswer = ans
 	#Save question set
-	question = [operand1,operand2,operation,correctAnswer] 
+	question = [option1, option2, option3, option4,correctAnswer] 
 	print(question)
 	
 	
-func con(operation):
+func con():
 	var operationStr = ""
-		#1 = Addition, 2 = Subtraction, 3 = Multiplication, 4 = Mod
-	match operation:
-		1:
-			operationStr = "+"
-		2: 
-			operationStr = "-"
-		3:
-			operationStr = "*"
-		4:
-			operationStr = "%"
 	#Set options
-	option1.set_text(str(operand1+operand2)) 
-	option2.set_text(str(operand1-operand2))
-	option3.set_text(str(operand1*operand2))
-	option4.set_text(str(operand1%operand2))
-	setQuestion(operand1, operand2, operation)
+	option1.set_text(str(op1)) 
+	option2.set_text(str(op2))
+	option3.set_text(str(op3))
+	option4.set_text(str(op4))
+	setQuestion(option1, option2, option3, option4)
 	
 	#Set QnLabel
-	find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
+	find_node("QuestionLabel").set_text(qText)
 	
 func randomizeQuestion():
-	questionId = int(floor(rand_range(1,5)))
-	Firebase.get_document("questionId/%s" % str(questionId), http)
-	print(operation)
+	questionId = int(floor(rand_range(1,4)))
+	Firebase.get_document("NormalWorld1/%s" % str(questionId), http)
 	
 
 
 func checkAnswer(option):
-	if (str(question[3])==option.get_text()):#Check if correct answer was click
+	if (str(question[4])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		#Update score
 		global.storyScore +=1
@@ -122,9 +104,12 @@ func _on_Option2_pressed():
 
 func set_question (value: Dictionary) -> void:
 	Question  = value
-	operand1 = int(Question.operand1.integerValue)
-	operand2 = int(Question.operand2.integerValue)
-	operation = int(Question.operation.integerValue)
+	qText = str(Question.QuestionText.stringValue)
+	op1 = int(Question.Option1.integerValue)
+	op2 = int(Question.Option2.integerValue)
+	op3 = int(Question.Option3.integerValue)
+	op4 = int(Question.Option4.integerValue)
+	ans= int(Question.Ans.integerValue)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -136,4 +121,4 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		#success
 		200:
 			self.Question = result_body.fields
-			con(operation)
+			con()
