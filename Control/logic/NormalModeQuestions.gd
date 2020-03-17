@@ -31,7 +31,7 @@ func _ready():
 	option2 = $row/columnLeft/Option2
 	option3 = $row/columnRight/Option3
 	option4 = $row/columnRight/Option4
-	level = 1
+	level = 0
 	global.storyScore = 0
 	randomizeQuestion()
 
@@ -53,11 +53,12 @@ func con():
 	setQuestion(option1, option2, option3, option4)
 	
 	#Set QnLabel
-	find_node("QuestionLabel").set_text(qText)
+	find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText)
 	
 func randomizeQuestion():
 	questionId = int(floor(rand_range(1,4)))
 	Firebase.get_document("NormalWorld1/%s" % str(questionId), http)
+	level += 1
 	
 
 
