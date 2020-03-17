@@ -6,6 +6,21 @@ var option3
 var option4
 var level
 
+onready var questionId
+#Randomize operands
+onready var operand1 #= int(floor(rand_range(1,10)))
+onready var operand2 #= int(floor(rand_range(1,10)))
+#Randomize operations
+onready var operation #= int(floor(rand_range(1,5)))
+
+onready var http : HTTPRequest = $HTTPRequest
+
+var Question := {
+	"operand1":{},
+	"operand2":{},
+	"operation":{}
+} setget set_question
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	option1 = $row/columnLeft/Option1
@@ -34,13 +49,8 @@ func setQuestion(operand1, operand2, operation):
 	question = [operand1,operand2,operation,correctAnswer] 
 	print(question)
 	
-func randomizeQuestion():
-	#Randomize operands
-	var operand1 = int(floor(rand_range(1,10)))
-	var operand2 = int(floor(rand_range(1,10)))
-	#Randomize operations
-	var operation = int(floor(rand_range(1,5)))
-	print(operation)
+	
+func con(operation):
 	var operationStr = ""
 		#1 = Addition, 2 = Subtraction, 3 = Multiplication, 4 = Mod
 	match operation:
@@ -61,6 +71,12 @@ func randomizeQuestion():
 	
 	#Set QnLabel
 	find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
+	
+func randomizeQuestion():
+	questionId = int(floor(rand_range(1,5)))
+	Firebase.get_document("questionId/%s" % str(questionId), http)
+	print(operation)
+	
 
 
 func checkAnswer(option):
@@ -102,3 +118,22 @@ func _on_Option3_pressed():
 func _on_Option2_pressed():
 	checkAnswer(option2)
 	pass # Replace with function body.
+
+
+func set_question (value: Dictionary) -> void:
+	Question  = value
+	operand1 = int(Question.operand1.integerValue)
+	operand2 = int(Question.operand2.integerValue)
+	operation = int(Question.operation.integerValue)
+
+
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	match response_code:
+		#error
+		404:
+			return
+		#success
+		200:
+			self.Question = result_body.fields
+			con(operation)

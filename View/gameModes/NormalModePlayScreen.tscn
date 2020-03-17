@@ -17,6 +17,8 @@ margin_right = 140.0
 rect_scale = Vector2( 3, 3 )
 script = ExtResource( 4 )
 
+[node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/QuestionMenu" index="2"]
+
 [node name="CorrectStatus" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
 visible = false
 margin_right = 238.0
@@ -112,4 +114,5 @@ color = Color( 0.415686, 0.223529, 0.223529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="request_completed" from="PlayBoard/QuestionMenu/HTTPRequest" to="PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
