@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -6,37 +6,215 @@
 [ext_resource path="res://Control/logic/NormalModeQuestions.gd" type="Script" id=4]
 [ext_resource path="res://View/util/WrongDisplay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Control/interface/NormalMode.gd" type="Script" id=6]
+[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=7]
+[ext_resource path="res://View/Screens_Randy/FadeIn.tscn" type="PackedScene" id=8]
+[ext_resource path="res://textures/BG.png" type="Texture" id=9]
+[ext_resource path="res://View/util/MainMusic.tscn" type="PackedScene" id=10]
+[ext_resource path="res://textures/mountain.png" type="Texture" id=11]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Model/Characters/Warrior/Idle (1).png" type="Texture" id=13]
+[ext_resource path="res://Model/Characters/Warrior/Idle (4).png" type="Texture" id=14]
+[ext_resource path="res://Model/Characters/Warrior/Idle (5).png" type="Texture" id=15]
+[ext_resource path="res://Model/Characters/Warrior/Idle (2).png" type="Texture" id=16]
+[ext_resource path="res://Model/Characters/Warrior/Idle (6).png" type="Texture" id=17]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (3).png" type="Texture" id=18]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (4).png" type="Texture" id=19]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (2).png" type="Texture" id=20]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (1).png" type="Texture" id=21]
+[ext_resource path="res://Model/Characters/Warrior/Idle (8).png" type="Texture" id=22]
+[ext_resource path="res://Model/Characters/Warrior/Idle (9).png" type="Texture" id=23]
+[ext_resource path="res://Model/Characters/Warrior/Idle (3).png" type="Texture" id=24]
+[ext_resource path="res://Model/Characters/Warrior/Idle (7).png" type="Texture" id=25]
+[ext_resource path="res://Model/Characters/Warrior/Idle (10).png" type="Texture" id=26]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (8).png" type="Texture" id=27]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (9).png" type="Texture" id=28]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (10).png" type="Texture" id=29]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (5).png" type="Texture" id=30]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (6).png" type="Texture" id=31]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (7).png" type="Texture" id=32]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TextureRect
+
+signal fade_finished
+
+func fade_in():
+	$AnimationPlayer.play(\"fade_in\")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	emit_signal(\"fade_finished\")
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 24 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "idle",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "attack",
+"speed": 30.0
+} ]
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 
-[node name="QuestionMenu" parent="PlayBoard" index="0" instance=ExtResource( 2 )]
-margin_left = 20.0
-margin_top = 30.0
-margin_right = 140.0
-rect_scale = Vector2( 3, 3 )
+[node name="TemplateScreen" type="Control" parent="." index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="TemplateScreen" index="0"]
+margin_right = 1642.0
+margin_bottom = 1230.0
+rect_scale = Vector2( 0.75, 0.6 )
+texture = ExtResource( 11 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TemplateScreen/TextureRect" index="0"]
+margin_left = 510.0
+margin_top = 162.0
+margin_right = 1340.0
+margin_bottom = 912.0
+color = Color( 0.192157, 0.392157, 0.552941, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TemplateScreen/TextureRect" index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 2.0
+margin_right = -275.0
+margin_bottom = -227.0
+custom_constants/margin_right = 300
+custom_constants/margin_top = 150
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 100
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TemplateScreen/TextureRect/MarginContainer" index="0"]
+margin_left = 300.0
+margin_top = 150.0
+margin_right = 1067.0
+margin_bottom = 901.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TemplateScreen/TextureRect/MarginContainer/MarginContainer" index="0"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 717.0
+margin_bottom = 701.0
+
+[node name="FadeIn" parent="TemplateScreen" index="1" instance=ExtResource( 8 )]
+visible = false
+script = SubResource( 1 )
+
+[node name="MainMusic" parent="TemplateScreen" index="2" instance=ExtResource( 10 )]
+
+[node name="Background" parent="." index="1"]
+visible = false
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+visible = false
+position = Vector2( 613, 369 )
+scale = Vector2( 1.23, 0.982 )
+texture = ExtResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
+margin_left = -186.0
+margin_top = -274.0
+margin_right = 318.0
+margin_bottom = 182.0
+color = Color( 0.243137, 0.517647, 0.505882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="Sprite" parent="." index="3"]
+visible = false
+position = Vector2( 511, 302 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="Background2" index="0"]
+margin_left = -370.0
+margin_top = -581.0
+margin_right = 1414.0
+margin_bottom = 697.0
+color = Color( 0.133333, 0.411765, 0.384314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionMenu" parent="." index="4" instance=ExtResource( 2 )]
+anchor_top = 0.00225596
+anchor_bottom = 0.00225601
+margin_left = 408.621
+margin_top = 130.677
+margin_right = 2033.62
+margin_bottom = 1188.68
+rect_scale = Vector2( 0.35, 0.35 )
 script = ExtResource( 4 )
 
-[node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/QuestionMenu" index="2"]
+[node name="HTTPRequest" type="HTTPRequest" parent="QuestionMenu" index="2"]
 
-[node name="CorrectStatus" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
+[node name="PlayBoard" parent="." index="5"]
+visible = false
+
+[node name="CorrectStatus" parent="PlayBoard" index="1" instance=ExtResource( 3 )]
 visible = false
 margin_right = 238.0
 margin_bottom = 121.0
 
-[node name="WrongStatus" parent="PlayBoard" index="3" instance=ExtResource( 5 )]
+[node name="WrongStatus" parent="PlayBoard" index="2" instance=ExtResource( 5 )]
 visible = false
 margin_left = 9.0
 margin_top = 18.0
 margin_right = 247.0
 margin_bottom = 153.0
 
-[node name="Header" parent="." index="2"]
+[node name="Header" parent="." index="6"]
 position = Vector2( -383.625, -19.0452 )
 
 [node name="RichTextLabel" parent="Header" index="0"]
-margin_left = 396.0
-margin_right = 637.0
+margin_left = 387.0
+margin_right = 970.0
+margin_bottom = 89.0
+rect_scale = Vector2( 1, 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "World: Diffculty"
 
 [node name="ColorRect" parent="Header/RichTextLabel" index="1"]
@@ -45,20 +223,17 @@ margin_top = -1.0
 margin_right = -19.0
 margin_bottom = -1.0
 
-[node name="QuitButton" parent="." index="3"]
-script = null
-
-[node name="ScoreBoard" type="Node2D" parent="." index="4"]
+[node name="ScoreBoard" type="Node2D" parent="." index="7"]
 position = Vector2( -392.095, 75.2544 )
 
 [node name="Score" type="RichTextLabel" parent="ScoreBoard" index="0"]
 anchor_right = 10.0
-margin_left = 394.0
-margin_top = 20.0
-margin_right = 486.0
-margin_bottom = 37.0
-rect_scale = Vector2( 3, 4 )
+margin_left = 436.749
+margin_top = 25.2133
+margin_right = 748.749
+margin_bottom = 88.2133
 rect_clip_content = false
+custom_fonts/normal_font = SubResource( 3 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 text = "Score Now: 0"
@@ -71,29 +246,29 @@ self_modulate = Color( 0.607843, 0.45098, 0.45098, 1 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.448714
-margin_top = -1.62353
-margin_right = -0.448715
-margin_bottom = -1.62353
-color = Color( 0.415686, 0.223529, 0.223529, 1 )
+margin_left = -12.0
+margin_top = -1.0
+margin_right = -12.0
+margin_bottom = -3.0
+color = Color( 0.0509804, 0.921569, 0.988235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PassingBoard" type="Node2D" parent="." index="5"]
-position = Vector2( -392.095, 165.781 )
+[node name="PassingBoard" type="Node2D" parent="." index="8"]
+position = Vector2( 157.471, -16.9427 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PassingBoard" index="0"]
 anchor_right = 10.0
-margin_left = 394.0
-margin_top = 20.0
-margin_right = 505.0
-margin_bottom = 52.0
-rect_scale = Vector2( 3, 4 )
+margin_left = 405.0
+margin_top = 17.0
+margin_right = 875.0
+margin_bottom = 88.0
 rect_clip_content = false
+custom_fonts/normal_font = SubResource( 4 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 text = "Passing Score: 0/10"
@@ -114,5 +289,23 @@ color = Color( 0.415686, 0.223529, 0.223529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="request_completed" from="PlayBoard/QuestionMenu/HTTPRequest" to="PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
+
+[node name="QuitButton" parent="." index="10"]
+anchor_left = -0.00136214
+anchor_right = -0.00136214
+margin_left = 958.403
+margin_top = 6.86053
+margin_right = 1060.4
+margin_bottom = 94.8605
+rect_scale = Vector2( 0.5, 0.5 )
+script = null
+
+[node name="CharacterSprite" type="AnimatedSprite" parent="." index="11"]
+position = Vector2( 192.891, 348.246 )
+scale = Vector2( 0.410289, 0.401249 )
+frames = SubResource( 5 )
+animation = "idle"
+frame = 5
+playing = true
+[connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
