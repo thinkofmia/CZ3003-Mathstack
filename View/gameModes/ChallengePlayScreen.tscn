@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Control/logic/Timer.gd" type="Script" id=7]
 [ext_resource path="res://textures/woodTexture.jpg" type="Texture" id=8]
 [ext_resource path="res://Model/buttons/QuitButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Model/sounds/sfx/correct_sound.wav" type="AudioStream" id=10]
 [ext_resource path="res://View/util/PlayMusic.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Model/sounds/music/bensound-house.ogg" type="AudioStream" id=13]
 
@@ -164,3 +165,8 @@ position = Vector2( 130.596, 482.932 )
 offset = Vector2( 380, -170 )
 current = true
 drag_margin_v_enabled = true
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="SelectedCharacter"]
+position = Vector2( -130.596, -482.932 )
+stream = ExtResource( 10 )
+volume_db = 6.0

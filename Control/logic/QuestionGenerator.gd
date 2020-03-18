@@ -95,6 +95,9 @@ func randCloseAns(ans):
 func checkAnswer(option):
 	if (str(question[3])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
+		#Play Sound
+		var sound = get_tree().get_root().get_node("World").find_node("CorrectSound")
+		sound.play()
 		
 		#Add block
 		var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
