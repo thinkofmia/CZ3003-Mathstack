@@ -50,6 +50,9 @@ func callPower():
 	var sound = get_tree().get_root().get_node("World").find_node("PowerupSound")
 	sound.play()
 	
+	#Speak
+	characterSpeak("SUPER POWA!! ")
+	
 	#Check Character
 	match global.characterSelected:
 		"Swee Soldier":
@@ -176,7 +179,7 @@ func _physics_process(delta):
 	#Adds motion at every frame/gravity
 	motion.y += GRAVITY
 	fixHearts()
-	if (int(global.timeSeconds)%10 == 1):
+	if (int(global.timeSeconds)%10 == 0):
 		#Make character speak
 		characterSpeak("I can't wait to get to the top! ")
 	
