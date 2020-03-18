@@ -122,4 +122,5 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		#success
 		200:
 			self.Question = result_body.fields
+			print(result_body.fields)
 			con()

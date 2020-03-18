@@ -15,5 +15,5 @@ func _ready():
 
 
 func _on_QuitButton_pressed():
-	get_tree().change_scene("res://View/gameModes/NormalModePreview.tscn")
+	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
 	pass # Replace with function body.

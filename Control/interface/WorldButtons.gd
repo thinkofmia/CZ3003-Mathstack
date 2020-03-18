@@ -10,4 +10,5 @@ func _on_WorldButton_pressed():
 	if global.modeSelected == "Challenge Mode":
 		pass
 	elif global.modeSelected == "Normal Mode":	
-		get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
+		pass
+		#get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")

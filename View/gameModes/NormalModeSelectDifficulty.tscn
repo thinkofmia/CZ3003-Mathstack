@@ -9,7 +9,6 @@
 [ext_resource path="res://Model/buttons/gameModeButtons/AdvancedButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=8]
 
-
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
