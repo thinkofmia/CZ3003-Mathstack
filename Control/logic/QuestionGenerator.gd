@@ -105,6 +105,8 @@ func checkAnswer(option):
 		#Make sprite jump!!
 		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
 		character.jump()
+		#Make Character speak!
+		character.characterSpeak("GOOD JOB! ")
 		
 	else:
 		print("Wrong!")
@@ -117,6 +119,8 @@ func checkAnswer(option):
 		character.fixHearts()
 		if (character.hearts == 0):
 			self.hide()
+		#Make Character speak!
+		character.characterSpeak("SHUCKS! That was wrong. ")
 	pass
 	randomizeQuestion()
 

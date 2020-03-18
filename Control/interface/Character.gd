@@ -161,11 +161,23 @@ func addLife():
 	if (hearts<5):
 		hearts+=1
 
+#Makes character speak
+func characterSpeak(content):
+	$SpeechBubble.show()
+	$SpeechBubble/Speech.set_text(content)
+	yield(get_tree().create_timer(2.0), "timeout")
+	$SpeechBubble.hide()
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#Adds motion at every frame/gravity
 	motion.y += GRAVITY
 	fixHearts()
+	if (int(global.timeSeconds)%10 == 1):
+		#Make character speak
+		characterSpeak("I can't wait to get to the top! ")
+	
 	#check if on floor
 	if is_on_floor():
 		#For debugging

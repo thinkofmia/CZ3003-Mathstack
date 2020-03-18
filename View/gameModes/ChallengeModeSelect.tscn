@@ -58,7 +58,9 @@ __meta__ = {
 }
 
 [node name="PlayBoard" parent="." index="3"]
+margin_left = -290.216
 margin_top = 93.0
+margin_right = 288.784
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
 anchor_right = 1.0
@@ -236,11 +238,10 @@ margin_bottom = 413.0
 script = ExtResource( 2 )
 
 [node name="SelectedCharacter" parent="." index="6" instance=ExtResource( 6 )]
-position = Vector2( 934.577, 442.937 )
-scale = Vector2( -1, 1 )
+position = Vector2( 110.2, 332.134 )
 
 [node name="Block" parent="." index="7" instance=ExtResource( 5 )]
-position = Vector2( 895.856, 480.621 )
+position = Vector2( 71.4792, 369.818 )
 
 [node name="Header" parent="." index="8" instance=ExtResource( 13 )]
 margin_top = 20.0
