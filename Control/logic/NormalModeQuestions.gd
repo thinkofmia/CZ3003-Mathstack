@@ -63,6 +63,7 @@ func randomizeQuestion():
 
 
 func checkAnswer(option):
+	global.questionCount = global.questionCount + 1
 	if (str(question[4])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		#Update score
