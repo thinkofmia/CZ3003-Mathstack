@@ -3,10 +3,10 @@
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=2]
 [ext_resource path="res://Control/interface/NormalModeSelectWorld.gd" type="Script" id=3]
-[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=4]
+[ext_resource path="res://View/util/NormalModeChooseWorldBackgrounds/NormalModeChooseWorldBackground2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://View/util/CompletionBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Starzy.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://textures/BG.png" type="Texture" id=7]
+[ext_resource path="res://View/util/NormalModeChooseWorldBackgrounds/NormalModeChooseWorldBackground3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://textures/fowardButton.png" type="Texture" id=8]
 [ext_resource path="res://Model/buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=13]
 
@@ -25,32 +25,9 @@ margin_bottom = 2.0
 visible = false
 text = "NORMAL MODE"
 
-[node name="Background2" type="Sprite" parent="." index="1"]
-position = Vector2( 511, 302 )
-scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 4 )
+[node name="Background2" parent="." index="1" instance=ExtResource( 4 )]
 
-[node name="ColorRect" type="ColorRect" parent="Background2" index="0"]
-margin_left = -836.0
-margin_top = -603.0
-margin_right = 846.0
-margin_bottom = 706.0
-color = Color( 0.133333, 0.411765, 0.384314, 1 )
-
-[node name="Background3" type="Sprite" parent="." index="2"]
-position = Vector2( 613, 369 )
-scale = Vector2( 1.23, 0.982 )
-texture = ExtResource( 7 )
-
-[node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
-margin_left = -325.0
-margin_top = -279.0
-margin_right = 166.0
-margin_bottom = 182.0
-color = Color( 0.243137, 0.517647, 0.505882, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Background3" parent="." index="2" instance=ExtResource( 7 )]
 
 [node name="PlayBoard" parent="." index="3"]
 margin_top = 91.0
