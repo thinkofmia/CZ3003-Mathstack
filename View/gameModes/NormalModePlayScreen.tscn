@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -72,6 +72,14 @@ animations = [ {
 "name": "attack",
 "speed": 30.0
 } ]
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+font_data = ExtResource( 12 )
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
@@ -256,7 +264,7 @@ __meta__ = {
 }
 
 [node name="PassingBoard" type="Node2D" parent="." index="8"]
-position = Vector2( 157.471, -16.9427 )
+position = Vector2( 158.513, -16.9427 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -271,7 +279,7 @@ rect_clip_content = false
 custom_fonts/normal_font = SubResource( 4 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
-text = "Passing Score: 0/10"
+text = "Passing Score: 8/10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -290,7 +298,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" parent="." index="10"]
+[node name="QuitButton" parent="." index="9"]
 anchor_left = -0.00136214
 anchor_right = -0.00136214
 margin_left = 958.403
@@ -305,7 +313,33 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 5
+frame = 1
 playing = true
+
+[node name="FinishLabel" type="Label" parent="." index="12"]
+visible = false
+margin_left = 415.0
+margin_top = 107.0
+margin_right = 966.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 6 )
+text = "Congrats!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinishButton" type="Button" parent="." index="13"]
+visible = false
+margin_left = 534.407
+margin_top = 310.043
+margin_right = 831.407
+margin_bottom = 447.043
+custom_fonts/font = SubResource( 7 )
+text = "Try again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

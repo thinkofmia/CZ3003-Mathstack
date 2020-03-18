@@ -203,5 +203,7 @@ margin_top = 59.4047
 margin_right = 103.921
 margin_bottom = 73.4047
 text = "Enter World #1"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="8"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
