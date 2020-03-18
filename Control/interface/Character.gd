@@ -150,6 +150,8 @@ func fixHearts(): #set # of Hearts Displayed
 			hpBar.get_node("health4").show()
 			hpBar.get_node("health5").show()
 		_: #Default case
+			#Character Speaks
+			characterSpeak("OH NO! I am falling. :(")
 			#Get blkTower
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 			if is_instance_valid(blkTower): #Check if still exists
