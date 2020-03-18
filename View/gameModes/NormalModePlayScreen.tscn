@@ -11,9 +11,6 @@
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 
-[node name="Background" parent="." index="0"]
-visible = false
-
 [node name="Background2" type="Sprite" parent="." index="1"]
 position = Vector2( 511, 302 )
 scale = Vector2( 0.35, 0.35 )
@@ -29,21 +26,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionMenu" parent="PlayBoard" index="0" instance=ExtResource( 2 )]
-margin_left = 20.0
-margin_top = 30.0
-margin_right = 140.0
-rect_scale = Vector2( 3, 3 )
+[node name="QuestionMenu" parent="Background2/ColorRect" index="0" instance=ExtResource( 2 )]
+anchor_top = 0.00225596
+anchor_bottom = 0.00225601
+margin_left = 77.4895
+margin_top = 92.4893
+margin_right = 1702.49
+margin_bottom = 1150.49
+rect_scale = Vector2( 1, 1 )
 script = ExtResource( 4 )
 
-[node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/QuestionMenu" index="2"]
+[node name="HTTPRequest" type="HTTPRequest" parent="Background2/ColorRect/QuestionMenu" index="2"]
 
-[node name="CorrectStatus" parent="PlayBoard" index="2" instance=ExtResource( 3 )]
+[node name="PlayBoard" parent="." index="2"]
+visible = false
+
+[node name="CorrectStatus" parent="PlayBoard" index="1" instance=ExtResource( 3 )]
 visible = false
 margin_right = 238.0
 margin_bottom = 121.0
 
-[node name="WrongStatus" parent="PlayBoard" index="3" instance=ExtResource( 5 )]
+[node name="WrongStatus" parent="PlayBoard" index="2" instance=ExtResource( 5 )]
 visible = false
 margin_left = 9.0
 margin_top = 18.0
@@ -135,5 +138,5 @@ color = Color( 0.415686, 0.223529, 0.223529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="request_completed" from="PlayBoard/QuestionMenu/HTTPRequest" to="PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="Background2/ColorRect/QuestionMenu/HTTPRequest" to="Background2/ColorRect/QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
