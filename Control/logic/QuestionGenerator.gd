@@ -108,6 +108,10 @@ func checkAnswer(option):
 		
 	else:
 		print("Wrong!")
+		#Play Sound
+		var sound = get_tree().get_root().get_node("World").find_node("WrongSound")
+		sound.play()
+		
 		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
 		character.hearts -= 1
 		character.fixHearts()

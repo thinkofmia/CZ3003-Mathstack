@@ -31,4 +31,6 @@ Cheats:
 - heamomo (Rabbit.png)
 
 - Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg)
-- freesound (Betrof: sound-correct.wav)
+- Betrof [Freesound] (correct_sound.wav)
+- Autistic Lucario [Freesound] (wrong_sound.wav)
+- TheDweebMan [Freesound] (powerup_sound.wav)

@@ -46,6 +46,11 @@ func recoverPower():
 
 func callPower():
 	$PowerButton.hide()
+	#Play Sound
+	var sound = get_tree().get_root().get_node("World").find_node("PowerupSound")
+	sound.play()
+	
+	#Check Character
 	match global.characterSelected:
 		"Swee Soldier":
 			#Add 4 lives
