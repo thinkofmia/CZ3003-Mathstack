@@ -1,16 +1,50 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Control/interface/returnToSelectDifficulty.gd" type="Script" id=3]
 [ext_resource path="res://Control/interface/NormalModePreview.gd" type="Script" id=4]
 [ext_resource path="res://Model/Labels/PlayWithBorders.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Starzy.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=7]
+[ext_resource path="res://textures/BG.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 6 )
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
 [node name="Header" parent="TemplateScreen" index="3"]
 text = "NORMAL MODE"
+
+[node name="Background2" type="Sprite" parent="." index="1"]
+position = Vector2( 511, 302 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="Background2" index="0"]
+margin_left = -836.0
+margin_top = -603.0
+margin_right = 846.0
+margin_bottom = 706.0
+color = Color( 0.133333, 0.411765, 0.384314, 1 )
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+position = Vector2( 613, 369 )
+scale = Vector2( 1.23, 0.982 )
+texture = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
+margin_left = -325.0
+margin_top = -279.0
+margin_right = 166.0
+margin_bottom = 182.0
+color = Color( 0.243137, 0.517647, 0.505882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
 anchor_right = 1.0
@@ -104,7 +138,23 @@ margin_top = 249.0
 margin_right = 475.0
 margin_bottom = 339.0
 
-[node name="BackButton" parent="." index="2"]
+[node name="BackButton" parent="." index="4"]
 script = ExtResource( 3 )
+
+[node name="Header" type="Label" parent="." index="6"]
+anchor_right = 1.0
+margin_top = 16.0
+margin_bottom = 85.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "NORMAL MODE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
