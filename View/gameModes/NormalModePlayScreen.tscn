@@ -188,8 +188,9 @@ __meta__ = {
 }
 
 [node name="QuestionMenu" parent="." index="4" instance=ExtResource( 2 )]
-anchor_top = 0.00225596
-anchor_bottom = 0.00225601
+anchor_left = -2.98023e-08
+anchor_top = 0.00225599
+anchor_bottom = 0.00225627
 margin_left = 408.621
 margin_top = 130.677
 margin_right = 2033.62
@@ -313,7 +314,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 1
+frame = 4
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="12"]

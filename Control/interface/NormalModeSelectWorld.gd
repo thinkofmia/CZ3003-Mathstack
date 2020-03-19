@@ -17,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if global.worldSelected != currentSelectedWorld:
-		Firebase.save_document("normalmodeprogress",{"progress":{"integerValue":6}}, http)
+		#Firebase.save_document("normalmodeprogress",{"progress":{"integerValue":6}}, http)
 		changeBg(global.worldSelected.split("#")[1])
 		currentSelectedWorld = global.worldSelected
 		$NextButton/NextButtonLabel.text = "Enter " + global.worldSelected
