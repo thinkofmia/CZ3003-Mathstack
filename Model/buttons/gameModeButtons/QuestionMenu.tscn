@@ -10,22 +10,22 @@ use_filter = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 90
+size = 50
 use_filter = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 90
+size = 50
 use_filter = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 90
+size = 50
 use_filter = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 90
+size = 50
 use_filter = true
 font_data = ExtResource( 3 )
 
@@ -41,13 +41,14 @@ __meta__ = {
 
 [node name="QuestionLabel" type="Label" parent="."]
 margin_right = 1072.0
-margin_bottom = 120.0
+margin_bottom = 243.0
 rect_min_size = Vector2( 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Q6) What is 6x6x6?"
+autowrap = true
 
 [node name="row" type="HBoxContainer" parent="."]
-margin_top = 180.0
+margin_top = 303.0
 margin_right = 1072.0
 margin_bottom = 620.0
 grow_horizontal = 2
@@ -60,23 +61,23 @@ alignment = 1
 
 [node name="columnLeft" type="VBoxContainer" parent="row"]
 margin_right = 496.0
-margin_bottom = 440.0
+margin_bottom = 317.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 80
 
 [node name="Option1" parent="row/columnLeft" instance=ExtResource( 1 )]
 margin_right = 496.0
-margin_bottom = 180.0
+margin_bottom = 118.0
 rect_scale = Vector2( 1, 1 )
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "216"
 
 [node name="Option2" parent="row/columnLeft" instance=ExtResource( 1 )]
-margin_top = 260.0
+margin_top = 198.0
 margin_right = 496.0
-margin_bottom = 440.0
+margin_bottom = 317.0
 rect_scale = Vector2( 1, 1 )
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
@@ -85,23 +86,23 @@ text = "999"
 [node name="columnRight" type="VBoxContainer" parent="row"]
 margin_left = 576.0
 margin_right = 1072.0
-margin_bottom = 440.0
+margin_bottom = 317.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 80
 
 [node name="Option3" parent="row/columnRight" instance=ExtResource( 1 )]
 margin_right = 496.0
-margin_bottom = 180.0
+margin_bottom = 118.0
 rect_scale = Vector2( 1, 1 )
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 text = "100"
 
 [node name="Option4" parent="row/columnRight" instance=ExtResource( 1 )]
-margin_top = 260.0
+margin_top = 198.0
 margin_right = 496.0
-margin_bottom = 440.0
+margin_bottom = 317.0
 rect_scale = Vector2( 1, 1 )
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 5 )
