@@ -96,7 +96,7 @@ texture = ExtResource( 5 )
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 7 )
-frame = 4
+frame = 3
 playing = true
 flip_h = true
 
@@ -111,7 +111,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 5
+frame = 7
 playing = true
 
 [node name="healthBar" type="HBoxContainer" parent="."]
