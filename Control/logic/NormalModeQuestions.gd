@@ -56,7 +56,7 @@ func con():
 	find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText)
 	
 func randomizeQuestion():
-	questionId = int(floor(rand_range(1,4)))
+	questionId = str("DM-N-04-E-01")
 	Firebase.get_document("NormalWorld1/%s" % str(questionId), http)
 	level += 1
 	
@@ -107,11 +107,11 @@ func _on_Option2_pressed():
 func set_question (value: Dictionary) -> void:
 	Question  = value
 	qText = str(Question.QuestionText.stringValue)
-	op1 = int(Question.Option1.integerValue)
-	op2 = int(Question.Option2.integerValue)
-	op3 = int(Question.Option3.integerValue)
-	op4 = int(Question.Option4.integerValue)
-	ans= int(Question.Ans.integerValue)
+	op1 = str(Question.Option1.stringValue)
+	op2 = str(Question.Option2.stringValue)
+	op3 = str(Question.Option3.stringValue)
+	op4 = str(Question.Option4.stringValue)
+	ans= str(Question.Ans.stringValue)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
