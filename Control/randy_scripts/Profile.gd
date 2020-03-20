@@ -6,7 +6,7 @@ onready var account : Label = $TextureRect/MarginContainer/MarginContainer/VBoxC
 onready var nickname : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Leaderboard
 onready var school : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Profile
 onready var class1 : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Exit
-	
+onready var char1 :	Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button/Label
 var scene_path_to_load
 var account_type
 
@@ -25,6 +25,8 @@ func _ready():
 		
 	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
 	username.text = Firebase.user_info.email
+	#test for global save data
+	#char1.text = global.save.World1.stringValue
 		
 func _on_Button_pressed(scene_to_load):
 	scene_path_to_load = scene_to_load

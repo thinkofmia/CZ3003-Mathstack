@@ -16,3 +16,5 @@ var username ="" #string for the user playing
 
 #Special Powers
 var rrPower = 1 #1 means normal speed, #0.5 means x2 Speed
+
+var save := {}
