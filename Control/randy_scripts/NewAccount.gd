@@ -3,8 +3,8 @@ extends Control
 onready var http : HTTPRequest = $HTTPRequest
 onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit
 onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2
-onready var school : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/OptionButton3
-onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/OptionButton2
+onready var school : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/SchoolSelect
+onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ClassSelect
 
 
 # Declare member variables here. Examples:
@@ -38,7 +38,40 @@ func _on_Button2_pressed():
 
 
 func _on_Button_pressed():
-	Firebase.register(username.text, password.text, http)
+	var errorMessage = ""
+	var invalid = false
+	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailText.get_text()
+	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PasswordText.get_text()
+	var nickname_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/NicknameText.get_text()
+	var teachers_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/TeachersText.get_text()
+	var error_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/ErrorMessage
+	
+	if not "@" in email_text:
+		errorMessage += "Invalid email. "
+		invalid = true		
+	#if email_text found in DB:
+	#	errorMessage += "Email address already taken."
+	if password_text.length() < 8:
+		errorMessage += "Password should be at least 8 characters long. "
+		invalid = true
+	
+	var password_contains_digit = false
+	#var password_contains_special = false
+	
+	for character in password_text:
+		if character.is_valid_integer():
+			password_contains_digit = true
+			
+	if !password_contains_digit:
+		errorMessage += "Password should contain a number. "
+		invalid = true
+
+	if invalid == true:
+		error_text.set_text(errorMessage)
+		error_text.show()
+	
+	else:		
+		Firebase.register(username.text, password.text, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
 	#zfCt7yOk8TQ1f7QcPegfnEpDnJf2
 
@@ -50,3 +83,4 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 func _on_OptionButton3_item_selected(id):
 	pass # Replace with function body.
+
