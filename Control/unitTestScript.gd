@@ -28,6 +28,23 @@ func _ready():
 func resetOutcome():
 	outcome = "false"
 
+func autoplay():
+	#Set Important Variables
+	var root = get_tree().get_root()
+	#Set Screen as Challenge Play screen
+	var screen = root.get_node("World")
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	var qnMenu = screen.get_node("GUI/PlayBoard/QuestionMenu")
+	qnMenu.correctAnswer()
+	print("- Press correct answer once")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	qnMenu.correctAnswer()
+	print("- Press correct answer twice")
+	autoplay()
+
 func checkChallengeMode():
 	#Set Important Variables
 	var root = get_tree().get_root()
@@ -88,11 +105,14 @@ func checkChallengeMode():
 	qnMenu.correctAnswer()
 	print("- Press correct answer twice")
 	
+	autoplay()
+	
 	#Wait
-	yield(get_tree().create_timer(2.0), "timeout")
-	qnMenu.wrongAnswer()
-	print("- Press wrong answer")
+	#yield(get_tree().create_timer(2.0), "timeout")
+	#qnMenu.wrongAnswer()
+	#print("- Press wrong answer")
 	outcome = "true"
+	
 	print("Challenge Mode Success: "+outcome)
 	
 func checkNormalMode():
