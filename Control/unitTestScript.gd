@@ -20,18 +20,83 @@ func _ready():
 	#yield(get_tree().create_timer(20.0), "timeout") #Uncomment this if running check register
 	yield(get_tree().create_timer(2.0), "timeout")
 	checkLogin() #Check if login works
-	
+	yield(get_tree().create_timer(5.0), "timeout")
+	checkNormalMode()
+	yield(get_tree().create_timer(2.0), "timeout")
 
 func resetOutcome():
 	outcome = "false"
 
-func checkLogin():
+func checkNormalMode():
 	#Set Important Variables
 	var root = get_tree().get_root()
 	resetOutcome()
 	
 	#Wait
 	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Main Menu screen
+	var screen = root.get_node("MainMenuTeachersScreen")
+	#Press Play Button
+	screen._on_Button_pressed("res://View/gameModes/PlayMenu.tscn")
+	print("- entering Play Menu")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Play Menu screen
+	screen = root.get_node("World")
+	#Press Normal Mode Button
+	screen._on_NormalModeButton_pressed()
+	print("- entering Select World Menu")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Select World Normal Mode screen
+	screen = root.get_node("World")
+	#Press Next Button
+	screen._on_NextButton_pressed()
+	print("- entering Select Difficulty Menu")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Select Difficulty Normal Mode screen
+	screen = root.get_node("World")
+	#Press Primary Button
+	screen._on_PrimaryButton_pressed()
+	print("- entering Preview Menu")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Preview Normal Mode screen
+	screen = root.get_node("World")
+	#Press Play Button
+	screen._on_Button_pressed()
+	print("- playing Normal Mode")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Normal Play screen
+	screen = root.get_node("World")
+	#Press Quit Button
+	screen._on_QuitButton_pressed()
+	print("- exit Normal Mode")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Change screen back to Play Menu
+	screen = root.get_node("World")
+	root.remove_child(screen)
+	screen.call_deferred("free")
+	var next_screen_resource = load("res://View/gameModes/PlayMenu.tscn")
+	var next_screen = next_screen_resource.instance()
+	root.add_child(next_screen)
+	#Print Result
+	outcome = "true"
+	print("Normal Mode Success: "+outcome)
+	
+func checkLogin():
+	#Set Important Variables
+	var root = get_tree().get_root()
+	resetOutcome()
 	
 	#Set Screen as login screen
 	var screen = root.get_node("LoginScreen")
