@@ -1,16 +1,12 @@
-extends Control
+extends Node
+
+func _on_NormalModeButton_pressed():
+	get_tree().change_scene("res://View/gameModes/NormalModeSelectWorld.tscn")
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _on_ChallengeModeButton_pressed():
+	get_tree().change_scene("res://View/gameModes/ChallengeModeSelect.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	for button in $Menu/Buttons.get_children(): #Connect to press event
-		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
-
-func _on_Button_pressed(scene_to_load):
-	get_tree().change_scene(scene_to_load)
-
+func _on_CustomModeButton_pressed():
+	get_tree().change_scene("res://View/gameModes/CustomModeSelect.tscn")

@@ -9,6 +9,7 @@
 [ext_resource path="res://Control/interface/playMenuScript.gd" type="Script" id=7]
 
 [node name="World" instance=ExtResource( 4 )]
+script = ExtResource( 7 )
 
 [node name="Header" parent="TemplateScreen" index="3"]
 text = "PLAY MENU"
@@ -17,7 +18,6 @@ text = "PLAY MENU"
 margin_left = -289.0
 margin_top = 144.0
 margin_bottom = -60.0
-script = ExtResource( 7 )
 
 [node name="Menu" type="VBoxContainer" parent="PlayBoard" index="0"]
 margin_left = 1.0
@@ -64,5 +64,7 @@ scene_to_load = "res://View/gameModes/CustomModeSelect.tscn"
 
 [node name="BackButton" parent="." index="2"]
 script = ExtResource( 5 )
-[connection signal="pressed" from="PlayBoard/Menu/Buttons/NormalModeButton" to="PlayBoard/Menu/Buttons/NormalModeButton" method="_on_NormalModeButton_pressed"]
+[connection signal="pressed" from="PlayBoard/Menu/Buttons/NormalModeButton" to="." method="_on_NormalModeButton_pressed"]
+[connection signal="pressed" from="PlayBoard/Menu/Buttons/ChallengeModeButton" to="." method="_on_ChallengeModeButton_pressed"]
+[connection signal="pressed" from="PlayBoard/Menu/Buttons/CustomModeButton" to="." method="_on_CustomModeButton_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
