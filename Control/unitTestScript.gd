@@ -3,8 +3,7 @@ extends Node
 #This is a script meant for unit testing
 #Written by Fremont Teng 
 #Last Updated (21/03/20)
-#To enable this script, go to Project > Project Setting > AutoLoad
-#Then check the Simpleton checkbox for unitTestScript.gd and run the program
+#To enable this script, change the global variable testMode = true
 
 # Declare member variables here.
 var outcome = "false" #True means success, #False means one or more mistake exists
@@ -13,17 +12,18 @@ var fakePassword = "faker123" #Fake Password for testing
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Starting Test Script...")
-	#Check if register works
-	#checkRegister()
-	#Wait
-	#yield(get_tree().create_timer(20.0), "timeout") #Uncomment this if running check register
-	yield(get_tree().create_timer(2.0), "timeout")
-	checkLogin() #Check if login works
-	yield(get_tree().create_timer(5.0), "timeout")
-	#Choose one mode to test!!
-	#checkNormalMode()
-	checkChallengeMode()
+	if (global.testMode):
+		print("Starting Test Script...")
+		#Check if register works
+		#checkRegister()
+		#Wait
+		#yield(get_tree().create_timer(20.0), "timeout") #Uncomment this if running check register
+		yield(get_tree().create_timer(2.0), "timeout")
+		checkLogin() #Check if login works
+		yield(get_tree().create_timer(5.0), "timeout")
+		#Choose one mode to test!!
+		#checkNormalMode()
+		checkChallengeMode()
 	
 func resetOutcome():
 	outcome = "false"
