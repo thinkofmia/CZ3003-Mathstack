@@ -21,12 +21,80 @@ func _ready():
 	yield(get_tree().create_timer(2.0), "timeout")
 	checkLogin() #Check if login works
 	yield(get_tree().create_timer(5.0), "timeout")
-	checkNormalMode()
-	yield(get_tree().create_timer(2.0), "timeout")
-
+	#Choose one mode to test!!
+	#checkNormalMode()
+	checkChallengeMode()
+	
 func resetOutcome():
 	outcome = "false"
 
+func checkChallengeMode():
+	#Set Important Variables
+	var root = get_tree().get_root()
+	resetOutcome()
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Main Menu screen
+	var screen = root.get_node("MainMenuTeachersScreen")
+	#Press Play Button
+	screen._on_Button_pressed("res://View/gameModes/PlayMenu.tscn")
+	print("- entering Play Menu")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Play Menu screen
+	screen = root.get_node("World")
+	#Press Normal Mode Button
+	screen._on_ChallengeModeButton_pressed()
+	print("- entering Challenge Mode Select Screen")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Challenge Mode Select screen
+	screen = root.get_node("World")
+	#Select Rider Rabbit
+	screen._on_RRIcon_pressed()
+	print("- Rider Rabbit Icon Pressed")
+
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Select World 2
+	screen._on_WorldButton2_pressed()
+	print("- World 2 Button Pressed")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Play Challenge Mode
+	screen._on_Play_pressed()
+	print("- Play Button Pressed")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	#Set Screen as Challenge Play screen
+	screen = root.get_node("World")
+	var character = screen.get_node("SelectedCharacter")
+	character.callPower()
+	print("- Power Button Pressed")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	var qnMenu = screen.get_node("GUI/PlayBoard/QuestionMenu")
+	qnMenu.correctAnswer()
+	print("- Press correct answer once")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	qnMenu.correctAnswer()
+	print("- Press correct answer twice")
+	
+	#Wait
+	yield(get_tree().create_timer(2.0), "timeout")
+	qnMenu.wrongAnswer()
+	print("- Press wrong answer")
+	outcome = "true"
+	print("Challenge Mode Success: "+outcome)
+	
 func checkNormalMode():
 	#Set Important Variables
 	var root = get_tree().get_root()

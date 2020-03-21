@@ -92,37 +92,44 @@ func randCloseAns(ans):
 	return newAns 
 
 
+func correctAnswer():
+	print("Correct!")
+	#Play Sound
+	var sound = get_tree().get_root().get_node("World").find_node("CorrectSound")
+	sound.play()
+		
+	#Add block
+	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	blockTower.addBlock()
+	#Make sprite jump!!
+	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+	character.jump()
+	#Make Character speak!
+	character.characterSpeak("GOOD JOB! ")
+	randomizeQuestion()
+
+func wrongAnswer():
+	print("Wrong!")
+	#Play Sound
+	var sound = get_tree().get_root().get_node("World").find_node("WrongSound")
+	sound.play()
+		
+	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+	character.hearts -= 1
+	character.fixHearts()
+	if (character.hearts == 0):
+		self.hide()
+	#Make Character speak!
+	character.characterSpeak("SHUCKS! That was wrong. ")
+	randomizeQuestion()
+	
 func checkAnswer(option):
 	if (str(question[3])==option.get_text()):#Check if correct answer was click
-		print("Correct!")
-		#Play Sound
-		var sound = get_tree().get_root().get_node("World").find_node("CorrectSound")
-		sound.play()
-		
-		#Add block
-		var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-		blockTower.addBlock()
-		#Make sprite jump!!
-		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
-		character.jump()
-		#Make Character speak!
-		character.characterSpeak("GOOD JOB! ")
+		correctAnswer()
 		
 	else:
-		print("Wrong!")
-		#Play Sound
-		var sound = get_tree().get_root().get_node("World").find_node("WrongSound")
-		sound.play()
-		
-		var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
-		character.hearts -= 1
-		character.fixHearts()
-		if (character.hearts == 0):
-			self.hide()
-		#Make Character speak!
-		character.characterSpeak("SHUCKS! That was wrong. ")
-	pass
-	randomizeQuestion()
+		wrongAnswer()
+	
 
 
 func _on_Option1_pressed():
