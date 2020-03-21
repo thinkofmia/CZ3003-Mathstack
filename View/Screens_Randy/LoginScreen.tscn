@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://View/template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://Model/Labels/LogIn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Control/randy_scripts/LoginScreen.gd" type="Script" id=6]
 [ext_resource path="res://Model/Labels/ForgotPassword.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Button
 
 export(String) var scene_to_load
@@ -45,7 +46,7 @@ custom_constants/separation = 190
 alignment = 2
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_top = 218.0
+margin_top = 214.0
 margin_right = 940.0
 margin_bottom = 344.0
 custom_constants/vseparation = 10
@@ -53,31 +54,34 @@ custom_constants/hseparation = 20
 columns = 2
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="0"]
-margin_right = 386.0
-margin_bottom = 58.0
+margin_right = 380.0
+margin_bottom = 60.0
 custom_fonts/font = ExtResource( 2 )
 text = "Email Address: "
 align = 2
 
 [node name="LineEdit" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="1"]
-margin_left = 406.0
-margin_right = 906.0
-margin_bottom = 58.0
+margin_left = 400.0
+margin_right = 900.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 500, 0 )
+custom_fonts/font = ExtResource( 8 )
 
 [node name="Label2" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="2"]
-margin_top = 68.0
-margin_right = 386.0
-margin_bottom = 126.0
+margin_top = 70.0
+margin_right = 380.0
+margin_bottom = 130.0
 custom_fonts/font = ExtResource( 2 )
 text = "Password: "
 align = 2
 
 [node name="LineEdit2" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
-margin_left = 406.0
-margin_top = 68.0
-margin_right = 906.0
-margin_bottom = 126.0
+margin_left = 400.0
+margin_top = 70.0
+margin_right = 900.0
+margin_bottom = 130.0
+custom_fonts/font = ExtResource( 8 )
+secret = true
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
 margin_top = 534.0
@@ -91,7 +95,7 @@ margin_left = 250.0
 margin_top = 0.0
 margin_right = 690.0
 margin_bottom = 90.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 814.0
@@ -103,14 +107,14 @@ custom_constants/separation = 100
 margin_top = 0.0
 margin_right = 360.0
 margin_bottom = 60.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 
 [node name="ForgotPassButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1" instance=ExtResource( 7 )]
 margin_left = 460.0
 margin_top = 0.0
 margin_right = 940.0
 margin_bottom = 60.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 

@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://View/template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Model/Labels/NewAccHeader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Montserrat_theme.tres" type="Theme" id=4]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Model/Labels/Cancel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Model/Labels/CreateAccount.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Control/randy_scripts/NewAccount.gd" type="Script" id=8]
+[ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=9]
 
 [node name="NewAccountScreen" instance=ExtResource( 1 )]
 script = ExtResource( 8 )
@@ -23,111 +26,135 @@ margin_bottom = 1066.0
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
 margin_right = 1296.0
 margin_bottom = 1066.0
+custom_constants/margin_bottom = 20
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
 margin_right = 946.0
-margin_bottom = 866.0
-custom_constants/separation = 55
+margin_bottom = 896.0
+custom_constants/separation = 20
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 896.0
-margin_bottom = 598.0
+margin_bottom = 610.0
 custom_constants/vseparation = 50
 custom_constants/hseparation = 10
 columns = 2
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="0"]
-margin_right = 386.0
-margin_bottom = 58.0
+margin_right = 380.0
+margin_bottom = 60.0
 custom_fonts/font = ExtResource( 2 )
 text = "Email Address: "
 align = 2
 
-[node name="LineEdit" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="1"]
-margin_left = 396.0
-margin_right = 896.0
-margin_bottom = 58.0
+[node name="EmailText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="1"]
+margin_left = 390.0
+margin_right = 890.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 500, 0 )
+custom_fonts/font = ExtResource( 5 )
 
 [node name="Label2" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="2"]
-margin_top = 108.0
-margin_right = 386.0
-margin_bottom = 166.0
+margin_top = 110.0
+margin_right = 380.0
+margin_bottom = 170.0
 custom_fonts/font = ExtResource( 2 )
 text = "Password: "
 align = 2
 
-[node name="LineEdit2" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
-margin_left = 396.0
-margin_top = 108.0
-margin_right = 896.0
-margin_bottom = 166.0
+[node name="PasswordText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
+margin_left = 390.0
+margin_top = 110.0
+margin_right = 890.0
+margin_bottom = 170.0
 rect_min_size = Vector2( 500, 0 )
+custom_fonts/font = ExtResource( 5 )
 
 [node name="Label3" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="4"]
-margin_top = 216.0
-margin_right = 386.0
-margin_bottom = 274.0
+margin_top = 220.0
+margin_right = 380.0
+margin_bottom = 280.0
 custom_fonts/font = ExtResource( 2 )
 text = "Nickname:"
 align = 2
 
-[node name="LineEdit3" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="5"]
-margin_left = 396.0
-margin_top = 216.0
-margin_right = 896.0
-margin_bottom = 274.0
+[node name="NicknameText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="5"]
+margin_left = 390.0
+margin_top = 220.0
+margin_right = 890.0
+margin_bottom = 280.0
 rect_min_size = Vector2( 500, 0 )
+custom_fonts/font = ExtResource( 5 )
 
 [node name="Label7" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="6"]
-margin_top = 324.0
-margin_right = 386.0
-margin_bottom = 382.0
+margin_top = 330.0
+margin_right = 380.0
+margin_bottom = 390.0
 custom_fonts/font = ExtResource( 2 )
-text = "Account Type:"
+text = "For Teachers: "
 align = 2
 
-[node name="OptionButton" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="7"]
-margin_left = 396.0
-margin_top = 324.0
-margin_right = 896.0
-margin_bottom = 382.0
+[node name="TeachersText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="7"]
+margin_left = 390.0
+margin_top = 330.0
+margin_right = 890.0
+margin_bottom = 390.0
 rect_min_size = Vector2( 500, 0 )
+custom_fonts/font = ExtResource( 5 )
 
 [node name="Label4" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="8"]
-margin_top = 432.0
-margin_right = 386.0
-margin_bottom = 490.0
+margin_top = 440.0
+margin_right = 380.0
+margin_bottom = 500.0
 custom_fonts/font = ExtResource( 2 )
 text = "School: "
 align = 2
 
-[node name="OptionButton3" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="9"]
-margin_left = 396.0
-margin_top = 432.0
-margin_right = 896.0
-margin_bottom = 490.0
+[node name="SchoolSelect" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="9"]
+margin_left = 390.0
+margin_top = 440.0
+margin_right = 890.0
+margin_bottom = 500.0
 rect_min_size = Vector2( 500, 0 )
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 
 [node name="Label5" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="10"]
-margin_top = 540.0
-margin_right = 386.0
-margin_bottom = 598.0
+margin_top = 550.0
+margin_right = 380.0
+margin_bottom = 610.0
 custom_fonts/font = ExtResource( 2 )
 text = "Class:  "
 align = 2
 
-[node name="OptionButton2" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="11"]
-margin_left = 396.0
-margin_top = 540.0
-margin_right = 896.0
-margin_bottom = 598.0
+[node name="ClassSelect" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="11"]
+margin_left = 390.0
+margin_top = 550.0
+margin_right = 890.0
+margin_bottom = 610.0
 rect_min_size = Vector2( 500, 0 )
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
-margin_top = 653.0
+[node name="ErrorMessage" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+margin_top = 630.0
 margin_right = 896.0
-margin_bottom = 743.0
+margin_bottom = 736.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.647059, 0.109804, 0.109804, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Error Message"
+align = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+margin_top = 756.0
+margin_right = 896.0
+margin_bottom = 846.0
+size_flags_vertical = 10
 custom_constants/separation = 50
 alignment = 1
 
@@ -147,7 +174,7 @@ margin_bottom = 90.0
 
 [node name="Header" parent="." index="4" instance=ExtResource( 3 )]
 margin_top = 20.0
-[connection signal="item_selected" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/OptionButton3" to="." method="_on_OptionButton3_item_selected"]
+[connection signal="item_selected" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/SchoolSelect" to="." method="_on_OptionButton3_item_selected"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

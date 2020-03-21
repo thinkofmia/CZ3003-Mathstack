@@ -14,17 +14,19 @@ script = ExtResource( 4 )
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
 custom_constants/separation = 240
+alignment = 2
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+margin_top = 270.0
 margin_right = 667.0
-margin_bottom = 81.0
+margin_bottom = 351.0
 custom_fonts/font = SubResource( 1 )
 text = "Your password has been sent to your email address."
 align = 1
 autowrap = true
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
-margin_top = 321.0
+margin_top = 591.0
 margin_right = 667.0
-margin_bottom = 381.0
+margin_bottom = 651.0
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
