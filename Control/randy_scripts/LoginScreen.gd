@@ -22,11 +22,29 @@ var loginBool=false
 var getDataBool=false
 
 func _on_LoginButton_pressed():
-	loginBool=true
-	Firebase.login(username.text, password.text, http)
-	yield(get_tree().create_timer(2.0), "timeout")
-	getDataBool=true
-	Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
+	
+	var error_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/ErrorMessage
+	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit.get_text()
+	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2.get_text()
+	
+	if email_text == "": # or if email_address is not valid in DB
+		error_text.set_text("Please enter a valid email address.")
+		error_text.show()
+	
+	elif password_text == "":
+		error_text.set_text("Please enter your password.")
+		error_text.show()
+	
+	# else if (invalid password):
+	#	error_text.set_text("Invalid password. Please try again.")
+	#	error_text.show()
+	
+	else:
+		loginBool=true
+		Firebase.login(username.text, password.text, http)
+		yield(get_tree().create_timer(2.0), "timeout")
+		getDataBool=true
+		Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
 	#account_type = "Teacher"
 	#if account_type == "Teacher":
 	#	get_tree().change_scene("res://menus/Screens_Randy/MainMenuTeachers.tscn")
