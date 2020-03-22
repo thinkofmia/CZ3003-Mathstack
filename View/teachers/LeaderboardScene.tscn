@@ -6,9 +6,8 @@
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Model/Labels/Header.tscn" type="PackedScene" id=6]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Control
-
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,10 +15,23 @@ script/source = "extends Control
 
 
 # Called when the node enters the scene tree for the first time.
+onready var http : HTTPRequest = $HTTPRequest
+onready var rankings
+var numbering = 1
+var total_score = 0
 func _ready():
+	
 	for i in range(0,10):
-		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(\"  Swee Sen \" + \"                           \" + \"80\" + \"                            \" + \"20.01\" + \"                  \" + \"Swee Soldier\")
-
+		var numberings = str(numbering)
+		Firebase.get_document(\"Leaderboard/\"+numberings, http)
+		yield(get_tree().create_timer(2), \"timeout\")
+		var username = rankings['username'].values()[0]
+		var highscore = rankings['highscore'].values()[0]
+		var timing = rankings['time_taken'].values()[0]
+		var character = rankings['character'].values()[0]
+		print(character)
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
+		numbering += 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,16 +41,28 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
+	
+
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	if response_code != 200:
+		print(response_body)
+		print(\"error!\")
+	elif response_code == 200:
+		self.rankings = response_body.fields
+		print(\"Accessed succesfully\")
+		
+	pass # Replace with function body.
 "
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 35
 use_filter = true
 extra_spacing_space = 2
 font_data = ExtResource( 4 )
 
 [node name="LeaderboardScreen" instance=ExtResource( 1 )]
-script = SubResource( 2 )
+script = SubResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 667.0
@@ -91,7 +115,7 @@ margin_bottom = 587.0
 rect_min_size = Vector2( 0, 516 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 select_mode = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
@@ -101,4 +125,7 @@ margin_bottom = 651.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
 margin_top = 20.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

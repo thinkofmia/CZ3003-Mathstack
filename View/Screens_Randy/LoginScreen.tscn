@@ -11,7 +11,7 @@
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Button
 
 export(String) var scene_to_load
@@ -95,7 +95,7 @@ margin_left = 250.0
 margin_top = 0.0
 margin_right = 690.0
 margin_bottom = 90.0
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 814.0
@@ -107,14 +107,14 @@ custom_constants/separation = 100
 margin_top = 0.0
 margin_right = 360.0
 margin_bottom = 60.0
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="ForgotPassButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1" instance=ExtResource( 7 )]
 margin_left = 460.0
 margin_top = 0.0
 margin_right = 940.0
 margin_bottom = 60.0
-script = SubResource( 3 )
+script = SubResource( 2 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 
