@@ -63,6 +63,54 @@ func callPower():
 	
 	#Check Character
 	match global.characterSelected:
+		"Deadly Dino":
+			#Gives x2 Damage
+			global.ddPower = 1
+			#Change music and color
+			var mainMusic = get_tree().get_root().get_node("World").find_node("PlayMusic")
+			mainMusic.stop()
+			var ffMusic = get_tree().get_root().get_node("World").find_node("FFMusic")
+			ffMusic.play()
+			var bg = get_tree().get_root().get_node("World").find_node("Texture")
+			var header = get_tree().get_root().get_node("World").find_node("RichTextLabel")
+			bg.set_self_modulate(Color( 1, 0, 1, 1 )) 
+			header.add_color_override("font_color", Color(1,0,0,1))
+			$DDSprite.set_self_modulate(Color( 1, 0, 1, 1 )) 
+			yield(get_tree().create_timer(15.0), "timeout")
+			ffMusic.stop()
+			mainMusic.play()
+			$DDSprite.set_self_modulate(Color( 1, 1, 1, 1 )) 
+			bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
+			header.add_color_override("font_color", Color(1,1,1,1))
+			#Return
+			global.ddPower = 0
+		"Zesty Zombie":
+			#Sacrifice 1 health for 5 levels
+			hearts = hearts - 1
+			fixHearts()
+			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+			qnMenu.hide()
+			#Jump three times
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			blkTower.addBlock()
+			self.jump()
+			yield(get_tree().create_timer(1.0), "timeout")
+			#Randomise Qn
+			qnMenu.show()
+			qnMenu.randomizeQuestion()
+			$PowerButton.hide()
 		"Swee Soldier":
 			#Add 4 lives
 			addLife()
@@ -97,7 +145,7 @@ func callPower():
 			bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
 			header.add_color_override("font_color", Color(1,1,1,1))
 			global.rrPower = 1
-		"Mister I":
+		"Mister I": #Jump 3 levels
 			$PowerButton.hide()
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")

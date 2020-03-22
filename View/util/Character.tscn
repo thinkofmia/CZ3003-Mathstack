@@ -153,25 +153,25 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 61 ), ExtResource( 62 ), ExtResource( 50 ), ExtResource( 63 ), ExtResource( 53 ), ExtResource( 59 ), ExtResource( 54 ), ExtResource( 66 ), ExtResource( 51 ), ExtResource( 56 ) ],
 "loop": true,
 "name": "idle",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 70 ), ExtResource( 69 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 52 ), ExtResource( 48 ) ],
-"loop": true,
-"name": "jump",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 64 ), ExtResource( 57 ), ExtResource( 55 ), ExtResource( 65 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 67 ) ],
 "loop": true,
 "name": "attack",
 "speed": 13.0
+}, {
+"frames": [ ExtResource( 70 ), ExtResource( 69 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 52 ), ExtResource( 48 ) ],
+"loop": true,
+"name": "jump",
+"speed": 15.0
 } ]
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 78 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 77 ), ExtResource( 80 ), ExtResource( 73 ), ExtResource( 72 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ) ],
 "loop": true,
@@ -179,7 +179,7 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 82 ) ],
 "loop": true,
@@ -187,7 +187,7 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 31.2366, 32.2275 )
 
 [node name="Character" type="KinematicBody2D"]
@@ -222,7 +222,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 5
+frame = 7
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="."]
@@ -230,28 +230,28 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 8
+frame = 9
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
-frames = SubResource( 12 )
+frames = SubResource( 11 )
 animation = "idle"
-frame = 5
+frame = 6
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
-frames = SubResource( 13 )
-frame = 2
+frames = SubResource( 12 )
+frame = 3
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
-frames = SubResource( 14 )
+frames = SubResource( 13 )
 frame = 1
 playing = true
 flip_h = true
@@ -305,7 +305,7 @@ stretch_mode = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0.363052, 0.487732 )
-shape = SubResource( 11 )
+shape = SubResource( 14 )
 
 [node name="PowerButton" type="TextureButton" parent="."]
 visible = false

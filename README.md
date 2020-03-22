@@ -16,14 +16,13 @@ Playable Characters:
 - Humble B (Randomize questions, 5 uses)
 - Riding Rabbit (Slow timer by 0.5 speed for 30 seconds)
 - Fire Fox (No Powers Yet)
-- Zesty Zombie (No Powers Yet)
-- Deadly Dino (No Powers Yet)
+- Zesty Zombie (Sacrifice 1 life for 5 levels)
+- Deadly Dino (For 15 seconds x2 damage. Lose 2 health or gain 2 levels per qn answered)
 - Careful Cyborg (No Powers Yet)
 
 Cheats:
 - Press up button to jump
 - Press down button to add life
-- Press right button to remove all blocks
 
 
 ## Credits for free images and music
