@@ -33,6 +33,14 @@ func displayCharacter():
 			$HBSprite.show()
 		"Rider Rabbit":
 			$RRSprite.show()
+		"Zesty Zombie":
+			$ZZSprite.show()
+		"Careful Cyborg":
+			$CCSprite.show()
+		"Deadly Dino":
+			$DDSprite.show()
+		"Fire Fox":
+			$FFSprite.show()
 		_:
 			$GodotSprite.show()
 			$PowerButton.hide()
@@ -117,6 +125,10 @@ func hideAllSprites():
 	$PowerButton.hide()
 	$HBSprite.hide()
 	$RRSprite.hide()
+	$ZZSprite.hide()
+	$CCSprite.hide()
+	$DDSprite.hide()
+	$FFSprite.hide()
 
 func jump():
 	#move character

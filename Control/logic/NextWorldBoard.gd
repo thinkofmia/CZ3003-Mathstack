@@ -36,6 +36,12 @@ func changeBg(world):
 			bg.set_texture(preload("res://textures/mountain.png"))
 		"World #2":
 			bg.set_texture(preload("res://textures/mountainView.jpg"))
+		"World #3":
+			bg.set_texture(preload("res://textures/winter.png"))
+		"World #4":
+			bg.set_texture(preload("res://textures/graveyard.png"))
+		"World #5":
+			bg.set_texture(preload("res://textures/desert.png"))
 		_:
 			bg.set_texture(preload("res://textures/BG.png"))
 

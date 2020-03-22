@@ -15,6 +15,10 @@ Playable Characters:
 - Mister I (Auto-clear 3 levels)
 - Humble B (Randomize questions, 5 uses)
 - Riding Rabbit (Slow timer by 0.5 speed for 30 seconds)
+- Fire Fox (No Powers Yet)
+- Zesty Zombie (No Powers Yet)
+- Deadly Dino (No Powers Yet)
+- Careful Cyborg (No Powers Yet)
 
 Cheats:
 - Press up button to jump
@@ -26,9 +30,10 @@ Cheats:
 - Flaticon (returnButton.png)
 - Free Stock Textures (woodTexture.jpg)
 - freepik (mountainView.jpg, heart.png, flame.jpg)
-- Anson Fu (Mr I.png)
+- Anson Fu (Mr I sprite)
 - KingKelpo (bee_spritesheet.png)
-- heamomo (Rabbit.png)
+- heamomo (Rider Rabbit sprite, Fire Fox sprite)
+- gameart2D (Swee Solder sprite, Deadly Dino Sprite, Zesty Zombie Sprite, Careful Cyborg sprite, winter bg, desert bg, graveyard bg)
 
 - Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg)
 - Betrof [Freesound] (correct_sound.wav)
