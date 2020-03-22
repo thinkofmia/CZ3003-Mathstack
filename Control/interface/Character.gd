@@ -88,28 +88,29 @@ func callPower():
 			#Sacrifice 1 health for 5 levels
 			hearts = hearts - 1
 			fixHearts()
-			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
-			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-			qnMenu.hide()
-			#Jump three times
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			#Randomise Qn
-			qnMenu.show()
-			qnMenu.randomizeQuestion()
+			if (hearts>0):
+				var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+				var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+				qnMenu.hide()
+				#Jump three times
+				blkTower.addBlock()
+				self.jump()
+				yield(get_tree().create_timer(1.0), "timeout")
+				blkTower.addBlock()
+				self.jump()
+				yield(get_tree().create_timer(1.0), "timeout")
+				blkTower.addBlock()
+				self.jump()
+				yield(get_tree().create_timer(1.0), "timeout")
+				blkTower.addBlock()
+				self.jump()
+				yield(get_tree().create_timer(1.0), "timeout")
+				blkTower.addBlock()
+				self.jump()
+				yield(get_tree().create_timer(1.0), "timeout")
+				#Randomise Qn
+				qnMenu.show()
+				qnMenu.randomizeQuestion()
 			$PowerButton.hide()
 		"Swee Soldier":
 			#Add 4 lives
