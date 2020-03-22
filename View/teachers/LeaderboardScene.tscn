@@ -16,22 +16,21 @@ script/source = "extends Control
 
 # Called when the node enters the scene tree for the first time.
 onready var http : HTTPRequest = $HTTPRequest
-onready var rankings
-var numbering = 1
-var total_score = 0
+onready var rankings = []
+var ranking_info = []
+var ranking_display
 func _ready():
-	
-	for i in range(0,10):
-		var numberings = str(numbering)
-		Firebase.get_document(\"Leaderboard/\"+numberings, http)
-		yield(get_tree().create_timer(2), \"timeout\")
-		var username = rankings['username'].values()[0]
-		var highscore = rankings['highscore'].values()[0]
-		var timing = rankings['time_taken'].values()[0]
-		var character = rankings['character'].values()[0]
-		print(character)
+	Firebase.get_document(\"Leaderboard\", http)
+	yield(get_tree().create_timer(2), \"timeout\")
+	ranking_info = (rankings.values())
+	for i in range(0,9):
+		ranking_display = (ranking_info[0][i]['fields'])
+		var username = ranking_display['username'].values()[0]
+		var highscore = ranking_display['highscore'].values()[0]
+		var timing = ranking_display['time_taken'].values()[0]
+		var character = ranking_display['character'].values()[0]
+		#print(character)
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
-		numbering += 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,7 +48,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		print(response_body)
 		print(\"error!\")
 	elif response_code == 200:
-		self.rankings = response_body.fields
+		self.rankings = response_body
 		print(\"Accessed succesfully\")
 		
 	pass # Replace with function body.
