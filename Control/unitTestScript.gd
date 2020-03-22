@@ -38,12 +38,9 @@ func autoplay():
 	var qnMenu = screen.get_node("GUI/PlayBoard/QuestionMenu")
 	qnMenu.correctAnswer()
 	print("- Press correct answer once")
-	
-	#Wait
-	yield(get_tree().create_timer(2.0), "timeout")
-	qnMenu.correctAnswer()
-	print("- Press correct answer twice")
-	autoplay()
+	var blkTower = screen.get_node("BlockTower")
+	if is_instance_valid(blkTower):
+		autoplay()
 
 func checkChallengeMode():
 	#Set Important Variables
@@ -105,7 +102,9 @@ func checkChallengeMode():
 	qnMenu.correctAnswer()
 	print("- Press correct answer twice")
 	
-	autoplay()
+	var blkTower = screen.get_node("BlockTower")
+	if is_instance_valid(blkTower):
+		autoplay()
 	
 	#Wait
 	#yield(get_tree().create_timer(2.0), "timeout")
