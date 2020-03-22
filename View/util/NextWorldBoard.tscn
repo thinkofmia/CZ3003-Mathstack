@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Model/buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Control/logic/NextWorldBoard.gd" type="Script" id=3]
-[ext_resource path="res://Xolonium_16.tres" type="DynamicFont" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 55
@@ -56,124 +55,74 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WorldButton" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_right = 211.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton2" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton2" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 221.0
 margin_right = 432.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton3" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton3" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 442.0
 margin_right = 653.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton4" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton4" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 663.0
 margin_right = 874.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #4"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton5" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton5" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 884.0
 margin_right = 1095.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #5"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton6" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton6" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 1105.0
 margin_right = 1316.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #6"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton7" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton7" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 1326.0
 margin_right = 1537.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #7"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton8" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton8" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 1547.0
 margin_right = 1758.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #8"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton9" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton9" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 1768.0
 margin_right = 1979.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #9"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="WorldButton10" type="Button" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
+[node name="WorldButton10" parent="WorldSelectContainer/WorldSelectRow" instance=ExtResource( 2 )]
 margin_left = 1989.0
 margin_right = 2228.0
 margin_bottom = 55.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 4 )
+rect_scale = Vector2( 1, 1 )
 text = "World #10"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="WorldSelectContainer/WorldSelectRow/WorldButton" to="." method="_on_WorldButton_pressed"]
 [connection signal="pressed" from="WorldSelectContainer/WorldSelectRow/WorldButton2" to="." method="_on_WorldButton2_pressed"]
 [connection signal="pressed" from="WorldSelectContainer/WorldSelectRow/WorldButton3" to="." method="_on_WorldButton3_pressed"]

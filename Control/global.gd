@@ -8,7 +8,7 @@ var highscore = 0 #Highscore for challenge mode
 var storyScore = 0 #Storyscore for story mode
 var questionCount = 0 #normal mode current question count
 var characterSelected = "Godot" #Default char
-var worldSelected = "World #1" #Default world
+var worldSelected = "World #2" #Default world
 var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Advanced
 var modeSelected = "None"
 #added extra global variable that is assigned at log-in

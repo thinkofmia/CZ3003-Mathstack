@@ -10,6 +10,8 @@ var world8
 var world9
 var world10
 var qnMenu
+var bg
+var world
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,10 +26,23 @@ func _ready():
 	world9 = find_node("WorldButton9")
 	world10 = find_node("WorldButton10")
 	qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	bg = get_tree().get_root().get_node("World").find_node("Background")
+	world = global.worldSelected
+	changeBg(global.worldSelected)
+
+func changeBg(world):
+	match world:
+		"World #1":
+			bg.set_texture(preload("res://textures/mountain.png"))
+		"World #2":
+			bg.set_texture(preload("res://textures/mountainView.jpg"))
+		_:
+			bg.set_texture(preload("res://textures/BG.png"))
 
 func selectWorld(node):
 	global.worldSelected = node.get_text()
 	print("World Selected: "+global.worldSelected)
+	changeBg(global.worldSelected)
 	qnMenu.show()
 	self.hide()
 
