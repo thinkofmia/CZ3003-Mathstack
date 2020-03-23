@@ -22,12 +22,16 @@ func changeBg(selectedBg):
 
 
 func calculateAndSetValueForProgress():
-	var total = 30.0
-	var userProgress = 0.0
-	for i in range(1,11):
-		userProgress = userProgress + int(global.save['World' + str(i)].stringValue)
-		
-	var finalValue = (userProgress / total) * 100
+	var currentWorldInt = int(global.worldSelected[len(global.worldSelected) - 1])
+	
+	if (currentWorldInt == 0):
+		currentWorldInt = int(global.worldSelected.substr(len(global.worldSelected) - 2,len(global.worldSelected) - 1))
+	
+	var userProgress = int(global.save['World' + str(currentWorldInt)].stringValue)
+	print(userProgress)
+	var finalValue = 0.0
+	finalValue = (userProgress / 3.0) * 100
+	print(finalValue)
 	$PlayBoard/MarginContainer/VBoxContainer/CompletionBox/ProgressBar.value = finalValue
 
 func evaluateUserProgressAndSetButton():
