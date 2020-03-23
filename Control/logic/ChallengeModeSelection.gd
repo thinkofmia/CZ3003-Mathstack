@@ -8,6 +8,25 @@ func _ready():
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
+	getWorld()
+
+func getWorld():
+	match global.worldSelected:
+		"World #1":
+			selectedBg = 1
+		"World #2":
+			selectedBg = 2
+		"World #3":
+			selectedBg = 3
+		"World #4":
+			selectedBg = 4
+		"World #5":
+			selectedBg = 5
+		"World #6":
+			selectedBg = 6
+		_:
+			selectedBg = 5
+	changeBg()
 
 func _on_GodotIcon_pressed():
 	global.characterSelected = "Godot"

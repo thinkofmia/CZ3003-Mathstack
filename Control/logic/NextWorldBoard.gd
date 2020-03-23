@@ -37,13 +37,14 @@ func changeBg(world):
 		"World #2":
 			bg.set_texture(preload("res://textures/mountainView.jpg"))
 		"World #3":
-			bg.set_texture(preload("res://textures/winter.png"))
+			bg.set_texture(preload("res://textures/BG.png"))
 		"World #4":
-			bg.set_texture(preload("res://textures/graveyard.png"))
-		"World #5":
+			bg.set_texture(preload("res://textures/winter.png"))
+		"World #6":
 			bg.set_texture(preload("res://textures/desert.png"))
 		_:
-			bg.set_texture(preload("res://textures/BG.png"))
+			bg.set_texture(preload("res://textures/graveyard.png"))
+			
 
 func selectWorld(node):
 	global.worldSelected = node.get_text()
