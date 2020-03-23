@@ -314,7 +314,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="12"]
@@ -342,5 +342,9 @@ text = "Try again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="14"]
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="FinishButton" to="." method="_on_FinishButton_pressed"]
+[connection signal="request_completed" from="MYHTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

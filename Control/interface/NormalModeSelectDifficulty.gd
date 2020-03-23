@@ -4,6 +4,8 @@ extends Node
 func _ready():
 	$PlayBoard/MarginContainer/VBoxContainer/TopicName.set_text(global.worldSelected)
 	changeBg(global.worldSelected.split("#")[1])
+	calculateAndSetValueForProgress()
+	evaluateUserProgressAndSetButton()
 	pass
 
 func changeBg(selectedBg):
@@ -18,6 +20,40 @@ func changeBg(selectedBg):
 		3:
 			$Background_3.show()
 
+
+func calculateAndSetValueForProgress():
+	var total = 30.0
+	var userProgress = 0.0
+	for i in range(1,11):
+		userProgress = userProgress + int(global.save['World' + str(i)].stringValue)
+		
+	var finalValue = (userProgress / total) * 100
+	$PlayBoard/MarginContainer/VBoxContainer/CompletionBox/ProgressBar.value = finalValue
+
+func evaluateUserProgressAndSetButton():
+	var currentWorldInt = int(global.worldSelected[len(global.worldSelected) - 1])
+	
+	if (currentWorldInt == 0):
+		currentWorldInt = int(global.worldSelected.substr(len(global.worldSelected) - 2,len(global.worldSelected) - 1))
+	
+	var userProgressInt = int(global.save['World' + str(currentWorldInt)]['stringValue'])
+	
+	if (userProgressInt == 0):
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/IntermediateButton.hide()
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/AdvancedButton.hide()
+	
+	if (userProgressInt == 1):
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/AdvancedButton.hide()
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/PrimaryButton.icon = load("res://Model/Object/Tick.png")
+	
+	elif (userProgressInt == 2):
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/PrimaryButton.icon = load("res://Model/Object/Tick.png")
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/IntermediateButton.icon = load("res://Model/Object/Tick.png")
+	
+	elif (userProgressInt == 3):
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/PrimaryButton.icon = load("res://Model/Object/Tick.png")
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/IntermediateButton.icon = load("res://Model/Object/Tick.png")
+		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/AdvancedButton.icon = load("res://Model/Object/Tick.png")
 #Primary Mode Selected
 func _on_PrimaryButton_pressed():
 	global.difficultySelected = "Primary"

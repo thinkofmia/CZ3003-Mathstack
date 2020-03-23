@@ -17,12 +17,12 @@ onready var ans
 onready var http : HTTPRequest = $HTTPRequest
 
 var Question := {
-	"questionText":{},
+	"QuestionText":{},
 	"Option1":{},
 	"Option2":{},
 	"Option3":{},
 	"Option4":{},
-	"ans":{}
+	"Ans":{}
 } setget set_question
 
 # Called when the node enters the scene tree for the first time.
@@ -56,7 +56,8 @@ func con():
 	find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText)
 	
 func randomizeQuestion():
-	questionId = str("DM-N-04-E-01")
+	#questionId = str("DM-N-01-E-01")
+	questionId = str("1")
 	Firebase.get_document("NormalWorld1/%s" % str(questionId), http)
 	level += 1
 	
@@ -64,6 +65,7 @@ func randomizeQuestion():
 
 func checkAnswer(option):
 	global.questionCount = global.questionCount + 1
+	print(question)
 	if (str(question[4])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		#Update score
@@ -106,12 +108,13 @@ func _on_Option2_pressed():
 
 func set_question (value: Dictionary) -> void:
 	Question  = value
+	print(Question)
 	qText = str(Question.QuestionText.stringValue)
-	op1 = str(Question.Option1.stringValue)
-	op2 = str(Question.Option2.stringValue)
-	op3 = str(Question.Option3.stringValue)
-	op4 = str(Question.Option4.stringValue)
-	ans= str(Question.Ans.stringValue)
+	op1 = str(Question.Option1.integerValue)
+	op2 = str(Question.Option2.integerValue)
+	op3 = str(Question.Option3.integerValue)
+	op4 = str(Question.Option4.integerValue)
+	ans= str(Question.Ans.integerValue)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -123,5 +126,5 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		#success
 		200:
 			self.Question = result_body.fields
-			print(result_body.fields)
+			print()
 			con()
