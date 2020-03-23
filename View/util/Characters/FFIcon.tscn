@@ -6,6 +6,6 @@
 [node name="CharacterIcon" instance=ExtResource( 1 )]
 
 [node name="FaceIcon" parent="." index="0"]
-position = Vector2( 38.4305, 36.39 )
 scale = Vector2( 1.40795, 1.42609 )
 texture = ExtResource( 2 )
+flip_h = true
