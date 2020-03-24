@@ -40,7 +40,7 @@ custom_constants/separation = 10
 
 [node name="QuizName" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="0"]
 margin_right = 539.0
-margin_bottom = 58.0
+margin_bottom = 60.0
 custom_fonts/font = ExtResource( 2 )
 text = "Quiz Name"
 __meta__ = {
@@ -48,9 +48,9 @@ __meta__ = {
 }
 
 [node name="AuthorRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="1"]
-margin_top = 68.0
+margin_top = 70.0
 margin_right = 539.0
-margin_bottom = 107.0
+margin_bottom = 109.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -70,9 +70,9 @@ custom_fonts/font = ExtResource( 7 )
 text = "GodOfThunder"
 
 [node name="CreationDateRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="2"]
-margin_top = 117.0
+margin_top = 119.0
 margin_right = 539.0
-margin_bottom = 156.0
+margin_bottom = 158.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -92,9 +92,9 @@ custom_fonts/font = ExtResource( 7 )
 text = "06/03/2020"
 
 [node name="NumberQnsRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="3"]
-margin_top = 166.0
+margin_top = 168.0
 margin_right = 539.0
-margin_bottom = 205.0
+margin_bottom = 207.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -114,9 +114,9 @@ custom_fonts/font = ExtResource( 7 )
 text = "999999"
 
 [node name="WorldsRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="4"]
-margin_top = 215.0
+margin_top = 217.0
 margin_right = 539.0
-margin_bottom = 254.0
+margin_bottom = 256.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -136,9 +136,9 @@ custom_fonts/font = ExtResource( 7 )
 text = "Arithmetic, Vectors"
 
 [node name="IdRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="5"]
-margin_top = 264.0
+margin_top = 266.0
 margin_right = 539.0
-margin_bottom = 303.0
+margin_bottom = 305.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -158,9 +158,9 @@ custom_fonts/font = ExtResource( 7 )
 text = "xBMIAtt567"
 
 [node name="Button" parent="PlayBoard/MarginContainer/VBoxContainer" index="6" instance=ExtResource( 6 )]
-margin_top = 313.0
+margin_top = 315.0
 margin_right = 539.0
-margin_bottom = 403.0
+margin_bottom = 405.0
 
 [node name="BackButton" parent="." index="2"]
 script = ExtResource( 1 )
