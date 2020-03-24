@@ -12,7 +12,7 @@ func _ready():
 	$PlayBoard/CompletionBox/ProgressBar.value = 0
 	global.modeSelected = "Normal Mode"
 	Firebase.get_document("SaveData/%s" % str(global.username), http)
-	
+
 	
 
 
@@ -31,6 +31,7 @@ func changeBg(selectedBg):
 	$Background4.hide()
 	$Background5.hide()
 	$Background6.hide()
+	
 	match int(selectedBg):
 		1:
 			$TemplateScreen/TextureRect.show()
@@ -60,6 +61,7 @@ func _on_MYHTTPRequest_request_completed(result, response_code, headers, body):
 		200:
 			global.save = result_body.fields
 			calculateAndSetValueForProgress()
+			
 
 func calculateAndSetValueForProgress():
 	var total = 30.0
@@ -69,6 +71,18 @@ func calculateAndSetValueForProgress():
 		
 	var finalValue = (userProgress / total) * 100
 	$PlayBoard/CompletionBox/ProgressBar.value = finalValue
+	
+	for y in range(1,11):
+		var userProgressDist = int(global.save['World' + str(y)].stringValue)
+		var path = ""
+		if (y % 2 != 0):
+			path = "PlayBoard/ScrollContainer/HBoxContainer/LeftContainer/WorldButton #" + str(y)
+		else:
+			path = "PlayBoard/ScrollContainer/HBoxContainer/RightContainer/WorldButton #" + str(y)
+		
+		if (userProgressDist == 3):
+			get_node(path).icon = load("res://Model/Object/Tick.png")
+		
 		
 		
 		
