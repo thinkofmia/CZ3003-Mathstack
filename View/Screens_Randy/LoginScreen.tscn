@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://View/template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Control/randy_scripts/LoginScreen.gd" type="Script" id=6]
 [ext_resource path="res://Model/Labels/ForgotPassword.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -33,22 +34,35 @@ rect_scale = Vector2( 0.825, 0.825 )
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
 material = SubResource( 1 )
 margin_right = 1340.0
-margin_bottom = 1124.0
+margin_bottom = 1139.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
 margin_right = 1340.0
-margin_bottom = 1124.0
+margin_bottom = 1139.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
 margin_right = 990.0
-margin_bottom = 924.0
-custom_constants/separation = 190
+margin_bottom = 939.0
+custom_constants/separation = 175
 alignment = 2
 
-[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_top = 214.0
+[node name="ErrorMessage" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+visible = false
 margin_right = 940.0
-margin_bottom = 344.0
+margin_bottom = 84.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.647059, 0.109804, 0.109804, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Error Message"
+align = 1
+autowrap = true
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+margin_top = 259.0
+margin_right = 940.0
+margin_bottom = 389.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 20
 columns = 2
@@ -83,10 +97,10 @@ margin_bottom = 130.0
 custom_fonts/font = ExtResource( 8 )
 secret = true
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
-margin_top = 534.0
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+margin_top = 564.0
 margin_right = 940.0
-margin_bottom = 624.0
+margin_bottom = 654.0
 custom_constants/margin_right = 250
 custom_constants/margin_left = 250
 
@@ -97,10 +111,10 @@ margin_right = 690.0
 margin_bottom = 90.0
 script = SubResource( 2 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
-margin_top = 814.0
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+margin_top = 829.0
 margin_right = 940.0
-margin_bottom = 874.0
+margin_bottom = 889.0
 custom_constants/separation = 100
 
 [node name="RegButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource( 3 )]
