@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -32,6 +32,9 @@
 [ext_resource path="res://Model/Characters/Warrior/JumpAttack (5).png" type="Texture" id=30]
 [ext_resource path="res://Model/Characters/Warrior/JumpAttack (6).png" type="Texture" id=31]
 [ext_resource path="res://Model/Characters/Warrior/JumpAttack (7).png" type="Texture" id=32]
+[ext_resource path="res://textures/winter.png" type="Texture" id=33]
+[ext_resource path="res://textures/graveyard.png" type="Texture" id=34]
+[ext_resource path="res://textures/desert.png" type="Texture" id=35]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
@@ -155,23 +158,7 @@ script = SubResource( 1 )
 [node name="Background" parent="." index="1"]
 visible = false
 
-[node name="Background3" type="Sprite" parent="." index="2"]
-visible = false
-position = Vector2( 613, 369 )
-scale = Vector2( 1.23, 0.982 )
-texture = ExtResource( 9 )
-
-[node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
-margin_left = -186.0
-margin_top = -274.0
-margin_right = 318.0
-margin_bottom = 182.0
-color = Color( 0.243137, 0.517647, 0.505882, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background2" type="Sprite" parent="." index="3"]
+[node name="Background2" type="Sprite" parent="." index="2"]
 visible = false
 position = Vector2( 511, 302 )
 scale = Vector2( 0.35, 0.35 )
@@ -187,7 +174,73 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionMenu" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Background3" type="Sprite" parent="." index="3"]
+visible = false
+position = Vector2( 613, 369 )
+scale = Vector2( 1.23, 0.982 )
+texture = ExtResource( 9 )
+
+[node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
+margin_left = -186.0
+margin_top = -274.0
+margin_right = 318.0
+margin_bottom = 182.0
+color = Color( 0.243137, 0.517647, 0.505882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background4" type="Sprite" parent="." index="4"]
+position = Vector2( 6.10352e-05, 0 )
+scale = Vector2( 0.662806, 0.67561 )
+texture = ExtResource( 33 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background4" index="0"]
+anchor_left = 0.000963542
+anchor_top = 0.0038107
+anchor_right = 0.000963542
+anchor_bottom = 0.0038107
+margin_left = 576.266
+margin_top = 149.597
+margin_right = 1512.27
+margin_bottom = 805.597
+color = Color( 0.368627, 0.470588, 0.65098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background5" type="Sprite" parent="." index="5"]
+scale = Vector2( 0.514326, 0.543106 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background5" index="0"]
+margin_left = 733.0
+margin_top = 180.0
+margin_right = 1952.0
+margin_bottom = 1009.0
+color = Color( 0.152941, 0.141176, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background6" type="Sprite" parent="." index="6"]
+scale = Vector2( 0.801069, 0.625479 )
+texture = ExtResource( 35 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background6" index="0"]
+margin_left = 470.0
+margin_top = 160.0
+margin_right = 1255.0
+margin_bottom = 875.0
+color = Color( 0.964844, 0.793579, 0.536682, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionMenu" parent="." index="7" instance=ExtResource( 2 )]
 anchor_left = -2.98023e-08
 anchor_top = 0.00225599
 anchor_bottom = 0.00225627
@@ -200,7 +253,7 @@ script = ExtResource( 4 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="QuestionMenu" index="2"]
 
-[node name="PlayBoard" parent="." index="5"]
+[node name="PlayBoard" parent="." index="8"]
 visible = false
 
 [node name="CorrectStatus" parent="PlayBoard" index="1" instance=ExtResource( 3 )]
@@ -215,7 +268,7 @@ margin_top = 18.0
 margin_right = 247.0
 margin_bottom = 153.0
 
-[node name="Header" parent="." index="6"]
+[node name="Header" parent="." index="9"]
 position = Vector2( -383.625, -19.0452 )
 
 [node name="RichTextLabel" parent="Header" index="0"]
@@ -232,7 +285,7 @@ margin_top = -1.0
 margin_right = -19.0
 margin_bottom = -1.0
 
-[node name="ScoreBoard" type="Node2D" parent="." index="7"]
+[node name="ScoreBoard" type="Node2D" parent="." index="10"]
 position = Vector2( -392.095, 75.2544 )
 
 [node name="Score" type="RichTextLabel" parent="ScoreBoard" index="0"]
@@ -264,7 +317,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PassingBoard" type="Node2D" parent="." index="8"]
+[node name="PassingBoard" type="Node2D" parent="." index="11"]
 position = Vector2( 158.513, -16.9427 )
 __meta__ = {
 "_edit_group_": true
@@ -299,7 +352,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" parent="." index="9"]
+[node name="QuitButton" parent="." index="12"]
 anchor_left = -0.00136214
 anchor_right = -0.00136214
 margin_left = 958.403
@@ -309,7 +362,7 @@ margin_bottom = 94.8605
 rect_scale = Vector2( 0.5, 0.5 )
 script = null
 
-[node name="CharacterSprite" type="AnimatedSprite" parent="." index="11"]
+[node name="CharacterSprite" type="AnimatedSprite" parent="." index="14"]
 position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
@@ -317,7 +370,7 @@ animation = "idle"
 frame = 4
 playing = true
 
-[node name="FinishLabel" type="Label" parent="." index="12"]
+[node name="FinishLabel" type="Label" parent="." index="15"]
 visible = false
 margin_left = 415.0
 margin_top = 107.0
@@ -331,7 +384,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FinishButton" type="Button" parent="." index="13"]
+[node name="FinishButton" type="Button" parent="." index="16"]
 visible = false
 margin_left = 534.407
 margin_top = 310.043
@@ -343,7 +396,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="14"]
+[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="17"]
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="FinishButton" to="." method="_on_FinishButton_pressed"]
