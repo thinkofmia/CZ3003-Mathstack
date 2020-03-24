@@ -8,6 +8,25 @@ func _ready():
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
+	getWorld()
+
+func getWorld():
+	match global.worldSelected:
+		"World #1":
+			selectedBg = 1
+		"World #2":
+			selectedBg = 2
+		"World #3":
+			selectedBg = 3
+		"World #4":
+			selectedBg = 4
+		"World #5":
+			selectedBg = 5
+		"World #6":
+			selectedBg = 6
+		_:
+			selectedBg = 5
+	changeBg()
 
 func _on_GodotIcon_pressed():
 	global.characterSelected = "Godot"
@@ -43,6 +62,9 @@ func changeBg():
 	$TemplateScreen/TextureRect.hide()
 	$Background2.hide()
 	$Background3.hide()
+	$Background4.hide()
+	$Background5.hide()
+	$Background6.hide()
 	match selectedBg:
 		1:
 			$TemplateScreen/TextureRect.show()
@@ -50,6 +72,12 @@ func changeBg():
 			$Background2.show()
 		3:
 			$Background3.show()
+		4:
+			$Background4.show()
+		5:
+			$Background5.show()
+		_:
+			$Background6.show()
 
 
 func _on_WorldButton2_pressed():
@@ -63,17 +91,17 @@ func _on_WorldButton4_pressed():
 
 
 func _on_WorldButton3_pressed():
-	selectedBg = 1
+	selectedBg = 4
 	changeBg()
 
 
 func _on_WorldButton8_pressed():
-	selectedBg = 2
+	selectedBg = 5
 	changeBg()
 
 
 func _on_WorldButton7_pressed():
-	selectedBg = 3
+	selectedBg = 6
 	changeBg()
 
 
@@ -93,9 +121,33 @@ func _on_WorldButton10_pressed():
 
 
 func _on_WorldButton9_pressed():
-	selectedBg = 1
+	selectedBg = 4
 	changeBg()
 
 
 func _on_Play_pressed():
 	get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")
+
+
+func _on_ZZIcon_pressed():
+	global.characterSelected = "Zesty Zombie"
+	$SelectedCharacter.displayCharacter()
+	print("Zesty Zombie has been selected!")
+
+
+func _on_CCIcon_pressed():
+	global.characterSelected = "Careful Cyborg"
+	$SelectedCharacter.displayCharacter()
+	print("Careful Cyborg has been selected!")
+
+
+func _on_DDIcon_pressed():
+	global.characterSelected = "Deadly Dino"
+	$SelectedCharacter.displayCharacter()
+	print("Deadly Dino has been selected!")
+
+
+func _on_FFIcon_pressed():
+	global.characterSelected = "Fire Fox"
+	$SelectedCharacter.displayCharacter()
+	print("Fire Fox has been selected!")

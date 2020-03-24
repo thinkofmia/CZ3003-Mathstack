@@ -91,6 +91,17 @@ func randCloseAns(ans):
 	var newAns = ans + int(floor(rand_range(-15,15)))
 	return newAns 
 
+func checkLevelTens(): #Check if the player reaches levels of ten
+	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	if is_instance_valid(blockTower):
+		var level = blockTower.getNoOfBoxes()
+		global.highscore = level
+		#Check if its mod 10
+		if (level%10 == 0):
+			var NextWorldBoard = get_tree().get_root().get_node("World").find_node("NextWorld")
+			NextWorldBoard.show()
+			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
+			self.hide()
 
 func correctAnswer():
 	print("Correct!")
@@ -106,7 +117,17 @@ func correctAnswer():
 	character.jump()
 	#Make Character speak!
 	character.characterSpeak("GOOD JOB! ")
+	if (global.ddPower==1):
+		var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+		qnMenu.hide()
+		yield(get_tree().create_timer(1.0), "timeout")
+		#Add block
+		blockTower.addBlock()
+		#Make sprite jump!!
+		character.jump()
+		qnMenu.show()
 	randomizeQuestion()
+	checkLevelTens()
 
 func wrongAnswer():
 	print("Wrong!")
@@ -116,8 +137,10 @@ func wrongAnswer():
 		
 	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
 	character.hearts -= 1
+	if (global.ddPower==1):
+		character.hearts -= 1
 	character.fixHearts()
-	if (character.hearts == 0):
+	if (character.hearts <= 0):
 		self.hide()
 	#Make Character speak!
 	character.characterSpeak("SHUCKS! That was wrong. ")

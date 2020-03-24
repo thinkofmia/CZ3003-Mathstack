@@ -8,9 +8,9 @@ onready var username = str(global.username)
 onready var time_taken = int(global.time)
 var information_sent := false
 var ranking := {
-	"s_character": {},
+	"character": {},
 	"highscore": {},
-	"time": {},
+	"time_taken": {},
 	"username":{}
 }
 ##onready var http : HTTPRequest = $HTTPRequest
@@ -37,9 +37,9 @@ func _ready():
 	$PlayBoard/AverageSpeedRow/SpeedPerQn.set_text(str(avg)+" qn/s")
 	#trying to add the ranking here
 	ranking.username = { "stringValue" : username}
-	ranking.s_character =  {"stringValue" : character}
+	ranking.character =  {"stringValue" : character}
 	ranking.highscore = {"integerValue" : hscore}
-	ranking.time = {"integerValue" : time_taken}
+	ranking.time_taken = {"integerValue" : time_taken}
 	#adding Ranking into HighScore, with auto-generated ID
 	Firebase.save_document("HighScore?" , ranking,http)
 

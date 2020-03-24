@@ -5,11 +5,13 @@ extends Node
 # var a = 2
 # var b = "text"
 var currentSelectedWorld = "World #0"
-onready var http : HTTPRequest = $HTTPRequest
+onready var http : HTTPRequest = $MYHTTPRequest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PlayBoard/CompletionBox/ProgressBar.value = 0
 	global.modeSelected = "Normal Mode"
+	Firebase.get_document("SaveData/%s" % str(global.username), http)
 	
 	
 
@@ -26,6 +28,9 @@ func changeBg(selectedBg):
 	#Hide all bg
 	$Background2.hide()
 	$Background3.hide()
+	$Background4.hide()
+	$Background5.hide()
+	$Background6.hide()
 	match int(selectedBg):
 		1:
 			$TemplateScreen/TextureRect.show()
@@ -33,7 +38,40 @@ func changeBg(selectedBg):
 			$Background2.show()
 		3:
 			$Background3.show()
+		4:
+			$Background4.show()
+		5:
+			$Background5.show()
+		6:
+			$Background6.show()
 
 
 func _on_NextButton_pressed():
 	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
+
+
+func _on_MYHTTPRequest_request_completed(result, response_code, headers, body):
+	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	match response_code:
+		#error
+		404:
+			return
+		#success
+		200:
+			global.save = result_body.fields
+			calculateAndSetValueForProgress()
+
+func calculateAndSetValueForProgress():
+	var total = 30.0
+	var userProgress = 0.0
+	for i in range(1,11):
+		userProgress = userProgress + int(global.save['World' + str(i)].stringValue)
+		
+	var finalValue = (userProgress / total) * 100
+	$PlayBoard/CompletionBox/ProgressBar.value = finalValue
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://textures/winter.png" type="Texture" id=1]
+
+[node name="Background4" type="Sprite"]
+scale = Vector2( 0.662806, 0.67561 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.000963559
+anchor_top = 0.0038107
+anchor_right = 0.000963542
+anchor_bottom = 0.0038107
+margin_left = 338.266
+margin_top = 124.597
+margin_right = 1235.27
+margin_bottom = 780.597
+color = Color( 0.368627, 0.470588, 0.65098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
