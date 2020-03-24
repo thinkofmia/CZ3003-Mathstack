@@ -12,6 +12,9 @@ func changeBg(selectedBg):
 	#Hide all bg
 	$Background_2.hide()
 	$Background_3.hide()
+	$Background_4.hide()
+	$Background_5.hide()
+	$Background_6.hide()
 	match int(selectedBg):
 		1:
 			$TemplateScreen/TextureRect.show()
@@ -19,6 +22,12 @@ func changeBg(selectedBg):
 			$Background_2.show()
 		3:
 			$Background_3.show()
+		4:
+			$Background_4.show()
+		5:
+			$Background_5.show()
+		6:
+			$Background_6.show()
 
 
 func calculateAndSetValueForProgress():
@@ -28,10 +37,8 @@ func calculateAndSetValueForProgress():
 		currentWorldInt = int(global.worldSelected.substr(len(global.worldSelected) - 2,len(global.worldSelected) - 1))
 	
 	var userProgress = int(global.save['World' + str(currentWorldInt)].stringValue)
-	print(userProgress)
 	var finalValue = 0.0
 	finalValue = (userProgress / 3.0) * 100
-	print(finalValue)
 	$PlayBoard/MarginContainer/VBoxContainer/CompletionBox/ProgressBar.value = finalValue
 
 func evaluateUserProgressAndSetButton():
