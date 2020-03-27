@@ -18,6 +18,7 @@ var profile := {
 } setget set_profile
 
 var class_array = ["SS1","SS2","SSP1"]
+var school_array = ["NTU", "NUS", "SMU"]
 
 func _ready():
 	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer.get_children():
@@ -58,6 +59,6 @@ func set_profile(value: Dictionary) -> void:
 	profile = value
 	account.text = "Account: %s" % str(profile.account.stringValue)
 	nickname.text = "Nickname: %s" % str(profile.nickname.stringValue)
-	school.text = "School: %s" % str(profile.school.stringValue)
+	school.text = "School: %s" % str(school_array[int(profile.schoolId.integerValue)])
 	class1.text = "Class: %s" % str(class_array[int(profile.classId.integerValue)])
 	#class1.select(1)

@@ -13,6 +13,7 @@ var information_sent := false
 
 var classId
 var class_array = ["SS1","SS2","SSP1"]
+var school_array = ["NTU", "NUS", "SMU"]
 
 var profile := {
 	"account":{},
@@ -66,7 +67,7 @@ func _on_Button3_pressed():
 	
 	profile.account = {"stringValue": "Student"}
 	profile.nickname = { "stringValue": nickname.text }
-	profile.school = {"stringValue": "NTU"}
+	profile.school = {"stringValue": str(school_array[int(profile.schoolId.integerValue)])}
 	profile.classId = { "integerValue": class1.get_selected_id() }
 	#profile.class1 = {"stringValue": class1.get_item_text()}
 	match new_profile:
@@ -82,7 +83,7 @@ func set_profile(value: Dictionary) -> void:
 	profile = value
 	account.text = "Account: %s" % str(profile.account.stringValue)
 	nickname.text=profile.nickname.stringValue
-	school.text = "School: %s" % str(profile.school.stringValue)
+	school.text = "School: %s" % str(school_array[int(profile.schoolId.integerValue)])
 	classId = profile.classId.integerValue
 	class1.select(int(classId))
 	#class1.select(1)

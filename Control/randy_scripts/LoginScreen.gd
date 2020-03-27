@@ -41,8 +41,8 @@ func _on_LoginButton_pressed():
 		loginBool=true
 		Firebase.login(username.text, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
-		#getDataBool=true
-		#Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
+		getDataBool=true
+		Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
 	#account_type = "Teacher"
 	#if account_type == "Teacher":
 	#	get_tree().change_scene("res://menus/Screens_Randy/MainMenuTeachers.tscn")
