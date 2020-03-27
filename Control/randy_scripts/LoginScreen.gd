@@ -24,7 +24,7 @@ var loginBool=false
 var getDataBool=false
 
 func _on_LoginButton_pressed():
-	
+	global.username = username
 	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit.get_text()
 	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2.get_text()
 	
