@@ -17,7 +17,13 @@ var username ="" #string for the user playing
 #Variable to check if test mode enabled
 var testMode = false
 
-#Variables for Custom Mode
+#Variables for Custom Mode Selected
+var customTitle = "" #Variable for Custom Game Title
+var customCreator = "" #Variable for Custom Game Creator
+var customDate = "" #Variable for Custom Date
+var customTotalQn = "" #Variable for Custom Total Questions
+var customWorlds = "" #Variable for Custom Worlds
+var customID = "" #Variable for Custom ID
 
 #Special Powers
 var rrPower = 1 #1 means normal speed, #0.5 means x2 Speed
