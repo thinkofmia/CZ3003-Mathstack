@@ -18,3 +18,10 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")
+
+
+func _on_BackButton_pressed():#Back button pressed
+	if (global.modeSelected == "My Custom"):#If my custom mode
+		get_tree().change_scene("res://View/gameModes/CustomModeMyQuizzes.tscn")
+	else:#Else if All custom
+		get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
