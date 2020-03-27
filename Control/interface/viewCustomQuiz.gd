@@ -11,7 +11,10 @@ var ID = "" #Variable for Custom ID
 func _ready():
 	#Set Title
 	title = get_text() 
-	creator = "CharlizardXXX"
+	if (title == "Faker"):#To test appearance of Edit Button
+		creator = "FTENG003@gmail.com"
+	else:
+		creator = "CharlizardXXX"
 	date = "27/03/2020"
 	totalQn = "10"
 	worlds = "Fake Worlds"

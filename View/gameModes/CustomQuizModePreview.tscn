@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Model/buttons/EditButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Control/interface/CustomQuizModePreview.gd" type="Script" id=5]
@@ -160,5 +161,11 @@ text = "xBMIAtt567"
 margin_top = 315.0
 margin_right = 539.0
 margin_bottom = 405.0
+
+[node name="EditButton" parent="." index="4" instance=ExtResource( 1 )]
+margin_left = 890.106
+margin_top = 497.291
+margin_right = 992.106
+margin_bottom = 585.291
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
