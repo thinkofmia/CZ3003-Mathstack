@@ -83,6 +83,7 @@ func _on_Button_pressed():
 		error_text.show()
 	
 	else:
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.hide()
 		reg=true		
 		Firebase.register(username.text, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
@@ -103,6 +104,7 @@ func _on_Button_pressed():
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.show()
 	if response_code == 200:
 		if reg==true:
 			regSucc=true

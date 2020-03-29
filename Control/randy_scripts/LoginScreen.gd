@@ -38,6 +38,7 @@ func _on_LoginButton_pressed():
 
 	
 	else:
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.hide()
 		loginBool=true
 		Firebase.login(username.text, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
@@ -77,3 +78,4 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 				print("This Works")
 				error_text.set_text("Invalid account credemtials. Please try again.")
 				error_text.show()
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
