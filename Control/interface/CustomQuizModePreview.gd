@@ -36,3 +36,7 @@ func _on_BackButton_pressed():#Back button pressed
 		get_tree().change_scene("res://View/gameModes/CustomModeMyQuizzes.tscn")
 	else:#Else if All custom
 		get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
+
+
+func _on_EditButton_pressed():
+	pass # Replace with function body.

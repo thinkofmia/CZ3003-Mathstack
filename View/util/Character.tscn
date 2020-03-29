@@ -160,15 +160,15 @@ animations = [ {
 "name": "idle",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 64 ), ExtResource( 57 ), ExtResource( 55 ), ExtResource( 65 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 67 ) ],
-"loop": true,
-"name": "attack",
-"speed": 13.0
-}, {
 "frames": [ ExtResource( 70 ), ExtResource( 69 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 52 ), ExtResource( 48 ) ],
 "loop": true,
 "name": "jump",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 64 ), ExtResource( 57 ), ExtResource( 55 ), ExtResource( 65 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "attack",
+"speed": 13.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
@@ -214,7 +214,6 @@ flip_h = true
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
@@ -230,7 +229,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 9
+frame = 1
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="."]
@@ -238,14 +237,14 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 6
+frame = 8
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 12 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="."]

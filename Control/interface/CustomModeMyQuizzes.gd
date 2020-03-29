@@ -13,6 +13,7 @@ func _ready():
 	#Set Quiz List
 	quizList = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes
 	#Load Button Object
+	$AddButton/Label.set_text("Add")
 	var newButton = load("res://Model/buttons/gameModeButtons/CustomQuizButton.tscn")
 	#For loop for array of total quizzes player made
 	for i in range(0,myQuizzes.size()):
@@ -27,3 +28,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_AddButton_pressed():
+	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")

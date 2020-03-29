@@ -169,3 +169,4 @@ margin_right = 992.106
 margin_bottom = 585.291
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="EditButton" to="." method="_on_EditButton_pressed"]
