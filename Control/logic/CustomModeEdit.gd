@@ -39,7 +39,8 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	var date = "29/03/20" #Date of Creation/Update - Hard code for now
 	var worlds = "Custom" #Worlds involved - Hard code for now (Probably might be removed)
 	id = $PlayBoard/IDRow/LineEdit2.get_text() #Get quiz id
-	print("Quiz ID: "+str(id)) #Print quiz ID
+	var username = global.username #Creator's name
+	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
 	print(" ")
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn
 		var qnSet = qnList.get_child(i-1) #Save as qn set
