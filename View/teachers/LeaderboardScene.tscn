@@ -213,6 +213,7 @@ margin_bottom = 735.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
 margin_top = 20.0
+text = "Leaderboard"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
