@@ -5,7 +5,16 @@ var totalQn = 1 #Total No of Qn
 var newQnSet
 var qnList
 var id = ""
+onready var http : HTTPRequest = $HTTPRequest
 
+var Question := {
+	"QuestionText":{},
+	"Option1":{},
+	"Option2":{},
+	"Option3":{},
+	"Option4":{},
+	"Ans":{}
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +49,9 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	var worlds = "Custom" #Worlds involved - Hard code for now (Probably might be removed)
 	id = $PlayBoard/IDRow/LineEdit2.get_text() #Get quiz id
 	var username = global.username #Creator's name
+	var qnNum=1
+	var format_string
+	var actual_string 
 	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
 	print(" ")
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn
@@ -50,6 +62,16 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		var option3 = qnSet.get_child(3).get_child(1).get_text() #Option 3
 		var option4 = qnSet.get_child(4).get_child(1).get_text() #Option 4
 		var ans = qnSet.get_child(5).get_child(1).get_text() #Option 1
+		Question.QuestionText={"stringValue": qnTitle}
+		Question.Option1={"stringValue": option1}
+		Question.Option2={"stringValue": option2}
+		Question.Option3={"stringValue": option3}
+		Question.Option4={"stringValue": option4}
+		Question.Ans={"integerValue": int(ans)}
+		format_string = "%s?documentId=%s"
+		actual_string = format_string % ["Custom"+str(id),str(qnNum)]
+		Firebase.save_document(actual_string, Question, http)
+		qnNum+=1
 		
 		#For Debugging and getting each vars
 		print("Q"+str(i)+": "+str(qnTitle)) #Print Qn No and Text
@@ -57,3 +79,14 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		print(">Ans: "+str(ans)) #Print correct ans
 		print(" ")
 		
+
+
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	match response_code:
+		#error
+		404:
+			return
+		#success
+		200:
+			return

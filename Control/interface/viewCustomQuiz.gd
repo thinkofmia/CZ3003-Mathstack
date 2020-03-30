@@ -21,14 +21,14 @@ func _ready():
 	ID = "1231135151"
 
 func _on_CustomQuizButton_pressed():
-	#Debug
+		#Debug
 	print("Quiz Selected: "+title)
 	#Set globals
-	global.customTitle = title
-	global.customCreator = creator
-	global.customDate = date
-	global.customTotalQn = totalQn
-	global.customWorlds = worlds
-	global.customID = ID
+	#global.customTitle = title
+	#global.customCreator = creator
+	#global.customDate = date
+	#global.customTotalQn = totalQn
+	#global.customWorlds = worlds
+	#global.customID = ID
 	#Sent user to custom quiz preview
 	get_tree().change_scene("res://View/gameModes/CustomQuizModePreview.tscn")
