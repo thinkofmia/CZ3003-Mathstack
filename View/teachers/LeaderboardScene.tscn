@@ -30,9 +30,13 @@ func _ready():
 		var timing = ranking_display['time_taken'].values()[0]
 		var character = ranking_display['character'].values()[0]
 		#print(character)
-		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
-
-
+		#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
+		#Add Names
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NameColumn/NameList.add_item(username)
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ScoreColumn/ScoreList.add_item(highscore)
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/TimeColumn/TimeList.add_item(timing)
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CharacterColumn/CharacterList.add_item(character)
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -63,25 +67,55 @@ font_data = ExtResource( 4 )
 [node name="LeaderboardScreen" instance=ExtResource( 1 )]
 script = SubResource( 1 )
 
+[node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
+margin_right = 1099.0
+
+[node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
+margin_right = 1099.0
+
+[node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
+margin_right = 749.0
+
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_right = 667.0
-margin_bottom = 67.0
+margin_right = 699.0
+margin_bottom = 587.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 20
 
-[node name="NameLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
-margin_right = 164.0
-margin_bottom = 67.0
+[node name="NameColumn" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 300.0
+margin_bottom = 587.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 0
+
+[node name="NameLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NameColumn" index="0"]
+margin_right = 300.0
+margin_bottom = 71.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 5 )
 text = "Name"
 align = 1
 
-[node name="ScoreLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 168.0
-margin_right = 332.0
+[node name="NameList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/NameColumn" index="1"]
+margin_top = 71.0
+margin_right = 300.0
+margin_bottom = 587.0
+rect_min_size = Vector2( 0, 516 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+select_mode = 1
+
+[node name="ScoreColumn" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 320.0
+margin_right = 416.0
+margin_bottom = 587.0
+
+[node name="ScoreLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ScoreColumn" index="0"]
+margin_right = 96.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -89,25 +123,65 @@ custom_fonts/font = ExtResource( 5 )
 text = "Score"
 align = 1
 
-[node name="TimeLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="2"]
-margin_left = 336.0
-margin_right = 500.0
+[node name="ScoreList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/ScoreColumn" index="1"]
+margin_top = 71.0
+margin_right = 96.0
+margin_bottom = 587.0
+rect_min_size = Vector2( 0, 516 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+select_mode = 1
+
+[node name="TimeColumn" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="2"]
+margin_left = 436.0
+margin_right = 518.0
+margin_bottom = 587.0
+
+[node name="TimeLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/TimeColumn" index="0"]
+margin_right = 82.0
 margin_bottom = 67.0
+rect_min_size = Vector2( 0, 67 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Time"
 align = 1
 
-[node name="CharacterLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="3"]
-margin_left = 504.0
-margin_right = 665.0
+[node name="TimeList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/TimeColumn" index="1"]
+margin_top = 71.0
+margin_right = 82.0
+margin_bottom = 587.0
+rect_min_size = Vector2( 0, 516 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+select_mode = 1
+
+[node name="CharacterColumn" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="3"]
+margin_left = 538.0
+margin_right = 699.0
+margin_bottom = 587.0
+
+[node name="CharacterLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CharacterColumn" index="0"]
+margin_right = 161.0
 margin_bottom = 67.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
 text = "Character"
 
+[node name="CharacterList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CharacterColumn" index="1"]
+margin_top = 71.0
+margin_right = 161.0
+margin_bottom = 587.0
+rect_min_size = Vector2( 0, 516 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+select_mode = 1
+
 [node name="ItemList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
 margin_top = 71.0
 margin_right = 667.0
 margin_bottom = 587.0
@@ -119,7 +193,7 @@ select_mode = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
 margin_top = 591.0
-margin_right = 667.0
+margin_right = 699.0
 margin_bottom = 651.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
