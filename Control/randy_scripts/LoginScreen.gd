@@ -17,13 +17,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and loginBool == false:
 		_on_LoginButton_pressed()
 #	pass
 var loginBool=false
 var getDataBool=false
 
 func _on_LoginButton_pressed():
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.hide()
 	global.username = username
 	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit.get_text()
 	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2.get_text()
@@ -31,14 +32,14 @@ func _on_LoginButton_pressed():
 	if email_text == "": # or if email_address is not valid in DB
 		error_text.set_text("Please enter a valid email address.")
 		error_text.show()
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
 	
 	elif password_text == "":
 		error_text.set_text("Please enter your password.")
 		error_text.show()
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
 
-	
-	else:
-		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.hide()
+	else:		
 		loginBool=true
 		Firebase.login(username.text, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
@@ -65,17 +66,18 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	print("Sending In progress"+str(response_code))
 	if response_code == 200:
 		if loginBool:
-				loginBool = false
+				
 				#added this to be able to access username easily
 				global.username = username.text
 		if getDataBool:
 			getDataBool = false
 		yield(get_tree().create_timer(2.0), "timeout")
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+		loginBool = false
 	elif response_code == 400:
 		if loginBool:
-				loginBool = false
 				print("This Works")
 				error_text.set_text("Invalid account credemtials. Please try again.")
 				error_text.show()
-	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
+				loginBool = false
+				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()

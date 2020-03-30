@@ -104,7 +104,6 @@ func _on_Button_pressed():
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
-	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.show()
 	if response_code == 200:
 		if reg==true:
 			regSucc=true
@@ -112,6 +111,8 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			loginSucc=true
 		if save == true && regSucc==true && loginSucc==true  :
 			get_tree().change_scene("res://View/Screens_Randy/RegisterSuccess.tscn")
+	else:
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.show()
 
 
 func _on_OptionButton3_item_selected(id):
