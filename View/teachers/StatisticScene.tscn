@@ -15,15 +15,15 @@ custom_constants/separation = 150
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 667.0
-margin_bottom = 58.0
+margin_bottom = 60.0
 custom_fonts/font = ExtResource( 4 )
 text = "Differentiation"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
-margin_top = 208.0
+margin_top = 210.0
 margin_right = 667.0
-margin_bottom = 327.0
+margin_bottom = 329.0
 custom_constants/vseparation = 40
 columns = 2
 
@@ -65,9 +65,9 @@ text = "9.2/10"
 align = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
-margin_top = 477.0
+margin_top = 479.0
 margin_right = 667.0
-margin_bottom = 537.0
+margin_bottom = 539.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
 margin_top = 20.0
