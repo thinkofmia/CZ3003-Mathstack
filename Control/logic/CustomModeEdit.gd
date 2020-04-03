@@ -6,7 +6,6 @@ var newQnSet
 var qnList
 var id = ""
 onready var http : HTTPRequest = $HTTPRequest
-
 var Question := {
 	"QuestionText":{},
 	"Option1":{},
@@ -15,6 +14,14 @@ var Question := {
 	"Option4":{},
 	"Ans":{}
 }
+onready var Quiz := {
+	"Creator": {},
+	"Date": {},
+	"Id":{},
+	"NumQns":{},
+	"QuizName":{},
+	"World":{}
+}	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,16 +59,29 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	var qnNum=1
 	var format_string
 	var actual_string 
+	
+	#set Quiz attributes
+	Quiz.Creator={"stringValue":username}
+	Quiz.Date={"stringValue":date}
+	Quiz.Id={"stringValue":str(id)}
+	Quiz.NumQns={"stringValue":str(totalQn+1)}
+	Quiz.QuizName={"stringValue":name}
+	Quiz.World={"stringValue":worlds}
+	#http request to save Quiz
+	Firebase.save_document("CustomQuiz?documentId=%s"%str(id),Quiz, http)
+	yield(get_tree().create_timer(5.0), "timeout")
+	
 	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
 	print(" ")
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn
 		var qnSet = qnList.get_child(i-1) #Save as qn set
-		var qnTitle = qnSet.get_child(0).get_child(0).get_text() #Qn Title
+		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
 		var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
 		var option2 = qnSet.get_child(2).get_child(1).get_text() #Option 2
 		var option3 = qnSet.get_child(3).get_child(1).get_text() #Option 3
 		var option4 = qnSet.get_child(4).get_child(1).get_text() #Option 4
 		var ans = qnSet.get_child(5).get_child(1).get_text() #Option 1
+		#Set Question attributes
 		Question.QuestionText={"stringValue": qnTitle}
 		Question.Option1={"stringValue": option1}
 		Question.Option2={"stringValue": option2}
@@ -70,7 +90,9 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Ans={"integerValue": int(ans)}
 		format_string = "%s?documentId=%s"
 		actual_string = format_string % ["Custom"+str(id),str(qnNum)]
+		#http requesto to save the question
 		Firebase.save_document(actual_string, Question, http)
+		yield(get_tree().create_timer(2.0), "timeout")
 		qnNum+=1
 		
 		#For Debugging and getting each vars

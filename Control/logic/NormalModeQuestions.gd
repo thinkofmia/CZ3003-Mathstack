@@ -107,6 +107,7 @@ func _on_Option2_pressed():
 
 
 func set_question (value: Dictionary) -> void:
+	#display Question attributes
 	Question  = value
 	print(Question)
 	qText = str(Question.QuestionText.stringValue)
@@ -118,6 +119,7 @@ func set_question (value: Dictionary) -> void:
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	#format json and put into result body
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	match response_code:
 		#error
@@ -125,6 +127,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			return
 		#success
 		200:
+			#assign the response to the Question
 			self.Question = result_body.fields
 			print()
 			con()

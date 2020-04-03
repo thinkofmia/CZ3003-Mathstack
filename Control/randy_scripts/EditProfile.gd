@@ -29,7 +29,7 @@ func add_class():
 func _ready():
 	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
-	
+	#http request to get user profile
 	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
 	username.text = Firebase.user_info.email
 	add_class()
@@ -64,22 +64,17 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 ###
 func _on_Button3_pressed():
-	
-	profile.account = {"stringValue": "Student"}
+	#set profile attributes
+	#profile.account = {"stringValue": "Student"}
 	profile.nickname = { "stringValue": nickname.text }
 	profile.school = {"stringValue": str(school_array[int(profile.schoolId.integerValue)])}
 	profile.classId = { "integerValue": class1.get_selected_id() }
-	#profile.class1 = {"stringValue": class1.get_item_text()}
-	match new_profile:
-		#calling save method, basically insertion
-		true:
-			Firebase.save_document("users?documentId=%s" % Firebase.user_info.id, profile, http)
-		false:
-		#calling update method
-			Firebase.update_document("users/%s" % Firebase.user_info.id, profile, http)
+	#http request to update user profile
+	Firebase.update_document("users/%s" % Firebase.user_info.id, profile, http)
 	information_sent = true
 	
 func set_profile(value: Dictionary) -> void:
+	#display the profile attributes
 	profile = value
 	account.text = "Account: %s" % str(profile.account.stringValue)
 	nickname.text=profile.nickname.stringValue

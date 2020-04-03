@@ -84,13 +84,17 @@ func _on_Button_pressed():
 	
 	else:
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.hide()
-		reg=true		
+		reg=true
+		#http request to register an account		
 		Firebase.register(username.text, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		login=true
+		#http request to login using the created account
 		Firebase.login(username.text, password.text, http)
 		yield(get_tree().create_timer(10.0), "timeout")
 		save=true
+		#set profile attributes
+		#check if the account is a teacher account
 		if teachers_text == "T":
 			profile.account = {"stringValue": "Teacher"}
 		else :
@@ -98,6 +102,7 @@ func _on_Button_pressed():
 		profile.nickname = {"stringValue":nickname_text}
 		profile.classId = { "integerValue": class1.get_selected_id() }
 		profile.schoolId = {"integerValue": school.get_selected_id() }
+		#http request to save profile
 		Firebase.save_document("users?documentId=%s" % Firebase.user_info.id, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
 	#zfCt7yOk8TQ1f7QcPegfnEpDnJf2

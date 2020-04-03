@@ -23,7 +23,7 @@ var school_array = ["NTU", "NUS", "SMU"]
 func _ready():
 	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
-		
+	#http request to get user profile	
 	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
 	username.text = Firebase.user_info.email
 	#test for global save data

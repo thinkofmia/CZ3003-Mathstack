@@ -41,9 +41,11 @@ func _on_LoginButton_pressed():
 
 	else:		
 		loginBool=true
+		#http request to login
 		Firebase.login(username.text, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		getDataBool=true
+		#http request to get user progress
 		Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
 	#account_type = "Teacher"
 	#if account_type == "Teacher":
