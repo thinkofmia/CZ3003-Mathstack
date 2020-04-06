@@ -30,7 +30,7 @@ func _ready():
 	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 	#http request to get user profile
-	Firebase.get_document("users/%s" % Firebase.user_info.id, http)
+	Firebase.get_document("users/%s" % Firebase.user_info.email, http)
 	username.text = Firebase.user_info.email
 	add_class()
 
@@ -70,7 +70,7 @@ func _on_Button3_pressed():
 	profile.school = {"stringValue": str(school_array[int(profile.schoolId.integerValue)])}
 	profile.classId = { "integerValue": class1.get_selected_id() }
 	#http request to update user profile
-	Firebase.update_document("users/%s" % Firebase.user_info.id, profile, http)
+	Firebase.update_document("users/%s" % Firebase.user_info.email, profile, http)
 	information_sent = true
 	
 func set_profile(value: Dictionary) -> void:

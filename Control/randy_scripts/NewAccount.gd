@@ -103,7 +103,7 @@ func _on_Button_pressed():
 		profile.classId = { "integerValue": class1.get_selected_id() }
 		profile.schoolId = {"integerValue": school.get_selected_id() }
 		#http request to save profile
-		Firebase.save_document("users?documentId=%s" % Firebase.user_info.id, profile, http)
+		Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
 	#zfCt7yOk8TQ1f7QcPegfnEpDnJf2
 
