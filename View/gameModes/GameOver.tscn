@@ -177,3 +177,4 @@ margin_bottom = 595.0
 [connection signal="pressed" from="LeaderBoardButton" to="." method="_on_LeaderBoardButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="ShareButton" to="." method="_on_ShareButton_pressed"]
