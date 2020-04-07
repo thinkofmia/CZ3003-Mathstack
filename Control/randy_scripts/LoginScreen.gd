@@ -2,6 +2,8 @@ extends Control
 
 var account_type
 var error_text
+var loginBool=false
+var getDataBool=false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,16 +14,22 @@ onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/V
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process_input(true)
 	error_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/ErrorMessage
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") and loginBool == false:
-		_on_LoginButton_pressed()
-#	pass
-var loginBool=false
-var getDataBool=false
+	pass
+	
+func _unhandled_input(event):
+	#Enter shortcut disabled due to bugs
+	#if Input.is_action_just_pressed("ui_accept") and $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.is_visible():
+	#	print("Login button visible")
+	#	_on_LoginButton_pressed()
+		
+	pass
+
 
 func _on_LoginButton_pressed():
 	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.hide()
@@ -77,6 +85,13 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 		loginBool = false
 	elif response_code == 400:
+		if loginBool:
+				print("This Works")
+				error_text.set_text("Invalid account credemtials. Please try again.")
+				error_text.show()
+				loginBool = false
+				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
+	else:
 		if loginBool:
 				print("This Works")
 				error_text.set_text("Invalid account credemtials. Please try again.")
