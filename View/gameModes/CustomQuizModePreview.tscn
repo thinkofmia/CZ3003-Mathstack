@@ -167,6 +167,9 @@ margin_left = 890.106
 margin_top = 497.291
 margin_right = 992.106
 margin_bottom = 585.291
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="5"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="EditButton" to="." method="_on_EditButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

@@ -31,4 +31,7 @@ func _on_CustomQuizButton_pressed():
 	#global.customWorlds = worlds
 	#global.customID = ID
 	#Sent user to custom quiz preview
+	global.customTitle=get_text() 
+	print(global.customTitle)
 	get_tree().change_scene("res://View/gameModes/CustomQuizModePreview.tscn")
+	

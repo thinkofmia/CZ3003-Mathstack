@@ -37,17 +37,14 @@ func _ready():
 	#get values from questions array and put into question_info
 	question_info = (questions.values())
 	#for each questions in the array
-	for i in range(0,question_info.size()+1):
+	for i in range(0,question_info[0].size()+1):
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
 		print(str(question_display['QuizName'].values()[0]))
 		#Change button name to quiz name
 		btnGroup[i].text= str(question_display['QuizName'].values()[0])
-	#http call to to get quiz
-	Firebase.get_document("CustomQuiz/Test", http)
-	getQuiz=true
 	
-
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -63,14 +60,4 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			#put dictionary into an array
 			self.questions = response_body
 			getQns=false
-		elif getQuiz==true:
-			self.Quiz = response_body.fields
-			#set global attributes
-			global.customTitle = str(Quiz.QuizName.stringValue)
-			global.customCreator = str(Quiz.Creator.stringValue)
-			global.customDate = str(Quiz.Date.stringValue)
-			global.customTotalQn = str(Quiz.NumQns.stringValue)
-			global.customWorlds = str(Quiz.World.stringValue)
-			global.customID = str(Quiz.Id.stringValue)
-			getQuiz=false
 		print("Accessed succesfully")

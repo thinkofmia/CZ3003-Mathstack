@@ -41,3 +41,6 @@ var save := {
 	"World9":{"stringValue" : "0"},
 	"World10":{"stringValue" : "0"},
 }
+
+var difficulty=""
+var world=""

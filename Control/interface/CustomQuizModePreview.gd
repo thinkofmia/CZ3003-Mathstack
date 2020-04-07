@@ -1,13 +1,17 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var http : HTTPRequest = $HTTPRequest
+var Quiz := {
+	"Creator":{},
+	"Date":{},
+	"Id":{},
+	"NumQns":{},
+	"World":{}
+}
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
 	$PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName.set_text(global.customCreator)
@@ -40,3 +44,15 @@ func _on_BackButton_pressed():#Back button pressed
 
 func _on_EditButton_pressed():
 	pass # Replace with function body.
+
+
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	if response_code == 200:
+		self.Quiz = response_body.fields
+		#set global attributes
+		global.customCreator = str(Quiz.Creator.stringValue)
+		global.customDate = str(Quiz.Date.stringValue)
+		global.customTotalQn = str(Quiz.NumQns.stringValue)
+		global.customWorlds = str(Quiz.World.stringValue)
+		global.customID = str(Quiz.Id.stringValue)

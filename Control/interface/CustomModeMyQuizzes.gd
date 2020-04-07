@@ -27,7 +27,7 @@ func _ready():
 	#get values from questions array and put into question_info
 	question_info = (questions.values())
 	#for each questions in the array
-	for i in range(0,question_info.size()+1):
+	for i in range(0,question_info[0].size()+1):
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
 		print(str(question_display['QuizName'].values()[0]))
@@ -54,6 +54,7 @@ func _ready():
 
 
 func _on_AddButton_pressed():
+	#global.customTitle=get_text() 
 	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
 
 
