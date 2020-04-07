@@ -6,6 +6,7 @@ onready var hscore = int(global.highscore)
 onready var character = str(global.characterSelected)
 onready var username = str(global.username)
 onready var time_taken = int(global.time)
+onready var message = "I scored " + str(hscore) + " using " + character + " on Mathstack! Can you beat me?" 
 var nickname
 var ranking := {
 	"character": {},
@@ -49,6 +50,9 @@ func _on_LeaderBoardButton_pressed():
 	
 	get_tree().change_scene("res://View/teachers/LeaderboardScene.tscn")
 
+func _on_ShareButton_pressed():
+	var tweet = "https://twitter.com/intent/tweet?text="
+	OS.shell_open(tweet+message)
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
