@@ -17,6 +17,10 @@ var ranking := {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Hide health and power button
+	$SelectedCharacter/healthBar.hide()
+	$SelectedCharacter/PowerButton.hide()
+	$SelectedCharacter.displayCharacter()
 	##Getting the nickname of the user
 	Firebase.get_document("users/%s" % Firebase.user_info.email, http)
 	yield(get_tree().create_timer(1), "timeout")
@@ -25,10 +29,6 @@ func _ready():
 	$PlayBoard/TimeElapsedRow/Time.set_text(str(global.time))
 	#Set Block No
 	$Block/Label.set_text(str(global.highscore))
-	#Hide health and power button
-	$SelectedCharacter/healthBar.hide()
-	$SelectedCharacter/PowerButton.hide()
-	$SelectedCharacter.displayCharacter()
 	#Set World
 	$PlayBoard/WorldVisitedRow/Worlds.set_text(global.worldSelected)
 	#Set Average question per time
