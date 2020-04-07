@@ -18,26 +18,31 @@ onready var http : HTTPRequest = $HTTPRequest
 onready var rankings = []
 var ranking_info = []
 var ranking_display
+var no_of_display = 10
 func _ready():
 	Firebase.get_document(\"Leaderboard\", http)
 	yield(get_tree().create_timer(2), \"timeout\")
 	ranking_info = (rankings.values())
-	for i in range(0,9):
+	if len(ranking_info[0])<10:
+		no_of_display = len(ranking_info[0]) 
+	for i in range(0,no_of_display):
 		ranking_display = (ranking_info[0][i]['fields'])
 		var username = ranking_display['username'].values()[0]
 		var highscore = ranking_display['highscore'].values()[0]
 		var timing = ranking_display['time_taken'].values()[0]
 		var character = ranking_display['character'].values()[0]
-		#print(character)
+		var nickname = ranking_display['nickname'].values()[0]
+		
 		#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
 		#Add To List
 		var label = load(\"res://Model/Labels/Highscore.tscn\")
 		var newString = label.instance()
 		var subString = 0
 		#Set Username
-		username = str(username)
-		username = username.split(\"@\",true)
-		newString.get_child(0).set_text(str(username[0]))
+		#username = str(username)
+		#username = username.split(\"@\",true)
+		#newString.get_child(0).set_text(str(username[0]))
+		newString.get_child(0).set_text(str(nickname))
 		get_tree().get_root().get_node(\"LeaderboardScreen\").find_node(\"NameList\").add_child(newString)
 		#Set Highscore
 		newString = label.instance()
