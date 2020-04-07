@@ -61,7 +61,7 @@ func _ready():
 				button = load(\"res://View/util/Characters/MrIIcon.tscn\")
 			\"Humble B\":
 				button = load(\"res://View/util/Characters/HBIcon.tscn\")
-			\"Riding Rabbit\":
+			\"Rider Rabbit\":
 				button = load(\"res://View/util/Characters/RRIcon.tscn\")
 			\"Fire Fox\":
 				button = load(\"res://View/util/Characters/FFIcon.tscn\")
@@ -99,19 +99,19 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 script = SubResource( 1 )
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
-margin_right = 1135.0
+margin_right = 1147.0
 margin_bottom = 985.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
-margin_right = 1135.0
+margin_right = 1147.0
 margin_bottom = 985.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-margin_right = 785.0
+margin_right = 797.0
 margin_bottom = 785.0
 
 [node name="Row" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_right = 735.0
+margin_right = 747.0
 margin_bottom = 67.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -130,7 +130,7 @@ align = 1
 
 [node name="ScoreLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="1"]
 margin_left = 395.0
-margin_right = 493.0
+margin_right = 505.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -139,8 +139,8 @@ text = "Score"
 align = 1
 
 [node name="TimeLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="2"]
-margin_left = 513.0
-margin_right = 638.0
+margin_left = 525.0
+margin_right = 650.0
 margin_bottom = 67.0
 rect_min_size = Vector2( 125, 67 )
 size_flags_horizontal = 3
@@ -150,8 +150,8 @@ text = "Time"
 align = 1
 
 [node name="CharacterLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="3"]
-margin_left = 658.0
-margin_right = 735.0
+margin_left = 670.0
+margin_right = 747.0
 margin_bottom = 67.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
@@ -159,7 +159,7 @@ text = "Char"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
 margin_top = 71.0
-margin_right = 735.0
+margin_right = 747.0
 margin_bottom = 671.0
 rect_min_size = Vector2( 0, 600 )
 scroll_horizontal_enabled = false
@@ -213,7 +213,7 @@ alignment = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
 margin_top = 675.0
-margin_right = 735.0
+margin_right = 747.0
 margin_bottom = 735.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
