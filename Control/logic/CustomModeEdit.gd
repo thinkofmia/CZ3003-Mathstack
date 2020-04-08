@@ -45,8 +45,9 @@ func _ready():
 	qnList = $PlayBoard/Container/QnList
 	getQuiz = true
 	quizName.text=global.customTitle
-	Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
-	yield(get_tree().create_timer(2), "timeout")
+	if global.customTitle != "":
+		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+		yield(get_tree().create_timer(2), "timeout")
 	if existQuiz == true:
 		quizDatabase+global.customTitle
 		getQns = true
@@ -118,7 +119,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		yield(get_tree().create_timer(2.0), "timeout")
 		start=1
 	else:
-		for i in range(1,numLoadedQns+1): #Loop For Total Number of Qn
+		for i in range(1,numLoadedQns+1): #Loop For Number of Qn Loaded
 			var qnSet = qnList.get_child(i-1) #Save as qn set
 			var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
 			var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
@@ -135,7 +136,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 			Question.Ans={"integerValue": int(ans)}
 			format_string = "%s?documentId=%s"
 			actual_string = format_string % ["Custom"+str(id),str(qnNum)]
-			#http requesto to save the question
+			#http request to update the questions
 			Firebase.update_document(actual_string, Question, http)
 			yield(get_tree().create_timer(2.0), "timeout")
 			qnNum+=1
@@ -143,7 +144,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	
 	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
 	print(" ")
-	for i in range(start,totalQn+1): #Loop For Total Number of Qn
+	for i in range(start,totalQn+1): #Loop For Total Number of Qn Or Remaining Qm
 		var qnSet = qnList.get_child(i-1) #Save as qn set
 		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
 		var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
@@ -160,7 +161,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Ans={"integerValue": int(ans)}
 		format_string = "%s?documentId=%s"
 		actual_string = format_string % ["Custom"+str(id),str(qnNum)]
-		#http requesto to save the question
+		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		qnNum+=1
@@ -177,6 +178,8 @@ func set_Quiz(value: Dictionary) -> void:
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	print(result_body)
+	print(response_code)
 	match response_code:
 		#error
 		404:
