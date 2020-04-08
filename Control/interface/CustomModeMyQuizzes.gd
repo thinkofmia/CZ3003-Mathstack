@@ -27,16 +27,17 @@ func _ready():
 	#get values from questions array and put into question_info
 	question_info = (questions.values())
 	#for each questions in the array
-	for i in range(0,question_info[0].size()+1):
+	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
-		print(str(question_display['QuizName'].values()[0]))
-		#Add new instance
-		var addButton = newButton.instance()
-		#Change button name to quiz name
-		addButton.set_text(question_display['QuizName'].values()[0])
-		#Add quiz button to the list
-		quizList.add_child(addButton)
+		if str(question_display['Creator'].values()[0]) == global.username:
+			print(str(question_display['QuizName'].values()[0]))
+			#Add new instance
+			var addButton = newButton.instance()
+			#Change button name to quiz name
+			addButton.set_text(question_display['QuizName'].values()[0])
+			#Add quiz button to the list
+			quizList.add_child(addButton)
 	
 	#For loop for array of total quizzes player made
 	#for i in range(0,myQuizzes.size()):
