@@ -131,9 +131,13 @@ func correctAnswer():
 	randomizeQuestion()
 	
 	if no_of_questions_remaining == 0:
+		#var timer = get_tree().get_root().get_node("World").get_node("GUI").get_node("Timer")
+		#timer.stop()
 		hide()
 		var completedText = get_tree().get_root().get_node("World").get_node("GUI").get_node("PlayBoard").get_node("CompleteQuiz")
 		completedText.show()
+		var quitButton = get_tree().get_root().get_node("World").get_node("GUI").get_node("QuitButton")
+		quitButton.hide()
 		yield(get_tree().create_timer(1.0), "timeout")
 		character.jump_to_end()
 		character.characterSpeak("Hooray!")
