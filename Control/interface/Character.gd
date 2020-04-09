@@ -184,6 +184,12 @@ func jump():
 	motion.y = JUMP_HEIGHT	
 	motion = move_and_slide(motion, UP)
 
+func jump_to_end():
+	motion.y = JUMP_HEIGHT
+	motion.x = 110
+	motion = move_and_slide(motion, Vector2(1, -1))
+	
+
 func fixHearts(): #set # of Hearts Displayed
 	#set var to healthbar node
 	var hpBar = $healthBar

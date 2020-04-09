@@ -4,6 +4,8 @@ var option1
 var option2
 var option3
 var option4
+var no_of_questions_remaining = 3
+var questions_left_text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +15,9 @@ func _ready():
 	option4 = $MarginContainer/row/columnRight/Option4
 	print(option1)
 	randomizeQuestion()
+	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
+	questions_left_text.set_text(str(no_of_questions_remaining))
+	
 
 #Sets question and store it
 func setQuestion(operand1, operand2, operation):
@@ -91,18 +96,6 @@ func randCloseAns(ans):
 	var newAns = ans + int(floor(rand_range(-15,15)))
 	return newAns 
 
-func checkLevelTens(): #Check if the player reaches levels of ten
-	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
-		global.highscore = level
-		#Check if its mod 10
-		if (level%10 == 0):
-			var NextWorldBoard = get_tree().get_root().get_node("World").find_node("NextWorld")
-			NextWorldBoard.show()
-			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
-			self.hide()
-
 func correctAnswer():
 	print("Correct!")
 	#Play Sound
@@ -118,6 +111,14 @@ func correctAnswer():
 	#Make Character speak!
 	character.characterSpeak("GOOD JOB! ")
 	
+	var top_platform = get_tree().get_root().get_node("World").find_node("FinishPlatform")
+
+	if no_of_questions_remaining > 3:
+		top_platform.shift()
+	
+	no_of_questions_remaining -= 1
+	questions_left_text.set_text(str(no_of_questions_remaining))
+	
 	if (global.ddPower==1):
 		var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 		qnMenu.hide()
@@ -128,7 +129,14 @@ func correctAnswer():
 		character.jump()
 		qnMenu.show()
 	randomizeQuestion()
-	checkLevelTens()
+	
+	if no_of_questions_remaining == 0:
+		hide()
+		var completedText = get_tree().get_root().get_node("World").get_node("GUI").get_node("PlayBoard").get_node("CompleteQuiz")
+		completedText.show()
+		yield(get_tree().create_timer(1.0), "timeout")
+		character.jump_to_end()
+		character.characterSpeak("Hooray!")
 
 func wrongAnswer():
 	print("Wrong!")
