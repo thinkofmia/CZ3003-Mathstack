@@ -32,7 +32,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")
+	get_tree().change_scene("res://View/gameModes/CustomPlayScreen.tscn")
 
 
 func _on_BackButton_pressed():#Back button pressed
