@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Model/buttons/AddButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://View/util/customQuestionSet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Control/logic/CustomModeEdit.gd" type="Script" id=5]
+[ext_resource path="res://Model/buttons/EditButton.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 3 )
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "Custom Mode Add/Edit"
+
+[node name="TitleRow" type="HBoxContainer" parent="PlayBoard" index="0"]
+margin_left = 22.0
+margin_top = -20.0
+margin_right = 556.0
+margin_bottom = 19.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="PlayBoard/TitleRow" index="0"]
+margin_top = 2.0
+margin_right = 175.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Quiz Name: "
+
+[node name="LineEdit2" type="LineEdit" parent="PlayBoard/TitleRow" index="1"]
+margin_left = 179.0
+margin_right = 534.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+
+[node name="Container" type="ScrollContainer" parent="PlayBoard" index="1"]
+margin_left = 20.0
+margin_top = 32.0
+margin_right = 555.0
+margin_bottom = 339.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QnList" type="VBoxContainer" parent="PlayBoard/Container" index="0"]
+margin_right = 535.0
+margin_bottom = 248.0
+custom_constants/separation = 20
+
+[node name="Qn1" parent="PlayBoard/Container/QnList" index="0" instance=ExtResource( 4 )]
+margin_bottom = 248.0
+
+[node name="IDRow" type="HBoxContainer" parent="PlayBoard" index="2"]
+margin_left = 22.0
+margin_top = 348.0
+margin_right = 556.0
+margin_bottom = 387.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IDLabel" type="Label" parent="PlayBoard/IDRow" index="0"]
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Id: : "
+
+[node name="LineEdit2" type="LineEdit" parent="PlayBoard/IDRow" index="1"]
+margin_left = 64.0
+margin_right = 534.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+
+[node name="AddButton" parent="." index="4" instance=ExtResource( 2 )]
+margin_left = 901.0
+margin_top = 488.0
+margin_right = 995.0
+margin_bottom = 576.0
+
+[node name="ConfirmButton" parent="." index="5" instance=ExtResource( 6 )]
+margin_left = 897.082
+margin_top = 387.629
+margin_right = 999.082
+margin_bottom = 475.629
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="6"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

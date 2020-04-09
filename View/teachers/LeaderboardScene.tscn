@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://View/template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/Labels/Back.tscn" type="PackedScene" id=2]
-[ext_resource path="res://SnesItalic-AegA.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Model/Labels/Header.tscn" type="PackedScene" id=6]
 
@@ -19,20 +18,62 @@ onready var http : HTTPRequest = $HTTPRequest
 onready var rankings = []
 var ranking_info = []
 var ranking_display
+var no_of_display = 10
 func _ready():
 	Firebase.get_document(\"Leaderboard\", http)
 	yield(get_tree().create_timer(2), \"timeout\")
 	ranking_info = (rankings.values())
-	for i in range(0,9):
+	if len(ranking_info[0])<10:
+		no_of_display = len(ranking_info[0]) 
+	for i in range(0,no_of_display):
 		ranking_display = (ranking_info[0][i]['fields'])
 		var username = ranking_display['username'].values()[0]
 		var highscore = ranking_display['highscore'].values()[0]
 		var timing = ranking_display['time_taken'].values()[0]
 		var character = ranking_display['character'].values()[0]
-		#print(character)
-		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
-
-
+		var nickname = ranking_display['nickname'].values()[0]
+		
+		#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(username + \"                           \" + highscore + \"                            \" + timing + \"                  \" + character)
+		#Add To List
+		var label = load(\"res://Model/Labels/Highscore.tscn\")
+		var newString = label.instance()
+		var subString = 0
+		#Set Username
+		#username = str(username)
+		#username = username.split(\"@\",true)
+		#newString.get_child(0).set_text(str(username[0]))
+		newString.get_child(0).set_text(str(nickname))
+		get_tree().get_root().get_node(\"LeaderboardScreen\").find_node(\"NameList\").add_child(newString)
+		#Set Highscore
+		newString = label.instance()
+		newString.get_child(0).set_text(str(highscore))
+		get_tree().get_root().get_node(\"LeaderboardScreen\").find_node(\"ScoreList\").add_child(newString)
+		#Set Timing
+		newString = label.instance()
+		newString.get_child(0).set_text(str(timing))
+		get_tree().get_root().get_node(\"LeaderboardScreen\").find_node(\"TimeList\").add_child(newString)
+		#Set Icon
+		var button
+		match str(character):
+			\"Swee Soldier\":
+				button = load(\"res://View/util/Characters/SSIcon.tscn\")
+			\"Mister I\":
+				button = load(\"res://View/util/Characters/MrIIcon.tscn\")
+			\"Humble B\":
+				button = load(\"res://View/util/Characters/HBIcon.tscn\")
+			\"Rider Rabbit\":
+				button = load(\"res://View/util/Characters/RRIcon.tscn\")
+			\"Fire Fox\":
+				button = load(\"res://View/util/Characters/FFIcon.tscn\")
+			\"Deadly Dino\":
+				button = load(\"res://View/util/Characters/DDIcon.tscn\")
+			\"Zesty Zombie\":
+				button = load(\"res://View/util/Characters/ZZIcon.tscn\")
+			_:	
+				button = load(\"res://View/util/CharacterIcon.tscn\")
+		var icon = button.instance()
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/ListRow/CharacterList/.add_child(icon)
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -54,34 +95,42 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	pass # Replace with function body.
 "
 
-[sub_resource type="DynamicFont" id=2]
-size = 35
-use_filter = true
-extra_spacing_space = 2
-font_data = ExtResource( 4 )
-
 [node name="LeaderboardScreen" instance=ExtResource( 1 )]
 script = SubResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_right = 667.0
+[node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
+margin_right = 1135.0
+margin_bottom = 985.0
+
+[node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
+margin_right = 1135.0
+margin_bottom = 985.0
+
+[node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
+margin_right = 785.0
+margin_bottom = 785.0
+
+[node name="Row" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+margin_right = 735.0
 margin_bottom = 67.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 20
 
-[node name="NameLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
-margin_right = 164.0
+[node name="NameLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="0"]
+margin_right = 375.0
 margin_bottom = 67.0
+rect_min_size = Vector2( 375, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 5 )
 text = "Name"
 align = 1
 
-[node name="ScoreLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 168.0
-margin_right = 332.0
+[node name="ScoreLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="1"]
+margin_left = 395.0
+margin_right = 493.0
 margin_bottom = 67.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
@@ -89,41 +138,87 @@ custom_fonts/font = ExtResource( 5 )
 text = "Score"
 align = 1
 
-[node name="TimeLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="2"]
-margin_left = 336.0
-margin_right = 500.0
+[node name="TimeLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="2"]
+margin_left = 513.0
+margin_right = 638.0
 margin_bottom = 67.0
+rect_min_size = Vector2( 125, 67 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Time"
 align = 1
 
-[node name="CharacterLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="3"]
-margin_left = 504.0
-margin_right = 665.0
+[node name="CharacterLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Row" index="3"]
+margin_left = 658.0
+margin_right = 735.0
 margin_bottom = 67.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "Character"
+text = "Char"
 
-[node name="ItemList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
 margin_top = 71.0
-margin_right = 667.0
-margin_bottom = 587.0
-rect_min_size = Vector2( 0, 516 )
-size_flags_horizontal = 3
+margin_right = 735.0
+margin_bottom = 671.0
+rect_min_size = Vector2( 0, 600 )
+scroll_horizontal_enabled = false
+
+[node name="ListRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer" index="0"]
+margin_right = 735.0
+margin_bottom = 600.0
+size_flags_horizontal = 12
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
-select_mode = 1
+custom_constants/separation = 20
+alignment = 1
+
+[node name="NameList" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/ListRow" index="0"]
+margin_right = 375.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 375, 0 )
+size_flags_horizontal = 13
+size_flags_vertical = 13
+custom_constants/separation = 20
+alignment = 1
+
+[node name="ScoreList" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/ListRow" index="1"]
+margin_left = 395.0
+margin_right = 495.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 13
+size_flags_vertical = 13
+custom_constants/separation = 20
+alignment = 1
+
+[node name="TimeList" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/ListRow" index="2"]
+margin_left = 515.0
+margin_right = 640.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 125, 0 )
+size_flags_horizontal = 13
+size_flags_vertical = 13
+custom_constants/separation = 20
+alignment = 1
+
+[node name="CharacterList" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/ListRow" index="3"]
+margin_left = 660.0
+margin_right = 735.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 75, 0 )
+size_flags_horizontal = 13
+size_flags_vertical = 13
+custom_constants/separation = 20
+alignment = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
-margin_top = 591.0
-margin_right = 667.0
-margin_bottom = 651.0
+margin_top = 675.0
+margin_right = 735.0
+margin_bottom = 735.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
 margin_top = 20.0
+text = "Leaderboard"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

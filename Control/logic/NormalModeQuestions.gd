@@ -5,7 +5,22 @@ var option2
 var option3
 var option4
 var level
+var getQuestions
+var format_string
+var actual_string
 
+var qTextArr=[]
+var op1Arr=[]
+var op2Arr=[]
+var op3Arr=[]
+var op4Arr=[]
+var ansArr=[]
+var exArr=[]
+var a
+
+onready var question_info
+onready var questions
+onready var question_display
 onready var questionId
 onready var qText
 onready var op1
@@ -13,17 +28,9 @@ onready var op2
 onready var op3
 onready var op4
 onready var ans
+onready var explanation
 
 onready var http : HTTPRequest = $HTTPRequest
-
-var Question := {
-	"QuestionText":{},
-	"Option1":{},
-	"Option2":{},
-	"Option3":{},
-	"Option4":{},
-	"Ans":{}
-} setget set_question
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,33 +40,64 @@ func _ready():
 	option4 = $row/columnRight/Option4
 	level = 0
 	global.storyScore = 0
+	#print(global.difficultySelected)
+	#print(global.worldSelected)
+	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
+	print(getQuestions)
+	Firebase.get_document("%s" % str(getQuestions), http)
+	yield(get_tree().create_timer(2), "timeout")
+	question_info = (questions.values())
+	#for each questions in the array
+	for i in range(0,question_info[0].size()):
+		#extract question attribute based on i
+		question_display= (question_info[0][i]['fields'])
+		#qTextArr.append("gg")
+		qTextArr.append(question_display['QuestionText'].values()[0])
+		print(qTextArr)
+		op1Arr.append(question_display['Option1'].values()[0])
+		op2Arr.append(question_display['Option2'].values()[0])
+		op3Arr.append(question_display['Option3'].values()[0])
+		op4Arr.append(question_display['Option4'].values()[0])
+		ansArr.append(question_display['Ans'].values()[0])
+		#exArr.append(question_display['Explanation'].values()[0])
 	randomizeQuestion()
 
 #Sets question and store it
-func setQuestion(option1, option2, option3, option4):
-	var correctAnswer = ans
+func setQuestion(option1, option2, option3, option4,ans):
 	#Save question set
-	question = [option1, option2, option3, option4,correctAnswer] 
+	question = [option1, option2, option3, option4,ans] 
 	print(question)
+
 	
-	
-func con():
-	var operationStr = ""
-	#Set options
+func randomizeQuestion():
+	#questionId = str("DM-N-02-E-01")
+	#questionId = str("1")
+	a = int(floor(rand_range(0,question_info[0].size())))
+	print("a: "+ str(a))
+	qText = qTextArr[a]
+	op1 = op1Arr[a]
+	op2 = op2Arr[a]
+	op3 = op3Arr[a]
+	op4 = op4Arr[a]
+	var k = int(ansArr[a])
+	match k:
+		1:
+			ans=op1Arr[a]
+		2: 
+			ans=op2Arr[a]
+		3:
+			ans=op3Arr[a]
+		4:
+			ans=op4Arr[a]
 	option1.set_text(str(op1)) 
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
 	option4.set_text(str(op4))
-	setQuestion(option1, option2, option3, option4)
-	
 	#Set QnLabel
 	find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText)
-	
-func randomizeQuestion():
-	#questionId = str("DM-N-01-E-01")
-	questionId = str("1")
-	Firebase.get_document("NormalWorld1/%s" % str(questionId), http)
+	question = [op1, op2, op3, op4,ans] 
 	level += 1
+	print("")
 	
 
 
@@ -75,15 +113,14 @@ func checkAnswer(option):
 		#Display msg
 		var outcome = get_tree().get_root().get_node("World").find_node("CorrectStatus")
 		outcome.appear()
+		randomizeQuestion()
 		
 	else:
 		print("Wrong!")
 		#Display msg
 		var outcome = get_tree().get_root().get_node("World").find_node("WrongStatus")
 		outcome.appear()
-		
-	pass
-	randomizeQuestion()
+		randomizeQuestion()
 
 
 func _on_Option1_pressed():
@@ -105,26 +142,14 @@ func _on_Option2_pressed():
 	checkAnswer(option2)
 	pass # Replace with function body.
 
-
-func set_question (value: Dictionary) -> void:
-	Question  = value
-	print(Question)
-	qText = str(Question.QuestionText.stringValue)
-	op1 = str(Question.Option1.integerValue)
-	op2 = str(Question.Option2.integerValue)
-	op3 = str(Question.Option3.integerValue)
-	op4 = str(Question.Option4.integerValue)
-	ans= str(Question.Ans.integerValue)
-
-
-func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	match response_code:
 		#error
 		404:
 			return
 		#success
 		200:
-			self.Question = result_body.fields
-			print()
-			con()
+			#assign the response to the Question
+			self.questions = response_body
+			#con()

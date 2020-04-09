@@ -102,6 +102,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #1"
+expand_icon = true
 
 [node name="WorldButton #3" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="1" instance=ExtResource( 13 )]
 margin_top = 75.0
@@ -111,6 +112,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #3"
+expand_icon = true
 
 [node name="WorldButton #5" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="2" instance=ExtResource( 13 )]
 margin_top = 150.0
@@ -120,6 +122,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #5"
+expand_icon = true
 
 [node name="WorldButton #7" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="3" instance=ExtResource( 13 )]
 margin_top = 225.0
@@ -129,6 +132,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #7"
+expand_icon = true
 
 [node name="WorldButton #9" parent="PlayBoard/ScrollContainer/HBoxContainer/LeftContainer" index="4" instance=ExtResource( 13 )]
 margin_top = 300.0
@@ -138,6 +142,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #9"
+expand_icon = true
 
 [node name="RightContainer" type="VBoxContainer" parent="PlayBoard/ScrollContainer/HBoxContainer" index="1"]
 margin_left = 260.0
@@ -154,6 +159,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #2"
+expand_icon = true
 
 [node name="WorldButton #4" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="1" instance=ExtResource( 13 )]
 margin_top = 76.0
@@ -163,6 +169,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #4"
+expand_icon = true
 
 [node name="WorldButton #6" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="2" instance=ExtResource( 13 )]
 margin_top = 152.0
@@ -172,6 +179,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #6"
+expand_icon = true
 
 [node name="WorldButton #8" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="3" instance=ExtResource( 13 )]
 margin_top = 228.0
@@ -181,6 +189,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #8"
+expand_icon = true
 
 [node name="WorldButton #10" parent="PlayBoard/ScrollContainer/HBoxContainer/RightContainer" index="4" instance=ExtResource( 13 )]
 margin_top = 304.0
@@ -190,6 +199,7 @@ rect_scale = Vector2( 1, 1 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #10"
+expand_icon = true
 
 [node name="BackButton" parent="." index="7"]
 script = ExtResource( 2 )

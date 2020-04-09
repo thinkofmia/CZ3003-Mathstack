@@ -215,7 +215,6 @@ flip_h = true
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
@@ -239,13 +238,14 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 3
+frame = 8
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 12 )
+frame = 5
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="."]

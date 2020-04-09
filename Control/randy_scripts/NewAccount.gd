@@ -5,12 +5,24 @@ onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/V
 onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PasswordText
 onready var school : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/SchoolSelect
 onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ClassSelect
-
+onready var nickname : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/NicknameText
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var classId
+var schoolId
+var reg=false
+var regSucc=false
+var	login=false
+var loginSucc=false
+var save=false
+var profile := {
+	"account":{},
+	"nickname":{},
+	"schoolId":{},
+	"classId":{}
+} 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +34,7 @@ func _ready():
 #func _process(delta):
 #	pass
 var school_array = ["NTU", "NUS", "SMU"]
-var class_array = ["1","2","3"]
+var class_array = ["SS1","SS2","SSP1"]
 
 
 func add_school():
@@ -70,17 +82,45 @@ func _on_Button_pressed():
 		error_text.set_text(errorMessage)
 		error_text.show()
 	
-	else:		
+	else:
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.hide()
+		reg=true
+		#http request to register an account		
 		Firebase.register(username.text, password.text, http)
+		yield(get_tree().create_timer(2.0), "timeout")
+		login=true
+		#http request to login using the created account
+		Firebase.login(username.text, password.text, http)
+		yield(get_tree().create_timer(10.0), "timeout")
+		save=true
+		#set profile attributes
+		#check if the account is a teacher account
+		if teachers_text == "T":
+			profile.account = {"stringValue": "Teacher"}
+		else :
+			profile.account = {"stringValue": "Student"}
+		profile.nickname = {"stringValue":nickname_text}
+		profile.classId = { "integerValue": class1.get_selected_id() }
+		profile.schoolId = {"integerValue": school.get_selected_id() }
+		#http request to save profile
+		Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
 	#zfCt7yOk8TQ1f7QcPegfnEpDnJf2
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
 	if response_code == 200:
-		get_tree().change_scene("res://View/Screens_Randy/RegisterSuccess.tscn")
+		if reg==true:
+			regSucc=true
+		if login==true:
+			loginSucc=true
+		if save == true && regSucc==true && loginSucc==true  :
+			get_tree().change_scene("res://View/Screens_Randy/RegisterSuccess.tscn")
+	else:
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.show()
 
 
 func _on_OptionButton3_item_selected(id):
 	pass # Replace with function body.
+
 

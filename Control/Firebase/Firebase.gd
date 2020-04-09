@@ -22,8 +22,15 @@ func _get_save_info(result: Array) -> Dictionary:
 	var result_body := JSON.parse(result[3].get_string_from_ascii()).result as Dictionary
 	return {
 		"World1": result_body.fields.World1,
-		"World2": result_body.fields.World1,
-		"World3": result_body.fields.World1
+		"World2": result_body.fields.World2,
+		"World3": result_body.fields.World3,
+		"World4": result_body.fields.World4,
+		"World5": result_body.fields.World5,
+		"World6": result_body.fields.World6,
+		"World7": result_body.fields.World7,
+		"World8": result_body.fields.World8,
+		"World9": result_body.fields.World9,
+		"World10": result_body.fields.World10
 	}
 
 

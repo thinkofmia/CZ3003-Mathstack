@@ -17,17 +17,17 @@ font_data = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
-margin_bottom = 926.0
+margin_bottom = 928.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
-margin_bottom = 926.0
+margin_bottom = 928.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-margin_bottom = 726.0
+margin_bottom = 728.0
 
 [node name="TitleLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 margin_right = 667.0
-margin_bottom = 58.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 6 )
@@ -36,9 +36,9 @@ align = 1
 valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
-margin_top = 62.0
+margin_top = 64.0
 margin_right = 667.0
-margin_bottom = 612.0
+margin_bottom = 614.0
 rect_min_size = Vector2( 0, 550 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -164,9 +164,9 @@ icon = ExtResource( 4 )
 expand_icon = true
 
 [node name="BackButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 5 )]
-margin_top = 616.0
+margin_top = 618.0
 margin_right = 667.0
-margin_bottom = 676.0
+margin_bottom = 678.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 7 )]
 margin_top = 20.0
