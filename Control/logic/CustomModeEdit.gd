@@ -97,7 +97,7 @@ func _on_AddButton_pressed(): #Add new Qn
 func _on_ConfirmButton_pressed(): #Save Quiz
 	var name = $PlayBoard/TitleRow/LineEdit2.get_text() #Quiz Title
 	print("Quiz Name: "+str(name)+" Total Qn: "+str(totalQn)) #Quiz Name and Total Qns
-	var date = "29/03/20" #Date of Creation/Update - Hard code for now
+	var date = str(OS.get_date().day)+"/"+str(OS.get_date().month)+"/"+str(OS.get_date().year) #Date of Creation/Update - Hard code for now
 	var worlds = "Custom" #Worlds involved - Hard code for now (Probably might be removed)
 	id = $PlayBoard/IDRow/LineEdit2.get_text() #Get quiz id
 	var username = global.username #Creator's name
@@ -109,7 +109,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	if existQuiz==false:
 		#set Quiz attributes
 		Quiz.Creator={"stringValue":username}
-		Quiz.Date={"stringValue":date}
+		Quiz.Date={"stringValue":str(date)}
 		Quiz.Id={"stringValue":str(id)}
 		Quiz.NumQns={"stringValue":str(totalQn+1)}
 		Quiz.QuizName={"stringValue":name}
@@ -160,7 +160,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Option4={"stringValue": option4}
 		Question.Ans={"integerValue": int(ans)}
 		format_string = "%s?documentId=%s"
-		actual_string = format_string % ["Custom"+str(id),str(qnNum)]
+		actual_string = format_string % ["Custom"+str(name),str(qnNum)]
 		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)
 		yield(get_tree().create_timer(2.0), "timeout")
