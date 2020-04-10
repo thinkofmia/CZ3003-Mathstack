@@ -10,7 +10,7 @@ var quizList
 var question_info = []
 var question_display
 var getQns=false
-
+var addButton 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Set mode selected to be my custom quiz
@@ -33,7 +33,7 @@ func _ready():
 		if str(question_display['Creator'].values()[0]) == global.username:
 			print(str(question_display['QuizName'].values()[0]))
 			#Add new instance
-			var addButton = newButton.instance()
+			addButton = newButton.instance()
 			#Change button name to quiz name
 			addButton.set_text(question_display['QuizName'].values()[0])
 			#Add quiz button to the list
@@ -55,7 +55,9 @@ func _ready():
 
 
 func _on_AddButton_pressed():
-	#global.customTitle=get_text() 
+	#var a = addButton.get_text()
+	if addButton!=null:
+		global.customTitle=addButton.get_text()
 	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
 
 
