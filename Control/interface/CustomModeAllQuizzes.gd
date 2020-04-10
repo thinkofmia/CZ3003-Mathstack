@@ -2,21 +2,9 @@ extends Node
 
 
 onready var http : HTTPRequest = $HTTPRequest
-onready var btn1 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton
-onready var btn2 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton2
-onready var btn3 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton3
-onready var btn4 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton4
-onready var btn5 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton5
-onready var btn6 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton6
-onready var btn7 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton7
-onready var btn8 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton8
-onready var btn9 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton9
-onready var btn10 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton10
-onready var btn11 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton11
-onready var btn12 : Button = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes/CustomQuizButton12
 onready var questions = []
-onready var btnGroup=[btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10,btn11,btn12]
 var question_info = []
+var quizList
 var question_display
 var getQns=false
 var getQuiz=false
@@ -29,6 +17,11 @@ var Quiz := {
 	"World":{}
 }
 func _ready():
+	#Load new button
+	var newButton = load("res://Model/buttons/gameModeButtons/CustomQuizButton.tscn")
+	#Set Quiz List
+	quizList = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes
+	#Select Mode
 	global.modeSelected = "All Custom"
 	getQns=true
 	#http call to get all questions
@@ -41,9 +34,21 @@ func _ready():
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
 		print(str(question_display['QuizName'].values()[0]))
+		#Add new instance
+		var addButton = newButton.instance()
 		#Change button name to quiz name
-		btnGroup[i].text= str(question_display['QuizName'].values()[0])
+		addButton.set_text(str(question_display['QuizName'].values()[0]))
+		#Add quiz button to the list
+		quizList.add_child(addButton)
 	
+	#For loop for array of total quizzes player made
+	#for i in range(0,myQuizzes.size()):
+		#Add new instance
+	#	var addButton = newButton.instance()
+	#	#Change button name to quiz name
+	#	addButton.set_text(myQuizzes[i])
+		#Add quiz button to the list
+	#	quizList.add_child(addButton)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
