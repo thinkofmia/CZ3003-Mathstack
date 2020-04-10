@@ -43,6 +43,7 @@ func _on_BackButton_pressed():#Back button pressed
 
 
 func _on_EditButton_pressed():
+	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
 	pass # Replace with function body.
 
 
