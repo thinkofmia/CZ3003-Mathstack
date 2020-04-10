@@ -56,7 +56,8 @@ func _ready():
 
 func _on_AddButton_pressed():
 	#var a = addButton.get_text()
-	#global.customTitle=addButton.get_text()
+	if addButton!=null:
+		global.customTitle=addButton.get_text()
 	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
 
 

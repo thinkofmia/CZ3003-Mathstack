@@ -115,7 +115,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Quiz.QuizName={"stringValue":name}
 		Quiz.World={"stringValue":worlds}
 		#http request to save Quiz
-		Firebase.save_document("CustomQuiz?documentId=%s"%str(id),Quiz, http)
+		Firebase.save_document("CustomQuiz?documentId=%s"%str(name),Quiz, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		start=1
 	else:
