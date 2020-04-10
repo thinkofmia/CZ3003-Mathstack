@@ -9,6 +9,8 @@ func _ready():
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
 	getWorld()
+	#Initialize worlds visited
+	global.worldsVisited = []
 
 func getWorld():
 	match global.worldSelected:
