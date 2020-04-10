@@ -43,5 +43,9 @@ var save := {
 	"World10":{"stringValue" : "0"},
 }
 
+##stat screen variable
+var statWorldSelected = 1
+
+
 var difficulty=""
 var world=""
