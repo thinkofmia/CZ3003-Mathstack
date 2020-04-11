@@ -25,6 +25,8 @@ func _ready():
 		$EditButton.show()
 	else:
 		$EditButton.hide()
+	#Display Play button
+	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
