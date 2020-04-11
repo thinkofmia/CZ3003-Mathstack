@@ -86,14 +86,23 @@ func updateFirebaseUserProgress():
 	if (global.difficultySelected == "Primary"):
 		if (userProgressInt < 1):
 			global.save['World' + str(currentWorldInt)]['stringValue'] = "1"
-	
+		
+		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue']) < global.storyScore):
+			global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue'] = str(global.storyScore)
+		
 	if (global.difficultySelected == "Intermediate"):
 		if (userProgressInt < 2):
 			global.save['World' + str(currentWorldInt)]['stringValue'] = "2"
+			
+		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'b']['stringValue']) < global.storyScore):
+			global.save['ScoreWorld' + str(currentWorldInt) + 'b']['stringValue'] = str(global.storyScore)
 
 	if (global.difficultySelected == "Advanced"):
 		if (userProgressInt < 3):
 			global.save['World' + str(currentWorldInt)]['stringValue'] = "3"
+
+		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'c']['stringValue']) < global.storyScore):
+			global.save['ScoreWorld' + str(currentWorldInt) + 'c']['stringValue'] = str(global.storyScore)
 	
 	Firebase.update_document("SaveData/%s" % str(global.username),global.save,http)	
 	
