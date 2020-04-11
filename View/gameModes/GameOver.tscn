@@ -26,6 +26,9 @@ margin_bottom = 34.0
 rect_scale = Vector2( 4, 4 )
 text = "Game Over!"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HighscoreRow" type="HBoxContainer" parent="PlayBoard" index="2"]
 margin_left = 25.0
@@ -47,14 +50,14 @@ text = "Highscore:"
 [node name="Score" type="Label" parent="PlayBoard/HighscoreRow" index="1"]
 margin_left = 88.0
 margin_top = 13.0
-margin_right = 96.0
+margin_right = 149.0
 margin_bottom = 27.0
-text = "0"
+text = "Loading..."
 
 [node name="NewRecordLabel" type="Label" parent="PlayBoard/HighscoreRow" index="2"]
-margin_left = 116.0
+margin_left = 169.0
 margin_top = 13.0
-margin_right = 200.0
+margin_right = 253.0
 margin_bottom = 27.0
 custom_colors/font_color = Color( 0.956863, 0.172549, 0.0431373, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -80,9 +83,9 @@ text = "Time Elapsed: "
 [node name="Time" type="Label" parent="PlayBoard/TimeElapsedRow" index="1"]
 margin_left = 97.0
 margin_top = 13.0
-margin_right = 206.0
+margin_right = 158.0
 margin_bottom = 27.0
-text = "Insert Time Here"
+text = "Loading..."
 
 [node name="WorldVisitedRow" type="HBoxContainer" parent="PlayBoard" index="4"]
 margin_left = 25.0
@@ -106,7 +109,7 @@ margin_top = 27.0
 margin_right = 278.0
 margin_bottom = 41.0
 rect_min_size = Vector2( 180, 0 )
-text = "Insert list of worlds Here"
+text = "Loading..."
 autowrap = true
 
 [node name="AverageSpeedRow" type="HBoxContainer" parent="PlayBoard" index="5"]
@@ -128,9 +131,9 @@ text = "Average Speed:"
 [node name="SpeedPerQn" type="Label" parent="PlayBoard/AverageSpeedRow" index="1"]
 margin_left = 102.0
 margin_top = 13.0
-margin_right = 240.0
+margin_right = 163.0
 margin_bottom = 27.0
-text = "Insert Speed/Qn here"
+text = "Loading..."
 
 [node name="Header" parent="." index="2"]
 position = Vector2( -439.401, -16.3245 )
