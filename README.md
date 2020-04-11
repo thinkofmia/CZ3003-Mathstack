@@ -18,7 +18,7 @@ Playable Characters:
 - Fire Fox (No Powers Yet)
 - Zesty Zombie (Sacrifice 1 life for 5 levels)
 - Deadly Dino (For 15 seconds x2 damage. Lose 2 health or gain 2 levels per qn answered)
-- Careful Cyborg (No Powers Yet)
+- Careful Cyborg (Reduce time spent by 30 seconds)
 
 Cheats:
 - Press up button to jump

@@ -11,6 +11,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		timer += delta*global.rrPower #Decrement timer by delta
+		if timer<0:
+			timer = 0
 		updateTime()
 
 func getTime():

@@ -58,12 +58,19 @@ func callPower():
 	var sound = get_tree().get_root().get_node("World").find_node("PowerupSound")
 	sound.play()
 	
-	#Speak
-	characterSpeak("SUPER POWA!! ")
-	
 	#Check Character
 	match global.characterSelected:
+		"Careful Cyborg":
+			
+			#Get Timer
+			var timer = get_tree().get_root().get_node("World").find_node("Timer")
+			#Reduce global time by 30 seconds
+			timer.timer -= 30
+			#Shout
+			characterSpeak("Re-calculating time... ")
 		"Deadly Dino":
+			#Shout
+			characterSpeak("Deadly Damage! ")
 			#Gives x2 Damage
 			global.ddPower = 1
 			#Change music and color
@@ -85,6 +92,8 @@ func callPower():
 			#Return
 			global.ddPower = 0
 		"Zesty Zombie":
+			#Shout
+			characterSpeak("*munch munch* ")
 			#Sacrifice 1 health for 5 levels
 			hearts = hearts - 1
 			fixHearts()
@@ -113,6 +122,8 @@ func callPower():
 				qnMenu.randomizeQuestion()
 			$PowerButton.hide()
 		"Swee Soldier":
+			#Shout
+			characterSpeak("Steel Heart! ")
 			#Add 4 lives
 			addLife()
 			addLife()
@@ -120,6 +131,8 @@ func callPower():
 			addLife()
 			$PowerButton.hide()
 		"Humble B":
+			#Shout
+			characterSpeak("Next question please. ")
 			#Randomize Qn. 5 Uses
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			qnMenu.randomizeQuestion()
@@ -127,6 +140,8 @@ func callPower():
 			if (counter>0):
 				$PowerButton.show()
 		"Rider Rabbit":
+			#Shout
+			characterSpeak("Fast and steady wins the race. ")
 			#Slow time for 30 seconds
 			global.rrPower = 0.5
 			$PowerButton.hide()
@@ -147,6 +162,8 @@ func callPower():
 			header.add_color_override("font_color", Color(1,1,1,1))
 			global.rrPower = 1
 		"Mister I": #Jump 3 levels
+			#Shout
+			characterSpeak("MIA! ")
 			$PowerButton.hide()
 			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
