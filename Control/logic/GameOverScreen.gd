@@ -30,8 +30,11 @@ func _ready():
 	$PlayBoard/TimeElapsedRow/Time.set_text(str(global.time))
 	#Set Block No
 	$Block/Label.set_text(str(global.highscore))
-	#Set World
-	$PlayBoard/WorldVisitedRow/Worlds.set_text(global.worldSelected)
+	#Set Worlds Visited
+	var worldsVisitedList = ""
+	for item in global.worldsVisited:
+		worldsVisitedList += str(item)+", "
+	$PlayBoard/WorldVisitedRow/Worlds.set_text(worldsVisitedList)
 	#Set Average question per time
 	var avg = stepify(global.highscore/global.timeSeconds,0.01)
 	print(avg)

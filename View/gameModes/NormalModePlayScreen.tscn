@@ -367,7 +367,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 9
+frame = 2
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="15"]
@@ -396,8 +396,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="17"]
+[node name="MYHTTPRequest2" type="HTTPRequest" parent="." index="17"]
+
+[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="18"]
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="FinishButton" to="." method="_on_FinishButton_pressed"]
+[connection signal="request_completed" from="MYHTTPRequest2" to="QuestionMenu" method="_on_MYHTTPRequest2_request_completed"]
 [connection signal="request_completed" from="MYHTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

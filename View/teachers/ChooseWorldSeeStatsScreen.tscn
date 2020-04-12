@@ -171,4 +171,12 @@ margin_bottom = 678.0
 [node name="Header" parent="." index="3" instance=ExtResource( 7 )]
 margin_top = 20.0
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer2/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer2/Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer2/Button6" to="." method="_on_Button6_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer3/Button7" to="." method="_on_Button7_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer3/Button8" to="." method="_on_Button8_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/WorldsContainer/WorldsRowContainer3/Button9" to="." method="_on_Button9_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]

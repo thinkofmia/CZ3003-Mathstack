@@ -12,6 +12,7 @@ var Quiz := {
 
 func _ready():
 	Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+	yield(get_tree().create_timer(2), "timeout")
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
 	$PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName.set_text(global.customCreator)
@@ -43,6 +44,7 @@ func _on_BackButton_pressed():#Back button pressed
 
 
 func _on_EditButton_pressed():
+	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
 	pass # Replace with function body.
 
 

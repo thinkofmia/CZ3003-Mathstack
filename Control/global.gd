@@ -9,6 +9,7 @@ var storyScore = 0 #Storyscore for story mode
 var questionCount = 0 #normal mode current question count
 var characterSelected = "Deadly Dino" #Default char
 var worldSelected = "World #2" #Default world
+var worldsVisited = [] #Worlds visited array
 var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Advanced
 var modeSelected = "None" # "All Custom", "My Custom", "Challenge", "Normal"
 #added extra global variable that is assigned at log-in
@@ -41,6 +42,10 @@ var save := {
 	"World9":{"stringValue" : "0"},
 	"World10":{"stringValue" : "0"},
 }
+
+##stat screen variable
+var statWorldSelected = 1
+
 
 var difficulty=""
 var world=""

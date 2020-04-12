@@ -86,26 +86,28 @@ text = "Insert Time Here"
 
 [node name="WorldVisitedRow" type="HBoxContainer" parent="PlayBoard" index="4"]
 margin_left = 25.0
-margin_top = 175.0
-margin_right = 126.0
-margin_bottom = 215.0
+margin_top = 184.0
+margin_right = 309.0
+margin_bottom = 252.0
 rect_scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WorldVisitedLabel" type="Label" parent="PlayBoard/WorldVisitedRow" index="0"]
-margin_top = 13.0
+margin_top = 27.0
 margin_right = 94.0
-margin_bottom = 27.0
+margin_bottom = 41.0
 text = "World Visited: "
 
 [node name="Worlds" type="Label" parent="PlayBoard/WorldVisitedRow" index="1"]
 margin_left = 98.0
-margin_top = 13.0
-margin_right = 257.0
-margin_bottom = 27.0
+margin_top = 27.0
+margin_right = 278.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 180, 0 )
 text = "Insert list of worlds Here"
+autowrap = true
 
 [node name="AverageSpeedRow" type="HBoxContainer" parent="PlayBoard" index="5"]
 margin_left = 25.0

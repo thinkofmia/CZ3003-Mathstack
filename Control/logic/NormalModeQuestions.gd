@@ -6,8 +6,6 @@ var option3
 var option4
 var level
 var getQuestions
-var format_string
-var actual_string
 
 var qTextArr=[]
 var op1Arr=[]
@@ -16,7 +14,7 @@ var op3Arr=[]
 var op4Arr=[]
 var ansArr=[]
 var exArr=[]
-var a
+
 
 onready var question_info
 onready var questions
@@ -30,14 +28,14 @@ onready var op4
 onready var ans
 onready var explanation
 
-onready var http : HTTPRequest = $HTTPRequest
+onready var http : HTTPRequest = get_parent().get_node("MYHTTPRequest2")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	option1 = $row/columnLeft/Option1
-	option2 = $row/columnLeft/Option2
-	option3 = $row/columnRight/Option3
-	option4 = $row/columnRight/Option4
+	option1 = $MarginContainer/row/columnLeft/Option1
+	option2 = $MarginContainer/row/columnLeft/Option2
+	option3 = $MarginContainer/row/columnRight/Option3
+	option4 = $MarginContainer/row/columnRight/Option4
 	level = 0
 	global.storyScore = 0
 	#print(global.difficultySelected)
@@ -45,7 +43,7 @@ func _ready():
 	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
 	print(getQuestions)
 	Firebase.get_document("%s" % str(getQuestions), http)
-	yield(get_tree().create_timer(2), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
@@ -72,23 +70,23 @@ func setQuestion(option1, option2, option3, option4,ans):
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
 	#questionId = str("1")
-	a = int(floor(rand_range(0,question_info[0].size())))
-	print("a: "+ str(a))
-	qText = qTextArr[a]
-	op1 = op1Arr[a]
-	op2 = op2Arr[a]
-	op3 = op3Arr[a]
-	op4 = op4Arr[a]
-	var k = int(ansArr[a])
+	var random = int(floor(rand_range(0,question_info[0].size())))
+	print("a: "+ str(random))
+	qText = qTextArr[random]
+	op1 = op1Arr[random]
+	op2 = op2Arr[random]
+	op3 = op3Arr[random]
+	op4 = op4Arr[random]
+	var k = int(ansArr[random])
 	match k:
 		1:
-			ans=op1Arr[a]
+			ans=op1Arr[random]
 		2: 
-			ans=op2Arr[a]
+			ans=op2Arr[random]
 		3:
-			ans=op3Arr[a]
+			ans=op3Arr[random]
 		4:
-			ans=op4Arr[a]
+			ans=op4Arr[random]
 	option1.set_text(str(op1)) 
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
@@ -142,7 +140,20 @@ func _on_Option2_pressed():
 	checkAnswer(option2)
 	pass # Replace with function body.
 
-func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+func _on_Request_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	match response_code:
+		#error
+		404:
+			return
+		#success
+		200:
+			#assign the response to the Question
+			self.questions = response_body
+			#con()
+
+
+func _on_MYHTTPRequest2_request_completed(result, response_code, headers, body):
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	match response_code:
 		#error

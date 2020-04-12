@@ -14,7 +14,7 @@ var quizDatabase = "Custom"
 var qns
 var qns_display
 var qns_info
-var numLoadedQns
+var numLoadedQns=0
 
 onready var http : HTTPRequest = $HTTPRequest
 onready var quizName : LineEdit = $PlayBoard/TitleRow/LineEdit2
@@ -45,8 +45,9 @@ func _ready():
 	qnList = $PlayBoard/Container/QnList
 	getQuiz = true
 	quizName.text=global.customTitle
-	Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
-	yield(get_tree().create_timer(2), "timeout")
+	if global.customTitle != "":
+		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+		yield(get_tree().create_timer(2), "timeout")
 	if existQuiz == true:
 		quizDatabase+global.customTitle
 		getQns = true
@@ -96,7 +97,7 @@ func _on_AddButton_pressed(): #Add new Qn
 func _on_ConfirmButton_pressed(): #Save Quiz
 	var name = $PlayBoard/TitleRow/LineEdit2.get_text() #Quiz Title
 	print("Quiz Name: "+str(name)+" Total Qn: "+str(totalQn)) #Quiz Name and Total Qns
-	var date = "29/03/20" #Date of Creation/Update - Hard code for now
+	var date = str(OS.get_date().day)+"/"+str(OS.get_date().month)+"/"+str(OS.get_date().year) #Date of Creation/Update - Hard code for now
 	var worlds = "Custom" #Worlds involved - Hard code for now (Probably might be removed)
 	id = $PlayBoard/IDRow/LineEdit2.get_text() #Get quiz id
 	var username = global.username #Creator's name
@@ -108,17 +109,17 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	if existQuiz==false:
 		#set Quiz attributes
 		Quiz.Creator={"stringValue":username}
-		Quiz.Date={"stringValue":date}
+		Quiz.Date={"stringValue":str(date)}
 		Quiz.Id={"stringValue":str(id)}
 		Quiz.NumQns={"stringValue":str(totalQn+1)}
 		Quiz.QuizName={"stringValue":name}
 		Quiz.World={"stringValue":worlds}
 		#http request to save Quiz
-		Firebase.save_document("CustomQuiz?documentId=%s"%str(id),Quiz, http)
+		Firebase.save_document("CustomQuiz?documentId=%s"%str(name),Quiz, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		start=1
 	else:
-		for i in range(1,numLoadedQns+1): #Loop For Total Number of Qn
+		for i in range(1,numLoadedQns+1): #Loop For Number of Qn Loaded
 			var qnSet = qnList.get_child(i-1) #Save as qn set
 			var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
 			var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
@@ -135,7 +136,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 			Question.Ans={"integerValue": int(ans)}
 			format_string = "%s?documentId=%s"
 			actual_string = format_string % ["Custom"+str(id),str(qnNum)]
-			#http requesto to save the question
+			#http request to update the questions
 			Firebase.update_document(actual_string, Question, http)
 			yield(get_tree().create_timer(2.0), "timeout")
 			qnNum+=1
@@ -143,9 +144,11 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	
 	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
 	print(" ")
-	for i in range(start,totalQn+1): #Loop For Total Number of Qn
+	for i in range(start,totalQn+1): #Loop For Total Number of Qn Or Remaining Qm
 		var qnSet = qnList.get_child(i-1) #Save as qn set
 		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
+		if qnTitle == "":
+			continue
 		var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
 		var option2 = qnSet.get_child(2).get_child(1).get_text() #Option 2
 		var option3 = qnSet.get_child(3).get_child(1).get_text() #Option 3
@@ -159,8 +162,8 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Option4={"stringValue": option4}
 		Question.Ans={"integerValue": int(ans)}
 		format_string = "%s?documentId=%s"
-		actual_string = format_string % ["Custom"+str(id),str(qnNum)]
-		#http requesto to save the question
+		actual_string = format_string % ["Custom"+str(name),str(qnNum)]
+		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		qnNum+=1
@@ -177,6 +180,8 @@ func set_Quiz(value: Dictionary) -> void:
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	print(result_body)
+	print(response_code)
 	match response_code:
 		#error
 		404:

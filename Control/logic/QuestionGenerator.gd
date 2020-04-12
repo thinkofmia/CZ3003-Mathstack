@@ -99,6 +99,8 @@ func checkLevelTens(): #Check if the player reaches levels of ten
 		#Check if its mod 10
 		if (level%10 == 0):
 			var NextWorldBoard = get_tree().get_root().get_node("World").find_node("NextWorld")
+			#Hides access world
+			NextWorldBoard.hideAccessedWorld()
 			NextWorldBoard.show()
 			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
 			self.hide()

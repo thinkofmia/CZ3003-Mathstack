@@ -15,6 +15,7 @@ var world
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hideAccessedWorld()
 	world1 = find_node("WorldButton")
 	world2 = find_node("WorldButton2")
 	world3 = find_node("WorldButton3")
@@ -29,6 +30,11 @@ func _ready():
 	bg = get_tree().get_root().get_node("World").find_node("Background")
 	world = global.worldSelected
 	changeBg(global.worldSelected)
+	#Add world selected to list
+	global.worldsVisited.append(global.worldSelected)
+	print(global.worldsVisited)
+	#Hide worlds that are already chosen
+	hideAccessedWorld()
 
 func changeBg(world):
 	match world:
@@ -47,11 +53,46 @@ func changeBg(world):
 			
 
 func selectWorld(node):
+	#Hides access world
+	hideAccessedWorld()
+	#Get text from world selected
 	global.worldSelected = node.get_text()
 	print("World Selected: "+global.worldSelected)
 	changeBg(global.worldSelected)
 	qnMenu.show()
 	self.hide()
+	#Add world chosen to list
+	global.worldsVisited.append(global.worldSelected)
+
+#Hide world choices that are already accessed
+func hideAccessedWorld():
+	for item in global.worldsVisited:
+		match item:
+			"World #1":
+				$WorldSelectContainer/WorldSelectRow/WorldButton.hide()
+			"World #2":
+				$WorldSelectContainer/WorldSelectRow/WorldButton2.hide()
+			"World #3":
+				$WorldSelectContainer/WorldSelectRow/WorldButton3.hide()
+			"World #4":
+				$WorldSelectContainer/WorldSelectRow/WorldButton4.hide()
+			"World #5":
+				$WorldSelectContainer/WorldSelectRow/WorldButton5.hide()
+			"World #6":
+				$WorldSelectContainer/WorldSelectRow/WorldButton6.hide()
+			"World #7":
+				$WorldSelectContainer/WorldSelectRow/WorldButton7.hide()
+			"World #8":
+				$WorldSelectContainer/WorldSelectRow/WorldButton8.hide()
+			"World #9":
+				$WorldSelectContainer/WorldSelectRow/WorldButton9.hide()
+			"World #10":
+				$WorldSelectContainer/WorldSelectRow/WorldButton10.hide()
+			_:
+				pass
+			
+		
+	pass
 
 func _on_WorldButton_pressed(): #World 1 clicked
 	selectWorld(world1)
