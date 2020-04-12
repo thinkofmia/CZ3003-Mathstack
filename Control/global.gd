@@ -14,6 +14,7 @@ var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Adv
 var modeSelected = "None" # "All Custom", "My Custom", "Challenge", "Normal"
 #added extra global variable that is assigned at log-in
 var username ="" #string for the user playing
+var accountType = "Student" #Account Type: Default Student
 
 #Variable to check if test mode enabled
 var testMode = false

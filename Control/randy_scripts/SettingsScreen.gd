@@ -9,19 +9,19 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-var account_type
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func goToMainMenu():
+	#Condition
+	if (global.accountType == "Teacher"): #If account type is teacher or admin
+		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+	else:#If account type is student
+		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
 
 func _on_Button_pressed():
-	account_type = "Teacher"
-	if account_type == "Teacher":
-		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
-	else:	
-		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
+	goToMainMenu()
 
 
 func _on_HSlider_value_changed(value):

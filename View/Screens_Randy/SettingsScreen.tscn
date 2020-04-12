@@ -65,6 +65,7 @@ text = " 92"
 margin_top = 323.0
 margin_right = 667.0
 margin_bottom = 383.0
+script = null
 
 [node name="Header" parent="." index="3" instance=ExtResource( 5 )]
 margin_top = 20.0

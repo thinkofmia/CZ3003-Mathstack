@@ -21,26 +21,34 @@ var class_array = ["SS1","SS2","SSP1"]
 var school_array = ["NTU", "NUS", "SMU"]
 
 func _ready():
-	for button in $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer.get_children():
-		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 	#http request to get user profile	
 	Firebase.get_document("users/%s" % global.username, http)
 	username.text = Firebase.user_info.email
 	#test for global save data
 	#char1.text = global.save.World1.stringValue
-		
-func _on_Button_pressed(scene_to_load):
-	scene_path_to_load = scene_to_load
+
+func goToMainMenu():
+	#Insert get account type here!
+	#
+	#Condition
+	if (global.accountType == "Teacher"): #If account type is teacher or admin
+		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+	else:#If account type is student
+		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
+	
+func _on_Button_pressed():
+	goToMainMenu()
 	$FadeIn.show()
 	$FadeIn.fade_in()
 
 
 func _on_FadeIn_fade_finished():
-	account_type = "Teacher"
-	if scene_path_to_load == "res://menus/Screens_Randy/MainMenu.tscn":
-		if account_type == "Teacher":
-			scene_path_to_load = "res://View/Screens_Randy/MainMenuTeachers.tscn"
-	get_tree().change_scene(scene_path_to_load)
+	pass
+	#account_type = "Teacher"
+	#if scene_path_to_load == "res://menus/Screens_Randy/MainMenu.tscn":
+	#	if account_type == "Teacher":
+	#		scene_path_to_load = "res://View/Screens_Randy/MainMenuTeachers.tscn"
+	#get_tree().change_scene(scene_path_to_load)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -62,3 +70,7 @@ func set_profile(value: Dictionary) -> void:
 	school.text = "School: %s" % str(school_array[int(profile.schoolId.integerValue)])
 	class1.text = "Class: %s" % str(class_array[int(profile.classId.integerValue)])
 	#class1.select(1)
+
+
+func _on_Button2_pressed():
+	get_tree().change_scene("res://View/Screens_Randy/EditProfile.tscn")

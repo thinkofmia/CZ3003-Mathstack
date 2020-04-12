@@ -70,6 +70,15 @@ func _on_ForgotPassButton_pressed():
 	get_tree().change_scene("res://View/Screens_Randy/ForgotPassScreen.tscn")
 
 
+func goToMainMenu():
+	#Insert get account type here!
+	global.accountType = "Teacher" #Replace this with firebase
+	#Condition
+	if (global.accountType == "Teacher"): #If account type is teacher or admin
+		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+	else:#If account type is student
+		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
+
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
 	#error
@@ -82,7 +91,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		if getDataBool:
 			getDataBool = false
 		yield(get_tree().create_timer(2.0), "timeout")
-		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+		goToMainMenu()
 		loginBool = false
 	elif response_code == 400:
 		if loginBool:

@@ -78,9 +78,17 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func goToMainMenu():
+	#Insert get account type here!
+	#
+	#Condition
+	if (global.accountType == \"Teacher\"): #If account type is teacher or admin
+		get_tree().change_scene(\"res://View/Screens_Randy/MainMenuTeachers.tscn\")
+	else:#If account type is student
+		get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
 
 func _on_Button_pressed():
-	get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
+	goToMainMenu()
 	
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
@@ -215,6 +223,7 @@ alignment = 1
 margin_top = 675.0
 margin_right = 735.0
 margin_bottom = 735.0
+script = null
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
 margin_top = 20.0

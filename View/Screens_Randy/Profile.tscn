@@ -157,14 +157,14 @@ alignment = 1
 margin_top = 0.0
 margin_right = 360.0
 margin_bottom = 60.0
-scene_to_load = "res://View/Screens_Randy/MainMenu.tscn"
+script = null
 
 [node name="Button2" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 410.0
 margin_top = 0.0
 margin_right = 770.0
 margin_bottom = 60.0
-scene_to_load = "res://View/Screens_Randy/EditProfile.tscn"
+script = null
 
 [node name="FadeIn" parent="." instance=ExtResource( 10 )]
 visible = false
@@ -177,5 +177,7 @@ visible = false
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 3 )
 text = "PROFILE"
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
