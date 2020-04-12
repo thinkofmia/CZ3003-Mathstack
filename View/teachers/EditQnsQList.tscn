@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://View/teachers/EditQnsQList.gd" type="Script" id=3]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "EDIT QUESTIONS"
+
+[node name="PlayBoard" parent="." index="1"]
+margin_top = 91.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayBoard/MarginContainer" index="0"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 559.0
+margin_bottom = 432.0
+
+[node name="WorldName" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="0"]
+margin_right = 539.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 2 )
+text = "World N"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="1"]
+margin_top = 43.0
+margin_right = 539.0
+margin_bottom = 412.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ListOfQuestions" type="VBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer" index="0"]
+margin_right = 539.0
+margin_bottom = 369.0
+rect_min_size = Vector2( 270, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

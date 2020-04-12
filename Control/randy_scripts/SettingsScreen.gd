@@ -26,5 +26,6 @@ func _on_Button_pressed():
 
 func _on_HSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(0, value)
-	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label.text = str(round((value + 72) / 0.78))
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label.text = str(round((value + 30) * 2))
+	#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label.text = str(round((value + 72) / 0.78))
 	
