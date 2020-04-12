@@ -4,6 +4,7 @@ var account_type
 var error_text
 var loginBool=false
 var getDataBool=false
+var getAccountType=false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -55,6 +56,11 @@ func _on_LoginButton_pressed():
 		getDataBool=true
 		#http request to get user progress
 		Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
+		yield(get_tree().create_timer(2.0), "timeout")
+		getAccountType=true
+		#http request to get account type
+		Firebase.get_document("users/%s" % Firebase.user_info.email, http)
+		yield(get_tree().create_timer(2.0), "timeout")
 	#account_type = "Teacher"
 	#if account_type == "Teacher":
 	#	get_tree().change_scene("res://menus/Screens_Randy/MainMenuTeachers.tscn")
@@ -85,14 +91,17 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	print("Sending In progress"+str(response_code))
 	if response_code == 200:
 		if loginBool:
-				
+				loginBool = false
 				#added this to be able to access username easily
 				global.username = username.text
 		if getDataBool:
 			getDataBool = false
-		yield(get_tree().create_timer(2.0), "timeout")
-		goToMainMenu()
-		loginBool = false
+		if getAccountType:
+			getAccountType = false
+			#save account type to global.accountType
+			global.accountType=response_body.result.fields.account.stringValue
+			goToMainMenu()
+		
 	elif response_code == 400:
 		if loginBool:
 				print("This Works")
