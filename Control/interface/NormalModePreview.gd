@@ -9,7 +9,15 @@ func _ready():
 	$PlayBoard/MarginContainer/VBoxContainer/TitleContainer/WorldLabel.set_text(global.worldSelected+":")
 	$PlayBoard/MarginContainer/VBoxContainer/TitleContainer/DifficultyLabel.set_text(global.difficultySelected)
 	#Set score
-	$PlayBoard/MarginContainer/VBoxContainer/ScoreRow/StoryScore.set_text(str(global.storyScore)+"/10")
+	if (global.difficultySelected == "Primary"):
+		$PlayBoard/MarginContainer/VBoxContainer/ScoreRow/StoryScore.set_text(str(global.save['ScoreWorld' + str(global.worldSelected.split("#")[1]) + 'a']['stringValue'])+"/10")
+	
+	if (global.difficultySelected == "Intermediate"):
+		$PlayBoard/MarginContainer/VBoxContainer/ScoreRow/StoryScore.set_text(str(global.save['ScoreWorld' + str(global.worldSelected.split("#")[1]) + 'b']['stringValue'])+"/10")
+
+	if (global.difficultySelected == "Advanced"):
+		$PlayBoard/MarginContainer/VBoxContainer/ScoreRow/StoryScore.set_text(str(global.save['ScoreWorld' + str(global.worldSelected.split("#")[1]) + 'c']['stringValue'])+"/10")
+	
 	changeBg(global.worldSelected.split("#")[1])
 	pass # Replace with function body.
 

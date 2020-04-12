@@ -55,7 +55,7 @@ size_flags_vertical = 2
 custom_fonts/font = ExtResource( 3 )
 text = "Average Score:"
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
+[node name="AverageLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
 margin_left = 335.0
 margin_top = 80.0
 margin_right = 666.0

@@ -42,7 +42,7 @@ custom_constants/separation = 10
 margin_right = 539.0
 margin_bottom = 60.0
 custom_fonts/font = ExtResource( 2 )
-text = "Quiz Name"
+text = "Loading..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,10 +64,10 @@ text = "By: "
 
 [node name="AuthorName" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/AuthorRow" index="1"]
 margin_left = 68.0
-margin_right = 316.0
+margin_right = 232.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 7 )
-text = "GodOfThunder"
+text = "Loading..."
 
 [node name="CreationDateRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="2"]
 margin_top = 119.0
@@ -86,10 +86,10 @@ text = "Created: "
 
 [node name="CreationDate" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/CreationDateRow" index="1"]
 margin_left = 154.0
-margin_right = 370.0
+margin_right = 318.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 7 )
-text = "06/03/2020"
+text = "Loading..."
 
 [node name="NumberQnsRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="3"]
 margin_top = 168.0
@@ -108,10 +108,10 @@ text = "# of Qns: "
 
 [node name="NumberOfQns" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/NumberQnsRow" index="1"]
 margin_left = 169.0
-margin_right = 307.0
+margin_right = 333.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 7 )
-text = "999999"
+text = "Loading..."
 
 [node name="WorldsRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="4"]
 margin_top = 217.0
@@ -130,10 +130,10 @@ text = "Worlds: "
 
 [node name="Worlds" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/WorldsRow" index="1"]
 margin_left = 143.0
-margin_right = 463.0
+margin_right = 307.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 7 )
-text = "Arithmetic, Vectors"
+text = "Loading..."
 
 [node name="IdRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="5"]
 margin_top = 266.0
@@ -152,17 +152,19 @@ text = "id: "
 
 [node name="Id" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/IdRow" index="1"]
 margin_left = 53.0
-margin_right = 259.0
+margin_right = 217.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 7 )
-text = "xBMIAtt567"
+text = "Loading..."
 
 [node name="Button" parent="PlayBoard/MarginContainer/VBoxContainer" index="6" instance=ExtResource( 6 )]
+visible = false
 margin_top = 315.0
 margin_right = 539.0
 margin_bottom = 405.0
 
 [node name="EditButton" parent="." index="4" instance=ExtResource( 1 )]
+visible = false
 margin_left = 890.106
 margin_top = 497.291
 margin_right = 992.106

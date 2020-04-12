@@ -16,8 +16,21 @@ var ranking := {
 	"nickname":{}
 }
 
+func hideButtons(): #Hide all buttons while loading.
+	$QuitButton.hide()
+	$LeaderBoardButton.hide()
+	$PlayButton.hide()
+	$ShareButton.hide()
+	
+func showButtons():
+	$QuitButton.show()
+	$LeaderBoardButton.show()
+	$PlayButton.show()
+	$ShareButton.show()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hideButtons()
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
@@ -33,7 +46,10 @@ func _ready():
 	#Set Worlds Visited
 	var worldsVisitedList = ""
 	for item in global.worldsVisited:
-		worldsVisitedList += str(item)+", "
+		if (worldsVisitedList == ""):
+			worldsVisitedList += str(item)
+		else:
+			worldsVisitedList += ", "+str(item)
 	$PlayBoard/WorldVisitedRow/Worlds.set_text(worldsVisitedList)
 	#Set Average question per time
 	var avg = stepify(global.highscore/global.timeSeconds,0.01)
@@ -48,6 +64,7 @@ func _ready():
 	ranking.nickname = nickname
 	#adding Ranking into Firebase.HighScore, with auto-generated ID
 	Firebase.save_document("HighScore?" , ranking,http)
+	showButtons()
 
 func _on_LeaderBoardButton_pressed():
 	
