@@ -30,6 +30,7 @@ func _ready():
 	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
+		#check if the quiz is ceated by the user
 		if str(question_display['Creator'].values()[0]) == global.username:
 			print(str(question_display['QuizName'].values()[0]))
 			#Add new instance

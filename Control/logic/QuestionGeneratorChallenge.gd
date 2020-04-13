@@ -28,18 +28,16 @@ onready var op4
 onready var ans
 onready var explanation
 
-onready var http : HTTPRequest = get_parent().get_node("MYHTTPRequest2")
-
+onready var http : HTTPRequest = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	option1 = $MarginContainer/row/columnLeft/Option1
 	option2 = $MarginContainer/row/columnLeft/Option2
 	option3 = $MarginContainer/row/columnRight/Option3
 	option4 = $MarginContainer/row/columnRight/Option4
-	level = 0
-	global.storyScore = 0
-	#print(global.difficultySelected)
-	#print(global.worldSelected)
+	print(option1)
+	#global.worldSelected=1
+	#getQuestions=global.difficulty+"World"+str(global.worldSelected)
 	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
 	print(getQuestions)
 	#http request to get question based on the selected difficulty and world
@@ -48,7 +46,7 @@ func _ready():
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
-		#extract each question attribute and put into their res[ective array based on i
+		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
 		qTextArr.append(question_display['QuestionText'].values()[0])
 		print(qTextArr)
@@ -62,8 +60,14 @@ func _ready():
 	randomizeQuestion()
 	
 func randomizeQuestion():
-	#questionId = str("DM-N-02-E-01")
-	#questionId = str("1")
+	#Get level
+	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	if is_instance_valid(blockTower):
+		var level = blockTower.getNoOfBoxes()
+		global.highscore = level
+		if level >= 100: #Stop at level 100
+			blockTower.selfDestruct()
+	
 	#generate a random number between 0 and number of questions
 	var random = int(floor(rand_range(0,question_info[0].size())))
 	print("a: "+ str(random))
@@ -89,33 +93,77 @@ func randomizeQuestion():
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
 	option4.set_text(str(op4))
-	#Set QnLabel
-	find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText)
 	#set question
 	question = [op1, op2, op3, op4,ans] 
-	level += 1
-	print("")
+	#Set Question Label
+	if is_instance_valid(blockTower):
+		var level = blockTower.getNoOfBoxes()
+		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(qText)+"?")
 
-func checkAnswer(option):
-	global.questionCount = global.questionCount + 1
-	print(question)
-	if (str(question[4])==option.get_text()):#Check if correct answer was click
-		print("Correct!")
-		#Update score
-		global.storyScore +=1
-		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
-		scoreBoard.set_text("Score: "+str(global.storyScore))
-		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("CorrectStatus")
-		outcome.appear()
-		randomizeQuestion()
+func checkLevelTens(): #Check if the player reaches levels of ten
+	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	if is_instance_valid(blockTower):
+		var level = blockTower.getNoOfBoxes()
+		global.highscore = level
+		#Check if its mod 10
+		if (level%10 == 0):
+			var NextWorldBoard = get_tree().get_root().get_node("World").find_node("NextWorld")
+			#Hides access world
+			NextWorldBoard.hideAccessedWorld()
+			NextWorldBoard.show()
+			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
+			self.hide()
+
+func correctAnswer():
+	print("Correct!")
+	#Play Sound
+	var sound = get_tree().get_root().get_node("World").find_node("CorrectSound")
+	sound.play()
 		
+	#Add block
+	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	blockTower.addBlock()
+	#Make sprite jump!!
+	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+	character.jump()
+	#Make Character speak!
+	character.characterSpeak("GOOD JOB! ")
+	
+	if (global.ddPower==1):
+		var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+		qnMenu.hide()
+		yield(get_tree().create_timer(1.0), "timeout")
+		#Add block
+		blockTower.addBlock()
+		#Make sprite jump!!
+		character.jump()
+		qnMenu.show()
+	randomizeQuestion()
+	checkLevelTens()
+
+func wrongAnswer():
+	print("Wrong!")
+	#Play Sound
+	var sound = get_tree().get_root().get_node("World").find_node("WrongSound")
+	sound.play()
+		
+	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+	character.hearts -= 1
+	if (global.ddPower==1):
+		character.hearts -= 1
+	character.fixHearts()
+	if (character.hearts <= 0):
+		self.hide()
+	#Make Character speak!
+	character.characterSpeak("SHUCKS! That was wrong. ")
+	randomizeQuestion()
+	
+func checkAnswer(option):
+	if (str(question[4])==option.get_text()):#Check if correct answer was click
+		correctAnswer()	
 	else:
-		print("Wrong!")
-		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("WrongStatus")
-		outcome.appear()
-		randomizeQuestion()
+		wrongAnswer()
+	
 
 
 func _on_Option1_pressed():
@@ -137,20 +185,8 @@ func _on_Option2_pressed():
 	checkAnswer(option2)
 	pass # Replace with function body.
 
-func _on_Request_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
-	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
-	match response_code:
-		#error
-		404:
-			return
-		#success
-		200:
-			#assign the response to the Question
-			self.questions = response_body
-			#con()
 
-
-func _on_MYHTTPRequest2_request_completed(result, response_code, headers, body):
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	match response_code:
 		#error
@@ -160,4 +196,3 @@ func _on_MYHTTPRequest2_request_completed(result, response_code, headers, body):
 		200:
 			#assign the response to questions
 			self.questions = response_body
-			#con()

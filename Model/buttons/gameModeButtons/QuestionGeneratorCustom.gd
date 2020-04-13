@@ -33,15 +33,14 @@ func _ready():
 	option3 = $MarginContainer/row/columnRight/Option3
 	option4 = $MarginContainer/row/columnRight/Option4
 	print(option1)
+	#http request to get question based on the selected quiz
 	Firebase.get_document("Custom%s"%global.customTitle, http)
-	#Firebase.get_document("Custom%s"%"a", http)
 	yield(get_tree().create_timer(2), "timeout")
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
-		#qTextArr.append("gg")
 		qTextArr.append(question_display['QuestionText'].values()[0])
 		print(qTextArr)
 		op1Arr.append(question_display['Option1'].values()[0])
@@ -50,19 +49,14 @@ func _ready():
 		op4Arr.append(question_display['Option4'].values()[0])
 		ansArr.append(question_display['Ans'].values()[0])
 		#exArr.append(question_display['Explanation'].values()[0])
+	#choose a random question
 	randomizeQuestion()
 	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
 	questions_left_text.set_text(str(no_of_questions_remaining))
 	
-#Sets question and store it
-func setQuestion(option1, option2, option3, option4,ans):
-	#Save question set
-	question = [option1, option2, option3, option4,ans] 
-	print(question)
+
 	
 func randomizeQuestion():
-	#questionId = str("DM-N-02-E-01")
-	#questionId = str("1")
 	#Get level
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 	if is_instance_valid(blockTower):
@@ -71,13 +65,16 @@ func randomizeQuestion():
 		if level >= 100: #Stop at level 100
 			blockTower.selfDestruct()
 			
+	#generate a random number between 0 and number of questions
 	var random = int(floor(rand_range(0,question_info[0].size())))
 	print("a: "+ str(random))
+	#extract the question attribute from the array based on random
 	qText = qTextArr[random]
 	op1 = op1Arr[random]
 	op2 = op2Arr[random]
 	op3 = op3Arr[random]
 	op4 = op4Arr[random]
+	#extract the answer
 	var k = int(ansArr[random])
 	match k:
 		1:
@@ -88,6 +85,7 @@ func randomizeQuestion():
 			ans=op3Arr[random]
 		4:
 			ans=op4Arr[random]
+	#set options
 	option1.set_text(str(op1)) 
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
@@ -96,15 +94,10 @@ func randomizeQuestion():
 	if is_instance_valid(blockTower):
 		var level = blockTower.getNoOfBoxes()
 		find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText+"?")
-
+	#set question
 	question = [op1, op2, op3, op4,ans] 
 	#level += 1
 	print("")
-	
-	
-func randCloseAns(ans):
-	var newAns = ans + int(floor(rand_range(-15,15)))
-	return newAns 
 
 func correctAnswer():
 	print("Correct!")
@@ -206,6 +199,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			return
 		#success
 		200:
-			#assign the response to the Question
+			#assign the response to questions
 			self.questions = response_body
 			#con()

@@ -103,6 +103,8 @@ margin_right = 1215.0
 margin_bottom = 844.0
 rect_scale = Vector2( 0.5, 0.5 )
 
+[node name="HTTPRequest" type="HTTPRequest" parent="GUI/PlayBoard/QuestionMenu"]
+
 [node name="NextWorld" parent="GUI/PlayBoard" instance=ExtResource( 15 )]
 visible = false
 margin_left = 12.0
@@ -199,3 +201,4 @@ volume_db = 12.0
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 format = 1
+[connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
