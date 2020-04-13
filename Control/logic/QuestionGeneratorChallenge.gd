@@ -57,6 +57,7 @@ func _ready():
 		ansArr.append(question_display['Ans'].values()[0])
 		#exArr.append(question_display['Explanation'].values()[0])
 	#choose a random question
+	global.highscore = 0
 	randomizeQuestion()
 	
 func randomizeQuestion():
@@ -97,13 +98,13 @@ func randomizeQuestion():
 	question = [op1, op2, op3, op4,ans] 
 	#Set Question Label
 	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
+		var level = blockTower.getNoOfBoxes()-1
 		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(qText)+"?")
 
 func checkLevelTens(): #Check if the player reaches levels of ten
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
+		var level = blockTower.getNoOfBoxes()-1
 		global.highscore = level
 		#Check if its mod 10
 		if (level%10 == 0):
