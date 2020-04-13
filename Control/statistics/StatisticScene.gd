@@ -13,6 +13,7 @@ var totalScoreCompletions = -1
 var totalScoreAverage = -1
 var students = []
 var classId= -1
+var studentsFullProgressDetails = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +30,24 @@ func _ready():
 func constructListWithData(listData):
 	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.clear()
 	for item in listData:
-		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(item)
+		var titleString = item + "  ----  " + "Not Started"
+		for full in studentsFullProgressDetails:
+			if (full.name.split("/")[-1] == item):
+				if (full.fields['World' + str(global.statWorldSelected)].stringValue == "1"):
+					titleString = item + "  ----  " + "Completed Easy"
+				
+				elif (full.fields['World' + str(global.statWorldSelected)].stringValue == "2"):
+					titleString = item + "  ----  " + "Completed Intermediate"
+				
+				elif (full.fields['World' + str(global.statWorldSelected)].stringValue == "3"):
+					titleString = item + "  ----  " + "Completed All"
+		
+		var titleLength = len(titleString)
+		var space = ""
+		for i in range(0,(50 - titleLength)):
+			space = space + " "
+		#titleString = titleString.replace("/",space)
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(titleString)
 	
 
 func _on_Button_pressed():
@@ -61,7 +79,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			
 			
 			totalNumOfStudents = (len(students))
-			constructListWithData(students)
+			
 			if (totalNumOfCompletions != -1):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
@@ -79,7 +97,7 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 			totalNumOfCompletions = 0
 			totalScoreCompletions = 0
 			var mystudents = ((response_body['documents']))
-			yield(get_tree().create_timer(1), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			var mystudents2 = []
 			for i in range(0,len(mystudents)):
 				if (mystudents[i].name.split("/")[-1] in students):
@@ -95,7 +113,9 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 					totalScoreCompletions = totalNumOfCompletions + totalScoreNum
 					
 					mystudents2.append(mystudents[i])
+					studentsFullProgressDetails.append(mystudents[i])
 			
+			constructListWithData(students)
 			if (len(mystudents2) != 0):
 				totalScoreAverage = float(totalScoreCompletions) / float(len(mystudents))
 			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/AverageLabel.set_text(str(totalScoreAverage) + "/30")
