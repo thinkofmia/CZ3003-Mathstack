@@ -13,7 +13,6 @@ func _ready():
 	option4 = $MarginContainer/row/columnRight/Option4
 	print(option1)
 	randomizeQuestion()
-	global.highscore = 0
 
 #Sets question and store it
 func setQuestion(operand1, operand2, operation):
@@ -85,7 +84,7 @@ func randomizeQuestion():
 	
 	#Set Question Label
 	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes() - 1 
+		var level = blockTower.getNoOfBoxes()
 		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
 
 func randCloseAns(ans):
@@ -95,7 +94,7 @@ func randCloseAns(ans):
 func checkLevelTens(): #Check if the player reaches levels of ten
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes() - 1
+		var level = blockTower.getNoOfBoxes()
 		global.highscore = level
 		#Check if its mod 10
 		if (level%10 == 0):

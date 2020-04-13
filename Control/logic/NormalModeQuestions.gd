@@ -42,14 +42,14 @@ func _ready():
 	#print(global.worldSelected)
 	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
 	print(getQuestions)
+	#http request to get question based on the selected difficulty and world
 	Firebase.get_document("%s" % str(getQuestions), http)
 	yield(get_tree().create_timer(1), "timeout")
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
-		#extract question attribute based on i
+		#extract each question attribute and put into their res[ective array based on i
 		question_display= (question_info[0][i]['fields'])
-		#qTextArr.append("gg")
 		qTextArr.append(question_display['QuestionText'].values()[0])
 		print(qTextArr)
 		op1Arr.append(question_display['Option1'].values()[0])
@@ -58,25 +58,22 @@ func _ready():
 		op4Arr.append(question_display['Option4'].values()[0])
 		ansArr.append(question_display['Ans'].values()[0])
 		#exArr.append(question_display['Explanation'].values()[0])
+	#choose a random question
 	randomizeQuestion()
-
-#Sets question and store it
-func setQuestion(option1, option2, option3, option4,ans):
-	#Save question set
-	question = [option1, option2, option3, option4,ans] 
-	print(question)
-
 	
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
 	#questionId = str("1")
+	#generate a random number between 0 and number of questions
 	var random = int(floor(rand_range(0,question_info[0].size())))
 	print("a: "+ str(random))
+	#extract the question attribute from the array based on random
 	qText = qTextArr[random]
 	op1 = op1Arr[random]
 	op2 = op2Arr[random]
 	op3 = op3Arr[random]
 	op4 = op4Arr[random]
+	#extract the answer
 	var k = int(ansArr[random])
 	match k:
 		1:
@@ -87,17 +84,17 @@ func randomizeQuestion():
 			ans=op3Arr[random]
 		4:
 			ans=op4Arr[random]
+	#set options
 	option1.set_text(str(op1)) 
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
 	option4.set_text(str(op4))
 	#Set QnLabel
 	find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText)
+	#set question
 	question = [op1, op2, op3, op4,ans] 
 	level += 1
 	print("")
-	
-
 
 func checkAnswer(option):
 	global.questionCount = global.questionCount + 1
@@ -161,6 +158,6 @@ func _on_MYHTTPRequest2_request_completed(result, response_code, headers, body):
 			return
 		#success
 		200:
-			#assign the response to the Question
+			#assign the response to questions
 			self.questions = response_body
 			#con()

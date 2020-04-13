@@ -4,10 +4,9 @@ var option1
 var option2
 var option3
 var option4
-var no_of_questions_remaining
-var questions_left_text
+var level
+var getQuestions
 
-onready var http : HTTPRequest = $HTTPRequest
 var qTextArr=[]
 var op1Arr=[]
 var op2Arr=[]
@@ -15,9 +14,12 @@ var op3Arr=[]
 var op4Arr=[]
 var ansArr=[]
 var exArr=[]
+
+
 onready var question_info
 onready var questions
 onready var question_display
+onready var questionId
 onready var qText
 onready var op1
 onready var op2
@@ -26,6 +28,7 @@ onready var op4
 onready var ans
 onready var explanation
 
+onready var http : HTTPRequest = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	option1 = $MarginContainer/row/columnLeft/Option1
@@ -33,17 +36,14 @@ func _ready():
 	option3 = $MarginContainer/row/columnRight/Option3
 	option4 = $MarginContainer/row/columnRight/Option4
 	print(option1)
-	#http request to get question based on the selected quiz
-	Firebase.get_document("Custom%s"%global.customTitle, http)
-	yield(get_tree().create_timer(2), "timeout")
+	#global.worldSelected=1
+	#getQuestions=global.difficulty+"World"+str(global.worldSelected)
+	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
+	print(getQuestions)
+	#http request to get question based on the selected difficulty and world
+	Firebase.get_document("%s" % str(getQuestions), http)
+	yield(get_tree().create_timer(1), "timeout")
 	question_info = (questions.values())
-	no_of_questions_remaining = question_info[0].size()
-	
-	var top_platform = get_tree().get_root().get_node("World").find_node("FinishPlatform")
-	if no_of_questions_remaining < 3:
-		for i in range(3 - no_of_questions_remaining):
-			top_platform.position.y += 85
-	
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i
@@ -57,11 +57,8 @@ func _ready():
 		ansArr.append(question_display['Ans'].values()[0])
 		#exArr.append(question_display['Explanation'].values()[0])
 	#choose a random question
+	global.highscore = 0
 	randomizeQuestion()
-	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
-	questions_left_text.set_text(str(no_of_questions_remaining))
-	
-
 	
 func randomizeQuestion():
 	#Get level
@@ -71,7 +68,7 @@ func randomizeQuestion():
 		global.highscore = level
 		if level >= 100: #Stop at level 100
 			blockTower.selfDestruct()
-			
+	
 	#generate a random number between 0 and number of questions
 	var random = int(floor(rand_range(0,question_info[0].size())))
 	print("a: "+ str(random))
@@ -97,14 +94,26 @@ func randomizeQuestion():
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
 	option4.set_text(str(op4))
-	#Set Question Label
-	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
-		find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText+"?")
 	#set question
 	question = [op1, op2, op3, op4,ans] 
-	#level += 1
-	print("")
+	#Set Question Label
+	if is_instance_valid(blockTower):
+		var level = blockTower.getNoOfBoxes()-1
+		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(qText)+"?")
+
+func checkLevelTens(): #Check if the player reaches levels of ten
+	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	if is_instance_valid(blockTower):
+		var level = blockTower.getNoOfBoxes()-1
+		global.highscore = level
+		#Check if its mod 10
+		if (level%10 == 0):
+			var NextWorldBoard = get_tree().get_root().get_node("World").find_node("NextWorld")
+			#Hides access world
+			NextWorldBoard.hideAccessedWorld()
+			NextWorldBoard.show()
+			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
+			self.hide()
 
 func correctAnswer():
 	print("Correct!")
@@ -121,14 +130,6 @@ func correctAnswer():
 	#Make Character speak!
 	character.characterSpeak("GOOD JOB! ")
 	
-	var top_platform = get_tree().get_root().get_node("World").find_node("FinishPlatform")
-
-	if no_of_questions_remaining > 3:
-		top_platform.shift()
-	
-	no_of_questions_remaining -= 1
-	questions_left_text.set_text(str(no_of_questions_remaining))
-	
 	if (global.ddPower==1):
 		var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 		qnMenu.hide()
@@ -139,18 +140,7 @@ func correctAnswer():
 		character.jump()
 		qnMenu.show()
 	randomizeQuestion()
-	
-	if no_of_questions_remaining == 0:
-		#var timer = get_tree().get_root().get_node("World").get_node("GUI").get_node("Timer")
-		#timer.stop()
-		hide()
-		var completedText = get_tree().get_root().get_node("World").get_node("GUI").get_node("PlayBoard").get_node("CompleteQuiz")
-		completedText.show()
-		var quitButton = get_tree().get_root().get_node("World").get_node("GUI").get_node("QuitButton")
-		quitButton.hide()
-		yield(get_tree().create_timer(1.0), "timeout")
-		character.jump_to_end()
-		character.characterSpeak("Hooray!")
+	checkLevelTens()
 
 func wrongAnswer():
 	print("Wrong!")
@@ -171,8 +161,7 @@ func wrongAnswer():
 	
 func checkAnswer(option):
 	if (str(question[4])==option.get_text()):#Check if correct answer was click
-		correctAnswer()
-		
+		correctAnswer()	
 	else:
 		wrongAnswer()
 	
@@ -198,7 +187,7 @@ func _on_Option2_pressed():
 	pass # Replace with function body.
 
 
-func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	match response_code:
 		#error
@@ -208,4 +197,3 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		200:
 			#assign the response to questions
 			self.questions = response_body
-			#con()

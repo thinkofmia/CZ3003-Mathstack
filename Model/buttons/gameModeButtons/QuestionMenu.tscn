@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Model/buttons/gameModeButtons/AnswerButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Control/logic/QuestionGenerator.gd" type="Script" id=2]
+[ext_resource path="res://Control/logic/QuestionGeneratorChallenge.gd" type="Script" id=2]
 [ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=4]
 
