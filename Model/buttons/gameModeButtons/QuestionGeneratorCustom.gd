@@ -4,7 +4,7 @@ var option1
 var option2
 var option3
 var option4
-var no_of_questions_remaining = 3
+var no_of_questions_remaining
 var questions_left_text
 
 onready var http : HTTPRequest = $HTTPRequest
@@ -37,6 +37,13 @@ func _ready():
 	Firebase.get_document("Custom%s"%global.customTitle, http)
 	yield(get_tree().create_timer(2), "timeout")
 	question_info = (questions.values())
+	no_of_questions_remaining = question_info[0].size()
+	
+	var top_platform = get_tree().get_root().get_node("World").find_node("FinishPlatform")
+	if no_of_questions_remaining < 3:
+		for i in range(3 - no_of_questions_remaining):
+			top_platform.position.y += 85
+	
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i

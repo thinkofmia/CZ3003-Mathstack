@@ -21,11 +21,13 @@ script = ExtResource( 3 )
 rect_min_size = Vector2( 500, 20 )
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-custom_constants/separation = 220
+custom_constants/separation = 250
+alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+margin_top = 238.0
 margin_right = 667.0
-margin_bottom = 103.0
+margin_bottom = 341.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" index="0"]
 margin_right = 667.0
@@ -49,8 +51,9 @@ margin_left = 33.0
 margin_right = 533.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 500, 50 )
-min_value = -72.0
-max_value = 6.0
+min_value = -30.0
+max_value = 20.0
+step = 5.0
 
 [node name="Label" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" index="1"]
 margin_left = 553.0
@@ -59,15 +62,15 @@ margin_right = 633.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 80, 0 )
 custom_fonts/font = SubResource( 2 )
-text = " 92"
+text = "60"
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 2 )]
-margin_top = 323.0
+margin_top = 591.0
 margin_right = 667.0
-margin_bottom = 383.0
-script = null
+margin_bottom = 651.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 5 )]
 margin_top = 20.0
+text = "SETTINGS"
 [connection signal="value_changed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

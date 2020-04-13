@@ -5,5 +5,5 @@
 [node name="Button" instance=ExtResource( 1 )]
 
 [node name="Label" parent="." index="0"]
-text = "Edit Questions"
+text = "Save"
 align = 1
