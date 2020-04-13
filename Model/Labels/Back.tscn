@@ -5,5 +5,7 @@
 [node name="Button" instance=ExtResource( 1 )]
 
 [node name="Label" parent="." index="0"]
+margin_top = -28.0637
+margin_bottom = 29.9363
 text = "Back"
 align = 1
