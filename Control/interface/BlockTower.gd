@@ -1,6 +1,6 @@
 extends VBoxContainer
 const BASEHEIGHT = 320
-var noOfBoxes = 1 #Also represents the scores
+var noOfBoxes = 1 #Also represents the scores + 1 
 
 func _ready():
 	noOfBoxes = 1
@@ -18,7 +18,7 @@ func _physics_process(delta):
 
 func selfDestruct():
 	#Save global vars
-	global.highscore = noOfBoxes
+	global.highscore = noOfBoxes - 1 
 	global.time = get_tree().get_root().get_node("World").find_node("Timer").getTime()
 	print(global.highscore)
 	print(global.time)
@@ -34,10 +34,10 @@ func addBlock():
 	#Increment box number
 	noOfBoxes+=1
 	#Spawns a box
-	var level = str(noOfBoxes)
+	var level = str(noOfBoxes-1)
 	block.get_node("Label").set_text(level)
 	add_child(block)
 	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
 	#Add Life per 10 levels
-	if (int(noOfBoxes)%10 == 0):
+	if (int(noOfBoxes)-1%10 == 0):
 		character.addLife()
