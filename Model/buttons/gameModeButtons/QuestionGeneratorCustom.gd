@@ -67,7 +67,7 @@ func randomizeQuestion():
 	#Get level
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
+		var level = blockTower.getNoOfBoxes()-1
 		global.highscore = level
 		if level >= 100: #Stop at level 100
 			blockTower.selfDestruct()
@@ -99,8 +99,8 @@ func randomizeQuestion():
 	option4.set_text(str(op4))
 	#Set Question Label
 	if is_instance_valid(blockTower):
-		var level = blockTower.getNoOfBoxes()
-		find_node("QuestionLabel").set_text("Q"+str(level)+") "+qText+"?")
+		var level = blockTower.getNoOfBoxes()-1
+		find_node("QuestionLabel").set_text("Q"+str(level+1)+") "+qText+"?")
 	#set question
 	question = [op1, op2, op3, op4,ans] 
 	#level += 1
