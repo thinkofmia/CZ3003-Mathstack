@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/PlayAgainButton.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://View/util/Block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://View/util/Character.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Model/buttons/ShareButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=10]
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
@@ -18,12 +20,15 @@ margin_top = 48.1221
 margin_right = 415.102
 margin_bottom = -105.878
 
+[node name="Texture" parent="PlayBoard" index="0"]
+position = Vector2( 307.705, 223.495 )
+
 [node name="GameOverLabel" type="Label" parent="PlayBoard" index="1"]
 margin_left = 150.0
 margin_top = 20.0
 margin_right = 227.0
 margin_bottom = 34.0
-rect_scale = Vector2( 4, 4 )
+custom_fonts/font = ExtResource( 10 )
 text = "Game Over!"
 align = 1
 __meta__ = {
@@ -31,115 +36,153 @@ __meta__ = {
 }
 
 [node name="HighscoreRow" type="HBoxContainer" parent="PlayBoard" index="2"]
+visible = false
 margin_left = 25.0
-margin_top = 70.0
-margin_right = 93.0
-margin_bottom = 110.0
-rect_scale = Vector2( 2, 2 )
-custom_constants/separation = 20
+margin_top = 89.9446
+margin_right = 483.0
+margin_bottom = 129.945
+custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HighscoreLabel" type="Label" parent="PlayBoard/HighscoreRow" index="0"]
-margin_top = 13.0
-margin_right = 68.0
-margin_bottom = 27.0
+margin_right = 176.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 text = "Highscore:"
 
 [node name="Score" type="Label" parent="PlayBoard/HighscoreRow" index="1"]
-margin_left = 88.0
-margin_top = 13.0
-margin_right = 149.0
-margin_bottom = 27.0
+margin_left = 191.0
+margin_right = 349.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 text = "Loading..."
 
 [node name="NewRecordLabel" type="Label" parent="PlayBoard/HighscoreRow" index="2"]
-margin_left = 169.0
-margin_top = 13.0
-margin_right = 253.0
-margin_bottom = 27.0
+margin_left = 364.0
+margin_right = 584.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.956863, 0.172549, 0.0431373, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "New Record!!"
 
 [node name="TimeElapsedRow" type="HBoxContainer" parent="PlayBoard" index="3"]
-margin_left = 25.0
-margin_top = 125.0
-margin_right = 118.0
-margin_bottom = 165.0
-rect_scale = Vector2( 2, 2 )
+visible = false
+margin_left = 23.892
+margin_top = 156.025
+margin_right = 422.892
+margin_bottom = 196.025
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TimeElapsedLabel" type="Label" parent="PlayBoard/TimeElapsedRow" index="0"]
-margin_top = 13.0
-margin_right = 93.0
-margin_bottom = 27.0
+margin_right = 237.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 text = "Time Elapsed: "
 
 [node name="Time" type="Label" parent="PlayBoard/TimeElapsedRow" index="1"]
-margin_left = 97.0
-margin_top = 13.0
-margin_right = 158.0
-margin_bottom = 27.0
+margin_left = 241.0
+margin_right = 399.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 text = "Loading..."
 
 [node name="WorldVisitedRow" type="HBoxContainer" parent="PlayBoard" index="4"]
-margin_left = 25.0
-margin_top = 184.0
-margin_right = 309.0
-margin_bottom = 252.0
-rect_scale = Vector2( 2, 2 )
+visible = false
+margin_left = 26.0
+margin_top = 212.0
+margin_right = 609.0
+margin_bottom = 280.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WorldVisitedLabel" type="Label" parent="PlayBoard/WorldVisitedRow" index="0"]
-margin_top = 27.0
-margin_right = 94.0
-margin_bottom = 41.0
+margin_top = 14.0
+margin_right = 241.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 9 )
 text = "World Visited: "
 
-[node name="Worlds" type="Label" parent="PlayBoard/WorldVisitedRow" index="1"]
-margin_left = 98.0
-margin_top = 27.0
-margin_right = 278.0
-margin_bottom = 41.0
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard/WorldVisitedRow" index="1"]
+margin_left = 245.0
+margin_right = 583.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+
+[node name="Worlds" type="Label" parent="PlayBoard/WorldVisitedRow/ScrollContainer" index="0"]
+margin_right = 338.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 180, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 9 )
 text = "Loading..."
+valign = 1
 autowrap = true
 
 [node name="AverageSpeedRow" type="HBoxContainer" parent="PlayBoard" index="5"]
-margin_left = 25.0
-margin_top = 300.0
-margin_right = 123.0
-margin_bottom = 340.0
-rect_scale = Vector2( 2, 2 )
+visible = false
+margin_left = 26.2277
+margin_top = 296.317
+margin_right = 457.228
+margin_bottom = 336.317
+custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AverageSpeedLabel" type="Label" parent="PlayBoard/AverageSpeedRow" index="0"]
-margin_top = 13.0
-margin_right = 98.0
-margin_bottom = 27.0
+margin_right = 258.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 text = "Average Speed:"
 
 [node name="SpeedPerQn" type="Label" parent="PlayBoard/AverageSpeedRow" index="1"]
-margin_left = 102.0
-margin_top = 13.0
-margin_right = 163.0
-margin_bottom = 27.0
+margin_left = 273.0
+margin_right = 431.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
+text = "Loading..."
+
+[node name="FastestClearRow" type="HBoxContainer" parent="PlayBoard" index="6"]
+visible = false
+margin_left = 23.7722
+margin_top = 357.704
+margin_right = 454.772
+margin_bottom = 397.704
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FastestClearLabel" type="Label" parent="PlayBoard/FastestClearRow" index="0"]
+margin_right = 311.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
+text = "Fastest Clear Time:"
+
+[node name="ClearTime" type="Label" parent="PlayBoard/FastestClearRow" index="1"]
+margin_left = 326.0
+margin_right = 484.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 9 )
 text = "Loading..."
 
 [node name="Header" parent="." index="2"]
 position = Vector2( -439.401, -16.3245 )
 
 [node name="RichTextLabel" parent="Header" index="0"]
-text = "Gameover"
+margin_right = 648.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+text = "Game Over"
 
 [node name="ColorRect" parent="Header/RichTextLabel" index="1"]
 margin_left = -3.62763

@@ -7,10 +7,12 @@
 [node name="Icon" parent="." index="0"]
 margin_left = 1.0
 margin_top = -2.0
-margin_right = 18.0
-margin_bottom = 13.0
-rect_scale = Vector2( 6, 6 )
+margin_right = 102.0
+margin_bottom = 70.0
 custom_colors/font_color = Color( 0, 0.741176, 0.886275, 1 )
 
 [node name="Label" parent="." index="1"]
+margin_top = 63.8098
+margin_right = 103.0
+margin_bottom = 84.8098
 text = "Share"

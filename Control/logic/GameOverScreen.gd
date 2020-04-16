@@ -28,6 +28,12 @@ func showButtons():
 	$PlayButton.show()
 	$ShareButton.show()
 
+func showLabels():
+	$PlayBoard/HighscoreRow.show()
+	$PlayBoard/TimeElapsedRow.show()
+	$PlayBoard/WorldVisitedRow.show()
+	$PlayBoard/AverageSpeedRow.show()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hideButtons()
@@ -50,11 +56,19 @@ func _ready():
 			worldsVisitedList += str(item)
 		else:
 			worldsVisitedList += ", "+str(item)
-	$PlayBoard/WorldVisitedRow/Worlds.set_text(worldsVisitedList)
+	$PlayBoard/WorldVisitedRow/ScrollContainer/Worlds.set_text(worldsVisitedList)
 	#Set Average question per time
 	var avg = stepify(global.highscore/global.timeSeconds,0.01)
 	print(avg)
 	$PlayBoard/AverageSpeedRow/SpeedPerQn.set_text(str(avg)+" qn/s")
+	
+	showLabels()
+	
+	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
+		#set Fastest clear time
+		
+		$PlayBoard/WorldVisitedRow.hide()
+		$PlayBoard/FastestClearRow.show()
 	
 	#adding the ranking here
 	ranking.username = { "stringValue" : username}

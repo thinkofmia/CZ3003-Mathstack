@@ -43,6 +43,7 @@ func _ready():
 	if no_of_questions_remaining < 3:
 		for i in range(3 - no_of_questions_remaining):
 			top_platform.position.y += 85
+	top_platform.show()
 	
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
