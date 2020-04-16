@@ -43,6 +43,8 @@ custom_constants/separation = 20
 margin_right = 537.0
 margin_bottom = 248.0
 
+[node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="1"]
+
 [node name="Button" parent="PlayBoard/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 4 )]
 margin_top = 268.0
 margin_right = 537.0
@@ -52,4 +54,6 @@ margin_bottom = 328.0
 margin_top = 348.0
 margin_right = 537.0
 margin_bottom = 408.0
+[connection signal="request_completed" from="PlayBoard/MarginContainer/VBoxContainer/QnList/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

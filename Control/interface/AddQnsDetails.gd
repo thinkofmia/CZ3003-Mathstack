@@ -48,7 +48,34 @@ func _on_AddButton_pressed():
 
 
 func _on_ConfirmButton_pressed():
-	
-	# Insert saving input into firebase
-	
+	global.difficulty="Normal"
+	var getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
+	for i in range(1,totalQn+1): #Loop For Total Number of Qn 
+		print(i)
+		var qnSet = qnList.get_child(i-1) #Save as qn set
+		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
+		if qnTitle == "":
+			continue
+		var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
+		var option2 = qnSet.get_child(2).get_child(1).get_text() #Option 2
+		var option3 = qnSet.get_child(3).get_child(1).get_text() #Option 3
+		var option4 = qnSet.get_child(4).get_child(1).get_text() #Option 4
+		var ans = qnSet.get_child(5).get_child(1).get_text() #Option 1
+		#Set Question attributes
+		Question.QuestionText={"stringValue": qnTitle}
+		Question.Option1={"stringValue": option1}
+		Question.Option2={"stringValue": option2}
+		Question.Option3={"stringValue": option3}
+		Question.Option4={"stringValue": option4}
+		Question.Ans={"integerValue": int(ans)}
+		var format_string = "%s?documentId=%s"
+		var random = int(floor(rand_range(0,100)))
+		var actual_string = format_string % [getQuestions,str(random)]
+		#http request to save the question
+		Firebase.save_document(actual_string, Question, http)
+		yield(get_tree().create_timer(2.0), "timeout")
+		
+
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	pass # Replace with function body.
