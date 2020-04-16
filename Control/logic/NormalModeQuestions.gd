@@ -36,7 +36,7 @@ func _ready():
 	option2 = $MarginContainer/row/columnLeft/Option2
 	option3 = $MarginContainer/row/columnRight/Option3
 	option4 = $MarginContainer/row/columnRight/Option4
-	level = 0
+	level = 1
 	global.storyScore = 0
 	#print(global.difficultySelected)
 	#print(global.worldSelected)
