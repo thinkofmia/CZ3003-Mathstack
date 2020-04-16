@@ -25,14 +25,7 @@ anchor_top = 0.0010462
 anchor_right = 1.00063
 anchor_bottom = 1.00105
 
-[node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
-margin_bottom = 900.0
-
-[node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
-margin_bottom = 900.0
-
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
@@ -91,16 +84,16 @@ align = 1
 [node name="ItemList" type="ItemList" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 239.0
 margin_right = 667.0
-margin_bottom = 560.0
+margin_bottom = 561.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 items = [ "Item 0", null, false, "Item 1", null, false ]
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3" instance=ExtResource( 2 )]
-margin_top = 590.0
+margin_top = 591.0
 margin_right = 667.0
-margin_bottom = 650.0
+margin_bottom = 651.0
 
 [node name="Header" parent="." index="3" instance=ExtResource( 6 )]
 margin_top = 20.0
