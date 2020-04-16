@@ -2,4 +2,7 @@ extends Button
 
 #Starts Challenge Mode
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")
+	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
+		get_tree().change_scene("res://View/gameModes/CustomPlayScreen.tscn")
+	else:
+		get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")

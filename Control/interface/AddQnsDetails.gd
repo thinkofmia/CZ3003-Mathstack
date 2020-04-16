@@ -79,3 +79,7 @@ func _on_ConfirmButton_pressed():
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	pass # Replace with function body.
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")

@@ -71,7 +71,7 @@ func doGameEndedProcess():
 	$FinishLabel.show()
 	$FinishButton.text = "Next Level" if currentStoryScore >= 8 else "Try again"
 	$FinishButton.show()
-	if (currentStoryScore >= 8):
+	if (global.storyScore >= 8):
 		updateFirebaseUserProgress()
 	pass
 	
