@@ -23,4 +23,4 @@ func _on_Button_pressed():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://View/teachers/ManageQuestions.tscn")
+	get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")

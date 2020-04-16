@@ -108,6 +108,7 @@ custom_constants/margin_left = 250
 
 [node name="LoginButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer" index="0" instance=ExtResource( 5 )]
 margin_left = 250.0
+margin_top = 0.0
 margin_right = 690.0
 margin_bottom = 90.0
 script = SubResource( 2 )
