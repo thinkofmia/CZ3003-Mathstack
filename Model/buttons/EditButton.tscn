@@ -1,20 +1,27 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Montserrat_16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Model/buttons/HoverStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://Model/buttons/NormalStyle.tres" type="StyleBox" id=4]
 
 [node name="EditButton" type="Button"]
 margin_left = 1.463
 margin_top = 2.0
 margin_right = 103.463
 margin_bottom = 90.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Icon" type="Label" parent="."]
-margin_left = 3.0
+margin_left = 1.0
 margin_top = -1.0
-margin_right = 28.0
-margin_bottom = 21.0
-rect_scale = Vector2( 4, 4 )
+margin_right = 101.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.94902, 1, 0.364706, 1 )
 text = "$"
 align = 1
@@ -24,10 +31,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 2.0
-margin_top = 70.0
-margin_right = 98.0
-margin_bottom = 84.0
+margin_left = 2.77379
+margin_top = 63.036
+margin_right = 98.7738
+margin_bottom = 84.036
+custom_fonts/font = ExtResource( 1 )
 text = "Edit"
 align = 1
 __meta__ = {

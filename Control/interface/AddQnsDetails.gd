@@ -52,3 +52,7 @@ func _on_ConfirmButton_pressed():
 	# Insert saving input into firebase
 	
 	pass # Replace with function body.
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")
