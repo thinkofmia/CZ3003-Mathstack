@@ -34,5 +34,9 @@ func _on_CustomQuizButton_pressed():
 	#get the quiz name
 	global.customTitle=get_text() 
 	print(global.customTitle)
-	get_tree().change_scene("res://View/gameModes/CustomQuizModePreview.tscn")
+	if global.customViewingStats:
+		print("Viewing Stats for custom mode")
+		get_tree().change_scene("res://View/teachers/StatisticScene.tscn")
+	else:
+		get_tree().change_scene("res://View/gameModes/CustomQuizModePreview.tscn")
 	

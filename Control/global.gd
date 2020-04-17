@@ -26,6 +26,7 @@ var customDate = "" #Variable for Custom Date
 var customTotalQn = "" #Variable for Custom Total Questions
 var customWorlds = "" #Variable for Custom Worlds
 var customID = "" #Variable for Custom ID
+var customScore = 0 #custom mode score variable
 
 #Special Powers
 var rrPower = 1 #1 means normal speed, #0.5 means x2 Speed
@@ -76,6 +77,7 @@ var save := {
 
 ##stat screen variable
 var statWorldSelected = 1
+var customViewingStats = false
 
 
 var difficulty=""

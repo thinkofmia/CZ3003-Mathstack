@@ -26,3 +26,8 @@ func _on_Back_pressed():
 
 func _on_Leaderboard_pressed():
 	get_tree().change_scene("res://View/teachers/LeaderboardScene.tscn")
+
+
+func _on_Custom_pressed():
+	global.customViewingStats = true
+	get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")

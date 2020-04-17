@@ -7,6 +7,7 @@ extends Control
 
 onready var http : HTTPRequest = $HTTPRequest
 onready var http2 : HTTPRequest = $HTTPRequest2
+onready var http3: HTTPRequest = $HTTPRequest3
 var totalNumOfStudents = -1
 var totalNumOfCompletions = -1
 var totalScoreCompletions = -1
@@ -18,14 +19,21 @@ var studentsFullProgressDetails = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Firebase.get_document("%s" % "users", http)
-	Firebase.get_document("%s" % "SaveData",http2)
-	pass # Replace with function body.
+	if global.customViewingStats:
+		doViewingCustomStatsSteps()
+	else:
+		Firebase.get_document("%s" % "users", http)
+		Firebase.get_document("%s" % "SaveData",http2)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func doViewingCustomStatsSteps():
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer.remove_child($TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/AverageLabel)
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer.remove_child($TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/AverateScoreLabel)
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer.remove_child($TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar)
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PercentageCompletionLabel.remove_child($TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PercentageCompletionLabel)
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PercentageCompletionLabel.remove_and_skip()
+	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "Quiz Name: " + global.customTitle 
+	Firebase.get_document("CustomScore_" + global.customTitle,http3)
 
 func constructListWithData(listData):
 	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.clear()
@@ -51,7 +59,10 @@ func constructListWithData(listData):
 	
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")
+	if global.customViewingStats:
+		get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
+	else:
+		get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")
 
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
@@ -123,3 +134,21 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar.value = percentage
+
+
+func _on_HTTPRequest3_request_completed(result, response_code, headers, body):
+	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	match response_code:
+		404:
+			print("Failure")
+		200:
+			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.clear()
+
+			if "documents" in response_body:
+				var documents = (response_body['documents'])
+				for document in documents:
+					var name = (document.name.split("/")[-1])
+					var score = str(document.fields.Score.integerValue)
+					$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(name + "  ---- Score: " + score)
+			
+				
