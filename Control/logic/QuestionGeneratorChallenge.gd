@@ -6,6 +6,10 @@ var option3
 var option4
 var level
 var getQuestions
+#New Vars
+var getEasyQns
+var getNormalQns
+var getHardQns
 
 var qTextArr=[]
 var op1Arr=[]
@@ -36,17 +40,26 @@ func _ready():
 	option2 = $MarginContainer/row/columnLeft/Option2
 	option3 = $MarginContainer/row/columnRight/Option3
 	option4 = $MarginContainer/row/columnRight/Option4
+	setQns()
+	
+func setQns(): #Set new set of Qns
 	#Get questions based on codes
 	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
+	#New Code: To sort qns by difficulty
+	getEasyQns = "Primary"+"World"+global.worldSelected.substr(7,1)
+	getNormalQns = "Intermediate"+"World"+global.worldSelected.substr(7,1)
+	getHardQns = "Advanced"+"World"+global.worldSelected.substr(7,1)
 	print(getQuestions)
 	#http request to get question based on the selected difficulty and world
 	Firebase.get_document("%s" % str(getQuestions), http)
 	yield(get_tree().create_timer(1), "timeout")
 	question_info = (questions.values())
 	#for each questions in the array
+	resetQnArray()#Reset qn Array
 	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i
 		question_display= (question_info[0][i]['fields'])
+		print(question_display)
 		qTextArr.append(question_display['QuestionText'].values()[0])
 		print(qTextArr)
 		op1Arr.append(question_display['Option1'].values()[0])
@@ -58,7 +71,15 @@ func _ready():
 	#choose a random question
 	global.highscore = 0
 	randomizeQuestion()
-	
+
+func resetQnArray():
+		qTextArr = []
+		op1Arr = []
+		op2Arr = []
+		op3Arr = []
+		op4Arr = []
+		ansArr = []
+
 func randomizeQuestion():
 	#Get level
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")

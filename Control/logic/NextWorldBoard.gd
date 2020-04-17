@@ -63,6 +63,8 @@ func selectWorld(node):
 	self.hide()
 	#Add world chosen to list
 	global.worldsVisited.append(global.worldSelected)
+	#Set new set of qns
+	qnMenu.setQns()
 
 #Hide world choices that are already accessed
 func hideAccessedWorld():
