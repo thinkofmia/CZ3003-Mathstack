@@ -17,8 +17,6 @@ func _on_CustomModeButton_pressed():
 
 
 func goToMainMenu():
-	#Insert get account type here!
-	#
 	#Condition
 	if (global.accountType == "Teacher"): #If account type is teacher or admin
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
