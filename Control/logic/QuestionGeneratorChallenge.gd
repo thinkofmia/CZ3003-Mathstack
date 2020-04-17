@@ -115,6 +115,9 @@ func setQns(): #Set new set of Qns
 	print("Intermediate qns = "+str(qTextArr2))
 	print("Advanced qns = "+str(qTextArr3))
 	randomizeQuestion() #choose a random question
+	
+	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	qnMenu.show()
 
 func resetQnArray(): #Resets the qn Array
 		#Primary Difficulty

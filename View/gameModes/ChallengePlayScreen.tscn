@@ -102,6 +102,7 @@ scale = Vector2( 0.270134, 0.126654 )
 texture = ExtResource( 8 )
 
 [node name="QuestionMenu" parent="GUI/PlayBoard" instance=ExtResource( 2 )]
+visible = false
 margin_left = 1.0
 margin_top = 8.0
 margin_right = 1215.0

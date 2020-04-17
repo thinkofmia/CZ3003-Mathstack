@@ -222,10 +222,7 @@ margin_left = 663.463
 margin_top = 507.0
 margin_right = 765.463
 margin_bottom = 595.0
-
-[node name="HTTPRequest2" type="HTTPRequest" parent="." index="11"]
 [connection signal="pressed" from="LeaderBoardButton" to="." method="_on_LeaderBoardButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ShareButton" to="." method="_on_ShareButton_pressed"]
-[connection signal="request_completed" from="HTTPRequest2" to="." method="_on_HTTPRequest2_request_completed"]
