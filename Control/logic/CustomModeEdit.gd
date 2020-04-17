@@ -95,6 +95,7 @@ func _on_AddButton_pressed(): #Add new Qn
 
 
 func _on_ConfirmButton_pressed(): #Save Quiz
+	$PopUpControl.show()#Display confirmation msg
 	var name = $PlayBoard/TitleRow/LineEdit2.get_text() #Quiz Title
 	print("Quiz Name: "+str(name)+" Total Qn: "+str(totalQn)) #Quiz Name and Total Qns
 	var date = str(OS.get_date().day)+"/"+str(OS.get_date().month)+"/"+str(OS.get_date().year) #Date of Creation/Update - Hard code for now
@@ -194,3 +195,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 				existQuiz=true
 			if getQns == true:
 				qns=result_body
+
+
+func _on_QuitButton_pressed():
+	$PopUpControl.hide() #Hide pop up display
