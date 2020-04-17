@@ -31,7 +31,7 @@ func _ready():
 	world = global.worldSelected
 	changeBg(global.worldSelected)
 	#Add world selected to list
-	global.worldsVisited.append(global.worldSelected)
+	global.worldsVisited = [global.worldSelected]
 	print(global.worldsVisited)
 	#Hide worlds that are already chosen
 	hideAccessedWorld()
