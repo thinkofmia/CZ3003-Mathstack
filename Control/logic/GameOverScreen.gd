@@ -70,6 +70,7 @@ func _ready():
 		
 		$PlayBoard/WorldVisitedRow.hide()
 		$PlayBoard/FastestClearRow.show()
+		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
 	
 	#adding the ranking here
 	ranking.username = { "stringValue" : username}
@@ -79,7 +80,7 @@ func _ready():
 	ranking.nickname = nickname
 	#adding Ranking into Firebase.HighScore, with auto-generated ID
 	Firebase.save_document("HighScore?" , ranking,http)
-	Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
+	
 	showButtons()
 
 func _on_LeaderBoardButton_pressed():
