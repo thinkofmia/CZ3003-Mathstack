@@ -31,13 +31,12 @@ onready var explanation
 onready var http : HTTPRequest = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global.worldsVisited = [global.worldSelected] #On start, set world visited to be 1
 	option1 = $MarginContainer/row/columnLeft/Option1
 	option2 = $MarginContainer/row/columnLeft/Option2
 	option3 = $MarginContainer/row/columnRight/Option3
 	option4 = $MarginContainer/row/columnRight/Option4
-	print(option1)
-	#global.worldSelected=1
-	#getQuestions=global.difficulty+"World"+str(global.worldSelected)
+	#Get questions based on codes
 	getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
 	print(getQuestions)
 	#http request to get question based on the selected difficulty and world
@@ -99,7 +98,7 @@ func randomizeQuestion():
 	#Set Question Label
 	if is_instance_valid(blockTower):
 		var level = blockTower.getNoOfBoxes()-1
-		find_node("QuestionLabel").set_text("Q"+str(level)+") "+str(qText)+"?")
+		find_node("QuestionLabel").set_text("Q"+str(level+1)+") "+str(qText)+"?")
 
 func checkLevelTens(): #Check if the player reaches levels of ten
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")

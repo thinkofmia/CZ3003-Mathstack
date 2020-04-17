@@ -2,7 +2,6 @@ extends Button
 
 #Starts Challenge/Custom Mode
 func _on_PlayButton_pressed():
-	global.worldsVisited = [] #Resets world visited.
 	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
 		get_tree().change_scene("res://View/gameModes/CustomPlayScreen.tscn")
 	else:
