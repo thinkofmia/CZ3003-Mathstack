@@ -6,6 +6,7 @@ const PROJECT_ID := "methstack-b68fa"
 const REGISTER_URL := "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=%s" % API_KEY
 const LOGIN_URL := "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=%s" % API_KEY
 const FIRESTORE_URL := "https://firestore.googleapis.com/v1/projects/%s/databases/(default)/documents/" % PROJECT_ID
+const PASSWORD_RESET_URL := "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDihYrRQIy73nyicONA-FoIthHV0888d08" 
 
 var user_info := {}
 #var save := {}
@@ -63,6 +64,18 @@ func login(email: String, password: String, http: HTTPRequest) -> void:
 	var result := yield(http, "request_completed") as Array
 	if result[1] == 200:
 		user_info = _get_user_info(result)
+	
+func reset_pw(email: String, http: HTTPRequest) -> void:
+	var body := {
+		"requestType":"PASSWORD_RESET",
+		"email":email
+	}
+	http.request(PASSWORD_RESET_URL, [], false, HTTPClient.METHOD_POST, to_json(body))
+	var result := yield(http, "request_completed") as Array
+	if result[1] == 200:
+		print(result)
+	else:
+		print(result)
 
 func get_save(path: String, http: HTTPRequest) -> void:
 	var url := FIRESTORE_URL + path
