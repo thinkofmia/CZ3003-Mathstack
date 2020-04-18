@@ -37,6 +37,10 @@ func showLabels():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
+	#Hide Display
 	hideButtons()
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
@@ -65,7 +69,7 @@ func _ready():
 	
 	showLabels()
 	
-	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
+	if global.modeSelected == "Custom Mode":
 		#set Fastest clear time
 		
 		$PlayBoard/WorldVisitedRow.hide()
@@ -88,6 +92,11 @@ func _ready():
 		$LeaderBoardButton.hide()
 	else:
 		$LeaderBoardButton.show()
+	
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Gameover Display & Saving Data")
+		testPerformance.getTimeTaken()
 
 func _on_LeaderBoardButton_pressed():
 	

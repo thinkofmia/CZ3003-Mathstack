@@ -60,6 +60,10 @@ func _ready():
 		#exArr.append(question_display['Explanation'].values()[0])
 	#choose a random question
 	randomizeQuestion()
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Normal Mode - Play")
+		testPerformance.getTimeTaken()
 	
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")

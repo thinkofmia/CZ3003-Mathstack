@@ -33,6 +33,7 @@ func _unhandled_input(event):
 
 
 func _on_LoginButton_pressed():
+	#Run Func
 	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.hide()
 	global.username = username
 	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit.get_text()
@@ -48,7 +49,9 @@ func _on_LoginButton_pressed():
 		error_text.show()
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
 
-	else:		
+	else:
+		if (testPerformance.performanceCheck):
+			testPerformance.startTime()		
 		loginBool=true
 		#http request to login
 		Firebase.login(username.text, password.text, http)
@@ -61,11 +64,8 @@ func _on_LoginButton_pressed():
 		#http request to get account type
 		Firebase.get_document("users/%s" % Firebase.user_info.email, http)
 		yield(get_tree().create_timer(2.0), "timeout")
-	#account_type = "Teacher"
-	#if account_type == "Teacher":
-	#	get_tree().change_scene("res://menus/Screens_Randy/MainMenuTeachers.tscn")
-	#else:	
-	#	get_tree().change_scene("res://menus/Screens_Randy/MainMenu.tscn")
+		#Test Performance for Login with valid username and pw
+		
 
 
 func _on_RegButton_pressed():
@@ -82,11 +82,15 @@ func goToMainMenu():
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 	else:#If account type is student
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
+	#Test Performance for Login with valid username and pw
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Login")
+		testPerformance.getTimeTaken()
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
 	#error
-	print("Sending In progress"+str(response_code))
+	#print("Sending In progress"+str(response_code))
 	if response_code == 200:
 		if loginBool:
 				loginBool = false
@@ -102,14 +106,14 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		
 	elif response_code == 400:
 		if loginBool:
-				print("This Works")
+				#print("This Works")
 				error_text.set_text("Invalid account credemtials. Please try again.")
 				error_text.show()
 				loginBool = false
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
 	else:
 		if loginBool:
-				print("This Works")
+				#print("This Works")
 				error_text.set_text("Invalid account credemtials. Please try again.")
 				error_text.show()
 				loginBool = false

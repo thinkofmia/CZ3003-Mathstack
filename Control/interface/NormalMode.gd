@@ -3,6 +3,9 @@ extends Node
 onready var http : HTTPRequest = $MYHTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Start Performance test if true
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	#Set Header
 	global.questionCount = 0
 	$Header/RichTextLabel.set_text(global.worldSelected+": "+global.difficultySelected)

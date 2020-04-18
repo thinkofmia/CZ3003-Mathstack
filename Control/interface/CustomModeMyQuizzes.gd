@@ -13,6 +13,9 @@ var getQns=false
 var addButton 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	#Set mode selected to be my custom quiz
 	global.modeSelected = "My Custom"
 	#Set Quiz List
@@ -39,15 +42,10 @@ func _ready():
 			addButton.set_text(question_display['QuizName'].values()[0])
 			#Add quiz button to the list
 			quizList.add_child(addButton)
-	
-	#For loop for array of total quizzes player made
-	#for i in range(0,myQuizzes.size()):
-		#Add new instance
-	#	var addButton = newButton.instance()
-	#	#Change button name to quiz name
-	#	addButton.set_text(myQuizzes[i])
-		#Add quiz button to the list
-	#	quizList.add_child(addButton)
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Custom Mode My Quiz Display")
+		testPerformance.getTimeTaken()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

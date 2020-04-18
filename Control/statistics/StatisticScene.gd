@@ -19,6 +19,9 @@ var studentsFullProgressDetails = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	if global.customViewingStats:
 		doViewingCustomStatsSteps()
 	else:
@@ -150,5 +153,8 @@ func _on_HTTPRequest3_request_completed(result, response_code, headers, body):
 					var name = (document.name.split("/")[-1])
 					var score = str(document.fields.Score.integerValue)
 					$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ItemList.add_item(name + "  ---- Score: " + score)
-			
+				#Performance Test
+				if (testPerformance.performanceCheck):
+					print("Performance Test: Statistics Display")
+					testPerformance.getTimeTaken()
 				

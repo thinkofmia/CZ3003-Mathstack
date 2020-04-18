@@ -2,6 +2,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Start test performance if needed
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	$PlayBoard/MarginContainer/VBoxContainer/TopicName.set_text(global.worldSelected)
 	changeBg(global.worldSelected.split("#")[1])
 	calculateAndSetValueForProgress()
@@ -65,6 +68,10 @@ func evaluateUserProgressAndSetButton():
 		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/PrimaryButton.icon = load("res://Model/Object/Tick.png")
 		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/IntermediateButton.icon = load("res://Model/Object/Tick.png")
 		$PlayBoard/MarginContainer/VBoxContainer/DifficultyDiv/AdvancedButton.icon = load("res://Model/Object/Tick.png")
+	#Performance Check
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Normal Mode - Difficulty Load")
+		testPerformance.getTimeTaken()
 #Primary Mode Selected
 func _on_PrimaryButton_pressed():
 	global.difficultySelected = "Primary"

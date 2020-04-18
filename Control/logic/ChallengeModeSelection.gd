@@ -128,7 +128,14 @@ func _on_WorldButton9_pressed():
 
 
 func _on_Play_pressed():
+	#Performance check
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")
+	#Performance check
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Challenge Mode Starting")
+		testPerformance.getTimeTaken()
 
 
 func _on_ZZIcon_pressed():

@@ -20,6 +20,9 @@ var Quiz := {
 
 
 func _ready():
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	#Set Quiz List
 	quizList = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes
 	#Select Mode
@@ -69,4 +72,9 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 				#Add quiz button to the list
 				quizList.add_child(addButton)
 			getQns=false
-		print("Accessed succesfully")
+			#Performance Test
+			if (testPerformance.performanceCheck):
+				print("Performance Test: Custom Mode All Quiz Display")
+			testPerformance.getTimeTaken()
+		#print("Accessed succesfully")
+		

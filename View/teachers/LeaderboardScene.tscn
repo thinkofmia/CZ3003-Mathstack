@@ -20,6 +20,10 @@ var ranking_info = []
 var ranking_display
 var no_of_display = 10
 func _ready():
+	#Test Performance
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
+	#Get Leaderboard details
 	Firebase.get_document(\"Leaderboard\", http)
 	yield(get_tree().create_timer(2), \"timeout\")
 	ranking_info = (rankings.values())
@@ -73,7 +77,10 @@ func _ready():
 				button = load(\"res://View/util/CharacterIcon.tscn\")
 		var icon = button.instance()
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/ListRow/CharacterList/.add_child(icon)
-		
+		#Test Perfomance
+		if (testPerformance.performanceCheck):
+			print(\"Performance Test: Leaderboard\")
+			testPerformance.getTimeTaken()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -91,6 +98,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	elif response_code == 200:
 		self.rankings = response_body
 		print(\"Accessed succesfully\")
+		
 		
 	pass # Replace with function body.
 "

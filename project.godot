@@ -24,6 +24,7 @@ config/icon="res://textures/icon.png"
 global="*res://Control/global.gd"
 Firebase="*res://Control/Firebase/Firebase.gd"
 unitTestScript="res://Control/unitTestScript.gd"
+testPerformance="*res://Control/testPerformance.gd"
 
 [display]
 

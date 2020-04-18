@@ -28,6 +28,9 @@ onready var explanation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Performance Check
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	hide() #Hide Custom mode on start up
 	option1 = $MarginContainer/row/columnLeft/Option1
 	option2 = $MarginContainer/row/columnLeft/Option2
@@ -63,6 +66,10 @@ func _ready():
 	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
 	questions_left_text.set_text(str(no_of_questions_remaining))
 	show()
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Custom Mode - Play")
+		testPerformance.getTimeTaken()
 	
 
 	

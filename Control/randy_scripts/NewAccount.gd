@@ -83,6 +83,10 @@ func _on_Button_pressed():
 		error_text.show()
 	
 	else:
+		#Test Performance for Registering New Account
+		if (testPerformance.performanceCheck):
+			testPerformance.startTime()
+		#Logic for Registering proper acc
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.hide()
 		reg=true
 		#http request to register an account		
@@ -116,6 +120,10 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			loginSucc=true
 		if save == true && regSucc==true && loginSucc==true  :
 			get_tree().change_scene("res://View/Screens_Randy/RegisterSuccess.tscn")
+			#Test Performance for Registering
+			if (testPerformance.performanceCheck):
+				print("Performance Test: Registering")
+				testPerformance.getTimeTaken()
 	else:
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.show()
 

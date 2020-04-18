@@ -9,6 +9,9 @@ onready var http : HTTPRequest = $MYHTTPRequest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Performance Check
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	$PlayBoard/CompletionBox/ProgressBar.value = 0
 	global.modeSelected = "Normal Mode"
 	Firebase.get_document("SaveData/%s" % str(global.username), http)
@@ -82,6 +85,10 @@ func calculateAndSetValueForProgress():
 		
 		if (userProgressDist == 3):
 			get_node(path).icon = load("res://Model/Object/Tick.png")
+	#Test Performane
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Normal Mode - Worlds Load")
+		testPerformance.getTimeTaken()
 		
 		
 		

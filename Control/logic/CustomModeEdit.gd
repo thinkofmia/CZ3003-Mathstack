@@ -39,6 +39,9 @@ onready var Quiz := {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	$PlayBoard.hide() #Hide on startup
 	totalQn = 1 #Get total number of qns here
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
@@ -76,9 +79,11 @@ func _ready():
 			#Add qn to the list
 			qnList.add_child(addQn)
 	$PlayBoard.show() #Show after loading
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Custom Mode Edit Display")
+		testPerformance.getTimeTaken()
 
 
 func _on_BackButton_pressed(): #Exit Scene
@@ -96,6 +101,9 @@ func _on_AddButton_pressed(): #Add new Qn
 
 
 func _on_ConfirmButton_pressed(): #Save Quiz
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	$PopUpControl.show()#Display confirmation msg
 	var name = $PlayBoard/TitleRow/LineEdit2.get_text() #Quiz Title
 	print("Quiz Name: "+str(name)+" Total Qn: "+str(totalQn)) #Quiz Name and Total Qns
@@ -103,7 +111,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	var worlds = "Custom" #Worlds involved - Hard code for now (Probably might be removed)
 	id = $PlayBoard/IDRow/LineEdit2.get_text() #Get quiz id
 	var username = global.username #Creator's name
-	var qnNum=1
+	var qnNum=totalQn
 	var format_string
 	var actual_string 
 	var start
@@ -175,6 +183,10 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		print(">Options: ["+str(option1)+", "+str(option2)+", "+str(option3)+", "+str(option4)+"]") #Print options 
 		print(">Ans: "+str(ans)) #Print correct ans
 		print(" ")
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Custom Mode Edit Quiz Saved")
+		testPerformance.getTimeTaken()
 
 func set_Quiz(value: Dictionary) -> void:
 	Quiz=value

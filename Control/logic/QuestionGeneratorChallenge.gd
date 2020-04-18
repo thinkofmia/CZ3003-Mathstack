@@ -53,6 +53,7 @@ onready var explanation
 onready var http : HTTPRequest = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Play Scene
 	global.worldsVisited = [global.worldSelected] #On start, set world visited to be 1
 	option1 = $MarginContainer/row/columnLeft/Option1
 	option2 = $MarginContainer/row/columnLeft/Option2
@@ -62,13 +63,15 @@ func _ready():
 	global.highscore = 0 #Reset Highscore
 	
 func setQns(): #Set new set of Qns
+	if (testPerformance.performanceCheck):
+		testPerformance.startTime()
 	#global.difficulty = "Primary" #Set difficulty to primary
 	#Get questions based on codes
 	getQuestions="ChallengeWorld"+global.worldSelected.substr(7,1)
 	print(getQuestions)
 	#http request to get Primary Qns
 	Firebase.get_document("%s" % str(getQuestions), http)
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	question_info = (questions.values())
 	#print(question_info)
 	#for each questions in the array
@@ -118,6 +121,10 @@ func setQns(): #Set new set of Qns
 	
 	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 	qnMenu.show()
+	#Performance Test
+	if (testPerformance.performanceCheck):
+		print("Performance Test: Challenge Mode Load Questions")
+		testPerformance.getTimeTaken()
 
 func resetQnArray(): #Resets the qn Array
 		#Primary Difficulty
