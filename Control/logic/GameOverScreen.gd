@@ -82,6 +82,12 @@ func _ready():
 	Firebase.save_document("HighScore?" , ranking,http)
 	
 	showButtons()
+	
+	if global.modeSelected == "Custom Mode":
+		#Hide Leaderboard Button
+		$LeaderBoardButton.hide()
+	else:
+		$LeaderBoardButton.show()
 
 func _on_LeaderBoardButton_pressed():
 	
