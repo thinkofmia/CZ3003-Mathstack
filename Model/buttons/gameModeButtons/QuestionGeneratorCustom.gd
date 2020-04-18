@@ -45,6 +45,7 @@ func _ready():
 			top_platform.position.y += 85
 	top_platform.show()
 	
+	
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
 		#extract question attribute based on i
@@ -61,7 +62,8 @@ func _ready():
 	randomizeQuestion()
 	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
 	questions_left_text.set_text(str(no_of_questions_remaining))
-	
+	questions_left_text.show()
+	show()
 
 	
 func randomizeQuestion():

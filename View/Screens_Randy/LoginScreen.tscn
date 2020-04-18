@@ -49,7 +49,7 @@ alignment = 2
 [node name="ErrorMessage" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
 visible = false
 margin_right = 940.0
-margin_bottom = 69.0
+margin_bottom = 84.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.647059, 0.109804, 0.109804, 1 )

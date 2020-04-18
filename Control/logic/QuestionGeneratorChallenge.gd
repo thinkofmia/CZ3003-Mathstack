@@ -59,6 +59,7 @@ func _ready():
 	#choose a random question
 	global.highscore = 0
 	randomizeQuestion()
+	show()
 	
 func randomizeQuestion():
 	#Get level

@@ -23,4 +23,11 @@ func _on_Button_pressed():
 
 
 func _on_BackButton_pressed():
+	$FadeIn.show()
+	$FadeIn.fade_in()
+
+
+
+
+func _on_FadeIn_fade_finished():
 	get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")

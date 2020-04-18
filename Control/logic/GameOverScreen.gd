@@ -65,7 +65,7 @@ func _ready():
 	
 	showLabels()
 
-	if global.modeSelected == "Custom Mode":
+	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
 		$PlayBoard/WorldVisitedRow.hide()
 		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
 

@@ -16,13 +16,13 @@ func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
 
 
-func _on_Normal_pressed():
-	get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")
+#func _on_Normal_pressed():
+#	get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")
 
 
-func _on_Back_pressed():
-	get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+#func _on_Back_pressed():
+#	get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 
 
-func _on_Leaderboard_pressed():
-	get_tree().change_scene("res://View/teachers/LeaderboardScene.tscn")
+#func _on_Leaderboard_pressed():
+#	get_tree().change_scene("res://View/teachers/LeaderboardScene.tscn")
