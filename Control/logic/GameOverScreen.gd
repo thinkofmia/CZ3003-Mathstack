@@ -2,6 +2,7 @@ extends Node
 #changes made here
 #getting info to add into database
 onready var http : HTTPRequest = $HTTPRequest
+onready var http2: HTTPRequest = $HTTPRequest2
 onready var hscore = int(global.highscore)
 onready var character = str(global.characterSelected)
 onready var username = str(global.username)
@@ -63,18 +64,11 @@ func _ready():
 	$PlayBoard/AverageSpeedRow/SpeedPerQn.set_text(str(avg)+" qn/s")
 	
 	showLabels()
-	
-<<<<<<< Updated upstream
-	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
-		#set Fastest clear time
-		
-		$PlayBoard/WorldVisitedRow.hide()
-		$PlayBoard/FastestClearRow.show()
-=======
+
 	if global.modeSelected == "Custom Mode":
 		$PlayBoard/WorldVisitedRow.hide()
 		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
->>>>>>> Stashed changes
+
 	
 	#adding the ranking here
 	ranking.username = { "stringValue" : username}
