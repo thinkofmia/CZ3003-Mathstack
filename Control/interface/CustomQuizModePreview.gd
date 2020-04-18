@@ -27,6 +27,7 @@ func _ready():
 		$EditButton.hide()
 	#Display Play button
 	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
+	global.modeSelected = "Custom Mode" #Set modeSelected to be Custom
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

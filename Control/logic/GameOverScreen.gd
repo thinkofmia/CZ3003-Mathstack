@@ -2,6 +2,7 @@ extends Node
 #changes made here
 #getting info to add into database
 onready var http : HTTPRequest = $HTTPRequest
+onready var http2: HTTPRequest = $HTTPRequest2
 onready var hscore = int(global.highscore)
 onready var character = str(global.characterSelected)
 onready var username = str(global.username)
@@ -69,6 +70,7 @@ func _ready():
 		
 		$PlayBoard/WorldVisitedRow.hide()
 		$PlayBoard/FastestClearRow.show()
+		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
 	
 	#adding the ranking here
 	ranking.username = { "stringValue" : username}
@@ -78,7 +80,14 @@ func _ready():
 	ranking.nickname = nickname
 	#adding Ranking into Firebase.HighScore, with auto-generated ID
 	Firebase.save_document("HighScore?" , ranking,http)
+	
 	showButtons()
+	
+	if global.modeSelected == "Custom Mode":
+		#Hide Leaderboard Button
+		$LeaderBoardButton.hide()
+	else:
+		$LeaderBoardButton.show()
 
 func _on_LeaderBoardButton_pressed():
 	
@@ -100,4 +109,12 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	
 
 
-
+func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
+	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	if response_code != 200:
+		print("HTTP2 result")
+		print(response_body)
+		print("error!")
+	elif response_code == 200:
+		print("Accessed succesfully")
+		print(response_body)

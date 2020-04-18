@@ -34,7 +34,7 @@ func addBlock():
 	#Increment box number
 	noOfBoxes+=1
 	#Spawns a box
-	var level = str(noOfBoxes-1)
+	var level = str(noOfBoxes)
 	block.get_node("Label").set_text(level)
 	add_child(block)
 	var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter")

@@ -31,7 +31,7 @@ func _ready():
 	world = global.worldSelected
 	changeBg(global.worldSelected)
 	#Add world selected to list
-	global.worldsVisited.append(global.worldSelected)
+	global.worldsVisited = [global.worldSelected]
 	print(global.worldsVisited)
 	#Hide worlds that are already chosen
 	hideAccessedWorld()
@@ -63,6 +63,8 @@ func selectWorld(node):
 	self.hide()
 	#Add world chosen to list
 	global.worldsVisited.append(global.worldSelected)
+	#Set new set of qns
+	qnMenu.setQns()
 
 #Hide world choices that are already accessed
 func hideAccessedWorld():

@@ -69,12 +69,13 @@ position = Vector2( 542.172, 181.405 )
 scale = Vector2( 0.487084, 0.531251 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 8
+frame = 9
 playing = true
 flip_h = true
 
 [node name="Header" parent="." index="3" instance=ExtResource( 18 )]
 margin_top = 20.0
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Normal" to="." method="_on_Normal_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Custom" to="." method="_on_Custom_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

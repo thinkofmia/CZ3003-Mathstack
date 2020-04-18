@@ -77,8 +77,6 @@ func _on_ForgotPassButton_pressed():
 
 
 func goToMainMenu():
-	#Insert get account type here!
-	global.accountType = "Teacher" #Replace this with firebase
 	#Condition
 	if (global.accountType == "Teacher"): #If account type is teacher or admin
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")

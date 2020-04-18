@@ -40,6 +40,7 @@ onready var Quiz := {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PlayBoard.hide() #Hide on startup
 	totalQn = 1 #Get total number of qns here
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
 	newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
@@ -75,7 +76,7 @@ func _ready():
 			addQn.get_child(0).get_child(0).set_text("Qn #"+str(totalQn)+": ")
 			#Add qn to the list
 			qnList.add_child(addQn)
-
+	$PlayBoard.show() #Show after loading
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -96,6 +97,7 @@ func _on_AddButton_pressed(): #Add new Qn
 
 
 func _on_ConfirmButton_pressed(): #Save Quiz
+	$PopUpControl.show()#Display confirmation msg
 	var name = $PlayBoard/TitleRow/LineEdit2.get_text() #Quiz Title
 	print("Quiz Name: "+str(name)+" Total Qn: "+str(totalQn)) #Quiz Name and Total Qns
 	var date = str(OS.get_date().day)+"/"+str(OS.get_date().month)+"/"+str(OS.get_date().year) #Date of Creation/Update - Hard code for now
@@ -200,3 +202,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 				existQuiz=true
 			if getQns == true:
 				qns=result_body
+
+
+func _on_QuitButton_pressed():
+	$PopUpControl.hide() #Hide pop up display
