@@ -74,3 +74,4 @@ margin_top = 20.0
 text = "SETTINGS"
 [connection signal="value_changed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

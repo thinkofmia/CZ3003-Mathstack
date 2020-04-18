@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=1]
 [ext_resource path="res://Montserrat_24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Model/buttons/HoverStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://Model/buttons/PressedStyle.tres" type="StyleBox" id=5]
+[ext_resource path="res://Model/buttons/NormalStyle.tres" type="StyleBox" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 56
@@ -13,6 +16,9 @@ margin_left = 1.463
 margin_top = 2.0
 margin_right = 103.463
 margin_bottom = 90.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,9 +38,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_left = -1.0
-margin_top = 61.0126
+margin_top = 56.2227
 margin_right = 103.0
-margin_bottom = 83.0126
+margin_bottom = 78.2227
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 align = 1

@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Model/buttons/HoverStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://Model/buttons/PressedStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://Model/buttons/NormalStyle.tres" type="StyleBox" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -12,6 +15,9 @@ margin_left = 1.463
 margin_top = 2.0
 margin_right = 103.463
 margin_bottom = 90.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,10 +37,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 1.14261
-margin_top = 63.9984
-margin_right = 102.143
-margin_bottom = 84.9984
+margin_left = 2.0
+margin_top = 54.5673
+margin_right = 103.0
+margin_bottom = 75.5673
 custom_fonts/font = SubResource( 1 )
 text = "Leaderboard"
 align = 1

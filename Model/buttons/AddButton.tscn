@@ -14,7 +14,7 @@ text = "+"
 
 [node name="Label" parent="." index="1"]
 margin_left = 1.0
-margin_top = 63.0
+margin_top = 58.0
 margin_right = 100.0
-margin_bottom = 84.0
+margin_bottom = 79.0
 text = "Add"

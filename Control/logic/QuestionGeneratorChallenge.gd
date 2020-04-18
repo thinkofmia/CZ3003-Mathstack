@@ -112,6 +112,18 @@ func setQns(): #Set new set of Qns
 			op3Arr3.append(question_display['Option3'].values()[0])
 			op4Arr3.append(question_display['Option4'].values()[0])
 			ansArr3.append(question_display['Ans'].values()[0])
+		qTextArr.append(question_display['QuestionText'].values()[0])
+		print(qTextArr)
+		op1Arr.append(question_display['Option1'].values()[0])
+		op2Arr.append(question_display['Option2'].values()[0])
+		op3Arr.append(question_display['Option3'].values()[0])
+		op4Arr.append(question_display['Option4'].values()[0])
+		ansArr.append(question_display['Ans'].values()[0])
+		#exArr.append(question_display['Explanation'].values()[0])
+	#choose a random question
+	global.highscore = 0
+	randomizeQuestion()
+	show()
 	
 	#Debug purpose
 	print("Easy qns = "+str(qTextArr))

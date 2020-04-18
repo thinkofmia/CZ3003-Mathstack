@@ -75,6 +75,11 @@ func _ready():
 		$PlayBoard/WorldVisitedRow.hide()
 		$PlayBoard/FastestClearRow.show()
 		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
+
+	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
+		$PlayBoard/WorldVisitedRow.hide()
+		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
+
 	
 	#adding the ranking here
 	ranking.username = { "stringValue" : username}
