@@ -73,6 +73,5 @@ margin_left = 897.082
 margin_top = 387.629
 margin_right = 999.082
 margin_bottom = 475.629
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="pressed" from="ConfirmButton" to="." method="_on_ConfirmButton_pressed"]

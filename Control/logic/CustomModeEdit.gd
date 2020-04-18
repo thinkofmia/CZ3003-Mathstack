@@ -15,6 +15,7 @@ var qns
 var qns_display
 var qns_info
 var numLoadedQns=0
+var q
 
 onready var http : HTTPRequest = $HTTPRequest
 onready var quizName : LineEdit = $PlayBoard/TitleRow/LineEdit2
@@ -129,6 +130,8 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		yield(get_tree().create_timer(2.0), "timeout")
 		start=1
 	else:
+		
+		
 		for i in range(1,numLoadedQns+1): #Loop For Number of Qn Loaded
 			var qnSet = qnList.get_child(i-1) #Save as qn set
 			var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
@@ -154,10 +157,12 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	
 	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
 	print(" ")
+	q=totalQn
 	for i in range(start,totalQn+1): #Loop For Total Number of Qn Or Remaining Qm
 		var qnSet = qnList.get_child(i-1) #Save as qn set
 		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
 		if qnTitle == "":
+			q-=1
 			continue
 		var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
 		var option2 = qnSet.get_child(2).get_child(1).get_text() #Option 2
@@ -188,6 +193,8 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		print("Performance Test: Custom Mode Edit Quiz Saved")
 		testPerformance.getTimeTaken()
 
+		Quiz.NumQns={"stringValue":str(q)}
+		Firebase.update_document("CustomQuiz/%s"%str(name),Quiz, http)
 func set_Quiz(value: Dictionary) -> void:
 	Quiz=value
 	Id.text = str(Quiz.Id.stringValue)
