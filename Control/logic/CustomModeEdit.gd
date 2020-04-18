@@ -39,6 +39,7 @@ onready var Quiz := {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PlayBoard.hide() #Hide on startup
 	totalQn = 1 #Get total number of qns here
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
 	newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
@@ -74,7 +75,7 @@ func _ready():
 			addQn.get_child(0).get_child(0).set_text("Qn #"+str(totalQn)+": ")
 			#Add qn to the list
 			qnList.add_child(addQn)
-
+	$PlayBoard.show() #Show after loading
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
