@@ -37,13 +37,12 @@ func goToMainMenu():
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
 	
 func _on_Button_pressed():
-	goToMainMenu()
 	$FadeIn.show()
 	$FadeIn.fade_in()
 
 
 func _on_FadeIn_fade_finished():
-	pass
+	goToMainMenu()
 	#account_type = "Teacher"
 	#if scene_path_to_load == "res://menus/Screens_Randy/MainMenu.tscn":
 	#	if account_type == "Teacher":

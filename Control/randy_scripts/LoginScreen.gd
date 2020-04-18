@@ -100,7 +100,9 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			getAccountType = false
 			#save account type to global.accountType
 			global.accountType=response_body.result.fields.account.stringValue
-			goToMainMenu()
+			$FadeIn.show()
+			$FadeIn.fade_in()
+
 		
 	elif response_code == 400:
 		if loginBool:
@@ -116,3 +118,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 				error_text.show()
 				loginBool = false
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.show()
+
+
+func _on_FadeIn_fade_finished():
+	goToMainMenu()
