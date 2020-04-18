@@ -28,6 +28,7 @@ onready var explanation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hide() #Hide Custom mode on start up
 	option1 = $MarginContainer/row/columnLeft/Option1
 	option2 = $MarginContainer/row/columnLeft/Option2
 	option3 = $MarginContainer/row/columnRight/Option3
@@ -61,6 +62,7 @@ func _ready():
 	randomizeQuestion()
 	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
 	questions_left_text.set_text(str(no_of_questions_remaining))
+	show()
 	
 
 	
