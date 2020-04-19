@@ -43,6 +43,7 @@ func _on_AddButton_pressed():
 	addQn.get_child(0).get_child(0).set_text("Qn #"+str(totalQn)+": ")
 	#Add qn to the list
 	qnList.add_child(addQn)
+	$PopUpControl.show()
 	
 
 
@@ -83,3 +84,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")
+
+
+func _on_QuitButton_pressed():
+	$PopUpControl.hide()
