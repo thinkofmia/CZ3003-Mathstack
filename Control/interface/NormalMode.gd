@@ -70,9 +70,17 @@ func _process(delta):
 
 func doGameEndedProcess():
 	$QuestionMenu.hide()
-	$FinishLabel.text = "Congratulations!" if currentStoryScore >= 8 else "Sorry. Please try again!"
+	if currentStoryScore >= 8:
+		$FinishLabel.text = "Congratulations!"
+	else:
+		$FinishLabel.text = "Sorry. Please try again!"
+	# if currentStoryScore >= 8 else "Sorry. Please try again!"
 	$FinishLabel.show()
-	$FinishButton.text = "Next Level" if currentStoryScore >= 8 else "Try again"
+	if currentStoryScore >= 8:
+		$FinishButton.text = "Next Level"
+	else:
+		$FinishButton.text = "Try again"
+	#$FinishButton.text = "Next Level" if currentStoryScore >= 8 else "Try again"
 	$FinishButton.show()
 	if (global.storyScore >= 8):
 		updateFirebaseUserProgress()
