@@ -9,7 +9,7 @@ func _ready():
 
 
 func _on_AddQuestions_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")
 
 
 func _on_BackButton_pressed():
@@ -21,3 +21,7 @@ func goToMainMenu():
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 	else:#If account type is student
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
+
+
+func _on_ManageProfiles_pressed():
+	pass # Replace with function body.

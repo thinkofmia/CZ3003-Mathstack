@@ -17,4 +17,4 @@ func _on_FadeIn_fade_finished():
 
 
 func _on_ManageQns_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://View/admin/ManageDatabase.tscn")

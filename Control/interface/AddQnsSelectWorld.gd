@@ -30,4 +30,4 @@ func _on_BackButton_pressed():
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
+	get_tree().change_scene("res://View/admin/ManageDatabase.tscn")

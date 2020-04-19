@@ -45,7 +45,7 @@ scene_to_load = "res://View/teachers/ChooseModeToCheckStatsScene.tscn"
 margin_top = 500.0
 margin_right = 672.0
 margin_bottom = 560.0
-scene_to_load = "res://View/teachers/AddQnsSelectWorld.tscn"
+scene_to_load = "res://View/admin/ManageDatabase.tscn"
 
 [node name="Button6" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="6"]
 margin_top = 600.0
