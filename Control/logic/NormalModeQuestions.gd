@@ -44,7 +44,7 @@ func _ready():
 	print(getQuestions)
 	#http request to get question based on the selected difficulty and world
 	Firebase.get_document("%s" % str(getQuestions), http)
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
