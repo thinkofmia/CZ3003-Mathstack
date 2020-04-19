@@ -4,8 +4,8 @@ var scene_path_to_load
 
 onready var http : HTTPRequest = $HTTPRequest
 onready var account : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Account
-onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/LineEdit
-onready var nickname : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer2/LineEdit
+onready var nickname : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/LineEdit
+onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer2/LineEdit
 onready var school : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/School
 onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer3/OptionButton 
 var new_profile := false

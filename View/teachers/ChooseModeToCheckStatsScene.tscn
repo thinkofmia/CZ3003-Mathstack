@@ -45,12 +45,8 @@ alignment = 1
 [node name="Normal" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="0" instance=ExtResource( 15 )]
 margin_top = 85.0
 margin_right = 667.0
-<<<<<<< HEAD
-margin_bottom = 145.0
-=======
 margin_bottom = 75.0
 scene_to_load = "res://View/teachers/ChooseWorldSeeStatsScreen.tscn"
->>>>>>> randy2
 
 [node name="Custom" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 17 )]
 margin_top = 225.0
@@ -66,34 +62,18 @@ scene_to_load = "res://View/teachers/LeaderboardScene.tscn"
 [node name="Back" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" index="3" instance=ExtResource( 16 )]
 margin_top = 505.0
 margin_right = 667.0
-<<<<<<< HEAD
-margin_bottom = 565.0
-scene_to_load = "res://View/Screens_Randy/MainMenu.tscn"
-=======
 margin_bottom = 635.0
 scene_to_load = "res://View/Screens_Randy/MainMenuTeachers.tscn"
->>>>>>> randy2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 position = Vector2( 542.172, 181.405 )
 scale = Vector2( 0.487084, 0.531251 )
 frames = SubResource( 1 )
 animation = "idle"
-<<<<<<< HEAD
-frame = 9
-=======
 frame = 8
->>>>>>> randy2
 playing = true
 flip_h = true
 
 [node name="Header" parent="." index="3" instance=ExtResource( 18 )]
 margin_top = 20.0
-<<<<<<< HEAD
-[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Normal" to="." method="_on_Normal_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Custom" to="." method="_on_Custom_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_pressed"]
-[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
-=======
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
->>>>>>> randy2

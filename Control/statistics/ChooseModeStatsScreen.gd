@@ -14,7 +14,6 @@ func _on_Button_pressed(scene_to_load):
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
-<<<<<<< HEAD
 
 
 func _on_Normal_pressed():
@@ -32,5 +31,3 @@ func _on_Leaderboard_pressed():
 func _on_Custom_pressed():
 	global.customViewingStats = true
 	get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
-=======
->>>>>>> randy2

@@ -1,9 +1,10 @@
 extends Control
 
 onready var http : HTTPRequest = $HTTPRequest
-onready var username : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label
+
+onready var email : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Leaderboard
 onready var account : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Play
-onready var nickname : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Leaderboard
+onready var nickname : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Label
 onready var school : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Profile
 onready var class1 : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Exit
 onready var char1 :	Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button/Label
@@ -23,7 +24,7 @@ var school_array = ["NTU", "NUS", "SMU"]
 func _ready():
 	#http request to get user profile	
 	Firebase.get_document("users/%s" % global.username, http)
-	username.text = Firebase.user_info.email
+	email.text = "Email: " + Firebase.user_info.email
 	#test for global save data
 	#char1.text = global.save.World1.stringValue
 
@@ -65,7 +66,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 func set_profile(value: Dictionary) -> void:
 	profile = value
 	account.text = "Account: %s" % str(profile.account.stringValue)
-	nickname.text = "Nickname: %s" % str(profile.nickname.stringValue)
+	nickname.text = str(profile.nickname.stringValue)
 	school.text = "School: %s" % str(school_array[int(profile.schoolId.integerValue)])
 	class1.text = "Class: %s" % str(class_array[int(profile.classId.integerValue)])
 	#class1.select(1)
