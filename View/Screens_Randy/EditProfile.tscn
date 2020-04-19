@@ -161,21 +161,10 @@ scene_to_load = "res://View/Screens_Randy/Profile.tscn"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 
-[node name="Header" type="Label" parent="." index="4" instance=ExtResource( 11 )]
-anchor_right = 1.0
+[node name="Header" parent="." index="4" instance=ExtResource( 11 )]
 margin_top = 20.0
-margin_bottom = 69.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
 custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "EDIT PROFILE"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

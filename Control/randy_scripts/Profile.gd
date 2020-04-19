@@ -25,14 +25,13 @@ func _ready():
 	#http request to get user profile	
 	Firebase.get_document("users/%s" % global.username, http)
 	email.text = "Email: " + Firebase.user_info.email
+	account.text = "Account: "+ global.accountType
 	#test for global save data
 	#char1.text = global.save.World1.stringValue
 
 func goToMainMenu():
-	#Insert get account type here!
-	#
 	#Condition
-	if (global.accountType == "Teacher"): #If account type is teacher or admin
+	if (global.accountType == "Teacher"|| global.accountType == "Admin"): #If account type is teacher or admin
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 	else:#If account type is student
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
@@ -44,11 +43,6 @@ func _on_Button_pressed():
 
 func _on_FadeIn_fade_finished():
 	goToMainMenu()
-	#account_type = "Teacher"
-	#if scene_path_to_load == "res://menus/Screens_Randy/MainMenu.tscn":
-	#	if account_type == "Teacher":
-	#		scene_path_to_load = "res://View/Screens_Randy/MainMenuTeachers.tscn"
-	#get_tree().change_scene(scene_path_to_load)
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:

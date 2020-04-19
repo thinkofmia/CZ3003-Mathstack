@@ -15,7 +15,7 @@ func _ready():
 
 func goToMainMenu():
 	#Condition
-	if (global.accountType == "Teacher"): #If account type is teacher or admin
+	if (global.accountType == "Teacher"|| global.accountType == "Admin"): #If account type is teacher or admin
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 	else:#If account type is student
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
