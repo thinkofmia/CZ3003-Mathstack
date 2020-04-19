@@ -94,7 +94,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			
 			totalNumOfStudents = (len(students))
 			
-			if (totalNumOfCompletions != -1):
+			if (totalNumOfCompletions != -1 && totalNumOfStudents>0):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar.value = percentage
@@ -133,7 +133,7 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 			if (len(mystudents2) != 0):
 				totalScoreAverage = float(totalScoreCompletions) / float(len(mystudents))
 			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/AverageLabel.set_text(str(totalScoreAverage) + "/30")
-			if (totalNumOfStudents != -1):
+			if (totalNumOfStudents > 0):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar.value = percentage

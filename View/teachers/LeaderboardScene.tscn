@@ -105,7 +105,14 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
+	goToMainMenu()
+	
+func goToMainMenu():
+	#Condition
+	if (global.accountType == \"Teacher\"): #If account type is teacher or admin
+		get_tree().change_scene(\"res://View/Screens_Randy/MainMenuTeachers.tscn\")
+	else:#If account type is student
+		get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
 "
 
 [node name="LeaderboardScreen" instance=ExtResource( 1 )]
