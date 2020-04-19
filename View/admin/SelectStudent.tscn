@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Control/interface/SelectStudents.gd" type="Script" id=2]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "Manage Database: List of Students"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard" index="0"]
+margin_left = 23.0
+margin_top = -17.0
+margin_right = 553.0
+margin_bottom = 383.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ListOfStudents" type="VBoxContainer" parent="PlayBoard/ScrollContainer" index="0"]
+margin_right = 530.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 270, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

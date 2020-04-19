@@ -101,6 +101,8 @@ func _on_Button_pressed():
 		#check if the account is a teacher account
 		if teachers_text == "T":
 			profile.account = {"stringValue": "Teacher"}
+		elif teachers_text == "A": #Admin Acc
+			profile.account = {"stringValue": "Admin"}
 		else :
 			profile.account = {"stringValue": "Student"}
 		profile.nickname = {"stringValue":nickname_text}

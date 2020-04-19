@@ -2,35 +2,37 @@
 
 [ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=1]
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Control/interface/selectDatabaseOptions.gd" type="Script" id=3]
+[ext_resource path="res://Control/interface/SelectUserType.gd" type="Script" id=3]
 
 [node name="World" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
 [node name="Header" parent="TemplateScreen" index="3"]
-text = "Manage Database: Select Mode"
+text = "Manage Database: Select User Type"
 
 [node name="ButtonRow" type="HBoxContainer" parent="PlayBoard" index="0"]
 margin_left = 18.0
 margin_right = 565.0
 margin_bottom = 367.0
-custom_constants/separation = 13
+custom_constants/separation = 40
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddQuestions" type="Button" parent="PlayBoard/ButtonRow" index="0"]
-margin_right = 256.0
+[node name="Students" type="Button" parent="PlayBoard/ButtonRow" index="0"]
+margin_right = 253.0
 margin_bottom = 367.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Add Questions"
+text = "Students"
 
-[node name="ManageProfiles" type="Button" parent="PlayBoard/ButtonRow" index="1"]
-margin_left = 269.0
-margin_right = 546.0
+[node name="Teachers" type="Button" parent="PlayBoard/ButtonRow" index="1"]
+margin_left = 293.0
+margin_right = 547.0
 margin_bottom = 367.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Manage Profiles"
-[connection signal="pressed" from="PlayBoard/ButtonRow/AddQuestions" to="." method="_on_AddQuestions_pressed"]
-[connection signal="pressed" from="PlayBoard/ButtonRow/ManageProfiles" to="." method="_on_ManageProfiles_pressed"]
+text = "Teachers"
+[connection signal="pressed" from="PlayBoard/ButtonRow/Students" to="." method="_on_Students_pressed"]
+[connection signal="pressed" from="PlayBoard/ButtonRow/Teachers" to="." method="_on_Teachers_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

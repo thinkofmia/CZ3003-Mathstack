@@ -3,7 +3,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if (global.accountType == "Teacher"):
+		$PlayBoard/ButtonRow/ManageProfiles.hide()#Teachers don't have access
 
 
 
@@ -24,4 +25,4 @@ func goToMainMenu():
 
 
 func _on_ManageProfiles_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://View/admin/SelectUserType.tscn")

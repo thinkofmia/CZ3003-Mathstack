@@ -19,6 +19,9 @@ var accountType = "Student" #Account Type: Default Student
 #Variable to check if test mode enabled
 var testMode = false
 
+#For Admins
+var targetType = "Student"
+
 #Variables for Custom Mode Selected
 var customTitle = "" #Variable for Custom Game Title
 var customCreator = "" #Variable for Custom Game Creator
