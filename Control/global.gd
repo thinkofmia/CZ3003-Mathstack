@@ -21,6 +21,7 @@ var testMode = false
 
 #For Admins
 var targetType = "Student"
+var selectUserEdit="" #get the name of the selected user for edit
 
 #Variables for Custom Mode Selected
 var customTitle = "" #Variable for Custom Game Title

@@ -8,7 +8,6 @@ onready var nickname : LineEdit = $TextureRect/MarginContainer/MarginContainer/V
 onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer2/LineEdit
 onready var school : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/School
 onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/HBoxContainer3/OptionButton 
-var new_profile := false
 var information_sent := false
 
 var classId
@@ -52,7 +51,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	match response_code:
 		#error
 		404:
-			new_profile = true
 			return
 		#success
 		200:
@@ -67,7 +65,7 @@ func _on_Button3_pressed():
 	#set profile attributes
 	#profile.account = {"stringValue": "Student"}
 	profile.nickname = { "stringValue": nickname.text }
-	profile.school = {"stringValue": str(school_array[int(profile.schoolId.integerValue)])}
+	#profile.school = {"stringValue": str(school_array[int(profile.schoolId.integerValue)])}
 	profile.classId = { "integerValue": class1.get_selected_id() }
 	#http request to update user profile
 	Firebase.update_document("users/%s" % Firebase.user_info.email, profile, http)

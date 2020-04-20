@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Control/interface/AddQnsDetails.gd" type="Script" id=1]
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=2]
@@ -6,9 +6,6 @@
 [ext_resource path="res://View/util/customQuestionSet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Model/buttons/AddButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Model/buttons/PressedStyle.tres" type="StyleBox" id=7]
-[ext_resource path="res://Model/buttons/HoverStyle.tres" type="StyleBox" id=8]
-[ext_resource path="res://Model/buttons/NormalStyle.tres" type="StyleBox" id=9]
 [ext_resource path="res://Model/buttons/QuitButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=11]
 
@@ -118,17 +115,11 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="QuitButton" type="Button" parent="PopUpControl" index="2" instance=ExtResource( 10 )]
+[node name="QuitButton" parent="PopUpControl" index="2" instance=ExtResource( 10 )]
 margin_left = 671.822
 margin_top = 113.911
 margin_right = 773.822
 margin_bottom = 201.911
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/normal = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
