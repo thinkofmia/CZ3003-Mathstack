@@ -73,7 +73,6 @@ func _ready():
 		#set Fastest clear time
 		
 		$PlayBoard/WorldVisitedRow.hide()
-		$PlayBoard/FastestClearRow.show()
 		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
 
 	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
