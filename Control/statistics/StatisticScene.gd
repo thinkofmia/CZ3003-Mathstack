@@ -86,7 +86,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			for student in tempStudents:
 				print(student.fields.classId)
 				print(student.name.split("/")[-1])
-				if (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username):
+				if (global.accountType == "Admin" || (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username)):
 					students.append(student.name.split("/")[-1])
 					$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "ClassId: " + str(student.fields.classId.integerValue)
 					classId = student.fields.classId.integerValue
