@@ -63,6 +63,9 @@ func _ready():
 	global.highscore = 0 #Reset Highscore
 	
 func setQns(): #Set new set of Qns
+	#Hide Qn display
+	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	qnMenu.hide()
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
 	#global.difficulty = "Primary" #Set difficulty to primary
@@ -131,7 +134,7 @@ func setQns(): #Set new set of Qns
 	print("Advanced qns = "+str(qTextArr3))
 	randomizeQuestion() #choose a random question
 	
-	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	#Show display
 	qnMenu.show()
 	#Performance Test
 	if (testPerformance.performanceCheck):
