@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://Model/buttons/worldButtons/WorldButtons.tscn" type="PackedScene" id=4]
 [ext_resource path="res://View/util/Block.tscn" type="PackedScene" id=5]
 [ext_resource path="res://View/util/Character.tscn" type="PackedScene" id=6]
-[ext_resource path="res://textures/BG.png" type="Texture" id=7]
+[ext_resource path="res://Model/Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Model/Labels/PlayWithBorders.tscn" type="PackedScene" id=8]
-[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=9]
 [ext_resource path="res://View/util/Characters/HBIcon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://View/util/Characters/RRIcon.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=12]
@@ -20,108 +19,29 @@
 [ext_resource path="res://View/util/Characters/MrIIcon.tscn" type="PackedScene" id=18]
 [ext_resource path="res://View/util/Characters/ZZIcon.tscn" type="PackedScene" id=19]
 [ext_resource path="res://View/util/Characters/FFIcon.tscn" type="PackedScene" id=20]
-[ext_resource path="res://textures/graveyard.png" type="Texture" id=21]
-[ext_resource path="res://textures/winter.png" type="Texture" id=22]
-[ext_resource path="res://textures/desert.png" type="Texture" id=23]
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 14 )
 
+[node name="TemplateScreen" parent="." index="0"]
+visible = false
+
 [node name="Header" parent="TemplateScreen" index="3"]
 text = "CHALLENGE MODE"
 
-[node name="Background2" type="Sprite" parent="." index="1"]
-visible = false
-position = Vector2( 511.773, 300.473 )
-scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 9 )
+[node name="Background" parent="." index="1" instance=ExtResource( 7 )]
 
-[node name="ColorRect" type="ColorRect" parent="Background2" index="0"]
-margin_left = -836.0
-margin_top = -603.0
-margin_right = 846.0
-margin_bottom = 706.0
-color = Color( 0.133333, 0.411765, 0.384314, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Background3" type="Sprite" parent="." index="2"]
-visible = false
-position = Vector2( 511.127, 295.303 )
-scale = Vector2( 1.02197, 0.7915 )
-texture = ExtResource( 7 )
-
-[node name="ColorRect2" type="ColorRect" parent="Background3" index="0"]
-margin_left = -286.0
-margin_top = -260.0
-margin_right = 285.0
-margin_bottom = 321.0
-color = Color( 0.952941, 0.619608, 0.490196, 1 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Background4" type="Sprite" parent="." index="3"]
-visible = false
-position = Vector2( 503.725, 300.855 )
-scale = Vector2( 0.686803, 0.808079 )
-texture = ExtResource( 22 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect2" type="ColorRect" parent="Background4" index="0"]
-margin_left = -407.0
-margin_top = -260.0
-margin_right = 422.0
-margin_bottom = 293.0
-color = Color( 0.431373, 0.827451, 0.894118, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background5" type="Sprite" parent="." index="4"]
-visible = false
-position = Vector2( 512.978, 303.631 )
-scale = Vector2( 0.542454, 0.618645 )
-texture = ExtResource( 21 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect2" type="ColorRect" parent="Background5" index="0"]
-margin_left = -520.0
-margin_top = -338.0
-margin_right = 524.0
-margin_bottom = 380.0
-color = Color( 0.0745098, 0.109804, 0.117647, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background6" type="Sprite" parent="." index="5"]
-visible = false
-position = Vector2( 511.127, 325.838 )
-scale = Vector2( 0.799806, 0.664911 )
-texture = ExtResource( 23 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect2" type="ColorRect" parent="Background6" index="0"]
-margin_left = -365.0
-margin_top = -344.0
-margin_right = 364.0
-margin_bottom = 324.0
+[node name="ControlBox" type="ColorRect" parent="Background" index="0"]
+margin_left = 494.0
+margin_top = 127.0
+margin_right = 1154.0
+margin_bottom = 669.0
 color = Color( 0.756863, 0.784314, 0.521569, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayBoard" parent="." index="6"]
+[node name="PlayBoard" parent="." index="2"]
 margin_left = -290.216
 margin_top = 93.0
 margin_right = 288.784
@@ -251,6 +171,7 @@ margin_right = 211.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #1"
+script = null
 
 [node name="WorldButton2" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="1" instance=ExtResource( 4 )]
 margin_left = 221.0
@@ -258,78 +179,87 @@ margin_right = 432.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #2"
+script = null
 
-[node name="WorldButton4" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="2" instance=ExtResource( 4 )]
+[node name="WorldButton3" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="2" instance=ExtResource( 4 )]
 margin_left = 442.0
 margin_right = 653.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #3"
+script = null
 
-[node name="WorldButton3" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="3" instance=ExtResource( 4 )]
+[node name="WorldButton4" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="3" instance=ExtResource( 4 )]
 margin_left = 663.0
 margin_right = 874.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #4"
+script = null
 
-[node name="WorldButton8" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="4" instance=ExtResource( 4 )]
+[node name="WorldButton5" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="4" instance=ExtResource( 4 )]
 margin_left = 884.0
 margin_right = 1095.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #5"
+script = null
 
-[node name="WorldButton7" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="5" instance=ExtResource( 4 )]
+[node name="WorldButton6" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="5" instance=ExtResource( 4 )]
 margin_left = 1105.0
 margin_right = 1316.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #6"
+script = null
 
-[node name="WorldButton6" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="6" instance=ExtResource( 4 )]
+[node name="WorldButton7" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="6" instance=ExtResource( 4 )]
 margin_left = 1326.0
 margin_right = 1537.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #7"
+script = null
 
-[node name="WorldButton5" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="7" instance=ExtResource( 4 )]
+[node name="WorldButton8" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="7" instance=ExtResource( 4 )]
 margin_left = 1547.0
 margin_right = 1758.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #8"
+script = null
 
-[node name="WorldButton10" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="8" instance=ExtResource( 4 )]
+[node name="WorldButton9" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="8" instance=ExtResource( 4 )]
 margin_left = 1768.0
 margin_right = 1979.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #9"
+script = null
 
-[node name="WorldButton9" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="9" instance=ExtResource( 4 )]
+[node name="WorldButton10" parent="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow" index="9" instance=ExtResource( 4 )]
 margin_left = 1989.0
 margin_right = 2228.0
 margin_bottom = 55.0
 rect_scale = Vector2( 1, 1 )
 text = "World #10"
+script = null
 
 [node name="Play" parent="PlayBoard/MarginContainer/VBoxContainer" index="4" instance=ExtResource( 8 )]
 margin_top = 310.0
 margin_right = 539.0
 margin_bottom = 400.0
 
-[node name="BackButton" parent="." index="7"]
+[node name="BackButton" parent="." index="3"]
 script = ExtResource( 2 )
 
-[node name="SelectedCharacter" parent="." index="8" instance=ExtResource( 6 )]
+[node name="SelectedCharacter" parent="." index="4" instance=ExtResource( 6 )]
 position = Vector2( 110.2, 332.134 )
 
-[node name="Block" parent="." index="9" instance=ExtResource( 5 )]
+[node name="Block" parent="." index="5" instance=ExtResource( 5 )]
 position = Vector2( 71.4792, 369.818 )
 
-[node name="Header" parent="." index="10" instance=ExtResource( 13 )]
+[node name="Header" parent="." index="6" instance=ExtResource( 13 )]
 margin_top = 20.0
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/GodotIcon" to="." method="_on_GodotIcon_pressed"]
 [connection signal="toggled" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/GodotIcon" to="." method="_on_GodotIcon_toggled"]
@@ -343,13 +273,13 @@ margin_top = 20.0
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/MrIIcon" to="." method="_on_MrIIcon_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton" to="." method="_on_WorldButton_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton2" to="." method="_on_WorldButton2_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton4" to="." method="_on_WorldButton4_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton3" to="." method="_on_WorldButton3_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton8" to="." method="_on_WorldButton8_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton7" to="." method="_on_WorldButton7_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton6" to="." method="_on_WorldButton6_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton4" to="." method="_on_WorldButton4_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton5" to="." method="_on_WorldButton5_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton10" to="." method="_on_WorldButton10_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton6" to="." method="_on_WorldButton6_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton7" to="." method="_on_WorldButton7_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton8" to="." method="_on_WorldButton8_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton9" to="." method="_on_WorldButton9_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton10" to="." method="_on_WorldButton10_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

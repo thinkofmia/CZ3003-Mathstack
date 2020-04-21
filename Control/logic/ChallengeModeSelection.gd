@@ -1,9 +1,12 @@
 extends Node
 var selectedBg = 1
 var musicBox
+var bg
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Find Bg node
+	bg = get_tree().get_root().get_node("World").find_node("Background")
 	#Find music box
 	musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
 	#Set mode select to challenge mode
@@ -11,38 +14,10 @@ func _ready():
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
-	getWorld()
 	#Initialize worlds visited
 	global.worldsVisited = []
 	#Timeout
 	yield(get_tree().create_timer(1.0), "timeout")
-	#Play Music
-	musicBox.playTrack()
-
-func getWorld():
-	match global.worldSelected:
-		"World #1":
-			selectedBg = 1
-		"World #2":
-			selectedBg = 2
-		"World #3":
-			selectedBg = 3
-		"World #4":
-			selectedBg = 4
-		"World #5":
-			selectedBg = 5
-		"World #6":
-			selectedBg = 6
-		"World #7":
-			selectedBg = 1
-		"World #8":
-			selectedBg = 2
-		"World #9":
-			selectedBg = 3
-		"World #10":
-			selectedBg = 4
-		_:
-			selectedBg = 5
 	changeBg()
 
 func _on_GodotIcon_pressed():
@@ -70,80 +45,84 @@ func _on_RRIcon_pressed():
 	$SelectedCharacter.displayCharacter()
 	print("Rider Rabbit has been selected!")
 
+#World Button 1
 func _on_WorldButton_pressed():
+	global.worldSelected = "World #1"
 	#Set bg
-	selectedBg = 1
 	changeBg()
-	
+
+#Change Background
 func changeBg():
+	#Set Background
+	bg.setBackground()
+	changeMaterial()
 	#Play Music
 	musicBox.playTrack()
-	#Hide all bg
-	$TemplateScreen/TextureRect.hide()
-	$Background2.hide()
-	$Background3.hide()
-	$Background4.hide()
-	$Background5.hide()
-	$Background6.hide()
-	match selectedBg:
-		1:
-			$TemplateScreen/TextureRect.show()
-		2:
-			$Background2.show()
-		3:
-			$Background3.show()
-		4:
-			$Background4.show()
-		5:
-			$Background5.show()
+
+#Change Box Material
+func changeMaterial():
+	var material = $Background/ControlBox
+	match global.worldSelected:
+		"World #1":
+			material.color = Color(0, 0, 1, 1)
+		"World #2":
+			material.color = Color(0, 1, 0, 1)
+		"World #3":
+			material.color = Color(0, 1, 0, 1)
+		"World #4":
+			material.color = Color(0, 0, 1, 1)
+		"World #5":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #6":
+			material.color = Color(1, 1, 0, 1)
 		_:
-			$Background6.show()
+			material.color = Color(1, 1, 0, 1)
 
-
+#World Button 2
 func _on_WorldButton2_pressed():
-	selectedBg = 2
+	global.worldSelected = "World #2"
 	changeBg()
+	
 
-
+#World Button 4
 func _on_WorldButton4_pressed():
-	selectedBg = 3
+	global.worldSelected = "World #4"
 	changeBg()
 
-
+#World Button 3
 func _on_WorldButton3_pressed():
-	selectedBg = 4
+	global.worldSelected = "World #3"
 	changeBg()
 
-
+#World Button 8
 func _on_WorldButton8_pressed():
-	selectedBg = 5
+	global.worldSelected = "World #8"
 	changeBg()
 
-
+#World Button 7
 func _on_WorldButton7_pressed():
-	selectedBg = 6
+	global.worldSelected = "World #7"
 	changeBg()
 
-
+#World Button 6
 func _on_WorldButton6_pressed():
-	selectedBg = 1
+	global.worldSelected = "World #6"
 	changeBg()
 
-
+#World Button 5
 func _on_WorldButton5_pressed():
-	selectedBg = 2
+	global.worldSelected = "World #5"
 	changeBg()
 
-
+#World Button 10
 func _on_WorldButton10_pressed():
-	selectedBg = 3
+	global.worldSelected = "World #10"
 	changeBg()
 
-
+#World Button 9
 func _on_WorldButton9_pressed():
-	selectedBg = 4
+	global.worldSelected = "World #9"
 	changeBg()
-
 
 func _on_Play_pressed():
 	#Performance check

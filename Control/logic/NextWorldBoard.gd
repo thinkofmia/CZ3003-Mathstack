@@ -36,38 +36,16 @@ func _ready():
 	world = global.worldSelected
 	#Timeout
 	yield(get_tree().create_timer(1.0), "timeout")
-	changeBg(global.worldSelected)
+	changeBg()
 	#Add world selected to list
 	global.worldsVisited = [global.worldSelected]
 	print(global.worldsVisited)
 	#Hide worlds that are already chosen
 	hideAccessedWorld()
 
-func changeBg(world):
+func changeBg():
 	#Set bg
-	match world:
-		"World #1":
-			bg.set_texture(preload("res://textures/mountain.png"))
-		"World #2":
-			bg.set_texture(preload("res://textures/mountainView.jpg"))
-		"World #3":
-			bg.set_texture(preload("res://textures/BG.png"))
-		"World #4":
-			bg.set_texture(preload("res://textures/winter.png"))
-		"World #5":
-			bg.set_texture(preload("res://textures/graveyard.png"))
-		"World #6":
-			bg.set_texture(preload("res://textures/desert.png"))
-		"World #7":
-			bg.set_texture(preload("res://textures/mountain.png"))
-		"World #8":
-			bg.set_texture(preload("res://textures/mountainView.jpg"))
-		"World #9":
-			bg.set_texture(preload("res://textures/BG.png"))
-		"World #10":
-			bg.set_texture(preload("res://textures/winter.png"))
-		_:
-			bg.set_texture(preload("res://textures/graveyard.png"))
+	bg.setBackground()
 	#Play music
 	musicBox.playTrack()
 
@@ -77,7 +55,7 @@ func selectWorld(node):
 	#Get text from world selected
 	global.worldSelected = node.get_text()
 	print("World Selected: "+global.worldSelected)
-	changeBg(global.worldSelected)
+	changeBg()
 	qnMenu.show()
 	self.hide()
 	#Add world chosen to list

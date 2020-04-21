@@ -71,7 +71,7 @@ func setQns(): #Set new set of Qns
 	print(getQuestions)
 	#http request to get Primary Qns
 	Firebase.get_document("%s" % str(getQuestions), http)
-	yield(get_tree().create_timer(2), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	question_info = (questions.values())
 	#print(question_info)
 	#for each questions in the array
