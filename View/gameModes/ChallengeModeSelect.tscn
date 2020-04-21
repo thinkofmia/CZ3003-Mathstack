@@ -32,10 +32,10 @@ text = "CHALLENGE MODE"
 [node name="Background" parent="." index="1" instance=ExtResource( 7 )]
 
 [node name="ControlBox" type="ColorRect" parent="Background" index="0"]
-margin_left = 494.0
-margin_top = 127.0
-margin_right = 1154.0
-margin_bottom = 669.0
+margin_left = 281.179
+margin_top = 121.448
+margin_right = 941.179
+margin_bottom = 663.448
 color = Color( 0.756863, 0.784314, 0.521569, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

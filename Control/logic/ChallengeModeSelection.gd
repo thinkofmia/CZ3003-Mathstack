@@ -16,6 +16,7 @@ func _ready():
 	$SelectedCharacter/PowerButton.hide()
 	#Initialize worlds visited
 	global.worldsVisited = []
+	bg.setBackground()
 	#Timeout
 	yield(get_tree().create_timer(1.0), "timeout")
 	changeBg()
@@ -64,17 +65,25 @@ func changeMaterial():
 	var material = $Background/ControlBox
 	match global.worldSelected:
 		"World #1":
-			material.color = Color(0, 0, 1, 1)
+			material.color = Color(0, 0, 0.8, 1)
 		"World #2":
-			material.color = Color(0, 1, 0, 1)
+			material.color = Color(0, 0.8, 0, 1)
 		"World #3":
-			material.color = Color(0, 1, 0, 1)
+			material.color = Color(0, 0.8, 0, 1)
 		"World #4":
-			material.color = Color(0, 0, 1, 1)
+			material.color = Color(0, 0, 0.8, 1)
 		"World #5":
 			material.color = Color(0.3, 0.3, 0.3, 1)
 		"World #6":
-			material.color = Color(1, 1, 0, 1)
+			material.color = Color(0.8, 0.8, 0, 1)
+		"World #7":
+			material.color = Color(0.8, 0, 0, 1)
+		"World #8": ###
+			material.color = Color(1, 0, 0, 1)
+		"World #9":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #10":
+			material.color = Color(0.8, 0.8, 0.8, 1)
 		_:
 			material.color = Color(1, 1, 0, 1)
 

@@ -3,10 +3,10 @@
 [ext_resource path="res://Control/interface/Background.gd" type="Script" id=2]
 
 [node name="Background" type="TextureRect"]
-margin_left = -309.719
-margin_top = 684.915
-margin_right = 2690.28
-margin_bottom = 2548.92
+margin_left = -95.0
+margin_top = 685.0
+margin_right = 1182.0
+margin_bottom = 1459.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 1, -1 )

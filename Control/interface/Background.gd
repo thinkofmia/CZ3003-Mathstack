@@ -29,13 +29,13 @@ func setBackground():
 			set_texture(preload("res://textures/graveyard.png"))
 		"World #6":
 			set_texture(preload("res://textures/desert.png"))
-		"World #7": #TO BE CHANGED
-			set_texture(preload("res://textures/mountain.png"))
-		"World #8": #TO BE CHANGED
-			set_texture(preload("res://textures/mountainView.jpg"))
+		"World #7": 
+			set_texture(preload("res://textures/street.png"))
+		"World #8": 
+			set_texture(preload("res://textures/night.png"))
 		"World #9":#TO BE CHANGED
-			set_texture(preload("res://textures/BG.png"))
+			set_texture(preload("res://textures/bulkhead.png"))
 		"World #10":#TO BE CHANGED
-			set_texture(preload("res://textures/winter.png"))
+			set_texture(preload("res://textures/hazy.png"))
 		_:
 			set_texture(preload("res://textures/graveyard.png"))
