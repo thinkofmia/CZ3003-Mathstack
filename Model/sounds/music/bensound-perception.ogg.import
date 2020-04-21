@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-perception.ogg-084156c0bb970fef6f16cc8fb5f30cbe.oggstr"
+
+[deps]
+
+source_file="res://Model/sounds/music/bensound-perception.ogg"
+dest_files=[ "res://.import/bensound-perception.ogg-084156c0bb970fef6f16cc8fb5f30cbe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

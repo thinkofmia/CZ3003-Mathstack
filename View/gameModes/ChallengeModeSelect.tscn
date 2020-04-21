@@ -323,13 +323,13 @@ margin_bottom = 400.0
 [node name="BackButton" parent="." index="7"]
 script = ExtResource( 2 )
 
-[node name="SelectedCharacter" parent="." index="9" instance=ExtResource( 6 )]
+[node name="SelectedCharacter" parent="." index="8" instance=ExtResource( 6 )]
 position = Vector2( 110.2, 332.134 )
 
-[node name="Block" parent="." index="10" instance=ExtResource( 5 )]
+[node name="Block" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( 71.4792, 369.818 )
 
-[node name="Header" parent="." index="11" instance=ExtResource( 13 )]
+[node name="Header" parent="." index="10" instance=ExtResource( 13 )]
 margin_top = 20.0
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/GodotIcon" to="." method="_on_GodotIcon_pressed"]
 [connection signal="toggled" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/GodotIcon" to="." method="_on_GodotIcon_toggled"]

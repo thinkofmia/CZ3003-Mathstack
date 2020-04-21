@@ -14,6 +14,10 @@ func _ready():
 	times = 0
 	currentStoryScore = global.storyScore
 	currentQuestionCount = 1
+	#Find music box
+	yield(get_tree().create_timer(1.0), "timeout")
+	var musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
+	musicBox.playTrack()
 	
 	pass # Replace with function body.
 

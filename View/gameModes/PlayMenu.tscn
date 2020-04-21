@@ -62,7 +62,7 @@ rect_min_size = Vector2( 360, 50 )
 script = ExtResource( 6 )
 scene_to_load = "res://View/gameModes/CustomModeSelect.tscn"
 
-[node name="FadeIn" parent="." index="4" instance=ExtResource( 8 )]
+[node name="FadeIn" parent="." index="3" instance=ExtResource( 8 )]
 visible = false
 [connection signal="pressed" from="PlayBoard/Menu/Buttons/NormalModeButton" to="." method="_on_NormalModeButton_pressed"]
 [connection signal="pressed" from="PlayBoard/Menu/Buttons/ChallengeModeButton" to="." method="_on_ChallengeModeButton_pressed"]

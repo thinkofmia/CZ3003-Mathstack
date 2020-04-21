@@ -34,7 +34,7 @@ Cheats:
 - heamomo (Rider Rabbit sprite, Fire Fox sprite)
 - gameart2D (Swee Solder sprite, Deadly Dino Sprite, Zesty Zombie Sprite, Careful Cyborg sprite, winter bg, desert bg, graveyard bg)
 
-- Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg)
+- Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg, AllThat.ogg, Dance.ogg, erf.ogg, funkyelement.ogg, groovyhiphop.ogg, perception.ogg, punky.ogg, retrosoul.ogg, rumble.ogg, straight.ogg)
 - Betrof [Freesound] (correct_sound.wav)
 - Autistic Lucario [Freesound] (wrong_sound.wav)
 - TheDweebMan [Freesound] (powerup_sound.wav)

@@ -1,0 +1,71 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Control/logic/MusicBox.gd" type="Script" id=1]
+[ext_resource path="res://View/util/PlayMusic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Model/sounds/music/bensound-allthat.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Model/sounds/music/bensound-house.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Model/sounds/music/bensound-erf.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Model/sounds/music/bensound-funkyelement.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Model/sounds/music/bensound-groovyhiphop.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Model/sounds/music/bensound-dance.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Model/sounds/music/bensound-perception.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Model/sounds/music/bensound-punky.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Model/sounds/music/bensound-rumble.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Model/sounds/music/bensound-retrosoul.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Model/sounds/music/bensound-energy.ogg" type="AudioStream" id=13]
+[ext_resource path="res://View/util/MainMusic.tscn" type="PackedScene" id=14]
+
+[node name="MusicBox" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayMusic" parent="." instance=ExtResource( 2 )]
+autoplay = false
+
+[node name="track02" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 3 )
+autoplay = false
+
+[node name="track03" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 8 )
+autoplay = false
+
+[node name="track04" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 5 )
+autoplay = false
+
+[node name="track05" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 6 )
+autoplay = false
+
+[node name="track06" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 7 )
+autoplay = false
+
+[node name="track07" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 11 )
+autoplay = false
+
+[node name="track08" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 9 )
+autoplay = false
+
+[node name="track09" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 10 )
+autoplay = false
+
+[node name="track10" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 12 )
+autoplay = false
+
+[node name="FFMusic" parent="." instance=ExtResource( 2 )]
+stream = ExtResource( 4 )
+autoplay = false
+stream_paused = true
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="." instance=ExtResource( 14 )]
+stream = ExtResource( 13 )

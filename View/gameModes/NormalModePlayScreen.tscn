@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=7]
 [ext_resource path="res://View/Screens_Randy/FadeIn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://textures/BG.png" type="Texture" id=9]
-[ext_resource path="res://View/util/MainMusic.tscn" type="PackedScene" id=10]
 [ext_resource path="res://textures/mountain.png" type="Texture" id=11]
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Model/Characters/Warrior/Idle (1).png" type="Texture" id=13]
@@ -152,8 +151,6 @@ margin_bottom = 701.0
 [node name="FadeIn" parent="TemplateScreen" index="1" instance=ExtResource( 8 )]
 visible = false
 script = SubResource( 1 )
-
-[node name="MainMusic" parent="TemplateScreen" index="2" instance=ExtResource( 10 )]
 
 [node name="Background" parent="." index="1"]
 visible = false
@@ -367,7 +364,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 5
+frame = 3
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="15"]
