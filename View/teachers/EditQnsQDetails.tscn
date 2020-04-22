@@ -56,5 +56,4 @@ margin_right = 537.0
 margin_bottom = 425.0
 [connection signal="request_completed" from="PlayBoard/MarginContainer/VBoxContainer/QnList/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

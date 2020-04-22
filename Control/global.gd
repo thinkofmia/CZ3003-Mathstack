@@ -92,7 +92,8 @@ var viewingOverallStats = false
 var difficulty=""
 var world=""
 
-
+#Normal mode character selected
+var normalModeCharacterSelected = "Godot"
 
 #Character Unlock Information
 var characterUnlockList = [
@@ -104,42 +105,42 @@ var characterUnlockList = [
 	{
 		"characterName":"Swee Soldier",
 		"state":"locked",
-		"associatedWorld":"World1"
+		"associatedWorld":"World #1"
 	},
 	{
 		"characterName":"Mister I",
 		"state":"locked",
-		"associatedWorld":"World2"
+		"associatedWorld":"World #2"
 	},
 	{
 		"characterName":"Humble B",
 		"state":"locked",
-		"associatedWorld":"World3"
+		"associatedWorld":"World #3"
 	},
 	{
 		"characterName":"Rider Rabbit",
 		"state":"locked",
-		"associatedWorld":"World4"
+		"associatedWorld":"World #4"
 	},
 	{
 		"characterName":"Zesty Zombie",
 		"state":"locked",
-		"associatedWorld":"World5"
+		"associatedWorld":"World #5"
 	},
 	{
 		"characterName":"Careful Cyborg",
 		"state":"locked",
-		"associatedWorld":"World6"
+		"associatedWorld":"World #6"
 	},
 	{
 		"characterName":"Deadly Dino",
 		"state":"locked",
-		"associatedWorld":"World7"
+		"associatedWorld":"World #7"
 	},
 	{
 		"characterName":"Fire Fox",
 		"state":"locked",
-		"associatedWorld":"World8"
+		"associatedWorld":"World #8"
 	},
 	
 ]
@@ -148,7 +149,8 @@ func updateUnlockCharsList(fields):
 	for character in characterUnlockList:
 		var associatedWorld = character['associatedWorld']
 		if associatedWorld != "None":
-			var progress = fields[associatedWorld]['stringValue']
+			var key = "World" + associatedWorld.split("#")[1]
+			var progress = fields[key]['stringValue']
 			if (progress == "3"):
 				character['state'] = "unlocked"
 	
