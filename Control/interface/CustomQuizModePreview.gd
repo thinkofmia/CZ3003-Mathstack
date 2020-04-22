@@ -36,7 +36,6 @@ func showButtons():
 	$WAButton.show()
 	$RedditButton.show()
 	$BackButton.show()
-	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
 
 
 func _ready():
@@ -61,6 +60,7 @@ func _ready():
 					global.customTotalQn = str(quiz_display['NumQns'].values()[0])
 					global.customWorlds = str(quiz_display['World'].values()[0])
 					global.customID = str(quiz_display['Id'].values()[0])
+					$PlayBoard/MarginContainer/VBoxContainer/Button.show()
 					continue
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
@@ -114,6 +114,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			global.customTotalQn = str(Quiz.NumQns.stringValue)
 			global.customWorlds = str(Quiz.World.stringValue)
 			global.customID = str(Quiz.Id.stringValue)
+			$PlayBoard/MarginContainer/VBoxContainer/Button.show()
 			getByTitle = false
 		if getById:
 			var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
