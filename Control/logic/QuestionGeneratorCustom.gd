@@ -28,6 +28,7 @@ onready var explanation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	global.modeSelected = "Custom Mode" #Set modeSelected to be Custom
 	#Performance Check
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()

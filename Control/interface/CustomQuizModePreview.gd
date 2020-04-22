@@ -23,11 +23,12 @@ func _ready():
 	#Check if player is owner of quiz
 	if (global.customCreator == global.username):
 		$EditButton.show()
+		$DeleteButton.show()
 	else:
 		$EditButton.hide()
+		$DeleteButton.hide()
 	#Display Play button
 	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
-	global.modeSelected = "Custom Mode" #Set modeSelected to be Custom
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,3 +62,11 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		global.customTotalQn = str(Quiz.NumQns.stringValue)
 		global.customWorlds = str(Quiz.World.stringValue)
 		global.customID = str(Quiz.Id.stringValue)
+
+
+func _on_DeleteButton_pressed():
+	##Fire base delete here
+	#
+	#
+	#Return to quiz list
+	 _on_BackButton_pressed()
