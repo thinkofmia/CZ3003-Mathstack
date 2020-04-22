@@ -252,6 +252,13 @@ script = ExtResource( 4 )
 
 [node name="PlayBoard" parent="." index="8"]
 visible = false
+margin_left = -134.0
+margin_top = 91.0
+margin_right = 483.0
+margin_bottom = -66.0
+
+[node name="Texture" parent="PlayBoard" index="0"]
+visible = false
 
 [node name="CorrectStatus" parent="PlayBoard" index="1" instance=ExtResource( 3 )]
 visible = false
@@ -364,7 +371,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 3
+frame = 8
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="15"]

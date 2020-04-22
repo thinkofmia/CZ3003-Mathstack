@@ -7,6 +7,10 @@ var option4
 var level
 var getQuestions
 
+#Pop Up Display
+var correctStatus
+var wrongStatus
+
 var qTextArr=[]
 var op1Arr=[]
 var op2Arr=[]
@@ -64,6 +68,8 @@ func _ready():
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Normal Mode - Play")
 		testPerformance.getTimeTaken()
+	correctStatus = get_tree().get_root().get_node("World").find_node("CorrectStatus")
+	wrongStatus = get_tree().get_root().get_node("World").find_node("WrongStatus")
 	
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
@@ -110,15 +116,13 @@ func checkAnswer(option):
 		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
 		scoreBoard.set_text("Score: "+str(global.storyScore))
 		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("CorrectStatus")
-		outcome.appear()
+		correctStatus.appear()
 		randomizeQuestion()
 		
 	else:
 		print("Wrong!")
 		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("WrongStatus")
-		outcome.appear()
+		wrongStatus.appear()
 		randomizeQuestion()
 
 
