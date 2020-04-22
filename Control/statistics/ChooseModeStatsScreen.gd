@@ -31,3 +31,6 @@ func _on_Custom_pressed():
 
 func _on_OverallStatistics_pressed():
 	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")
+
+func _on_AnalysisReportButton_pressed():
+	get_tree().change_scene("res://View/teachers/AnalysisReport.tscn")
