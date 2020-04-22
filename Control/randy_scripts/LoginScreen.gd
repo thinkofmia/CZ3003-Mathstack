@@ -102,6 +102,8 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			getAccountType = false
 			#save account type to global.accountType
 			global.accountType=response_body.result.fields.account.stringValue
+			#Save class to global.class
+			global.userClass = global.classArray[int(response_body.result.fields.classId.integerValue)]
 			$FadeIn.show()
 			$FadeIn.fade_in()
 

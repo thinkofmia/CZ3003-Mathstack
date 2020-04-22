@@ -27,6 +27,8 @@ func _ready():
 	else:
 		Firebase.get_document("%s" % "users", http)
 		Firebase.get_document("%s" % "SaveData",http2)
+		#Set Title Label
+		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.set_text("Class: "+global.userClass)
 
 
 func doViewingCustomStatsSteps():
@@ -88,7 +90,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				print(student.name.split("/")[-1])
 				if (global.accountType == "Admin" || (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username)):
 					students.append(student.name.split("/")[-1])
-					$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "ClassId: " + str(student.fields.classId.integerValue)
+					#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "ClassId: " + str(student.fields.classId.integerValue)
 					classId = student.fields.classId.integerValue
 			
 			
@@ -98,7 +100,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar.value = percentage
-				
 
 
 func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
