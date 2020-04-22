@@ -111,7 +111,10 @@ func _on_Button_pressed():
 		profile.nickname = {"stringValue":nickname_text}
 		profile.classId = { "integerValue": class1.get_selected_id() }
 		profile.schoolId = {"integerValue": school.get_selected_id() }
-		profile.fullname = {"stringValue":fullname.get_text()}
+		if (fullname.get_text()==""):
+			profile.fullname = {"stringValue":"Jane Doe"}
+		else:
+			profile.fullname = {"stringValue":fullname.get_text()}
 		profile.character = {"stringValue":"Godot"}
 		#http request to save profile
 		Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)

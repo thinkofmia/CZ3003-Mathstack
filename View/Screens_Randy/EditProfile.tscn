@@ -21,14 +21,14 @@
 [ext_resource path="res://View/util/Characters/FFIcon.tscn" type="PackedScene" id=21]
 [ext_resource path="res://View/util/Characters/HBIcon.tscn" type="PackedScene" id=22]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 8 )
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=2]
 default_font = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 64
 font_data = ExtResource( 3 )
 
@@ -58,7 +58,7 @@ margin_bottom = 763.0
 
 [node name="Header" parent="." index="4" instance=ExtResource( 11 )]
 margin_top = 20.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 text = "EDIT PROFILE"
 
 [node name="CharacterBackground" type="TextureRect" parent="." index="5"]
@@ -72,7 +72,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SelectedCharacter" type="KinematicBody2D" parent="." index="6" instance=ExtResource( 12 )]
+[node name="SelectedCharacter" parent="." index="6" instance=ExtResource( 12 )]
 position = Vector2( 341.767, 143.337 )
 script = ExtResource( 13 )
 
@@ -111,94 +111,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GodotIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="0" instance=ExtResource( 18 )]
+[node name="GodotIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="0" instance=ExtResource( 18 )]
 margin_left = 250.0
 margin_right = 325.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="SSIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="1" instance=ExtResource( 19 )]
+[node name="SSIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="1" instance=ExtResource( 19 )]
 visible = false
 margin_left = 85.0
 margin_right = 160.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HBIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="2" instance=ExtResource( 22 )]
+[node name="HBIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="2" instance=ExtResource( 22 )]
 visible = false
 margin_left = 85.0
 margin_right = 160.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="RRIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="3" instance=ExtResource( 15 )]
+[node name="RRIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="3" instance=ExtResource( 15 )]
 visible = false
 margin_left = 85.0
 margin_right = 160.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ZZIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="4" instance=ExtResource( 16 )]
+[node name="ZZIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="4" instance=ExtResource( 16 )]
 visible = false
 margin_left = 104.0
 margin_right = 179.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CCIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="5" instance=ExtResource( 20 )]
+[node name="CCIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="5" instance=ExtResource( 20 )]
 visible = false
 margin_left = 147.0
 margin_right = 222.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="DDIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="6" instance=ExtResource( 17 )]
+[node name="DDIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="6" instance=ExtResource( 17 )]
 visible = false
 margin_left = 189.0
 margin_right = 264.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="FFIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="7" instance=ExtResource( 21 )]
+[node name="FFIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="7" instance=ExtResource( 21 )]
 visible = false
 margin_left = 232.0
 margin_right = 307.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="MrIIcon" type="Button" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="8" instance=ExtResource( 14 )]
+[node name="MrIIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="8" instance=ExtResource( 14 )]
 visible = false
 margin_left = 274.0
 margin_right = 349.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Account" type="Label" parent="ScrollContainer/MenuOptions" index="1"]
 margin_top = 90.0
@@ -254,7 +209,7 @@ text = "Class: "
 margin_left = 104.0
 margin_right = 185.0
 margin_bottom = 46.0
-theme = SubResource( 3 )
+theme = SubResource( 2 )
 custom_fonts/font = ExtResource( 5 )
 text = "SS1"
 
@@ -315,7 +270,7 @@ margin_bottom = 220.0
 rect_scale = Vector2( 0.75, 0.75 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Nickname"
 align = 1
 expand_to_text_length = true
