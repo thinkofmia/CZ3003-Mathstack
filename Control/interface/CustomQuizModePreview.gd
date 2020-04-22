@@ -70,3 +70,13 @@ func _on_DeleteButton_pressed():
 	#
 	#Return to quiz list
 	 _on_BackButton_pressed()
+
+
+func _on_ShareButton_pressed():
+	#Sharing the following info NEED to link to social media
+	print("Sharing "+global.customTitle)
+	print(global.customCreator)
+	print(global.customDate)
+	print(global.customTotalQn)
+	print(global.customWorlds)
+	print(global.customID)
