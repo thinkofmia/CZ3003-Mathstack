@@ -158,11 +158,17 @@ func updateUnlockCharsList(fields):
 	print(global.getListOfUnlockedCharactersName())
 
 func getListOfUnlockedCharactersName():
-	var namelist = []
-	for character in characterUnlockList:
-		if (character.state == "unlocked"):
+	if global.accountType != "Student":
+		var namelist = []
+		for character in characterUnlockList:
 			namelist.append(character.characterName)
-	return namelist
+		return namelist
+	else:
+		var namelist = []
+		for character in characterUnlockList:
+			if (character.state == "unlocked"):
+				namelist.append(character.characterName)
+		return namelist
 	
 	
 
