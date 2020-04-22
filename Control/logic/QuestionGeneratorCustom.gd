@@ -177,6 +177,7 @@ func correctAnswer():
 		#timer.stop()
 		hide()
 		yield(get_tree().create_timer(2.0), "timeout")
+		explanationNode.hide()
 		var completedText = get_tree().get_root().get_node("World").get_node("GUI").get_node("PlayBoard").get_node("CompleteQuiz")
 		completedText.show()
 		var quitButton = get_tree().get_root().get_node("World").get_node("GUI").get_node("QuitButton")
@@ -184,7 +185,7 @@ func correctAnswer():
 		yield(get_tree().create_timer(1.0), "timeout")
 		character.jump_to_end()
 		character.characterSpeak("Hooray!")
-		explanationNode.hide()
+		
 	else:
 		#Hide popup
 		yield(get_tree().create_timer(2.0), "timeout")

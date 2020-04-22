@@ -40,11 +40,12 @@ onready var Quiz := {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hideButtons()
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
 	$PlayBoard.hide() #Hide on startup
-	totalQn = 1 #Get total number of qns here
+	totalQn = 0 #Get total number of qns here
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
 	newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
 	qnList = $PlayBoard/Container/QnList
@@ -63,6 +64,13 @@ func _ready():
 		numLoadedQns = qns_info[0].size()
 		#for each questions in the array
 		for i in range(0,qns_info[0].size()):
+			#Add new instance
+			var addQn = newQnSet.instance()
+			#Change Question Name with its number
+			addQn.get_child(0).get_child(0).set_text("Qn #"+str(i+1)+": ")
+			addQn.get_child(7).hide() #Hide difficulty row
+			#Add qn to the list
+			qnList.add_child(addQn)
 			var qnSet = qnList.get_child(i)
 			#extract question attribute based on i
 			qns_display= (qns_info[0][i]['fields'])
@@ -79,24 +87,20 @@ func _ready():
 					includeExplanation = true
 				
 			if (!includeExplanation):
-				qnSet.get_child(5).get_child(1).set_text("") #Explanation
+				qnSet.get_child(6).get_child(1).set_text("") #Explanation
 			else:
-				qnSet.get_child(5).get_child(1).set_text(str(qns_display['Explanation'].values()[0])) #Explanation
-			#Hide difficulty section
-			qnSet.get_child(7).hide()	
-			totalQn +=1
-			#Add new instance
-			var addQn = newQnSet.instance()
-			#Change Question Name with its number
-			addQn.get_child(0).get_child(0).set_text("Qn #"+str(totalQn)+": ")
-			#Add qn to the list
-			qnList.add_child(addQn)
+				qnSet.get_child(6).get_child(1).set_text(str(qns_display['Explanation'].values()[0])) #Explanation
+			
+		totalQn = qns_info[0].size()
+	else: #If Quiz is new
+		_on_AddButton_pressed()
 	$PlayBoard.show() #Show after loading
 	
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Custom Mode Edit Display")
 		testPerformance.getTimeTaken()
+	showButtons()
 
 
 func _on_BackButton_pressed(): #Exit Scene
@@ -113,12 +117,24 @@ func _on_AddButton_pressed(): #Add new Qn
 	#Add qn to the list
 	qnList.add_child(addQn)
 
+func hideButtons():
+	$BackButton.hide()
+	$AddButton.hide()
+	$ConfirmButton.hide()
+
+func showButtons():
+	$BackButton.show()
+	$AddButton.show()
+	$ConfirmButton.show()
 
 func _on_ConfirmButton_pressed(): #Save Quiz
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
+	#Show Pop up, hide buttons
 	$PopUpControl.show()#Display confirmation msg
+	hideButtons()
+	#
 	var name = $PlayBoard/TitleRow/LineEdit2.get_text() #Quiz Title
 	print("Quiz Name: "+str(name)+" Total Qn: "+str(totalQn)) #Quiz Name and Total Qns
 	var date = str(OS.get_date().day)+"/"+str(OS.get_date().month)+"/"+str(OS.get_date().year) #Date of Creation/Update - Hard code for now
@@ -213,6 +229,11 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 
 		Quiz.NumQns={"stringValue":str(q)}
 		Firebase.update_document("CustomQuiz/%s"%str(name),Quiz, http)
+	
+	#Returns to my list
+	yield(get_tree().create_timer(2.0), "timeout")
+	_on_BackButton_pressed()
+	
 func set_Quiz(value: Dictionary) -> void:
 	Quiz=value
 	Id.text = str(Quiz.Id.stringValue)
@@ -233,7 +254,3 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 				existQuiz=true
 			if getQns == true:
 				qns=result_body
-
-
-func _on_QuitButton_pressed():
-	$PopUpControl.hide() #Hide pop up display
