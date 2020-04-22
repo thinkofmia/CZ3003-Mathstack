@@ -62,6 +62,7 @@ func _on_LoginButton_pressed():
 		#http request to get user progress
 		Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
 		yield(get_tree().create_timer(2.0), "timeout")
+		global.updateUnlockCharsList(global.save)
 		getAccountType=true
 		#http request to get account type
 		Firebase.get_document("users/%s" % Firebase.user_info.email, http)
