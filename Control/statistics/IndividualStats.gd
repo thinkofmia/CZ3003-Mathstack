@@ -29,7 +29,7 @@ onready var challenge_score = []
 onready var normal_scores = []
 onready var isLeaderboard
 var isAttempted = 0
-var no_attempt = 'Not Attempt'
+var no_attempt = '0'
 var challenge_text
 var display
 # Called when the node enters the scene tree for the first time.
