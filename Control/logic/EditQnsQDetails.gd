@@ -160,8 +160,8 @@ func hideButtons():
 
 func _on_DeleteButton_pressed():
 	var a = getID.find_last("/")
-	var b = getID.find_last("-")
-	var ID = getID.substr(a+1,b+2-a)
+	var b = getID.length()
+	var ID = getID.substr(a+1,b-a)
 	var format_string = "%s/%s"
 	var actual_string = format_string % [table,ID]
 	Firebase.delete_document(actual_string,http)

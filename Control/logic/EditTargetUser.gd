@@ -50,7 +50,7 @@ func _ready():
 		if user_display['nickname'].values()[0] == global.selectUserEdit:
 				getEmail = user_info[0][i]['name']
 				var a = getEmail.find_last("/")
-				var b = getEmail.find_last("m")
+				var b = getEmail.length()
 				getEmail = getEmail.substr((a+1),(b-a+1))
 				email.text=(getEmail)
 				account = user_display['account'].values()[0]
