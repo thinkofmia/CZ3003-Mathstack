@@ -88,7 +88,7 @@ margin_bottom = 561.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-items = [ "Item 0", null, false, "Item 1", null, false ]
+items = [ "Loading...", null, false ]
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3" instance=ExtResource( 2 )]
 margin_top = 591.0
