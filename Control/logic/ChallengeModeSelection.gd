@@ -3,6 +3,16 @@ var selectedBg = 1
 var musicBox
 var bg
 
+#Character Icons
+onready var sweeSoldier = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/SSIcon
+onready var humbleBee = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/HBIcon
+onready var riderRabbit = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/RRIcon
+onready var zestyZombie = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/ZZIcon
+onready var carefulCyborg = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/CCIcon
+onready var deadlyDino = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/DDIcon
+onready var fireFox = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/FFIcon
+onready var misterI = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/MrIIcon
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Find Bg node
@@ -20,6 +30,28 @@ func _ready():
 	#Timeout
 	yield(get_tree().create_timer(1.0), "timeout")
 	changeBg()
+	showCharacters()
+
+func showCharacters():
+	for character in global.getListOfUnlockedCharactersName():
+		match character:
+			"Swee Soldier":
+				sweeSoldier.show()
+			"Mister I":
+				misterI.show()
+			"Humble B":
+				humbleBee.show()
+			"Rider Rabbit":
+				riderRabbit.show()
+			"Zesty Zombie":
+				zestyZombie.show()
+			"Careful Cyborg":
+				carefulCyborg.show()
+			"Deadly Dino":
+				deadlyDino.show()
+			"Fire Fox":
+				fireFox.show()
+	
 
 func _on_GodotIcon_pressed():
 	global.characterSelected = "Godot"
