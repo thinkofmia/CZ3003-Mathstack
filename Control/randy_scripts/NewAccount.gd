@@ -59,7 +59,8 @@ func _on_Button_pressed():
 	var teachers_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/TeachersText.get_text()
 	var error_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/ErrorMessage
 	
-	if not "@" in email_text:
+	var emailFront = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/EmailText.get_text()
+	if "@" in emailFront:
 		errorMessage += "Invalid email. "
 		invalid = true		
 	#if email_text found in DB:
