@@ -136,7 +136,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	elif response_code == 200:
 		print("Accessed succesfully")
 		self.nickname = response_body.fields["nickname"]
-	pass # Replace with function body.
 	
 
 
@@ -149,3 +148,4 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	elif response_code == 200:
 		print("Accessed succesfully")
 		print(response_body)
+	
