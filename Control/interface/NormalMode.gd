@@ -112,6 +112,7 @@ func updateFirebaseUserProgress():
 			global.save['ScoreWorld' + str(currentWorldInt) + 'c']['stringValue'] = str(global.storyScore)
 	
 	Firebase.update_document("SaveData/%s" % str(global.username),global.save,http)	
+	global.updateUnlockCharsList(global.save)
 	
 func _on_QuitButton_pressed():
 	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
