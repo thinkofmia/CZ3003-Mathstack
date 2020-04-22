@@ -85,6 +85,7 @@ var save := {
 ##stat screen variable
 var statWorldSelected = 1
 var customViewingStats = false
+var viewingOverallStats = false
 
 
 var difficulty=""

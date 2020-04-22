@@ -204,7 +204,7 @@ expand_icon = true
 [node name="BackButton" parent="." index="7"]
 script = ExtResource( 2 )
 
-[node name="Header" type="Label" parent="." index="9"]
+[node name="Header" type="Label" parent="." index="8"]
 anchor_right = 1.0
 margin_left = 348.0
 margin_top = 23.0
@@ -222,7 +222,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextButton" type="Button" parent="." index="10"]
+[node name="NextButton" type="Button" parent="." index="9"]
 margin_left = 891.972
 margin_top = 491.624
 margin_right = 999.972
@@ -244,7 +244,7 @@ margin_right = 103.921
 margin_bottom = 73.4047
 text = "Enter World #1"
 
-[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="11"]
+[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="10"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
 [connection signal="request_completed" from="MYHTTPRequest" to="." method="_on_MYHTTPRequest_request_completed"]

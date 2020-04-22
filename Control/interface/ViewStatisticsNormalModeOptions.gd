@@ -29,4 +29,5 @@ func _on_ChooseByIndividual_pressed():
 
 
 func _on_ChooseByOverall_pressed():
-	pass # Replace with function body.
+	global.viewingOverallStats = true
+	get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")

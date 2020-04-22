@@ -175,7 +175,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Option2={"stringValue": option2}
 		Question.Option3={"stringValue": option3}
 		Question.Option4={"stringValue": option4}
-		Question.Ans={"integerValue": int(ans)}
+		Question.Ans={"stringValue": ans}
 		format_string = "%s?documentId=%s"
 		actual_string = format_string % ["Custom"+str(name),str(qnNum)]
 		#http request to save the question
