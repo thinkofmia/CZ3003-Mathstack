@@ -128,6 +128,8 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 func _on_DeleteButton_pressed():
 	##Fire base delete here
 	Firebase.delete_document("CustomQuiz/%s"%global.customTitle,http)
+	hideButtons()
+	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text("Deleting... ")
 	yield(get_tree().create_timer(2), "timeout")
 	#Return to quiz list
 	_on_BackButton_pressed()
