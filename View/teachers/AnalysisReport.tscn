@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://View/teachers/AnalysisReport.gd" type="Script" id=2]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+margin_bottom = 89.0
+text = "Analysis Report"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PlayBoard" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AverageCompletionLabel" type="Label" parent="PlayBoard/VSplitContainer" index="0"]
+margin_right = 539.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Loading:... "
+autowrap = true
+
+[node name="ItemList" type="ItemList" parent="PlayBoard/VSplitContainer" index="1"]
+margin_top = 49.0
+margin_right = 539.0
+margin_bottom = 384.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
+
+[node name="HTTPRequest2" type="HTTPRequest" parent="." index="4"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="HTTPRequest2" to="." method="_on_HTTPRequest2_request_completed"]
