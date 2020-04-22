@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="Header" parent="TemplateScreen" index="3"]
-text = "Manage Database: List of Students"
+text = "View Statistics: List of Students"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard" index="0"]
 margin_left = 23.0
