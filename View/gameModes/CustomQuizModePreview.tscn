@@ -166,6 +166,7 @@ margin_right = 539.0
 margin_bottom = 405.0
 
 [node name="EditButton" parent="." index="3" instance=ExtResource( 1 )]
+visible = false
 margin_left = 890.106
 margin_top = 497.291
 margin_right = 992.106
@@ -174,6 +175,7 @@ margin_bottom = 585.291
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 
 [node name="DeleteButton" parent="." index="5" instance=ExtResource( 4 )]
+visible = false
 margin_left = 891.214
 margin_top = 399.784
 margin_right = 993.214

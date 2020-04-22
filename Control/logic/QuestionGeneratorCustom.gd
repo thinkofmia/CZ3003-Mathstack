@@ -25,6 +25,7 @@ onready var op3
 onready var op4
 onready var ans
 onready var explanation
+onready var explanationNode = get_tree().get_root().get_node("World").find_node("CustomExplanation")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,7 +63,16 @@ func _ready():
 		op3Arr.append(question_display['Option3'].values()[0])
 		op4Arr.append(question_display['Option4'].values()[0])
 		ansArr.append(question_display['Ans'].values()[0])
-		#exArr.append(question_display['Explanation'].values()[0])
+		#Check if explanation exists
+		var includeExplanation = false
+		for key in question_display:
+			if (key=="Explanation"):
+				includeExplanation = true
+			
+		if (!includeExplanation):
+			exArr.append("It is what it is. ")
+		else:
+			exArr.append(question_display['Explanation'].values()[0])
 	#choose a random question
 	randomizeQuestion()
 	questions_left_text = get_tree().get_root().get_node("World").get_node("GUI").get_node("QnRemainBoard").get_node("NumOfQns")
@@ -95,6 +105,7 @@ func randomizeQuestion():
 	op2 = op2Arr[random]
 	op3 = op3Arr[random]
 	op4 = op4Arr[random]
+	explanation = exArr[random]
 	#extract the answer
 	var k = int(ansArr[random])
 	match k:
@@ -111,6 +122,8 @@ func randomizeQuestion():
 	option2.set_text(str(op2))
 	option3.set_text(str(op3))
 	option4.set_text(str(op4))
+	#Set explanation
+	explanationNode.find_node("Explanation").set_text(str(explanation))
 	#Set Question Label
 	if is_instance_valid(blockTower):
 		var level = blockTower.getNoOfBoxes()-1
@@ -121,6 +134,11 @@ func randomizeQuestion():
 	print("")
 
 func correctAnswer():
+	#Show popup
+	hide()
+	explanationNode.find_node("Outcome").set_text("Correct! ")
+	explanationNode.show()
+	#Play scene
 	print("Correct!")
 	#Play Sound
 	var sound = get_tree().get_root().get_node("World").find_node("CorrectSound")
@@ -158,6 +176,7 @@ func correctAnswer():
 		#var timer = get_tree().get_root().get_node("World").get_node("GUI").get_node("Timer")
 		#timer.stop()
 		hide()
+		yield(get_tree().create_timer(2.0), "timeout")
 		var completedText = get_tree().get_root().get_node("World").get_node("GUI").get_node("PlayBoard").get_node("CompleteQuiz")
 		completedText.show()
 		var quitButton = get_tree().get_root().get_node("World").get_node("GUI").get_node("QuitButton")
@@ -165,8 +184,19 @@ func correctAnswer():
 		yield(get_tree().create_timer(1.0), "timeout")
 		character.jump_to_end()
 		character.characterSpeak("Hooray!")
+		explanationNode.hide()
+	else:
+		#Hide popup
+		yield(get_tree().create_timer(2.0), "timeout")
+		show()
+		explanationNode.hide()
 
 func wrongAnswer():
+	#Show popup
+	hide()
+	explanationNode.find_node("Outcome").set_text("Wrong! ")
+	explanationNode.show()
+	#Play Scene
 	print("Wrong!")
 	#Play Sound
 	var sound = get_tree().get_root().get_node("World").find_node("WrongSound")
@@ -182,6 +212,10 @@ func wrongAnswer():
 	#Make Character speak!
 	character.characterSpeak("SHUCKS! That was wrong. ")
 	randomizeQuestion()
+	#Hide popup
+	yield(get_tree().create_timer(2.0), "timeout")
+	show()
+	explanationNode.hide()
 	
 func checkAnswer(option):
 	if (str(question[4])==option.get_text()):#Check if correct answer was click

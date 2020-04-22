@@ -55,11 +55,11 @@ __meta__ = {
 
 [node name="QnList" type="VBoxContainer" parent="PlayBoard/Container" index="0"]
 margin_right = 535.0
-margin_bottom = 285.0
+margin_bottom = 328.0
 custom_constants/separation = 20
 
 [node name="Qn1" parent="PlayBoard/Container/QnList" index="0" instance=ExtResource( 4 )]
-margin_bottom = 285.0
+margin_bottom = 328.0
 
 [node name="IDRow" type="HBoxContainer" parent="PlayBoard" index="2"]
 margin_left = 22.0

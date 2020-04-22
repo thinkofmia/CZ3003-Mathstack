@@ -71,7 +71,19 @@ func _ready():
 			qnSet.get_child(2).get_child(1).set_text(str(qns_display['Option2'].values()[0])) #Option 2
 			qnSet.get_child(3).get_child(1).set_text(str(qns_display['Option3'].values()[0])) #Option 3
 			qnSet.get_child(4).get_child(1).set_text(str(qns_display['Option4'].values()[0])) #Option 4
-			qnSet.get_child(5).get_child(1).set_text(str(qns_display['Ans'].values()[0])) #Option 1
+			qnSet.get_child(5).get_child(1).set_text(str(qns_display['Ans'].values()[0])) #Ans
+			#Check if explanation exists
+			var includeExplanation = false
+			for key in qns_display:
+				if (key=="Explanation"):
+					includeExplanation = true
+				
+			if (!includeExplanation):
+				qnSet.get_child(5).get_child(1).set_text("") #Explanation
+			else:
+				qnSet.get_child(5).get_child(1).set_text(str(qns_display['Explanation'].values()[0])) #Explanation
+			#Hide difficulty section
+			qnSet.get_child(7).hide()	
 			totalQn +=1
 			#Add new instance
 			var addQn = newQnSet.instance()
@@ -97,6 +109,7 @@ func _on_AddButton_pressed(): #Add new Qn
 	var addQn = newQnSet.instance()
 	#Change Question Name with its number
 	addQn.get_child(0).get_child(0).set_text("Qn #"+str(totalQn)+": ")
+	addQn.get_child(7).hide() #Hide difficulty section
 	#Add qn to the list
 	qnList.add_child(addQn)
 
@@ -139,7 +152,8 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 			var option2 = qnSet.get_child(2).get_child(1).get_text() #Option 2
 			var option3 = qnSet.get_child(3).get_child(1).get_text() #Option 3
 			var option4 = qnSet.get_child(4).get_child(1).get_text() #Option 4
-			var ans = qnSet.get_child(5).get_child(1).get_text() #Option 1
+			var ans = qnSet.get_child(5).get_child(1).get_text() #Ans
+			var explanation = qnSet.get_child(6).get_child(1).get_text() #Explanation
 			#Set Question attributes
 			Question.QuestionText={"stringValue": qnTitle}
 			Question.Option1={"stringValue": option1}
@@ -147,6 +161,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 			Question.Option3={"stringValue": option3}
 			Question.Option4={"stringValue": option4}
 			Question.Ans={"integerValue": int(ans)}
+			Question.Explanation={"stringValue": explanation}
 			format_string = "%s?documentId=%s"
 			actual_string = format_string % ["Custom"+str(id),str(qnNum)]
 			#http request to update the questions
@@ -168,7 +183,8 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		var option2 = qnSet.get_child(2).get_child(1).get_text() #Option 2
 		var option3 = qnSet.get_child(3).get_child(1).get_text() #Option 3
 		var option4 = qnSet.get_child(4).get_child(1).get_text() #Option 4
-		var ans = qnSet.get_child(5).get_child(1).get_text() #Option 1
+		var ans = qnSet.get_child(5).get_child(1).get_text() #Ans
+		var explanation = qnSet.get_child(6).get_child(1).get_text() #Option 1
 		#Set Question attributes
 		Question.QuestionText={"stringValue": qnTitle}
 		Question.Option1={"stringValue": option1}
@@ -176,6 +192,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Option3={"stringValue": option3}
 		Question.Option4={"stringValue": option4}
 		Question.Ans={"stringValue": ans}
+		Question.Explanation={"stringValue": explanation}
 		format_string = "%s?documentId=%s"
 		actual_string = format_string % ["Custom"+str(name),str(qnNum)]
 		#http request to save the question
@@ -187,6 +204,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		print("Q"+str(i)+": "+str(qnTitle)) #Print Qn No and Text
 		print(">Options: ["+str(option1)+", "+str(option2)+", "+str(option3)+", "+str(option4)+"]") #Print options 
 		print(">Ans: "+str(ans)) #Print correct ans
+		print(">Explanation: "+str(explanation)) #Print correct ans
 		print(" ")
 	#Performance Test
 	if (testPerformance.performanceCheck):
