@@ -12,7 +12,7 @@ var information_sent = false
 var get_info = false
 
 #Variables for screen
-onready var difficultySelected = $PlayBoard/MarginContainer/VBoxContainer/QnList/DifficultyRow/DifficultyOption
+onready var difficultySelected = $PlayBoard/MarginContainer/VBoxContainer/QnList/Qn1/DifficultyRow/DifficultyOption
 var difficultyArr = ["Easy","Intermediate","Advanced"]
 
 var Question := {

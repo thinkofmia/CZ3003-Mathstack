@@ -6,6 +6,7 @@ onready var http : HTTPRequest = $HTTPRequest
 var totalQn = 1 #Total No of Qn
 var newQnSet
 var qnList
+var difficultyArr = ["Easy","Intermediate","Advanced"]
 var Question := {
 	"QuestionText":{},
 	"Option1":{},
@@ -33,7 +34,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
 
 func _on_AddButton_pressed():
 	totalQn +=1

@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Control/logic/EditQnsQDetails.gd" type="Script" id=1]
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Model/Labels/Delete.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Model/Labels/Save.tscn" type="PackedScene" id=4]
 [ext_resource path="res://View/util/customQuestionSet.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Montserrat_24.tres" type="DynamicFont" id=6]
 
 [node name="World" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -32,48 +31,29 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 557.0
-margin_bottom = 455.0
+margin_bottom = 445.0
 custom_constants/separation = 10
 
 [node name="QnList" type="VBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="0"]
 margin_right = 537.0
-margin_bottom = 295.0
+margin_bottom = 285.0
 custom_constants/separation = 20
 
 [node name="Qn1" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="0" instance=ExtResource( 5 )]
 margin_right = 537.0
-margin_bottom = 248.0
+margin_bottom = 285.0
 
-[node name="DifficultyRow" type="HBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="1"]
-margin_top = 268.0
-margin_right = 537.0
-margin_bottom = 295.0
-
-[node name="DifficultyLabel" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer/QnList/DifficultyRow" index="0"]
-margin_top = 3.0
-margin_right = 84.0
-margin_bottom = 24.0
-custom_fonts/font = ExtResource( 6 )
-text = "Difficulty: "
-
-[node name="DifficultyOption" type="OptionButton" parent="PlayBoard/MarginContainer/VBoxContainer/QnList/DifficultyRow" index="1"]
-margin_left = 88.0
-margin_right = 245.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 6 )
-text = "Dummy Option"
-
-[node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="2"]
+[node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="1"]
 
 [node name="Button" parent="PlayBoard/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 4 )]
-margin_top = 305.0
+margin_top = 295.0
 margin_right = 537.0
-margin_bottom = 365.0
+margin_bottom = 355.0
 
 [node name="Button2" parent="PlayBoard/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 3 )]
-margin_top = 375.0
+margin_top = 365.0
 margin_right = 537.0
-margin_bottom = 435.0
+margin_bottom = 425.0
 [connection signal="request_completed" from="PlayBoard/MarginContainer/VBoxContainer/QnList/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

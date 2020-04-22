@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Montserrat_24.tres" type="DynamicFont" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -148,3 +149,22 @@ margin_bottom = 33.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 7 )
 text = "(Insert 1,2,3 or 4 here)"
+
+[node name="DifficultyRow" type="HBoxContainer" parent="."]
+margin_top = 258.0
+margin_right = 535.0
+margin_bottom = 285.0
+
+[node name="DifficultyLabel" type="Label" parent="DifficultyRow"]
+margin_top = 3.0
+margin_right = 84.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 3 )
+text = "Difficulty: "
+
+[node name="DifficultyOption" type="OptionButton" parent="DifficultyRow"]
+margin_left = 88.0
+margin_right = 245.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "Dummy Option"
