@@ -97,7 +97,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		if loginBool:
 				loginBool = false
 				#added this to be able to access username easily
-				global.username = username.text
+				global.username = username.text+"@e.ntu.edu.sg"
 		if getDataBool:
 			getDataBool = false
 		if getAccountType:
