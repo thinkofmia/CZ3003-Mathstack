@@ -1,11 +1,15 @@
 extends Node
 
 onready var http : HTTPRequest = $HTTPRequest
+onready var difficultySelected = $PlayBoard/MarginContainer/VBoxContainer/Container/QnList/Qn1/DifficultyRow/DifficultyOption
 
 #Variables
 var totalQn = 1 #Total No of Qn
 var newQnSet
 var qnList
+var dID
+var difficulty
+var d
 var difficultyArr = ["Easy","Intermediate","Advanced"]
 var Question := {
 	"QuestionText":{},
@@ -16,6 +20,9 @@ var Question := {
 	"Ans":{}
 }
 
+func addDifficultyOptions(): #Add scroll down box
+	for item in difficultyArr:
+		difficultySelected.add_item(item)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -29,7 +36,7 @@ func _ready():
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
 	newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
 	qnList = $PlayBoard/MarginContainer/VBoxContainer/Container/QnList
-
+	addDifficultyOptions()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -51,8 +58,7 @@ func _on_ConfirmButton_pressed():
 	#Qn saved
 	$PopUpControl.show()
 	#Added qn stuff
-	global.difficulty="Normal"
-	var getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
+	var getQuestions="NormalWorld"+global.worldSelected.substr(7,2)
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn 
 		print(i)
 		var qnSet = qnList.get_child(i-1) #Save as qn set
@@ -71,9 +77,20 @@ func _on_ConfirmButton_pressed():
 		Question.Option3={"stringValue": option3}
 		Question.Option4={"stringValue": option4}
 		Question.Ans={"stringValue": ans}
-		var format_string = "%s?documentId=DM-N-%s-R-%s"
+		dID = difficultySelected.get_selected_id()
+		difficulty = difficultySelected.get_item_text(dID)
+		match difficulty:
+			"Easy":d="E"
+			"Intermediate":d="I"
+			"Advanced":d="A"
+		var format_string = "%s?documentId=DM-N-%s-%s-%s"
 		var random = int(floor(rand_range(0,100)))
-		var actual_string = format_string % [getQuestions,global.worldSelected.substr(7,1),random]
+		var world
+		if int(global.worldSelected.substr(7,2))<10:
+			world = "0"+global.worldSelected.substr(7,2)
+		else:
+			world =global.worldSelected.substr(7,2)
+		var actual_string = format_string % [getQuestions,world,d,random]
 		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)
 		yield(get_tree().create_timer(2.0), "timeout")

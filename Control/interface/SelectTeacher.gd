@@ -27,7 +27,7 @@ func _ready():
 	#var totalNoUsers = 5
 	teacher_info = (teachers.values())
 	var totalNoUsers = teacher_info[0].size()
-	#Loop based on No of students 
+	#Loop based on No of teachers
 	for i in range (0,totalNoUsers):
 		#extract question attribute based on i
 		teacher_display= (teacher_info[0][i]['fields'])
