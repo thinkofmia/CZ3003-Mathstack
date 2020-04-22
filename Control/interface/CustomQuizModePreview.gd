@@ -11,7 +11,10 @@ var Quiz := {
 }
 
 func _ready():
-	Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+	if global.customTitle!="":
+		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+	else:
+		Firebase.get_document("CustomQuiz/%s"%global.customID, http)
 	yield(get_tree().create_timer(2), "timeout")
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
