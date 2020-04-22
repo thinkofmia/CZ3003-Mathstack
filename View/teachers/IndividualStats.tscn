@@ -66,10 +66,10 @@ text = "0"
 
 [node name="World1End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World1Row" index="2"]
 margin_left = 193.0
-margin_right = 257.0
+margin_right = 264.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World2Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="2"]
 margin_top = 88.0
@@ -91,10 +91,10 @@ text = "0"
 
 [node name="World2End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World2Row" index="2"]
 margin_left = 200.0
-margin_right = 264.0
+margin_right = 271.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World3Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="3"]
 margin_top = 132.0
@@ -116,10 +116,10 @@ text = "0"
 
 [node name="World3End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World3Row" index="2"]
 margin_left = 200.0
-margin_right = 264.0
+margin_right = 271.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World4Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="4"]
 margin_top = 176.0
@@ -141,10 +141,10 @@ text = "0"
 
 [node name="World4End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World4Row" index="2"]
 margin_left = 203.0
-margin_right = 267.0
+margin_right = 274.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World5Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="5"]
 margin_top = 220.0
@@ -166,10 +166,10 @@ text = "0"
 
 [node name="World5End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World5Row" index="2"]
 margin_left = 200.0
-margin_right = 264.0
+margin_right = 271.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World6Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="6"]
 margin_top = 264.0
@@ -191,10 +191,10 @@ text = "0"
 
 [node name="World6End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World6Row" index="2"]
 margin_left = 201.0
-margin_right = 265.0
+margin_right = 272.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World7Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="7"]
 margin_top = 308.0
@@ -216,10 +216,10 @@ text = "0"
 
 [node name="World7End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World7Row" index="2"]
 margin_left = 200.0
-margin_right = 264.0
+margin_right = 271.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World8Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="8"]
 margin_top = 352.0
@@ -241,10 +241,10 @@ text = "0"
 
 [node name="World8End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World8Row" index="2"]
 margin_left = 202.0
-margin_right = 266.0
+margin_right = 273.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
-text = " / 10"
+text = " / 30"
 
 [node name="World9Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="9"]
 margin_top = 396.0
@@ -295,4 +295,7 @@ margin_right = 279.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 3 )
 text = " / 10"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

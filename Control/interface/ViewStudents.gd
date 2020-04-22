@@ -34,11 +34,14 @@ func _ready():
 		#extract question attribute based on i
 		student_display= (student_info[0][i]['fields'])
 		print(str(student_display['account'].values()[0]))
+		var temp = student_info[0][i]['name']
+		temp = temp.right(61)
 		if student_display['account'].values()[0] == "Student":
 				#Add new instance
 				var addButton = newButton.instance()
 				#Change button name to quiz name
-				addButton.set_text(str(student_display['nickname'].values()[0]))
+				addButton.set_text(str(temp))
+				#addButton.set_text(str(student_display['nickname'].values()[0]))
 				#Add quiz button to the list
 				studentList.add_child(addButton)
 
