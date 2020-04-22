@@ -22,12 +22,14 @@ func hideButtons(): #Hide all buttons while loading.
 	$LeaderBoardButton.hide()
 	$PlayButton.hide()
 	$ShareButton.hide()
+	$FBButton.hide()
 	
 func showButtons():
 	$QuitButton.show()
 	$LeaderBoardButton.show()
 	$PlayButton.show()
 	$ShareButton.show()
+	$FBButton.show()
 
 func showLabels():
 	$PlayBoard/HighscoreRow.show()
@@ -109,6 +111,11 @@ func _on_LeaderBoardButton_pressed():
 func _on_ShareButton_pressed():
 	var tweet = "https://twitter.com/intent/tweet?text="
 	OS.shell_open(tweet+message)
+
+
+func _on_FBButton_pressed():
+	var facebook = "http://www.facebook.com/sharer.php?s=100&p[title]=MyHighScore&p[url]=http://www.facebook.com&p[summary]="
+	OS.shell_open(facebook+message)
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary

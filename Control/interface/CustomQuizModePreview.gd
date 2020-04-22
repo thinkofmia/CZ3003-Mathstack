@@ -83,3 +83,4 @@ func _on_ShareButton_pressed():
 	print(global.customTotalQn)
 	print(global.customWorlds)
 	print(global.customID)
+	

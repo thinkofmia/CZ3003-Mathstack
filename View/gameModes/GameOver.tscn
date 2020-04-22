@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/PlayAgainButton.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Model/buttons/ShareButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Model/buttons/FBButton.tscn" type="PackedScene" id=11]
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
@@ -179,10 +180,10 @@ margin_right = 884.318
 margin_bottom = 594.699
 
 [node name="PlayButton" parent="." index="5" instance=ExtResource( 2 )]
-margin_left = 535.524
-margin_top = 506.059
-margin_right = 637.524
-margin_bottom = 594.059
+margin_left = 657.524
+margin_top = 505.059
+margin_right = 759.524
+margin_bottom = 593.059
 script = ExtResource( 4 )
 
 [node name="Block" parent="." index="7" instance=ExtResource( 6 )]
@@ -194,13 +195,20 @@ position = Vector2( 107.47, 418.994 )
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="9"]
 
 [node name="ShareButton" parent="." index="10" instance=ExtResource( 8 )]
-margin_left = 663.463
-margin_top = 507.0
-margin_right = 765.463
-margin_bottom = 595.0
+margin_left = 183.463
+margin_top = 506.0
+margin_right = 285.463
+margin_bottom = 594.0
 
 [node name="HTTPRequest2" type="HTTPRequest" parent="." index="11"]
+
+[node name="FBButton" parent="." index="12" instance=ExtResource( 11 )]
+margin_left = 297.463
+margin_top = 505.0
+margin_right = 399.463
+margin_bottom = 593.0
 [connection signal="pressed" from="LeaderBoardButton" to="." method="_on_LeaderBoardButton_pressed"]
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ShareButton" to="." method="_on_ShareButton_pressed"]
+[connection signal="pressed" from="FBButton" to="." method="_on_FBButton_pressed"]
