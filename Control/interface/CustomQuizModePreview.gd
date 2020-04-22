@@ -109,6 +109,6 @@ func _on_RedditButton_pressed():
 	OS.shell_open(url+message)
 
 func _on_FBButton_pressed():
-	var facebook = "http://www.facebook.com/sharer.php?s=100&p[title]=MyHighScore&p[summary]="
+	var facebook = "http://www.facebook.com/sharer.php?s=100&p[title]=PlayThisQuiz&p[summary]="
 	OS.shell_open(facebook+message)
 
