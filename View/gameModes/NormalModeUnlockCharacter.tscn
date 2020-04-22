@@ -336,7 +336,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 8 )
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 
@@ -354,7 +354,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 9
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -363,7 +363,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 11
+frame = 1
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -387,7 +387,7 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 14 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
