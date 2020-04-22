@@ -151,6 +151,9 @@ func updateUnlockCharsList(fields):
 			var progress = fields[associatedWorld]['stringValue']
 			if (progress == "3"):
 				character['state'] = "unlocked"
+	
+	print("Updated unlocked characters list")
+	print(global.getListOfUnlockedCharactersName())
 
 func getListOfUnlockedCharactersName():
 	var namelist = []
