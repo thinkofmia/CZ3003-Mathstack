@@ -18,12 +18,13 @@ var regSucc=false
 var	login=false
 var loginSucc=false
 var save=false
+var accountExist = false
 var profile := {
 	"account":{},
 	"nickname":{},
 	"schoolId":{},
 	"classId":{}
-} 
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,7 +46,7 @@ func add_school():
 func add_class():
 	for item in class_array:
 		class1.add_item(item)
-		
+
 func _on_Button2_pressed():
 	get_tree().change_scene("res://View/Screens_Randy/LoginScreen.tscn")
 
@@ -53,29 +54,30 @@ func _on_Button2_pressed():
 func _on_Button_pressed():
 	var errorMessage = ""
 	var invalid = false
+	accountExist = false
 	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/EmailText.get_text()+"@e.ntu.edu.sg"
 	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PasswordText.get_text()
 	var nickname_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/NicknameText.get_text()
 	var teachers_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/TeachersText.get_text()
 	var error_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/ErrorMessage
-	
+	error_text.hide()
 	var emailFront = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/EmailText.get_text()
 	if "@" in emailFront:
 		errorMessage += "Invalid email. "
-		invalid = true		
+		invalid = true
 	#if email_text found in DB:
 	#	errorMessage += "Email address already taken."
 	if password_text.length() < 8:
 		errorMessage += "Password should be at least 8 characters long. "
 		invalid = true
-	
+
 	var password_contains_digit = false
 	#var password_contains_special = false
-	
+
 	for character in password_text:
 		if character.is_valid_integer():
 			password_contains_digit = true
-			
+
 	if !password_contains_digit:
 		errorMessage += "Password should contain a number. "
 		invalid = true
@@ -83,7 +85,7 @@ func _on_Button_pressed():
 	if invalid == true:
 		error_text.set_text(errorMessage)
 		error_text.show()
-	
+
 	else:
 		#Test Performance for Registering New Account
 		if (testPerformance.performanceCheck):
@@ -93,37 +95,48 @@ func _on_Button_pressed():
 		reg=true
 		#set Username
 		var newUsername = username.text+"@e.ntu.edu.sg"
-		#http request to register an account		
+		#http request to register an account
+
+		#check if account already exist
 		Firebase.register(newUsername, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
-		login=true
-		#http request to login using the created account
-		Firebase.login(newUsername, password.text, http)
-		yield(get_tree().create_timer(10.0), "timeout")
-		save=true
-		#set profile attributes
-		#check if the account is a teacher account
-		if teachers_text == "T":
-			profile.account = {"stringValue": "Teacher"}
-		elif teachers_text == "A": #Admin Acc
-			profile.account = {"stringValue": "Admin"}
-		else :
-			profile.account = {"stringValue": "Student"}
-		profile.nickname = {"stringValue":nickname_text}
-		profile.classId = { "integerValue": class1.get_selected_id() }
-		profile.schoolId = {"integerValue": school.get_selected_id() }
-		if (fullname.get_text()==""):
-			profile.fullname = {"stringValue":"Jane Doe"}
+		if accountExist:
+			error_text.set_text("Error! Account Already Exist")
+			error_text.show()
+			
 		else:
-			profile.fullname = {"stringValue":fullname.get_text()}
-		profile.character = {"stringValue":"Godot"}
-		#http request to save profile
-		Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
+			login=true
+			#http request to login using the created account
+			Firebase.login(newUsername, password.text, http)
+			yield(get_tree().create_timer(10.0), "timeout")
+			save=true
+			#set profile attributes
+			#check if the account is a teacher account
+			if teachers_text == "T":
+				profile.account = {"stringValue": "Teacher"}
+			elif teachers_text == "A": #Admin Acc
+				profile.account = {"stringValue": "Admin"}
+			else :
+				profile.account = {"stringValue": "Student"}
+			profile.nickname = {"stringValue":nickname_text}
+			profile.classId = { "integerValue": class1.get_selected_id() }
+			profile.schoolId = {"integerValue": school.get_selected_id() }
+			if (fullname.get_text()==""):
+				profile.fullname = {"stringValue":"Jane Doe"}
+			else:
+				profile.fullname = {"stringValue":fullname.get_text()}
+			profile.character = {"stringValue":"Godot"}
+			#http request to save profile
+			Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
 	#zfCt7yOk8TQ1f7QcPegfnEpDnJf2
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
+
+	if response_code == 400:
+		accountExist = true
+
 	if response_code == 200:
 		if reg==true:
 			regSucc=true
@@ -141,5 +154,3 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 func _on_OptionButton3_item_selected(id):
 	pass # Replace with function body.
-
-
