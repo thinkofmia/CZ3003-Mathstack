@@ -371,7 +371,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 7
+frame = 1
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="15"]
