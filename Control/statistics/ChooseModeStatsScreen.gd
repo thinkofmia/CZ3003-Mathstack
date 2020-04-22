@@ -31,3 +31,7 @@ func _on_Leaderboard_pressed():
 func _on_Custom_pressed():
 	global.customViewingStats = true
 	get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
+
+
+func _on_OverallStatistics_pressed():
+	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")

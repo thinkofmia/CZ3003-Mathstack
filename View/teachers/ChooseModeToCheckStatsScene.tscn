@@ -18,7 +18,7 @@
 [ext_resource path="res://Model/Labels/CustomMode.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Model/Labels/TeachersHeader.tscn" type="PackedScene" id=18]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 14 ) ],
 "loop": true,
@@ -66,11 +66,12 @@ margin_bottom = 565.0
 scene_to_load = "res://View/Screens_Randy/MainMenuTeachers.tscn"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+visible = false
 position = Vector2( 542.172, 181.405 )
 scale = Vector2( 0.487084, 0.531251 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "idle"
-frame = 9
+frame = 2
 playing = true
 flip_h = true
 

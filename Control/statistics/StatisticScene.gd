@@ -28,7 +28,10 @@ func _ready():
 		Firebase.get_document("%s" % "users", http)
 		Firebase.get_document("%s" % "SaveData",http2)
 		#Set Title Label
-		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.set_text("Class: "+global.userClass)
+		if global.viewingOverallStats:
+			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.set_text("Overall Statistics")
+		else:
+			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.set_text("Class: "+global.userClass)
 
 
 func doViewingCustomStatsSteps():
@@ -64,6 +67,7 @@ func constructListWithData(listData):
 	
 
 func _on_Button_pressed():
+	global.viewingOverallStats = false
 	if global.customViewingStats:
 		get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
 	else:
@@ -88,7 +92,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			for student in tempStudents:
 				print(student.fields.classId)
 				print(student.name.split("/")[-1])
-				if (global.accountType == "Admin" || (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username)):
+				if (global.accountType == "Admin" || global.viewingOverallStats == true || (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username)):
 					students.append(student.name.split("/")[-1])
 					#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "ClassId: " + str(student.fields.classId.integerValue)
 					classId = student.fields.classId.integerValue
