@@ -23,6 +23,7 @@ var testMode = false
 
 #For Admins
 var targetType = "Student"
+var selectedTarget = "" #Selected user target
 var selectUserEdit="" #get the name of the selected user for edit
 var selectQn = "" #Get name of qn selected
 

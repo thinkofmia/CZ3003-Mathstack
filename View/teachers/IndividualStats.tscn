@@ -1,0 +1,298 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Control/statistics/IndividualStats.gd" type="Script" id=2]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=3]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "View Statistics by Individual: Username"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard" index="0"]
+margin_left = 29.0
+margin_right = 562.0
+margin_bottom = 381.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatsDisplay" type="VBoxContainer" parent="PlayBoard/ScrollContainer" index="0"]
+margin_right = 402.0
+margin_bottom = 480.0
+
+[node name="ChallengeRow" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="0"]
+margin_right = 402.0
+margin_bottom = 40.0
+
+[node name="ChallengeLabel" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/ChallengeRow" index="0"]
+margin_right = 286.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "Challenge Mode: "
+
+[node name="ChallengeScore" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/ChallengeRow" index="1"]
+margin_left = 290.0
+margin_right = 312.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="ChallengeMaxScore" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/ChallengeRow" index="2"]
+margin_left = 316.0
+margin_right = 402.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 100"
+
+[node name="World1Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="1"]
+margin_top = 44.0
+margin_right = 402.0
+margin_bottom = 84.0
+
+[node name="World1Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World1Row" index="0"]
+margin_right = 163.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #1: "
+
+[node name="World1Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World1Row" index="1"]
+margin_left = 167.0
+margin_right = 189.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World1End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World1Row" index="2"]
+margin_left = 193.0
+margin_right = 257.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World2Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="2"]
+margin_top = 88.0
+margin_right = 402.0
+margin_bottom = 128.0
+
+[node name="World2Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World2Row" index="0"]
+margin_right = 170.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #2: "
+
+[node name="World2Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World2Row" index="1"]
+margin_left = 174.0
+margin_right = 196.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World2End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World2Row" index="2"]
+margin_left = 200.0
+margin_right = 264.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World3Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="3"]
+margin_top = 132.0
+margin_right = 402.0
+margin_bottom = 172.0
+
+[node name="World3Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World3Row" index="0"]
+margin_right = 170.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #3: "
+
+[node name="World3Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World3Row" index="1"]
+margin_left = 174.0
+margin_right = 196.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World3End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World3Row" index="2"]
+margin_left = 200.0
+margin_right = 264.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World4Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="4"]
+margin_top = 176.0
+margin_right = 402.0
+margin_bottom = 216.0
+
+[node name="World4Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World4Row" index="0"]
+margin_right = 173.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #4: "
+
+[node name="World4Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World4Row" index="1"]
+margin_left = 177.0
+margin_right = 199.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World4End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World4Row" index="2"]
+margin_left = 203.0
+margin_right = 267.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World5Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="5"]
+margin_top = 220.0
+margin_right = 402.0
+margin_bottom = 260.0
+
+[node name="World5Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World5Row" index="0"]
+margin_right = 170.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #5: "
+
+[node name="World5Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World5Row" index="1"]
+margin_left = 174.0
+margin_right = 196.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World5End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World5Row" index="2"]
+margin_left = 200.0
+margin_right = 264.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World6Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="6"]
+margin_top = 264.0
+margin_right = 402.0
+margin_bottom = 304.0
+
+[node name="World6Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World6Row" index="0"]
+margin_right = 171.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #6: "
+
+[node name="World6Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World6Row" index="1"]
+margin_left = 175.0
+margin_right = 197.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World6End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World6Row" index="2"]
+margin_left = 201.0
+margin_right = 265.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World7Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="7"]
+margin_top = 308.0
+margin_right = 402.0
+margin_bottom = 348.0
+
+[node name="World7Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World7Row" index="0"]
+margin_right = 170.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #7: "
+
+[node name="World7Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World7Row" index="1"]
+margin_left = 174.0
+margin_right = 196.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World7End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World7Row" index="2"]
+margin_left = 200.0
+margin_right = 264.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World8Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="8"]
+margin_top = 352.0
+margin_right = 402.0
+margin_bottom = 392.0
+
+[node name="World8Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World8Row" index="0"]
+margin_right = 172.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #8: "
+
+[node name="World8Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World8Row" index="1"]
+margin_left = 176.0
+margin_right = 198.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World8End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World8Row" index="2"]
+margin_left = 202.0
+margin_right = 266.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World9Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="9"]
+margin_top = 396.0
+margin_right = 402.0
+margin_bottom = 436.0
+
+[node name="World9Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World9Row" index="0"]
+margin_right = 171.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #9: "
+
+[node name="World9Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World9Row" index="1"]
+margin_left = 175.0
+margin_right = 197.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World9End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World9Row" index="2"]
+margin_left = 201.0
+margin_right = 265.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+
+[node name="World10Row" type="HBoxContainer" parent="PlayBoard/ScrollContainer/StatsDisplay" index="10"]
+margin_top = 440.0
+margin_right = 402.0
+margin_bottom = 480.0
+
+[node name="World10Label" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World10Row" index="0"]
+margin_right = 185.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "World #10: "
+
+[node name="World10Score" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World10Row" index="1"]
+margin_left = 189.0
+margin_right = 211.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+
+[node name="World10End" type="Label" parent="PlayBoard/ScrollContainer/StatsDisplay/World10Row" index="2"]
+margin_left = 215.0
+margin_right = 279.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = " / 10"
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
