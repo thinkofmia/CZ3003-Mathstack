@@ -68,18 +68,27 @@ func _on_ConfirmButton_pressed():
 		Question.Option2={"stringValue": option2}
 		Question.Option3={"stringValue": option3}
 		Question.Option4={"stringValue": option4}
-		Question.Ans={"integerValue": int(ans)}
-		var format_string = "%s?documentId=%s"
+		Question.Ans={"stringValue": ans}
+		var format_string = "%s?documentId=DM-N-%s-R-%s"
 		var random = int(floor(rand_range(0,100)))
-		var actual_string = format_string % [getQuestions,str(random)]
+		var actual_string = format_string % [getQuestions,global.worldSelected.substr(7,1),random]
 		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		
 
 
-func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	pass # Replace with function body.
+func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	print(result_body)
+	print(response_code)
+	match response_code:
+		#error
+		404:
+			return
+		#success
+		200:
+			return
 
 
 func _on_BackButton_pressed():

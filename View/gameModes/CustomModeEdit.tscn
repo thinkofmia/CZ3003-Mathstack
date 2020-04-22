@@ -84,21 +84,21 @@ margin_bottom = 39.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
 
-[node name="AddButton" parent="." index="4" instance=ExtResource( 2 )]
+[node name="AddButton" parent="." index="3" instance=ExtResource( 2 )]
 margin_left = 901.0
 margin_top = 488.0
 margin_right = 995.0
 margin_bottom = 576.0
 
-[node name="ConfirmButton" parent="." index="5" instance=ExtResource( 6 )]
+[node name="ConfirmButton" parent="." index="4" instance=ExtResource( 6 )]
 margin_left = 897.082
 margin_top = 387.629
 margin_right = 999.082
 margin_bottom = 475.629
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." index="6"]
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="5"]
 
-[node name="PopUpControl" type="Control" parent="." index="7"]
+[node name="PopUpControl" type="Control" parent="." index="6"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
