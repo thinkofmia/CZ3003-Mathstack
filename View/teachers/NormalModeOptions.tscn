@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Control/interface/ViewStatisticsNormalModeOptions.gd" type="Script" id=4]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "View Statistics: Normal Mode Options"
+
+[node name="ViewLabel" type="Label" parent="PlayBoard" index="0"]
+margin_left = 43.0
+margin_top = -27.0
+margin_right = 532.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "View By"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="PlayBoard" index="1"]
+margin_left = 43.0
+margin_top = 53.0
+margin_right = 532.0
+margin_bottom = 322.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChooseByIndividual" type="Button" parent="PlayBoard/Menu" index="0"]
+margin_right = 489.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 75 )
+custom_fonts/font = ExtResource( 2 )
+text = "Individual"
+
+[node name="ChooseByClass" type="Button" parent="PlayBoard/Menu" index="1"]
+margin_top = 105.0
+margin_right = 489.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 75 )
+custom_fonts/font = ExtResource( 2 )
+text = "Class"
+
+[node name="ChooseByOverall" type="Button" parent="PlayBoard/Menu" index="2"]
+margin_top = 210.0
+margin_right = 489.0
+margin_bottom = 285.0
+rect_min_size = Vector2( 0, 75 )
+custom_fonts/font = ExtResource( 2 )
+text = "Overall"
+[connection signal="pressed" from="PlayBoard/Menu/ChooseByIndividual" to="." method="_on_ChooseByIndividual_pressed"]
+[connection signal="pressed" from="PlayBoard/Menu/ChooseByClass" to="." method="_on_ChooseByClass_pressed"]
+[connection signal="pressed" from="PlayBoard/Menu/ChooseByOverall" to="." method="_on_ChooseByOverall_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

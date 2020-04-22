@@ -70,7 +70,7 @@ position = Vector2( 542.172, 181.405 )
 scale = Vector2( 0.487084, 0.531251 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 6
+frame = 9
 playing = true
 flip_h = true
 

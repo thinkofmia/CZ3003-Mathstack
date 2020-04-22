@@ -17,7 +17,7 @@ func _on_FadeIn_fade_finished():
 
 
 func _on_Normal_pressed():
-	get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")
+	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")
 
 
 func _on_Back_pressed():
