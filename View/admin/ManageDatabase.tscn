@@ -19,18 +19,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddQuestions" type="Button" parent="PlayBoard/ButtonRow" index="0"]
-margin_right = 256.0
+[node name="EditQuestions" type="Button" parent="PlayBoard/ButtonRow" index="0"]
+margin_right = 254.0
 margin_bottom = 367.0
 custom_fonts/font = ExtResource( 1 )
-text = "Add Questions"
+text = "Edit Questions"
 
 [node name="ManageProfiles" type="Button" parent="PlayBoard/ButtonRow" index="1"]
-margin_left = 269.0
-margin_right = 546.0
+margin_left = 267.0
+margin_right = 544.0
 margin_bottom = 367.0
 custom_fonts/font = ExtResource( 1 )
 text = "Manage Profiles"
-[connection signal="pressed" from="PlayBoard/ButtonRow/AddQuestions" to="." method="_on_AddQuestions_pressed"]
+[connection signal="pressed" from="PlayBoard/ButtonRow/EditQuestions" to="." method="_on_EditQuestions_pressed"]
 [connection signal="pressed" from="PlayBoard/ButtonRow/ManageProfiles" to="." method="_on_ManageProfiles_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

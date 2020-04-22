@@ -1,9 +1,9 @@
 extends Button
 
-func _on_UserButton_pressed():
+func _on_editQnButton_pressed():
 	#Display user selected
-	print("User Selected: "+get_text())
+	print("Qn Selected: "+get_text())
 	#store name to global selectUserEdit
-	global.selectUserEdit=get_text()
+	global.selectQn=get_text()
 	#Change Scene
-	get_tree().change_scene("res://View/admin/EditTarget.tscn")
+	get_tree().change_scene("res://View/teachers/EditQnsQDetails.tscn")

@@ -7,9 +7,7 @@ func _ready():
 		$PlayBoard/ButtonRow/ManageProfiles.hide()#Teachers don't have access
 
 
-
-
-func _on_AddQuestions_pressed():
+func _on_EditQuestions_pressed():
 	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")
 
 

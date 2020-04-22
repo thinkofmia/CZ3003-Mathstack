@@ -11,6 +11,10 @@ onready var ans : LineEdit = $PlayBoard/MarginContainer/VBoxContainer/QnList/Qn1
 var information_sent = false
 var get_info = false
 
+#Variables for screen
+onready var difficultySelected = $PlayBoard/MarginContainer/VBoxContainer/QnList/DifficultyRow/DifficultyOption
+var difficultyArr = ["Easy","Intermediate","Advanced"]
+
 var Question := {
 	"QuestionText":{},
 	"Option1":{},
@@ -20,16 +24,26 @@ var Question := {
 	"Ans":{}
 } setget set_question
 
+func addDifficultyOptions(): #Add scroll down box
+	for item in difficultyArr:
+		difficultySelected.add_item(item)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayBoard/MarginContainer/VBoxContainer/QnList/Qn1/QnTextRow/QnTextLabel.hide()
-	var getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
+	
+	#Set difficulty node
+	addDifficultyOptions()
+	#If saving difficulty too hard, set it as easy by default
+	
+	#var getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
 	get_info = true
+	
 	#var questionId
 	#format_string = "%s?documentId=%s"
 	#actual_string = format_string % [getQuestions,questionId]
 	#Firebase.get_document(actual_string, http)
-	Firebase.get_document("NormalWorld1/test", http)
+	#Firebase.get_document("NormalWorld1/test", http)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -37,7 +51,7 @@ func _ready():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://View/teachers/EditQnsQList.tscn")
+	get_tree().change_scene("res://View/teachers/SelectQuestion.tscn")
 
 
 func _on_HTTPRequest_request_completedd(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:

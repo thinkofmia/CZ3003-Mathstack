@@ -62,21 +62,21 @@ custom_constants/separation = 20
 [node name="Qn1" parent="PlayBoard/MarginContainer/VBoxContainer/Container/QnList" index="0" instance=ExtResource( 4 )]
 margin_bottom = 248.0
 
-[node name="AddButton" parent="." index="4" instance=ExtResource( 5 )]
+[node name="AddButton" parent="." index="3" instance=ExtResource( 5 )]
 margin_left = 901.0
 margin_top = 488.0
 margin_right = 995.0
 margin_bottom = 576.0
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." index="5"]
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 
-[node name="ConfirmButton" parent="." index="6" instance=ExtResource( 3 )]
+[node name="ConfirmButton" parent="." index="5" instance=ExtResource( 3 )]
 margin_left = 897.082
 margin_top = 387.629
 margin_right = 999.082
 margin_bottom = 475.629
 
-[node name="PopUpControl" type="Control" parent="." index="7"]
+[node name="PopUpControl" type="Control" parent="." index="6"]
 visible = false
 margin_left = -3.14642
 margin_top = 4.46556
@@ -120,6 +120,7 @@ margin_left = 671.822
 margin_top = 113.911
 margin_right = 773.822
 margin_bottom = 201.911
+script = null
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

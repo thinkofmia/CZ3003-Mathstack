@@ -22,7 +22,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 script = ExtResource( 4 )
 
 [node name="Header" parent="TemplateScreen" index="3"]
-text = "ADD QUESTIONS"
+text = "Manage Database: Edit Question Bank"
 
 [node name="PlayBoard" parent="." index="1"]
 margin_top = 91.0
@@ -84,6 +84,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #1"
 expand_icon = true
+script = null
 
 [node name="WorldButton #3" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer" index="1" instance=ExtResource( 2 )]
 margin_top = 77.0
@@ -94,6 +95,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #3"
 expand_icon = true
+script = null
 
 [node name="WorldButton #5" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer" index="2" instance=ExtResource( 2 )]
 margin_top = 154.0
@@ -104,6 +106,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #5"
 expand_icon = true
+script = null
 
 [node name="WorldButton #7" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer" index="3" instance=ExtResource( 2 )]
 margin_top = 231.0
@@ -114,6 +117,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #7"
 expand_icon = true
+script = null
 
 [node name="WorldButton #9" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer" index="4" instance=ExtResource( 2 )]
 margin_top = 308.0
@@ -124,6 +128,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #9"
 expand_icon = true
+script = null
 
 [node name="RightContainer" type="VBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer" index="1"]
 margin_left = 273.0
@@ -141,6 +146,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #2"
 expand_icon = true
+script = null
 
 [node name="WorldButton #4" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer" index="1" instance=ExtResource( 2 )]
 margin_top = 77.0
@@ -151,6 +157,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #4"
 expand_icon = true
+script = null
 
 [node name="WorldButton #6" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer" index="2" instance=ExtResource( 2 )]
 margin_top = 154.0
@@ -161,6 +168,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #6"
 expand_icon = true
+script = null
 
 [node name="WorldButton #8" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer" index="3" instance=ExtResource( 2 )]
 margin_top = 231.0
@@ -171,6 +179,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #8"
 expand_icon = true
+script = null
 
 [node name="WorldButton #10" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer" index="4" instance=ExtResource( 2 )]
 margin_top = 308.0
@@ -181,10 +190,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "World #10"
 expand_icon = true
+script = null
 
-[node name="FadeIn" parent="." index="4" instance=ExtResource( 6 )]
+[node name="FadeIn" parent="." index="3" instance=ExtResource( 6 )]
 visible = false
 script = SubResource( 1 )
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer/WorldButton #1" to="." method="_on_WorldButton_1_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer/WorldButton #3" to="." method="_on_WorldButton_3_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer/WorldButton #5" to="." method="_on_WorldButton_5_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer/WorldButton #7" to="." method="_on_WorldButton_7_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/LeftContainer/WorldButton #9" to="." method="_on_WorldButton_9_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer/WorldButton #2" to="." method="_on_WorldButton_2_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer/WorldButton #4" to="." method="_on_WorldButton_4_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer/WorldButton #6" to="." method="_on_WorldButton_6_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer/WorldButton #8" to="." method="_on_WorldButton_8_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer/RightContainer/WorldButton #10" to="." method="_on_WorldButton_10_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

@@ -43,12 +43,14 @@ func _on_AddButton_pressed():
 	addQn.get_child(0).get_child(0).set_text("Qn #"+str(totalQn)+": ")
 	#Add qn to the list
 	qnList.add_child(addQn)
-	$PopUpControl.show()
 	
 
 
 
 func _on_ConfirmButton_pressed():
+	#Qn saved
+	$PopUpControl.show()
+	#Added qn stuff
 	global.difficulty="Normal"
 	var getQuestions=global.difficulty+"World"+global.worldSelected.substr(7,1)
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn 
