@@ -71,7 +71,7 @@ func setFullName(field):
 		if (fullNameExists):
 			fullname.set_text(field['fullname'].values()[0])
 		else:
-			fullname.set_text(field['nickname'].values()[0])
+			fullname.set_text("Jane Doe")
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
@@ -103,7 +103,8 @@ func set_profile(value: Dictionary) -> void:
 
 func _on_ConfirmButton_pressed(): #When confirm button pressed
 	#set profile attributes
-	profile.fullname = {"stringValue": fullname.get_text()}
+	if (fullname.get_text()!=""):
+		profile.fullname = {"stringValue": fullname.get_text()}
 	profile.character = {"stringValue": global.characterSelected}
 	profile.nickname = { "stringValue": nickname.text }
 	#profile.school = {"stringValue": str(school_array[int(profile.schoolId.integerValue)])}
