@@ -1,0 +1,393 @@
+[gd_scene load_steps=105 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (4).png" type="Texture" id=2]
+[ext_resource path="res://Control/interface/returnToSelectDifficulty.gd" type="Script" id=3]
+[ext_resource path="res://Control/interface/NormalModeUnlockCharacter.gd" type="Script" id=4]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (7).png" type="Texture" id=5]
+[ext_resource path="res://Starzy.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://textures/mountainView.jpg" type="Texture" id=7]
+[ext_resource path="res://textures/BG.png" type="Texture" id=8]
+[ext_resource path="res://textures/winter.png" type="Texture" id=9]
+[ext_resource path="res://textures/graveyard.png" type="Texture" id=10]
+[ext_resource path="res://textures/desert.png" type="Texture" id=11]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun3.png" type="Texture" id=12]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (7).png" type="Texture" id=13]
+[ext_resource path="res://Control/interface/CharacterUnlock.gd" type="Script" id=14]
+[ext_resource path="res://Model/Characters/Warrior/Idle (4).png" type="Texture" id=15]
+[ext_resource path="res://Model/Characters/Warrior/Idle (9).png" type="Texture" id=16]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (3).png" type="Texture" id=17]
+[ext_resource path="res://Model/Characters/Warrior/Idle (5).png" type="Texture" id=18]
+[ext_resource path="res://Model/Characters/Warrior/Idle (2).png" type="Texture" id=19]
+[ext_resource path="res://Model/Characters/Warrior/Idle (3).png" type="Texture" id=20]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (2).png" type="Texture" id=21]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (12).png" type="Texture" id=22]
+[ext_resource path="res://Model/Characters/Warrior/Idle (8).png" type="Texture" id=23]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (10).png" type="Texture" id=24]
+[ext_resource path="res://Model/Characters/Warrior/Idle (1).png" type="Texture" id=25]
+[ext_resource path="res://textures/icon.png" type="Texture" id=26]
+[ext_resource path="res://Model/Characters/Mr I/Mr I.png" type="Texture" id=27]
+[ext_resource path="res://Model/Characters/HumbleB/bee_spritesheet.png" type="Texture" id=28]
+[ext_resource path="res://Model/Characters/FireFox/Fox_Run1.png" type="Texture" id=29]
+[ext_resource path="res://Model/Characters/FireFox/Fox_Run3.png" type="Texture" id=30]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (1).png" type="Texture" id=31]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (5).png" type="Texture" id=32]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun2.png" type="Texture" id=33]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (2).png" type="Texture" id=34]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (6).png" type="Texture" id=35]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun1.png" type="Texture" id=36]
+[ext_resource path="res://Model/Characters/Warrior/Idle (7).png" type="Texture" id=37]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (1).png" type="Texture" id=38]
+[ext_resource path="res://Model/Characters/Warrior/Idle (10).png" type="Texture" id=39]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (3).png" type="Texture" id=40]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (5).png" type="Texture" id=41]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (6).png" type="Texture" id=42]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (1).png" type="Texture" id=43]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (15).png" type="Texture" id=44]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (6).png" type="Texture" id=45]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (3).png" type="Texture" id=46]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (10).png" type="Texture" id=47]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (2).png" type="Texture" id=48]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (5).png" type="Texture" id=49]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (7).png" type="Texture" id=50]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (5).png" type="Texture" id=51]
+[ext_resource path="res://Model/Characters/FireFox/Fox_Run2.png" type="Texture" id=52]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (3).png" type="Texture" id=53]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (8).png" type="Texture" id=54]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (10).png" type="Texture" id=55]
+[ext_resource path="res://Model/Characters/Warrior/Idle (6).png" type="Texture" id=56]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (4).png" type="Texture" id=57]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (8).png" type="Texture" id=58]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (4).png" type="Texture" id=59]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (8).png" type="Texture" id=60]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (11).png" type="Texture" id=61]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (7).png" type="Texture" id=62]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (2).png" type="Texture" id=63]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (4).png" type="Texture" id=64]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (1).png" type="Texture" id=65]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (7).png" type="Texture" id=66]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (4).png" type="Texture" id=67]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (5).png" type="Texture" id=68]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (6).png" type="Texture" id=69]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (2).png" type="Texture" id=70]
+[ext_resource path="res://Model/Characters/ZestyZombie/Walk (9).png" type="Texture" id=71]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (8).png" type="Texture" id=72]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (9).png" type="Texture" id=73]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (14).png" type="Texture" id=74]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (4).png" type="Texture" id=75]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (6).png" type="Texture" id=76]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (3).png" type="Texture" id=77]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (8).png" type="Texture" id=78]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (9).png" type="Texture" id=79]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (10).png" type="Texture" id=80]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (1).png" type="Texture" id=81]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (3).png" type="Texture" id=82]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Idle (8).png" type="Texture" id=83]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (2).png" type="Texture" id=84]
+[ext_resource path="res://Model/Characters/DeadlyDino/Idle (9).png" type="Texture" id=85]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (7).png" type="Texture" id=86]
+[ext_resource path="res://Model/Characters/ZestyZombie/Idle (13).png" type="Texture" id=87]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (6).png" type="Texture" id=88]
+[ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (5).png" type="Texture" id=89]
+[ext_resource path="res://Model/Characters/CarefulCyborg/Melee (1).png" type="Texture" id=90]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 0, 60, 26, 30 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 26, 60, 26, 30 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 52, 60, 26, 30 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 78, 60, 26, 30 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 104, 60, 26, 30 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 286, 60, 26, 30 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 33 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=10]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 31 ), ExtResource( 70 ), ExtResource( 17 ), ExtResource( 57 ), ExtResource( 51 ), ExtResource( 35 ), ExtResource( 86 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 47 ), ExtResource( 61 ), ExtResource( 22 ), ExtResource( 87 ), ExtResource( 74 ), ExtResource( 44 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 34 ), ExtResource( 40 ), ExtResource( 2 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 13 ), ExtResource( 54 ), ExtResource( 71 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 43 ), ExtResource( 63 ), ExtResource( 53 ), ExtResource( 59 ), ExtResource( 32 ), ExtResource( 45 ), ExtResource( 5 ), ExtResource( 83 ), ExtResource( 79 ), ExtResource( 55 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 65 ), ExtResource( 84 ), ExtResource( 77 ), ExtResource( 64 ), ExtResource( 89 ), ExtResource( 88 ), ExtResource( 62 ), ExtResource( 58 ) ],
+"loop": true,
+"name": "jump",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 90 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 75 ), ExtResource( 49 ), ExtResource( 76 ), ExtResource( 50 ), ExtResource( 60 ) ],
+"loop": true,
+"name": "attack",
+"speed": 13.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 81 ), ExtResource( 21 ), ExtResource( 82 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 66 ), ExtResource( 78 ), ExtResource( 85 ), ExtResource( 80 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 52 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+visible = false
+text = "NORMAL MODE"
+
+[node name="Background2" type="Sprite" parent="." index="1"]
+position = Vector2( 511, 302 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="Background2" index="0"]
+margin_left = -836.0
+margin_top = -603.0
+margin_right = 846.0
+margin_bottom = 706.0
+color = Color( 0.133333, 0.411765, 0.384314, 1 )
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+position = Vector2( 613, 369 )
+scale = Vector2( 1.23, 0.982 )
+texture = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
+margin_left = -325.0
+margin_top = -279.0
+margin_right = 166.0
+margin_bottom = 182.0
+color = Color( 0.243137, 0.517647, 0.505882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background4" type="Sprite" parent="." index="3"]
+scale = Vector2( 0.662806, 0.67561 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background4" index="0"]
+visible = false
+anchor_left = 0.000963542
+anchor_top = 0.0038107
+anchor_right = 0.000963542
+anchor_bottom = 0.0038107
+margin_left = 338.266
+margin_top = 124.597
+margin_right = 1235.27
+margin_bottom = 780.597
+color = Color( 0.368627, 0.470588, 0.65098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background5" type="Sprite" parent="." index="4"]
+scale = Vector2( 0.514326, 0.543106 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background5" index="0"]
+margin_left = 431.0
+margin_top = 176.0
+margin_right = 1539.0
+margin_bottom = 1005.0
+color = Color( 0.152941, 0.141176, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background6" type="Sprite" parent="." index="5"]
+scale = Vector2( 0.801069, 0.625479 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Background6" index="0"]
+margin_left = 271.0
+margin_top = 152.0
+margin_right = 1007.0
+margin_bottom = 867.0
+color = Color( 0.964844, 0.793579, 0.536682, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -48.0
+margin_right = -4.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" parent="." index="7"]
+script = ExtResource( 3 )
+
+[node name="Header" type="Label" parent="." index="8"]
+anchor_right = 1.0
+margin_top = 16.0
+margin_bottom = 85.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "CONGRATULATIONS!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" type="KinematicBody2D" parent="." index="9"]
+position = Vector2( 520, 320 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 14 )
+
+[node name="GodotSprite" type="Sprite" parent="Character" index="0"]
+visible = false
+position = Vector2( -0.250336, -0.751038 )
+texture = ExtResource( 26 )
+
+[node name="MrISprite" type="Sprite" parent="Character" index="1"]
+visible = false
+position = Vector2( 1.63672, -8.40723 )
+scale = Vector2( 0.0491765, 0.0551799 )
+texture = ExtResource( 27 )
+
+[node name="HBSprite" type="AnimatedSprite" parent="Character" index="2"]
+visible = false
+position = Vector2( -1.70687, -8.04667 )
+scale = Vector2( 3.3696, 2.77188 )
+frames = SubResource( 8 )
+frame = 2
+playing = true
+flip_h = true
+
+[node name="RRSprite" type="AnimatedSprite" parent="Character" index="3"]
+visible = false
+position = Vector2( 6.5836, -0.731506 )
+scale = Vector2( 1.67817, 1.51053 )
+frames = SubResource( 9 )
+frame = 2
+playing = true
+
+[node name="SSSprite" type="AnimatedSprite" parent="Character" index="4"]
+visible = false
+position = Vector2( 6.4165, -8.2478 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 10 )
+animation = "idle"
+frame = 1
+playing = true
+
+[node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
+visible = false
+position = Vector2( -1.74048, -15.1842 )
+scale = Vector2( 0.243826, 0.177875 )
+frames = SubResource( 11 )
+animation = "idle"
+frame = 11
+playing = true
+
+[node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
+visible = false
+position = Vector2( 10.7845, -12.8518 )
+scale = Vector2( 0.210295, 0.191248 )
+frames = SubResource( 12 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
+visible = false
+position = Vector2( 22.696, -11.1734 )
+scale = Vector2( 0.22464, 0.236564 )
+frames = SubResource( 13 )
+playing = true
+
+[node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
+visible = false
+position = Vector2( 12.5701, -6.63424 )
+scale = Vector2( 2.3312, 2.64764 )
+frames = SubResource( 14 )
+frame = 1
+playing = true
+flip_h = true
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
