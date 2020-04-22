@@ -63,6 +63,7 @@ func _on_MYHTTPRequest_request_completed(result, response_code, headers, body):
 		#success
 		200:
 			global.save = result_body.fields
+			global.updateUnlockCharsList(result_body.fields)
 			calculateAndSetValueForProgress()
 			
 
