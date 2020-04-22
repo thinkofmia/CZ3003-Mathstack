@@ -10,12 +10,34 @@ var Quiz := {
 	"World":{}
 }
 
+onready var quizzes = []
+var quiz_info = []
+var quiz_display
+
+var getByTitle = false
+var getById = false
+var delete = false
 func _ready():
 	if global.customTitle!="":
+		getByTitle = true
 		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+		yield(get_tree().create_timer(2), "timeout")
 	else:
-		Firebase.get_document("CustomQuiz/%s"%global.customID, http)
-	yield(get_tree().create_timer(2), "timeout")
+		getById = true
+		Firebase.get_document("CustomQuiz/", http)
+		yield(get_tree().create_timer(5), "timeout")
+		quiz_info = (quizzes.values())
+		#for each questions in the array
+		for i in range(0,quiz_info[0].size()):
+				#extract question attribute based on i
+				quiz_display= (quiz_info[0][i]['fields'])
+				if  str(quiz_display['Id'].values()[0]).findn(global.customID,0) != -1:
+					global.customTitle = str(quiz_display['QuizName'].values()[0])
+					global.customCreator = str(quiz_display['Creator'].values()[0])
+					global.customDate = str(quiz_display['Date'].values()[0])
+					global.customTotalQn = str(quiz_display['NumQns'].values()[0])
+					global.customWorlds = str(quiz_display['World'].values()[0])
+					global.customID = str(quiz_display['Id'].values()[0])
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
 	$PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName.set_text(global.customCreator)
@@ -56,23 +78,33 @@ func _on_EditButton_pressed():
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	
 	if response_code == 200:
-		self.Quiz = response_body.fields
-		#set global attributes
-		global.customCreator = str(Quiz.Creator.stringValue)
-		global.customDate = str(Quiz.Date.stringValue)
-		global.customTotalQn = str(Quiz.NumQns.stringValue)
-		global.customWorlds = str(Quiz.World.stringValue)
-		global.customID = str(Quiz.Id.stringValue)
+		if getByTitle:
+			var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+			self.Quiz = response_body.fields
+			#set global attributes
+			global.customCreator = str(Quiz.Creator.stringValue)
+			global.customDate = str(Quiz.Date.stringValue)
+			global.customTotalQn = str(Quiz.NumQns.stringValue)
+			global.customWorlds = str(Quiz.World.stringValue)
+			global.customID = str(Quiz.Id.stringValue)
+			getByTitle = false
+		if getById:
+			var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+			self.quizzes = response_body
+			getById = false
+		if delete:
+			delete = false
+			return 
 
 
 func _on_DeleteButton_pressed():
 	##Fire base delete here
-	#
-	#
+	Firebase.delete_document("CustomQuiz/%s"%global.customTitle,http)
+	yield(get_tree().create_timer(2), "timeout")
 	#Return to quiz list
-	 _on_BackButton_pressed()
+	_on_BackButton_pressed()
 
 
 func _on_ShareButton_pressed():
