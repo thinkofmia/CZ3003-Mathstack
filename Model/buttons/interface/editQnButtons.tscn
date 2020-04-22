@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Control/logic/userButtons.gd" type="Script" id=1]
+[ext_resource path="res://Control/interface/editQnButtons.gd" type="Script" id=1]
 
 [node name="editQnButton" type="Button"]
 margin_right = 143.0
