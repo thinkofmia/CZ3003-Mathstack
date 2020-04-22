@@ -61,6 +61,7 @@ func _ready():
 					global.customTotalQn = str(quiz_display['NumQns'].values()[0])
 					global.customWorlds = str(quiz_display['World'].values()[0])
 					global.customID = str(quiz_display['Id'].values()[0])
+					continue
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
 	$PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName.set_text(global.customCreator)
