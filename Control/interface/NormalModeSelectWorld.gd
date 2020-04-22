@@ -53,6 +53,12 @@ func changeBg(selectedBg):
 
 
 func _on_NextButton_pressed():
+	for unlock in global.characterUnlockList:
+		print(unlock.associatedWorld)
+		print(global.worldSelected)
+		if unlock.associatedWorld == global.worldSelected:
+			global.normalModeCharacterSelected = unlock.characterName
+			break
 	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
 
 

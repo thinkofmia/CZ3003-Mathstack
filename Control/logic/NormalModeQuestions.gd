@@ -121,13 +121,18 @@ func checkAnswer(option):
 		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
 		scoreBoard.set_text("Score: "+str(global.storyScore))
 		#Display msg
-		correctStatus.appear()
+		#temp fix, idk how
+		#temp solution: last question dont show explanation
+		print(global.questionCount)
+		if global.questionCount != 10:
+			correctStatus.appear()
 		randomizeQuestion()
 		
 	else:
 		print("Wrong!")
 		#Display msg
-		wrongStatus.appear()
+		if global.questionCount != 10:
+			wrongStatus.appear()
 		randomizeQuestion()
 
 
