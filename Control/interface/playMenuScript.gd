@@ -1,5 +1,7 @@
 extends Node
 
+onready var http:HTTPRequest = $HTTPRequest
+
 func _on_NormalModeButton_pressed():
 	global.difficulty="Normal"
 	$FadeIn.show()
@@ -19,6 +21,10 @@ func _on_CustomModeButton_pressed():
 	$FadeIn.show()
 	$FadeIn.fade_in()
 
+func _ready():
+	Firebase.get_document("SaveData/" + global.username, http)
+	if (global.accountType == "Teacher"): #Hide normal mode if teacher
+		$PlayBoard/Menu/Buttons/NormalModeButton.hide()
 
 
 
@@ -42,3 +48,12 @@ func _on_FadeIn_fade_finished():
 			get_tree().change_scene("res://View/gameModes/ChallengeModeSelect.tscn")
 		"Custom":
 			get_tree().change_scene("res://View/gameModes/CustomModeSelect.tscn")		
+
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	match response_code:
+		200:
+			global.save = result_body.fields
+			global.updateUnlockCharsList(result_body.fields)
+			

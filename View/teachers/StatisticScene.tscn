@@ -61,7 +61,6 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 size_flags_vertical = 2
-value = 50.0
 rounded = true
 
 [node name="AverateScoreLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="2"]

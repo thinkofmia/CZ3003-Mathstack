@@ -91,7 +91,6 @@ scale = Vector2( 2.93435, 2.84293 )
 texture = ExtResource( 17 )
 
 [node name="QuestionMenu" parent="GUI/PlayBoard" instance=ExtResource( 11 )]
-visible = false
 margin_left = -1.0
 margin_top = 32.0
 margin_right = 1160.0
@@ -128,6 +127,32 @@ size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 20 )
 text = "Finish"
 script = ExtResource( 10 )
+
+[node name="CustomExplanation" type="VBoxContainer" parent="GUI/PlayBoard"]
+visible = false
+margin_top = 24.0
+margin_right = 590.0
+margin_bottom = 420.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outcome" type="Label" parent="GUI/PlayBoard/CustomExplanation"]
+margin_right = 590.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 21 )
+text = "OUTCOME!"
+align = 1
+
+[node name="Explanation" type="Label" parent="GUI/PlayBoard/CustomExplanation"]
+margin_top = 75.0
+margin_right = 590.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 20 )
+text = "It is what it is."
+align = 1
+autowrap = true
 
 [node name="Header" type="Node2D" parent="GUI"]
 position = Vector2( -393.148, -16.3245 )

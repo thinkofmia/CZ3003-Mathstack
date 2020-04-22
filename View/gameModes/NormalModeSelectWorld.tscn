@@ -245,6 +245,9 @@ margin_bottom = 73.4047
 text = "Enter World #1"
 
 [node name="MYHTTPRequest" type="HTTPRequest" parent="." index="10"]
+
+[node name="MYHTTPRequest2" type="HTTPRequest" parent="." index="11"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
 [connection signal="request_completed" from="MYHTTPRequest" to="." method="_on_MYHTTPRequest_request_completed"]
+[connection signal="request_completed" from="MYHTTPRequest2" to="." method="_on_MYHTTPRequest2_request_completed"]

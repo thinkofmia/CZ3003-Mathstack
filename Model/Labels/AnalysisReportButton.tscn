@@ -6,5 +6,5 @@
 
 [node name="Label" parent="." index="0"]
 margin_bottom = 90.0
-text = "Overall Statistics
+text = "Analysis Report
 "

@@ -23,6 +23,7 @@ var testMode = false
 
 #For Admins
 var targetType = "Student"
+var selectedTarget = "" #Selected user target
 var selectUserEdit="" #get the name of the selected user for edit
 var selectQn = "" #Get name of qn selected
 
@@ -90,3 +91,77 @@ var viewingOverallStats = false
 
 var difficulty=""
 var world=""
+
+
+
+#Character Unlock Information
+var characterUnlockList = [
+	{
+		"characterName":"Godot",
+		"state":"unlocked",
+		"associatedWorld":"None"
+	},
+	{
+		"characterName":"Swee Soldier",
+		"state":"locked",
+		"associatedWorld":"World1"
+	},
+	{
+		"characterName":"Mister I",
+		"state":"locked",
+		"associatedWorld":"World2"
+	},
+	{
+		"characterName":"Humble B",
+		"state":"locked",
+		"associatedWorld":"World3"
+	},
+	{
+		"characterName":"Rider Rabbit",
+		"state":"locked",
+		"associatedWorld":"World4"
+	},
+	{
+		"characterName":"Zesty Zombie",
+		"state":"locked",
+		"associatedWorld":"World5"
+	},
+	{
+		"characterName":"Careful Cyborg",
+		"state":"locked",
+		"associatedWorld":"World6"
+	},
+	{
+		"characterName":"Deadly Dino",
+		"state":"locked",
+		"associatedWorld":"World7"
+	},
+	{
+		"characterName":"Fire Fox",
+		"state":"locked",
+		"associatedWorld":"World8"
+	},
+	
+]
+
+func updateUnlockCharsList(fields):
+	for character in characterUnlockList:
+		var associatedWorld = character['associatedWorld']
+		if associatedWorld != "None":
+			var progress = fields[associatedWorld]['stringValue']
+			if (progress == "3"):
+				character['state'] = "unlocked"
+	
+	print("Updated unlocked characters list")
+	print(global.getListOfUnlockedCharactersName())
+
+func getListOfUnlockedCharactersName():
+	var namelist = []
+	for character in characterUnlockList:
+		if (character.state == "unlocked"):
+			namelist.append(character.characterName)
+	return namelist
+	
+	
+
+		

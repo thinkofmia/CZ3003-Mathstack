@@ -24,10 +24,10 @@ size_flags_vertical = 3
 color = Color( 0.505882, 1, 0.439216, 1 )
 
 [node name="OutcomeLabel" type="Label" parent="ColorRect"]
-margin_left = 297.811
-margin_top = 56.6468
-margin_right = 347.811
-margin_bottom = 71.6468
+margin_left = 350.686
+margin_top = 23.2522
+margin_right = 400.686
+margin_bottom = 38.2522
 rect_scale = Vector2( 5, 5 )
 text = "Correct!"
 align = 1
@@ -36,10 +36,10 @@ __meta__ = {
 }
 
 [node name="ReasonLabel" type="Label" parent="ColorRect"]
-margin_left = 96.7709
-margin_top = 184.0
-margin_right = 289.771
-margin_bottom = 256.0
+margin_left = 49.0
+margin_top = 137.0
+margin_right = 272.0
+margin_bottom = 231.0
 rect_scale = Vector2( 4, 4 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3

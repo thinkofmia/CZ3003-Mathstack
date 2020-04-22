@@ -11,6 +11,9 @@ var getEasyQns
 var getNormalQns
 var getHardQns
 
+#Character
+onready var userCharacter = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+
 #For Primary
 var qTextArr=[]
 var op1Arr=[]
@@ -273,6 +276,7 @@ func checkLevelTens(): #Check if the player reaches levels of ten
 			NextWorldBoard.show()
 			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
 			self.hide()
+			userCharacter.addLife()
 
 func correctAnswer():
 	print("Correct!")
