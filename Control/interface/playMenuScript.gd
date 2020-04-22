@@ -19,6 +19,9 @@ func _on_CustomModeButton_pressed():
 	$FadeIn.show()
 	$FadeIn.fade_in()
 
+func _ready():
+	if (global.accountType == "Teacher"): #Hide normal mode if teacher
+		$PlayBoard/Menu/Buttons/NormalModeButton.hide()
 
 
 
