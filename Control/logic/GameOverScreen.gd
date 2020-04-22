@@ -23,6 +23,7 @@ func hideButtons(): #Hide all buttons while loading.
 	$PlayButton.hide()
 	$ShareButton.hide()
 	$FBButton.hide()
+	$WAButton.hide()
 	
 func showButtons():
 	$QuitButton.show()
@@ -30,6 +31,7 @@ func showButtons():
 	$PlayButton.show()
 	$ShareButton.show()
 	$FBButton.show()
+	$WAButton.show()
 
 func showLabels():
 	$PlayBoard/HighscoreRow.show()
@@ -112,6 +114,9 @@ func _on_ShareButton_pressed():
 	var tweet = "https://twitter.com/intent/tweet?text="
 	OS.shell_open(tweet+message)
 
+func _on_WAButton_pressed():
+	var url = "https://wa.me/?text="
+	OS.shell_open(url+message)
 
 func _on_FBButton_pressed():
 	var facebook = "http://www.facebook.com/sharer.php?s=100&p[title]=MyHighScore&p[url]=http://www.facebook.com&p[summary]="
