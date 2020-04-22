@@ -17,6 +17,7 @@ var regSucc=false
 var	login=false
 var loginSucc=false
 var save=false
+var accountExist = false
 var profile := {
 	"account":{},
 	"nickname":{},
@@ -52,12 +53,13 @@ func _on_Button2_pressed():
 func _on_Button_pressed():
 	var errorMessage = ""
 	var invalid = false
+	accountExist = false
 	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/EmailText.get_text()+"@e.ntu.edu.sg"
 	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PasswordText.get_text()
 	var nickname_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/NicknameText.get_text()
 	var teachers_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/TeachersText.get_text()
 	var error_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/ErrorMessage
-	
+	error_text.hide()
 	if not "@" in email_text:
 		errorMessage += "Invalid email. "
 		invalid = true		
@@ -92,31 +94,44 @@ func _on_Button_pressed():
 		#set Username
 		var newUsername = username.text+"@e.ntu.edu.sg"
 		#http request to register an account		
+		
+		#check if account already exist
 		Firebase.register(newUsername, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
-		login=true
-		#http request to login using the created account
-		Firebase.login(newUsername, password.text, http)
-		yield(get_tree().create_timer(10.0), "timeout")
-		save=true
-		#set profile attributes
-		#check if the account is a teacher account
-		if teachers_text == "T":
-			profile.account = {"stringValue": "Teacher"}
-		elif teachers_text == "A": #Admin Acc
-			profile.account = {"stringValue": "Admin"}
-		else :
-			profile.account = {"stringValue": "Student"}
-		profile.nickname = {"stringValue":nickname_text}
-		profile.classId = { "integerValue": class1.get_selected_id() }
-		profile.schoolId = {"integerValue": school.get_selected_id() }
-		#http request to save profile
-		Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
+		
+		if accountExist:
+			error_text.set_text("Error! Account Already Exist")
+			error_text.show()
+			
+		else:
+			
+			login=true
+			#http request to login using the created account
+			Firebase.login(newUsername, password.text, http)
+			yield(get_tree().create_timer(10.0), "timeout")
+			save=true
+			#set profile attributes
+			#check if the account is a teacher account
+			if teachers_text == "T":
+				profile.account = {"stringValue": "Teacher"}
+			elif teachers_text == "A": #Admin Acc
+				profile.account = {"stringValue": "Admin"}
+			else :
+				profile.account = {"stringValue": "Student"}
+			profile.nickname = {"stringValue":nickname_text}
+			profile.classId = { "integerValue": class1.get_selected_id() }
+			profile.schoolId = {"integerValue": school.get_selected_id() }
+			#http request to save profile
+			Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")
 	#zfCt7yOk8TQ1f7QcPegfnEpDnJf2
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii())
+	
+	if response_code == 400:
+		accountExist = true
+	
 	if response_code == 200:
 		if reg==true:
 			regSucc=true
@@ -134,5 +149,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 func _on_OptionButton3_item_selected(id):
 	pass # Replace with function body.
+
 
 
