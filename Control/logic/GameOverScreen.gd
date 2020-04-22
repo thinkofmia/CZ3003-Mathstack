@@ -125,7 +125,7 @@ func _on_RedditButton_pressed():
 	OS.shell_open(url+message)
 
 func _on_FBButton_pressed():
-	var facebook = "http://www.facebook.com/sharer.php?s=100&p[title]=MyHighScore&p[url]=http://www.facebook.com&p[summary]="
+	var facebook = "http://www.facebook.com/sharer.php?u=ntulearn.ntu.edu.sg&t=MyHighScore&ps=100&p[summary]="
 	OS.shell_open(facebook+message)
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):

@@ -6,6 +6,7 @@ onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/V
 onready var school : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/SchoolSelect
 onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ClassSelect
 onready var nickname : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/NicknameText
+onready var fullname = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/FullnameEdit
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -110,6 +111,11 @@ func _on_Button_pressed():
 		profile.nickname = {"stringValue":nickname_text}
 		profile.classId = { "integerValue": class1.get_selected_id() }
 		profile.schoolId = {"integerValue": school.get_selected_id() }
+		if (fullname.get_text()==""):
+			profile.fullname = {"stringValue":"Jane Doe"}
+		else:
+			profile.fullname = {"stringValue":fullname.get_text()}
+		profile.character = {"stringValue":"Godot"}
 		#http request to save profile
 		Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")

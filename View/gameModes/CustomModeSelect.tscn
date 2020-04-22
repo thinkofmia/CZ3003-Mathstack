@@ -78,8 +78,8 @@ margin_right = 490.0
 margin_bottom = 46.0
 rect_min_size = Vector2( 490, 0 )
 custom_fonts/font = SubResource( 3 )
-text = "Enter Code ID here"
 align = 1
+placeholder_text = "Enter Code ID here"
 __meta__ = {
 "_edit_use_anchors_": false
 }

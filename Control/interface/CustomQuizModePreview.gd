@@ -1,5 +1,6 @@
 extends Node
 
+var message
 
 onready var http : HTTPRequest = $HTTPRequest
 var Quiz := {
@@ -10,12 +11,57 @@ var Quiz := {
 	"World":{}
 }
 
+
+onready var quizzes = []
+var quiz_info = []
+var quiz_display
+
+var getByTitle = false
+var getById = false
+var delete = false
+
+func hideButtons():
+	$ShareButton.hide()
+	$FBButton.hide()
+	$WAButton.hide()
+	$RedditButton.hide()
+	$BackButton.hide()
+	$EditButton.hide()
+	$DeleteButton.hide()
+	$PlayBoard/MarginContainer/VBoxContainer/Button.hide()
+	
+func showButtons():
+	$ShareButton.show()
+	$FBButton.show()
+	$WAButton.show()
+	$RedditButton.show()
+	$BackButton.show()
+
+
 func _ready():
+	hideButtons()
 	if global.customTitle!="":
+		getByTitle = true
 		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
+		yield(get_tree().create_timer(2), "timeout")
 	else:
-		Firebase.get_document("CustomQuiz/%s"%global.customID, http)
-	yield(get_tree().create_timer(2), "timeout")
+		getById = true
+		Firebase.get_document("CustomQuiz/", http)
+		yield(get_tree().create_timer(5), "timeout")
+		quiz_info = (quizzes.values())
+		#for each questions in the array
+		for i in range(0,quiz_info[0].size()):
+				#extract question attribute based on i
+				quiz_display= (quiz_info[0][i]['fields'])
+				if  str(quiz_display['Id'].values()[0]).findn(global.customID,0) != -1:
+					global.customTitle = str(quiz_display['QuizName'].values()[0])
+					global.customCreator = str(quiz_display['Creator'].values()[0])
+					global.customDate = str(quiz_display['Date'].values()[0])
+					global.customTotalQn = str(quiz_display['NumQns'].values()[0])
+					global.customWorlds = str(quiz_display['World'].values()[0])
+					global.customID = str(quiz_display['Id'].values()[0])
+					$PlayBoard/MarginContainer/VBoxContainer/Button.show()
+					continue
 	#Set Texts
 	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
 	$PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName.set_text(global.customCreator)
@@ -31,8 +77,9 @@ func _ready():
 		$EditButton.hide()
 		$DeleteButton.hide()
 	#Display Play button
-	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
-	
+	showButtons()
+	#Set Message
+	message = "Hey! Try '"+global.customTitle+"' out by"+global.customCreator+". The Quiz ID is "+global.customID+"!"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -56,31 +103,51 @@ func _on_EditButton_pressed():
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	
 	if response_code == 200:
-		self.Quiz = response_body.fields
-		#set global attributes
-		global.customCreator = str(Quiz.Creator.stringValue)
-		global.customDate = str(Quiz.Date.stringValue)
-		global.customTotalQn = str(Quiz.NumQns.stringValue)
-		global.customWorlds = str(Quiz.World.stringValue)
-		global.customID = str(Quiz.Id.stringValue)
+		if getByTitle:
+			var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+			self.Quiz = response_body.fields
+			#set global attributes
+			global.customCreator = str(Quiz.Creator.stringValue)
+			global.customDate = str(Quiz.Date.stringValue)
+			global.customTotalQn = str(Quiz.NumQns.stringValue)
+			global.customWorlds = str(Quiz.World.stringValue)
+			global.customID = str(Quiz.Id.stringValue)
+			$PlayBoard/MarginContainer/VBoxContainer/Button.show()
+			getByTitle = false
+		if getById:
+			var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+			self.quizzes = response_body
+			getById = false
+		if delete:
+			delete = false
+			return 
 
 
 func _on_DeleteButton_pressed():
 	##Fire base delete here
-	#
-	#
+	Firebase.delete_document("CustomQuiz/%s"%global.customTitle,http)
+	hideButtons()
+	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text("Deleting... ")
+	yield(get_tree().create_timer(2), "timeout")
 	#Return to quiz list
-	 _on_BackButton_pressed()
+	_on_BackButton_pressed()
 
 
-func _on_ShareButton_pressed():
-	#Sharing the following info NEED to link to social media
-	print("Sharing "+global.customTitle)
-	print(global.customCreator)
-	print(global.customDate)
-	print(global.customTotalQn)
-	print(global.customWorlds)
-	print(global.customID)
-	
+func _on_ShareButton_pressed():#For Twitter
+	var tweet = "https://twitter.com/intent/tweet?text="
+	OS.shell_open(tweet+message)
+
+func _on_WAButton_pressed():
+	var url = "https://wa.me/?text="
+	OS.shell_open(url+message)
+
+func _on_RedditButton_pressed():
+	var url = "https://reddit.com/submit?title="
+	OS.shell_open(url+message)
+
+func _on_FBButton_pressed():
+	var facebook = "http://www.facebook.com/sharer.php?u=ntulearn.ntu.edu.sg&t=PlayThisQuiz&ps=100&p[title]=&p[summary]="
+	OS.shell_open(facebook+message)
+
