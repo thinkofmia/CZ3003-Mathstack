@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Control/logic/EditQnsQDetails.gd" type="Script" id=1]
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Model/Labels/Delete.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Model/Labels/Save.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=4]
 [ext_resource path="res://View/util/customQuestionSet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Model/buttons/DeleteButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Model/buttons/EditButton.tscn" type="PackedScene" id=7]
 
 [node name="World" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -19,6 +20,7 @@ margin_right = 289.0
 [node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -9.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -31,30 +33,44 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 557.0
-margin_bottom = 445.0
+margin_bottom = 423.0
 custom_constants/separation = 10
 
 [node name="QnList" type="VBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer" index="0"]
 margin_right = 537.0
-margin_bottom = 285.0
+margin_bottom = 328.0
 custom_constants/separation = 20
 
 [node name="Qn1" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="0" instance=ExtResource( 5 )]
 margin_right = 537.0
-margin_bottom = 285.0
+margin_bottom = 328.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="PlayBoard/MarginContainer/VBoxContainer/QnList" index="1"]
 
-[node name="Button" parent="PlayBoard/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 4 )]
-margin_top = 295.0
-margin_right = 537.0
-margin_bottom = 355.0
+[node name="SaveButton" parent="." index="3" instance=ExtResource( 7 )]
+margin_left = 884.564
+margin_top = 486.209
+margin_right = 986.564
+margin_bottom = 574.209
 
-[node name="Button2" parent="PlayBoard/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 3 )]
-margin_top = 365.0
-margin_right = 537.0
-margin_bottom = 425.0
+[node name="DeleteButton" parent="." index="4" instance=ExtResource( 6 )]
+margin_left = 884.564
+margin_top = 380.947
+margin_right = 986.564
+margin_bottom = 468.947
+
+[node name="TextDisplay" type="Label" parent="." index="5"]
+margin_left = 243.0
+margin_top = 286.0
+margin_right = 788.0
+margin_bottom = 351.0
+custom_fonts/font = ExtResource( 4 )
+text = "Saved!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="request_completed" from="PlayBoard/MarginContainer/VBoxContainer/QnList/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_DeleteButton_pressed"]

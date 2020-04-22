@@ -31,7 +31,7 @@ func addDifficultyOptions(): #Add scroll down box
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayBoard/MarginContainer/VBoxContainer/Label.set_text(global.worldSelected)
-
+	$PopUpControl.hide()
 	totalQn = 1 #Get total number of qns here
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
 	newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
@@ -52,11 +52,15 @@ func _on_AddButton_pressed():
 	qnList.add_child(addQn)
 	
 
-
+func hideButtons():
+	$BackButton.hide()
+	$AddButton.hide()
+	$ConfirmButton.hide()
 
 func _on_ConfirmButton_pressed():
 	#Qn saved
 	$PopUpControl.show()
+	hideButtons()
 	#Added qn stuff
 	var getQuestions="NormalWorld"+global.worldSelected.substr(7,2)
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn 
@@ -94,7 +98,7 @@ func _on_ConfirmButton_pressed():
 		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)
 		yield(get_tree().create_timer(2.0), "timeout")
-		
+	_on_BackButton_pressed()	
 
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
@@ -111,7 +115,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")
+	get_tree().change_scene("res://View/teachers/SelectQuestion.tscn")
 
 
 func _on_QuitButton_pressed():

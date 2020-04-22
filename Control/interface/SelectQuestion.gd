@@ -48,5 +48,5 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			self.questions = response_body
 
 func _on_AddButton_pressed():
-	global.selectQn=addButton.get_text()
+	#global.selectQn=addButton.get_text()
 	get_tree().change_scene("res://View/teachers/AddQnsDetails.tscn")

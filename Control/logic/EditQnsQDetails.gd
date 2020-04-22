@@ -40,7 +40,9 @@ func addDifficultyOptions(): #Add scroll down box
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlayBoard/MarginContainer/VBoxContainer/QnList/Qn1/QnTextRow/QnTextLabel.hide()
-	
+	$SaveButton/Label.set_text("save")
+	$TextDisplay.hide()
+	hideButtons()
 	#Set difficulty node
 	addDifficultyOptions()
 	#If saving difficulty too hard, set it as easy by default
@@ -73,7 +75,7 @@ func _ready():
 				"A":difficultySelected.select(2)
 				"I":difficultySelected.select(1)
 				"E":difficultySelected.select(0)
-				
+	showButtons()			
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://View/teachers/SelectQuestion.tscn")
@@ -93,7 +95,10 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	else:
 		return
 
-func _on_Button_pressed():
+
+func _on_SaveButton_pressed():
+	#Display pop up after play button is pressed
+	displayPopup()
 	print(table)
 	Question.QuestionText = { "stringValue": qText.text }
 	Question.Option1 = { "stringValue": op1.text }
@@ -130,13 +135,36 @@ func _on_Button_pressed():
 		print(actual_string)
 		Firebase.delete_document(actual_string,http)
 		yield(get_tree().create_timer(2), "timeout")
+	
+	
+func displayPopup():
+	#Hide board
+	$PlayBoard.hide()
+	#Show display
+	$TextDisplay.show()
+	hideButtons()
+	yield(get_tree().create_timer(6), "timeout")
+	_on_BackButton_pressed()
 
+func showButtons():
+	#Show buttons
+	$BackButton.show()
+	$SaveButton.show()
+	$DeleteButton.show()
 
-func _on_Button2_pressed():
+func hideButtons():
+	#Hide buttons
+	$BackButton.hide()
+	$SaveButton.hide()
+	$DeleteButton.hide()
+
+func _on_DeleteButton_pressed():
 	var a = getID.find_last("/")
 	var b = getID.find_last("-")
 	var ID = getID.substr(a+1,b+2-a)
 	var format_string = "%s/%s"
 	var actual_string = format_string % [table,ID]
 	Firebase.delete_document(actual_string,http)
-	yield(get_tree().create_timer(2), "timeout")
+	#Display pop up after play button is pressed
+	$TextDisplay.set_text("Deleted! D: ")
+	displayPopup()
