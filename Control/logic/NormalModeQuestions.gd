@@ -61,15 +61,17 @@ func _ready():
 		op3Arr.append(question_display['Option3'].values()[0])
 		op4Arr.append(question_display['Option4'].values()[0])
 		ansArr.append(question_display['Ans'].values()[0])
-		#exArr.append(question_display['Explanation'].values()[0])
+		exArr.append(question_display['Explanation'].values()[0])
+	#Set Nodes	
+	correctStatus = get_tree().get_root().get_node("World").find_node("CorrectStatus")
+	wrongStatus = get_tree().get_root().get_node("World").find_node("WrongStatus")
 	#choose a random question
 	randomizeQuestion()
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Normal Mode - Play")
 		testPerformance.getTimeTaken()
-	correctStatus = get_tree().get_root().get_node("World").find_node("CorrectStatus")
-	wrongStatus = get_tree().get_root().get_node("World").find_node("WrongStatus")
+	
 	
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
@@ -105,6 +107,9 @@ func randomizeQuestion():
 	question = [op1, op2, op3, op4,ans] 
 	level += 1
 	print("")
+	#Set explanation
+	correctStatus.setExplanation(exArr[random])
+	wrongStatus.setExplanation(exArr[random])
 
 func checkAnswer(option):
 	global.questionCount = global.questionCount + 1

@@ -13,3 +13,6 @@ func disappear():
 	playBoard.hide()
 	self.visible = false
 	
+func setExplanation(explanation):
+	$ColorRect/ReasonLabel.set_text(explanation)
+	
