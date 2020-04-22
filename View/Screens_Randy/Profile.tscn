@@ -180,17 +180,18 @@ custom_fonts/font = SubResource( 3 )
 text = "PROFILE"
 
 [node name="CharacterBackground" type="TextureRect" parent="."]
-margin_left = 101.981
+margin_left = 165.139
 margin_top = 49.2992
-margin_right = 501.981
+margin_right = 565.139
 margin_bottom = 252.299
+rect_scale = Vector2( 0.75, 1 )
 texture = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Character" parent="." instance=ExtResource( 18 )]
-position = Vector2( 309.125, 155.518 )
+position = Vector2( 306.909, 155.518 )
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 14 )
 
