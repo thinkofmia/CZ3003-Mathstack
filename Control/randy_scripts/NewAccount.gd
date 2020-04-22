@@ -1,7 +1,7 @@
 extends Control
 
 onready var http : HTTPRequest = $HTTPRequest
-onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailText
+onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/EmailText
 onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PasswordText
 onready var school : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/SchoolSelect
 onready var class1 : OptionButton = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ClassSelect
@@ -52,7 +52,7 @@ func _on_Button2_pressed():
 func _on_Button_pressed():
 	var errorMessage = ""
 	var invalid = false
-	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailText.get_text()
+	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/EmailText.get_text()+"@e.ntu.edu.sg"
 	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/PasswordText.get_text()
 	var nickname_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/NicknameText.get_text()
 	var teachers_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/TeachersText.get_text()
@@ -89,12 +89,14 @@ func _on_Button_pressed():
 		#Logic for Registering proper acc
 		$TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button.hide()
 		reg=true
+		#set Username
+		var newUsername = username.text+"@e.ntu.edu.sg"
 		#http request to register an account		
-		Firebase.register(username.text, password.text, http)
+		Firebase.register(newUsername, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		login=true
 		#http request to login using the created account
-		Firebase.login(username.text, password.text, http)
+		Firebase.login(newUsername, password.text, http)
 		yield(get_tree().create_timer(10.0), "timeout")
 		save=true
 		#set profile attributes
