@@ -11,6 +11,7 @@ onready var school : Label = $TextureRect/MarginContainer/MarginContainer/VBoxCo
 onready var class1 : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Exit
 onready var char1 :	Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/Button/Label
 onready var character = $Character
+onready var fullname = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/FullNameLabel
 var scene_path_to_load
 var account_type
 
@@ -66,6 +67,18 @@ func _on_Button_pressed():
 func _on_FadeIn_fade_finished():
 	goToMainMenu()
 
+func setFullName(field):
+	#Set full name
+	var fullNameExists = false
+	for key in field:
+		print(key)
+		if (key=="fullname"):
+			fullNameExists = true
+			
+		if (fullNameExists):
+			fullname.set_text(field['fullname'].values()[0])
+		else:
+			fullname.set_text(field['nickname'].values()[0])
 
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
@@ -78,6 +91,7 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			#invvoke set method of the profile
 			#loading the response into the fields	
 			self.profile = result_body.fields
+			setFullName(self.profile)
 			
 
 func set_profile(value: Dictionary) -> void:

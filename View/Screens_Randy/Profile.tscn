@@ -106,13 +106,13 @@ margin_top = 204.0
 margin_right = 770.0
 margin_bottom = 680.0
 size_flags_vertical = 3
-custom_constants/separation = 30
-alignment = 1
+custom_constants/separation = 25
+alignment = 2
 
 [node name="Play" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 77.0
+margin_top = 86.0
 margin_right = 770.0
-margin_bottom = 135.0
+margin_bottom = 144.0
 custom_fonts/font = SubResource( 2 )
 text = "Account: Student"
 __meta__ = {
@@ -120,25 +120,32 @@ __meta__ = {
 }
 
 [node name="Leaderboard" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 165.0
+margin_top = 169.0
 margin_right = 770.0
-margin_bottom = 223.0
+margin_bottom = 227.0
 custom_fonts/font = SubResource( 2 )
 text = "Email: User"
 
 [node name="Profile" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 253.0
+margin_top = 252.0
 margin_right = 770.0
-margin_bottom = 311.0
+margin_bottom = 310.0
 custom_fonts/font = SubResource( 2 )
 text = "School: NTU"
 
 [node name="Exit" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
-margin_top = 341.0
+margin_top = 335.0
 margin_right = 770.0
-margin_bottom = 399.0
+margin_bottom = 393.0
 custom_fonts/font = SubResource( 2 )
 text = "Class: SS1"
+
+[node name="FullNameLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions"]
+margin_top = 418.0
+margin_right = 770.0
+margin_bottom = 476.0
+custom_fonts/font = SubResource( 2 )
+text = "Full Name: Name"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer"]
 margin_top = 684.0
