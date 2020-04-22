@@ -24,6 +24,7 @@ func hideButtons(): #Hide all buttons while loading.
 	$ShareButton.hide()
 	$FBButton.hide()
 	$WAButton.hide()
+	$RedditButton.hide()
 	
 func showButtons():
 	$QuitButton.show()
@@ -32,6 +33,7 @@ func showButtons():
 	$ShareButton.show()
 	$FBButton.show()
 	$WAButton.show()
+	$RedditButton.show()
 
 func showLabels():
 	$PlayBoard/HighscoreRow.show()
@@ -116,6 +118,10 @@ func _on_ShareButton_pressed():
 
 func _on_WAButton_pressed():
 	var url = "https://wa.me/?text="
+	OS.shell_open(url+message)
+
+func _on_RedditButton_pressed():
+	var url = "https://reddit.com/submit?title="
 	OS.shell_open(url+message)
 
 func _on_FBButton_pressed():
