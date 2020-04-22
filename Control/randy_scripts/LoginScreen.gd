@@ -104,11 +104,11 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			getAccountType = false
 			#save account type to global.accountType
 			global.accountType=response_body.result.fields.account.stringValue
+			setCharacter(response_body.result.fields)
 			#Save class to global.class
 			global.userClass = global.classArray[int(response_body.result.fields.classId.integerValue)]
 			$FadeIn.show()
 			$FadeIn.fade_in()
-
 		
 	elif response_code == 400:
 		if loginBool:
@@ -128,3 +128,17 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 func _on_FadeIn_fade_finished():
 	goToMainMenu()
+
+
+func setCharacter(field):
+#Set full name
+	var characterExists = false
+	for key in field:
+		print(key)
+		if (key=="character"):
+			characterExists = true
+			
+		if (characterExists):
+			global.characterSelected = (field['character'].values()[0])
+		else:
+			global.characterSelected = "Godot"

@@ -20,22 +20,22 @@ margin_bottom = -62.0
 rect_scale = Vector2( 0.85, 0.85 )
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
-margin_right = 1525.0
+margin_right = 1645.0
 margin_bottom = 1066.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
-margin_right = 1525.0
+margin_right = 1645.0
 margin_bottom = 1066.0
 custom_constants/margin_bottom = 20
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-margin_right = 1175.0
+margin_right = 1295.0
 margin_bottom = 896.0
 custom_constants/separation = 20
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_right = 1125.0
-margin_bottom = 610.0
+margin_right = 1245.0
+margin_bottom = 720.0
 custom_constants/vseparation = 50
 custom_constants/hseparation = 10
 columns = 2
@@ -148,6 +148,23 @@ rect_min_size = Vector2( 500, 0 )
 theme = ExtResource( 4 )
 custom_fonts/font = ExtResource( 5 )
 
+[node name="FullnameLabel" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="12"]
+margin_top = 660.0
+margin_right = 380.0
+margin_bottom = 720.0
+custom_fonts/font = ExtResource( 2 )
+text = "Full Name:"
+align = 2
+
+[node name="FullnameEdit" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="13"]
+margin_left = 390.0
+margin_top = 660.0
+margin_right = 1125.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 500, 0 )
+custom_fonts/font = ExtResource( 5 )
+placeholder_text = "Jane Doe"
+
 [node name="ErrorMessage" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
 visible = false
 margin_top = 630.0
@@ -164,22 +181,22 @@ autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 756.0
-margin_right = 1125.0
+margin_right = 1245.0
 margin_bottom = 846.0
 size_flags_vertical = 10
 custom_constants/separation = 50
 alignment = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource( 7 )]
-margin_left = 177.0
+margin_left = 237.0
 margin_top = 0.0
-margin_right = 537.0
+margin_right = 597.0
 margin_bottom = 90.0
 
 [node name="Button2" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1" instance=ExtResource( 6 )]
-margin_left = 587.0
+margin_left = 647.0
 margin_top = 0.0
-margin_right = 947.0
+margin_right = 1007.0
 margin_bottom = 90.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
