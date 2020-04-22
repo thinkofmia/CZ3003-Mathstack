@@ -41,7 +41,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			classid = ""
 			for document in documents:
 				var name = document.name.split("/")[-1]
-				name = name.split("@")[0]
+				#name = name.split("@")[0]
 				if name == global.username:
 					classid = document.fields.classId.integerValue
 					break
