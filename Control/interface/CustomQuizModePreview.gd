@@ -1,5 +1,6 @@
 extends Node
 
+var message
 
 onready var http : HTTPRequest = $HTTPRequest
 var Quiz := {
@@ -10,6 +11,7 @@ var Quiz := {
 	"World":{}
 }
 
+
 onready var quizzes = []
 var quiz_info = []
 var quiz_display
@@ -17,7 +19,28 @@ var quiz_display
 var getByTitle = false
 var getById = false
 var delete = false
+
+func hideButtons():
+	$ShareButton.hide()
+	$FBButton.hide()
+	$WAButton.hide()
+	$RedditButton.hide()
+	$BackButton.hide()
+	$EditButton.hide()
+	$DeleteButton.hide()
+	$PlayBoard/MarginContainer/VBoxContainer/Button.hide()
+	
+func showButtons():
+	$ShareButton.show()
+	$FBButton.show()
+	$WAButton.show()
+	$RedditButton.show()
+	$BackButton.show()
+	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
+
+
 func _ready():
+	hideButtons()
 	if global.customTitle!="":
 		getByTitle = true
 		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
@@ -53,8 +76,9 @@ func _ready():
 		$EditButton.hide()
 		$DeleteButton.hide()
 	#Display Play button
-	$PlayBoard/MarginContainer/VBoxContainer/Button.show()
-	
+	showButtons()
+	#Set Message
+	message = "Hey! Try '"+global.customTitle+"' out by"+global.customCreator+". The Quiz ID is "+global.customID+"!"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -107,11 +131,19 @@ func _on_DeleteButton_pressed():
 	_on_BackButton_pressed()
 
 
-func _on_ShareButton_pressed():
-	#Sharing the following info NEED to link to social media
-	print("Sharing "+global.customTitle)
-	print(global.customCreator)
-	print(global.customDate)
-	print(global.customTotalQn)
-	print(global.customWorlds)
-	print(global.customID)
+func _on_ShareButton_pressed():#For Twitter
+	var tweet = "https://twitter.com/intent/tweet?text="
+	OS.shell_open(tweet+message)
+
+func _on_WAButton_pressed():
+	var url = "https://wa.me/?text="
+	OS.shell_open(url+message)
+
+func _on_RedditButton_pressed():
+	var url = "https://reddit.com/submit?title="
+	OS.shell_open(url+message)
+
+func _on_FBButton_pressed():
+	var facebook = "http://www.facebook.com/sharer.php?s=100&p[title]=MyHighScore&p[summary]="
+	OS.shell_open(facebook+message)
+
