@@ -61,8 +61,11 @@ func startBossMode():
 
 func endBossMode():
 	hideInterface()
-	if bossHP.value<=0 :
+	if bossHP.value<=0 : #If defeat boss
 		bossDies()
+	else: #If fails to defeat boss
+		character.hearts -= 1
+		character.fixHearts()
 	bossMode = false
 	timer.countTime()
 	music.playTrack()
