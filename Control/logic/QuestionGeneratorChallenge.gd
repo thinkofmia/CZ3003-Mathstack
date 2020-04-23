@@ -89,11 +89,7 @@ func setQns(): #Set new set of Qns
 		question_display= (question_info[0][i]['fields'])
 		#Get Qn ID
 		#print(question_info[0][i]['name'])
-		var qnDetails
-		if global.worldSelected == "World #10": #Find qn difficulty
-			qnDetails = question_info[0][i]['name'][81]
-		else:
-			qnDetails = question_info[0][i]['name'][80]
+		var qnDetails = question_info[0][i]['name'][80]
 		print (qnDetails)#Print out qn difficulty
 		if qnDetails == "E":
 			totalNoEasyQns+=1
@@ -119,14 +115,7 @@ func setQns(): #Set new set of Qns
 			op3Arr3.append(question_display['Option3'].values()[0])
 			op4Arr3.append(question_display['Option4'].values()[0])
 			ansArr3.append(question_display['Ans'].values()[0])
-		qTextArr.append(question_display['QuestionText'].values()[0])
-		print(qTextArr)
-		op1Arr.append(question_display['Option1'].values()[0])
-		op2Arr.append(question_display['Option2'].values()[0])
-		op3Arr.append(question_display['Option3'].values()[0])
-		op4Arr.append(question_display['Option4'].values()[0])
-		ansArr.append(question_display['Ans'].values()[0])
-		#exArr.append(question_display['Explanation'].values()[0])
+	print("Total Qns E: "+str(totalNoEasyQns)+" I: "+str(totalNoIntQns)+" A: "+str(totalNoAdvQns))
 	#choose a random question
 	global.highscore = 0
 	randomizeQuestion()
@@ -179,7 +168,7 @@ func randomizeQuestion():
 	if is_instance_valid(blockTower):
 		var level = blockTower.getNoOfBoxes()-1
 		global.highscore = level
-		if level >= 100: #Stop at level 100
+		if level > 100: #Stop at level 100
 			blockTower.selfDestruct()
 		#Set qn difficulty
 		var qnDifficulty
