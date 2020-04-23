@@ -18,7 +18,6 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 
 ## Playable Characters:
 - Godog (No Powers) [Default] 
-<img src="/Model/Characters/Godog/00base/e002a_00base_00.png" width="100" height="100" alt="Godog Sprite"/>
 - Swee Soldier (Add 2 lives)
 - Mister I (Auto-clear 3 levels)
 - Humble B (Randomize questions, 5 uses)
@@ -29,6 +28,9 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 - Careful Cyborg (Reduce time spent by 30 seconds)
 - Witty Witch (Reduce time spent by 100 seconds by using up 1 life)
 - Ticky Troll (Add 4 lives but spend 2 minutes)
+
+<img src="/Model/Characters/Godog/00base/e002a_00base_00.png" width="100" height="100" alt="Godog Sprite"/>
+<img src="/Model/Characters/Warrior/Idle (1).png" width="100" height="100" alt="Swee Soldier Sprite"/>
 
 ## Custom Profile
 Get your own custom profile with your favourite character, profile picture and nickname! Also includes class, school and email address.
