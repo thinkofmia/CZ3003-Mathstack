@@ -1,9 +1,10 @@
 extends Node
 
-
 var selectedBg = 1 #Bg Selected Variable
 onready var musicBox = get_tree().get_root().get_node("World").find_node("MusicBox") #Variable Node for music box
 onready var bg = get_tree().get_root().get_node("World").find_node("Background") #Variable Node for back ground
+onready var character = $SelectedCharacter # Get character node
+onready var material = $Background/ControlBox #Get control box node
 
 #Get Nodes for Character Icons
 onready var sweeSoldier = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/SSIcon
@@ -17,24 +18,17 @@ onready var misterI = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/C
 onready var wittyWitch = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/WWIcon
 onready var tickyTroll = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/TTIcon
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Set Mode Selected to be Challenge Mode
-	global.modeSelected = "Challenge Mode"
+	global.modeSelected = "Challenge Mode" #Set Mode Selected to be Challenge Mode
 	#Hide health and power button
-	$SelectedCharacter/healthBar.hide()
-	$SelectedCharacter/PowerButton.hide()
-	#Initialize worlds visited
-	global.worldsVisited = []
-	#Set Background
-	bg.setBackground()
-	#Timeout
-	yield(get_tree().create_timer(1.0), "timeout")
-	#Update Bg accordingly
-	changeBg()
-	#Show Character Icons accordingly
-	showCharacters()
+	character.hpBar.hide()
+	character.power.hide()
+	global.worldsVisited = []#Initialize worlds visited
+	bg.setBackground()#Set Background
+	yield(get_tree().create_timer(1.0), "timeout")#Timeout by 1sec
+	changeBg()#Update Bg accordingly
+	showCharacters()#Show Character Icons accordingly
 
 #Show character icons based on account type
 func showCharacters():
@@ -81,39 +75,32 @@ func showAllCharacters():
 
 #Update Character selection
 func updateCharacter():
-	#Show the updated Character
-	$SelectedCharacter.displayCharacter()
-	print(global.characterSelected+" has been selected!")
+	character.displayCharacter()#Show the updated Character
+	print(global.characterSelected+" has been selected!")#Debug
 	
-#If the user clicks on Godot Icon
+#If the user clicks on Godog Icon
 func _on_GodotIcon_pressed():
-	#Changes character to Godog
-	global.characterSelected = "Godog"
-	#Update Changes
-	updateCharacter()
+	global.characterSelected = "Godog" #Changes character to Godog
+	updateCharacter()#Update Changes
 	
 #If user clicks on Swee Soldier Icon
 func _on_SSIcon_pressed():
-	#Changes Character to Swee Soldier
-	global.characterSelected = "Swee Soldier"
+	global.characterSelected = "Swee Soldier"#Changes Character to Swee Soldier
 	updateCharacter()
 
 #If user selects Mister I
 func _on_MrIIcon_pressed():
-	#Changes character to Mister I
-	global.characterSelected = "Mister I"
+	global.characterSelected = "Mister I" #Changes character to Mister I
 	updateCharacter()
 
 #If user selects Humble B
 func _on_HBIcon_pressed():
-	#Changes character to Humble B
-	global.characterSelected = "Humble B"
+	global.characterSelected = "Humble B" #Changes character to Humble B
 	updateCharacter()
 
 #If user selects Rider Rabbit
 func _on_RRIcon_pressed():
-	#Changes Character to Rider Rabbit
-	global.characterSelected = "Rider Rabbit"
+	global.characterSelected = "Rider Rabbit" #Changes Character to Rider Rabbit
 	updateCharacter()
 
 #If World #1 was selected
@@ -134,8 +121,6 @@ func changeBg():
 
 #Change Box Material
 func changeMaterial():
-	#Set material node
-	var material = $Background/ControlBox
 	match global.worldSelected:#Check which world user is in and append color accordingly
 		"World #1":
 			material.color = Color(0, 0, 0.8, 1)

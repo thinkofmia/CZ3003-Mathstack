@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+onready var power = $PowerButton #Power button node
+onready var hpBar = $healthBar #Health bar node
+
 func _ready():#On start display character
 	displayCharacter()
 
@@ -28,8 +31,8 @@ func hideAllSprites():
 	$FFSprite.hide()
 	$TTSprite.hide()
 	$WWSprite.hide()
-	$healthBar.hide()
-	$PowerButton.hide()
+	hpBar.hide()
+	power.hide()
 
 func _physics_process(delta):
 	#Every 10 secons
