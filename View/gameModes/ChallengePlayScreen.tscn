@@ -409,6 +409,7 @@ self_modulate = Color( 0.301961, 0.321569, 0.807843, 1 )
 position = Vector2( 28.6423, -8.29443 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -421,7 +422,7 @@ position = Vector2( 36.0744, -22.748 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 8
+frame = 1
 playing = true
 flip_h = true
 

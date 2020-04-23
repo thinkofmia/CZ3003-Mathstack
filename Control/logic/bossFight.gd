@@ -63,14 +63,15 @@ func endBossMode():
 	hideInterface()
 	if bossHP.value<=0 : #If defeat boss
 		bossDies()
+		character.addLife()
+		character.recoverPower()
 	else: #If fails to defeat boss
 		character.hearts -= 1
 		character.fixHearts()
 	bossMode = false
 	timer.countTime()
 	music.playTrack()
-	character.addLife()
-	character.recoverPower()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
