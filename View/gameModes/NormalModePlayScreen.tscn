@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=234 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -51,6 +51,7 @@
 [ext_resource path="res://Model/Characters/DeadlyDino/Idle (2).png" type="Texture" id=49]
 [ext_resource path="res://Model/Characters/FireFox/Fox_Run1.png" type="Texture" id=50]
 [ext_resource path="res://Model/Characters/ZestyZombie/Idle (10).png" type="Texture" id=51]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_17.png" type="Texture" id=52]
 [ext_resource path="res://Model/Characters/ZestyZombie/Idle (12).png" type="Texture" id=53]
 [ext_resource path="res://Model/Characters/ZestyZombie/Idle (15).png" type="Texture" id=54]
 [ext_resource path="res://Model/Characters/CarefulCyborg/Melee (5).png" type="Texture" id=55]
@@ -71,6 +72,7 @@
 [ext_resource path="res://Model/Characters/CarefulCyborg/Idle (1).png" type="Texture" id=70]
 [ext_resource path="res://textures/icon.png" type="Texture" id=71]
 [ext_resource path="res://Model/Characters/Mr I/Mr I.png" type="Texture" id=72]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_04.png" type="Texture" id=73]
 [ext_resource path="res://Model/Characters/HumbleB/bee_spritesheet.png" type="Texture" id=74]
 [ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun2.png" type="Texture" id=75]
 [ext_resource path="res://Model/Characters/RiderRabbit/RabbitRun1.png" type="Texture" id=76]
@@ -106,6 +108,109 @@
 [ext_resource path="res://Model/Characters/DeadlyDino/Idle (1).png" type="Texture" id=106]
 [ext_resource path="res://Model/Characters/DeadlyDino/Idle (5).png" type="Texture" id=107]
 [ext_resource path="res://Model/Characters/DeadlyDino/Idle (3).png" type="Texture" id=108]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_21.png" type="Texture" id=109]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_14.png" type="Texture" id=110]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_24.png" type="Texture" id=111]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_11.png" type="Texture" id=112]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_08.png" type="Texture" id=113]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_00.png" type="Texture" id=114]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_05.png" type="Texture" id=115]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_00.png" type="Texture" id=116]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_22.png" type="Texture" id=117]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_11.png" type="Texture" id=118]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_01.png" type="Texture" id=119]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_05.png" type="Texture" id=120]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_08.png" type="Texture" id=121]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_09.png" type="Texture" id=122]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_01.png" type="Texture" id=123]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_03.png" type="Texture" id=124]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_07.png" type="Texture" id=125]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_13.png" type="Texture" id=126]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_13.png" type="Texture" id=127]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_05.png" type="Texture" id=128]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_18.png" type="Texture" id=129]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_23.png" type="Texture" id=130]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_24.png" type="Texture" id=131]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_26.png" type="Texture" id=132]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_18.png" type="Texture" id=133]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_05.png" type="Texture" id=134]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_06.png" type="Texture" id=135]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_19.png" type="Texture" id=136]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_23.png" type="Texture" id=137]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_03.png" type="Texture" id=138]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_04.png" type="Texture" id=139]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_05.png" type="Texture" id=140]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_07.png" type="Texture" id=141]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_07.png" type="Texture" id=142]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_07.png" type="Texture" id=143]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_01.png" type="Texture" id=144]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_03.png" type="Texture" id=145]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_12.png" type="Texture" id=146]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_19.png" type="Texture" id=147]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_00.png" type="Texture" id=148]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_06.png" type="Texture" id=149]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_06.png" type="Texture" id=150]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_04.png" type="Texture" id=151]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_22.png" type="Texture" id=152]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_13.png" type="Texture" id=153]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_02.png" type="Texture" id=154]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_06.png" type="Texture" id=155]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_04.png" type="Texture" id=156]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_02.png" type="Texture" id=157]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_12.png" type="Texture" id=158]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_12.png" type="Texture" id=159]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_11.png" type="Texture" id=160]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_08.png" type="Texture" id=161]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_00.png" type="Texture" id=162]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_21.png" type="Texture" id=163]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_07.png" type="Texture" id=164]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_11.png" type="Texture" id=165]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_20.png" type="Texture" id=166]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_02.png" type="Texture" id=167]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_16.png" type="Texture" id=168]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_25.png" type="Texture" id=169]
+[ext_resource path="res://Model/Characters/WittyWitch/01idle/c00b_01idle_10.png" type="Texture" id=170]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_01.png" type="Texture" id=171]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_03.png" type="Texture" id=172]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_14.png" type="Texture" id=173]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_15.png" type="Texture" id=174]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_27.png" type="Texture" id=175]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_14.png" type="Texture" id=176]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_16.png" type="Texture" id=177]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_09.png" type="Texture" id=178]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_20.png" type="Texture" id=179]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_04.png" type="Texture" id=180]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_15.png" type="Texture" id=181]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_12.png" type="Texture" id=182]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_01.png" type="Texture" id=183]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_17.png" type="Texture" id=184]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_03.png" type="Texture" id=185]
+[ext_resource path="res://Model/Characters/WittyWitch/13magic/c00b_13magic_10.png" type="Texture" id=186]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_02.png" type="Texture" id=187]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_09.png" type="Texture" id=188]
+[ext_resource path="res://Model/Characters/WittyWitch/02walk/c00b_02walk_10.png" type="Texture" id=189]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_12.png" type="Texture" id=190]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_10.png" type="Texture" id=191]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_13.png" type="Texture" id=192]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_10.png" type="Texture" id=193]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_02.png" type="Texture" id=194]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_07.png" type="Texture" id=195]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_15.png" type="Texture" id=196]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_05.png" type="Texture" id=197]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_06.png" type="Texture" id=198]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_06.png" type="Texture" id=199]
+[ext_resource path="res://Model/Characters/WittyWitch/25pokapoka/c00b_25pokapoka_00.png" type="Texture" id=200]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_08.png" type="Texture" id=201]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_01.png" type="Texture" id=202]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_11.png" type="Texture" id=203]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_04.png" type="Texture" id=204]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_09.png" type="Texture" id=205]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_03.png" type="Texture" id=206]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_00.png" type="Texture" id=207]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_09.png" type="Texture" id=208]
+[ext_resource path="res://Model/Characters/TickyTroll/01idle/e003a_01idle_13.png" type="Texture" id=209]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_08.png" type="Texture" id=210]
+[ext_resource path="res://Model/Characters/TickyTroll/10swinging/e003a_10swinging_02.png" type="Texture" id=211]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureRect
@@ -255,6 +360,42 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ ExtResource( 114 ), ExtResource( 123 ), ExtResource( 157 ), ExtResource( 124 ), ExtResource( 156 ), ExtResource( 120 ), ExtResource( 155 ), ExtResource( 125 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 170 ), ExtResource( 160 ), ExtResource( 159 ), ExtResource( 126 ) ],
+"loop": true,
+"name": "default",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 148 ), ExtResource( 171 ), ExtResource( 167 ), ExtResource( 172 ), ExtResource( 180 ), ExtResource( 128 ), ExtResource( 149 ), ExtResource( 164 ), ExtResource( 161 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 118 ), ExtResource( 158 ), ExtResource( 127 ), ExtResource( 176 ), ExtResource( 181 ), ExtResource( 168 ), ExtResource( 52 ), ExtResource( 129 ), ExtResource( 147 ), ExtResource( 179 ), ExtResource( 163 ), ExtResource( 152 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 169 ), ExtResource( 132 ), ExtResource( 175 ) ],
+"loop": true,
+"name": "jump",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 200 ), ExtResource( 144 ), ExtResource( 187 ), ExtResource( 185 ), ExtResource( 151 ), ExtResource( 115 ), ExtResource( 135 ), ExtResource( 141 ) ],
+"loop": true,
+"name": "attack",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 116 ), ExtResource( 119 ), ExtResource( 154 ), ExtResource( 145 ), ExtResource( 73 ), ExtResource( 134 ), ExtResource( 150 ), ExtResource( 142 ), ExtResource( 113 ), ExtResource( 178 ), ExtResource( 186 ), ExtResource( 165 ), ExtResource( 182 ), ExtResource( 153 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 177 ), ExtResource( 184 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 166 ), ExtResource( 109 ), ExtResource( 117 ), ExtResource( 137 ), ExtResource( 111 ) ],
+"loop": true,
+"name": "spell",
+"speed": 25.0
+} ]
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ ExtResource( 162 ), ExtResource( 183 ), ExtResource( 194 ), ExtResource( 138 ), ExtResource( 204 ), ExtResource( 197 ), ExtResource( 198 ), ExtResource( 143 ), ExtResource( 201 ), ExtResource( 208 ), ExtResource( 191 ), ExtResource( 112 ), ExtResource( 190 ), ExtResource( 209 ) ],
+"loop": true,
+"name": "default",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 207 ), ExtResource( 202 ), ExtResource( 211 ), ExtResource( 206 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 199 ), ExtResource( 195 ), ExtResource( 210 ), ExtResource( 205 ), ExtResource( 193 ), ExtResource( 203 ), ExtResource( 146 ), ExtResource( 192 ), ExtResource( 110 ), ExtResource( 196 ) ],
+"loop": true,
+"name": "attack",
+"speed": 25.0
 } ]
 
 [node name="World" instance=ExtResource( 1 )]
@@ -575,7 +716,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 7
+frame = 8
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="16"]
@@ -629,7 +770,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 14 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 
@@ -647,6 +788,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 16 )
 animation = "idle"
+frame = 4
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -655,7 +797,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 17 )
 animation = "idle"
-frame = 9
+frame = 4
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -680,7 +822,25 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 20 )
-frame = 1
+playing = true
+flip_h = true
+
+[node name="WWSprite" type="AnimatedSprite" parent="Character" index="9"]
+visible = false
+position = Vector2( 0.793945, -1.15308 )
+scale = Vector2( 0.292333, 0.292931 )
+frames = SubResource( 21 )
+animation = "jump"
+frame = 26
+playing = true
+flip_h = true
+
+[node name="TTSprite" type="AnimatedSprite" parent="Character" index="10"]
+visible = false
+position = Vector2( 3.57437, 3.71265 )
+scale = Vector2( 0.292333, 0.292931 )
+frames = SubResource( 22 )
+frame = 13
 playing = true
 flip_h = true
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]

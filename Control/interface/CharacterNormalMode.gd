@@ -32,6 +32,10 @@ func displayCharacter():
 			$DDSprite.show()
 		"Fire Fox":
 			$FFSprite.show()
+		"Witty Witch":
+			$WWSprite.show()
+		"Ticky Troll":
+			$TTSprite.show()
 		_:
 			$GodotSprite.show()
 
