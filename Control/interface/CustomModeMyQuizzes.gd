@@ -1,65 +1,43 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+#Firebase Vars
 onready var http : HTTPRequest = $HTTPRequest
 onready var questions = []
-var myQuizzes = ["Custom Quiz 1","Faker","ADD ME"]
-var quizList 
 var question_info = []
-var question_display
 var getQns=false
-var addButton 
+var question_display
+
+#Main vars
+var myQuizzes = ["Custom Quiz 1","Faker","ADD ME"]
+onready var quizList = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes #Get quiz list node
+onready var newButton = load("res://Model/buttons/gameModeButtons/CustomQuizButton.tscn") #Set instance button
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Performance Test
-	if (testPerformance.performanceCheck):
+	if (testPerformance.performanceCheck):#Performance Test
 		testPerformance.startTime()
-	#Set mode selected to be my custom quiz
-	global.modeSelected = "My Custom"
-	#Set Quiz List
-	quizList = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/ListOfAvailableQuizzes
-	#Load Button Object
-	$AddButton/Label.set_text("Add")
-	var newButton = load("res://Model/buttons/gameModeButtons/CustomQuizButton.tscn")
-	getQns=true
-	#http call to get all custom quiz
-	Firebase.get_document("CustomQuiz", http)
-	yield(get_tree().create_timer(2), "timeout")
-	#get values from custom quiz array and put into container
-	question_info = (questions.values())
-	#for each custom quiz in the array
-	for i in range(0,question_info[0].size()):
-		#extract custom quiz attribute based on i
-		question_display= (question_info[0][i]['fields'])
-		#check if the quiz is ceated by the user
-		if str(question_display['Creator'].values()[0]) == global.username:
-			#print(str(question_display['QuizName'].values()[0]))
-			#Add new instance
-			addButton = newButton.instance()
-			#Change button name to quiz name
-			addButton.set_text(question_display['QuizName'].values()[0])
-			#Add quiz button to the list
-			quizList.add_child(addButton)
-	#Performance Test
-	if (testPerformance.performanceCheck):
+	global.modeSelected = "My Custom" #Set mode selected to be my custom quiz
+	$AddButton/Label.set_text("Add") #Set label of add button	
+	getQns=true #Set get question boolean as true
+	Firebase.get_document("CustomQuiz", http)#http call to get all custom quiz
+	yield(get_tree().create_timer(2), "timeout") #Set time out 2 sec
+	question_info = (questions.values())#get values from custom quiz array and put into container
+	for i in range(0,question_info[0].size()):#for each custom quiz in the array
+		question_display= (question_info[0][i]['fields'])#extract custom quiz attribute based on i
+		if str(question_display['Creator'].values()[0]) == global.username: #check if the quiz is created by the user
+			var addButton = newButton.instance()#Add new instance
+			addButton.set_text(question_display['QuizName'].values()[0])#Change button name to quiz name
+			quizList.add_child(addButton)#Add quiz button to the list
+	if (testPerformance.performanceCheck):#Performance Test
 		print("Performance Test: Custom Mode My Quiz Display")
 		testPerformance.getTimeTaken()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+#If Add Button is pressed
 func _on_AddButton_pressed():
-	#var a = addButton.get_text()
-	#if addButton!=null:
-	global.customTitle=""
-	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
+	global.customTitle="" #Set custom title to be null
+	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")#Go to create new quiz scene
 
-
+#Firebase request
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	#conver json into a dictionary
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
