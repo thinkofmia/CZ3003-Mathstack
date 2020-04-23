@@ -9,8 +9,8 @@ onready var bg = get_tree().get_root().get_node("World").find_node("BossBg") #Ba
 
 #Timer
 onready var timer = get_tree().get_root().get_node("World").find_node("Timer") #Background
-onready var countdownDisplay = $BossMenu/HProw/TimerVar
-var countdown
+onready var countdownDisplay = $BossMenu/HProw/TimerVar #Countdown display node
+var countdown #Time left to beat boss
 
 #Buttons
 onready var option1 = $BossMenu/MarginContainer/row/columnLeft/Option1/Label
@@ -19,97 +19,99 @@ onready var option3 = $BossMenu/MarginContainer/row/columnLeft/Option3/Label
 onready var option4 = $BossMenu/MarginContainer/row/columnRight/Option4/Label
 
 var question #Question Array
-var qnNo
-var ans
-onready var questionTitle = $BossMenu/QuestionLabel
+var qnNo #Current question number
+var ans #Answer to question
+onready var questionTitle = $BossMenu/QuestionLabel #Question title node
 
 onready var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter") #Player Character
 onready var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower") #Blk Tower
-onready var qnBoard = get_tree().get_root().get_node("World").find_node("PlayBoard")
-onready var music = get_tree().get_root().get_node("World").find_node("MusicBox")
+onready var qnBoard = get_tree().get_root().get_node("World").find_node("PlayBoard") #Qn board
+onready var music = get_tree().get_root().get_node("World").find_node("MusicBox") #Music box
 
-onready var bossHP = $BossMenu/HProw/BossHealth
+onready var bossHP = $BossMenu/HProw/BossHealth #Boss HP
 
-var bossMode = false
+var bossMode = false #Boolean if boss mode
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hideInterface()
 
+#Hide main interface
 func hideInterface():
 	bg.hide()
 	qnBoard.show()
 	hide()
 
-func restoreBoss():
+func restoreBoss(): #Recover boss stats
 	qnNo = 1
 	bossHP.value = 100
 	print(str(bossHP.value))
 
-func checkBoss():
+func checkBoss(): #Check which boss is it
 	var bossNo
 	if (blkTower.getNoOfBoxes()>90):
-		bossNo = 4 #Dark Night dies
+		bossNo = 4 #Dark Knight
 	elif (blkTower.getNoOfBoxes()>70):
-		bossNo = 3	
+		bossNo = 3	 #Burning Zombie
 	elif (blkTower.getNoOfBoxes()>50):
-		bossNo = 2	
+		bossNo = 2	#Wavy Rabbit
 	else:
-		bossNo = 1
+		bossNo = 1 #Gold Cyborg
 	return bossNo
 		
-func startBossMode():
-	restoreBoss()
-	bg.show()
-	qnBoard.hide()
-	show()
-	setMap()
-	timer.pauseTime()
-	randomizeQuestion()
-	countdown = 60*15
-	music.bossTheme()
-	character.losePower()
-	yield(get_tree().create_timer(1.0), "timeout")	
-	bossMode = true
+func startBossMode(): #Starts boss fight
+	restoreBoss() #Recover boss
+	bg.show() #Show background
+	qnBoard.hide() #Hide question board
+	show() #Show boss interface
+	setMap() #Set planet
+	timer.pauseTime() #Stop time
+	randomizeQuestion() #Randomize questions
+	countdown = 60*15 #Set countdown to 15secs
+	music.bossTheme() #Play boss theme
+	character.losePower() #Character loses powers
+	yield(get_tree().create_timer(1.0), "timeout") #timeout 1 sec	
+	bossMode = true #Set boolean for boss mode check
 
-func endBossMode():
-	hideInterface()
+func endBossMode(): #Ends boss battle
+	hideInterface() #Hides boss interface
 	if bossHP.value<=0 : #If defeat boss
-		bossDies()
-		character.addLife()
-		character.recoverPower()
+		bossDies() #Kill boss
+		character.addLife() #Gain 1 life
+		character.recoverPower() #Restore power
 	else: #If fails to defeat boss
-		character.hearts -= 1
+		character.hearts -= 1 #Lose 1 life
 		character.fixHearts()
-	bossMode = false
-	timer.countTime()
-	music.playTrack()
+	bossMode = false #Boolean to false for boss mode check
+	timer.countTime() #Start counting time
+	music.playTrack() #Play normal music
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (bossMode == true) and bossHP.value<=0:
-		endBossMode()
+	if (bossMode == true) and bossHP.value<=0: #Check if boss is defeated
+		endBossMode()#End boss fight
 	elif (bossMode == true):
-		countdown = int(floor(countdown-delta))
+		countdown = int(floor(countdown-delta)) #Update time per second
 		updateTime()
 
-func updateTime():
+func updateTime(): #Update time and show on board
 	countdownDisplay.set_text(str(floor(int(countdown/60)))+" secs remaining")
-	if countdown ==0:
+	if countdown ==0: #If reaches 0, end boss battle
 		endBossMode()
 
-func bossDies():
+func bossDies(): #kills boss
 	#Set Array of Boss
 	var bossArr = [boss1,boss2,boss3,boss4]
-	bossArr[checkBoss()-1].hide()
+	bossArr[checkBoss()-1].hide() #hide the boss from sight
 
-func setMap():
+func setMap():#Set the planet background based on boss
+	#Hide all planets
 	bg.find_node("Map1").hide()
 	bg.find_node("Map2").hide()
 	bg.find_node("Map3").hide()
 	bg.find_node("Map4").hide()
-	match checkBoss():
+	match checkBoss(): #Display planet based on which boss
 		2:
 			bg.find_node("Map2").show()
 		3:
@@ -119,6 +121,7 @@ func setMap():
 		_:
 			bg.find_node("Map1").show()
 
+#Randomize questions
 func randomizeQuestion():
 	#Randomize operands
 	var operand1 = int(floor(rand_range(10,100)))
@@ -144,12 +147,11 @@ func randomizeQuestion():
 			operationStr = "%"
 			finalAns = operand1%operand2
 	#Set options
-	
 	option1.set_text(str(randCloseAns(finalAns))) 
 	option2.set_text(str(randCloseAns(finalAns)))
 	option3.set_text(str(randCloseAns(finalAns)))
 	option4.set_text(str(randCloseAns(finalAns)))
-	
+	#Set answer
 	match int(floor(rand_range(1,5))):
 		1:
 			option1.set_text(str(finalAns)) 
@@ -159,11 +161,11 @@ func randomizeQuestion():
 			option3.set_text(str(finalAns)) 
 		4:
 			option4.set_text(str(finalAns)) 
-			
+	#Store qn set		
 	setQuestion(operand1, operand2, operation)
 	#set Question title
 	questionTitle.set_text("Q"+str(qnNo)+") "+str(question[0])+str(operationStr)+str(question[1])+"?")
-	qnNo+=1
+	qnNo+=1 #Increment total qn by 1
 	
 #Sets question and store it
 func setQuestion(operand1, operand2, operation):
@@ -178,7 +180,6 @@ func setQuestion(operand1, operand2, operation):
 			correctAnswer = int(operand1*operand2)
 		4:
 			correctAnswer = int(operand1%operand2)
-	
 	#Save question set
 	question = [operand1,operand2,operation,correctAnswer] 
 	print(question)
@@ -192,42 +193,39 @@ func randCloseAns(ans):
 func checkAnswer(option):
 	if (str(question[3])==option.get_text()):#Check if correct answer was click
 		correctAnswer()
-		
 	else:
 		wrongAnswer()
 
-func damageBoss():
+func damageBoss(): #Reduces boss health
 	bossHP.value -= 15
 
-func correctAnswer():
+func correctAnswer(): #If correct ans selected
 	print("Correct!")
 	#Play Sound
 	var sound = get_tree().get_root().get_node("World").find_node("CorrectSound")
 	sound.play()
-	#Make Character speak!
-	character.characterSpeak("HIYA!! ")
-	damageBoss()
-	randomizeQuestion()
+	character.characterSpeak("HIYA!! ")#Make Character speak!
+	damageBoss() #minus boss hp
+	randomizeQuestion() #randomize qns
 
-func wrongAnswer():
+func wrongAnswer(): #If wrong ans selected
 	print("Wrong!")
 	#Play Sound
 	var sound = get_tree().get_root().get_node("World").find_node("WrongSound")
 	sound.play()
 	#Make Character speak!
 	character.characterSpeak("SHUCKS! That was wrong. ")
-	#Decrement countdown as penalty
-	countdown -= 60
-	randomizeQuestion()
+	countdown -= 60 #Decrement countdown as penalty
+	randomizeQuestion() #Randomize question
 
-func _on_Option1_pressed():
+func _on_Option1_pressed(): #Press option 1
 	checkAnswer(option1)
 
-func _on_Option3_pressed():
+func _on_Option3_pressed():#Press option 3
 	checkAnswer(option3)
 
-func _on_Option2_pressed():
+func _on_Option2_pressed():#Press option 2
 	checkAnswer(option2)
 
-func _on_Option4_pressed():
+func _on_Option4_pressed():#Press option 4
 	checkAnswer(option4)

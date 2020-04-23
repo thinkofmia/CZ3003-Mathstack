@@ -1,4 +1,6 @@
 extends Control
+
+#Set respective nodes as vars
 onready var track01 = $PlayMusic
 onready var track02 = $track02
 onready var track03 = $track03
@@ -13,22 +15,20 @@ onready var trackMenu = $MainMusic
 onready var bossMusic = $BossMusic
 onready var fastForward = $FFMusic
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	playMenuMusic()
 
+#Main menu music
 func playMenuMusic():
 	trackMenu.play()
 
+#Boss theme
 func bossTheme():
 	stopMusic()
 	bossMusic.play()
 
+#Play theme
 func playTrack():
 	#Stop all music
 	stopMusic()
@@ -59,6 +59,7 @@ func playTrack():
 		_:
 			track01.play()
 
+#Stop all music
 func stopMusic():
 	track01.stop()
 	track02.stop()
@@ -74,6 +75,7 @@ func stopMusic():
 	bossMusic.stop()
 	fastForward.stop()
 
+#Power music
 func fastForward():
 	stopMusic()
 	fastForward.play()

@@ -2,9 +2,11 @@ extends Node
 
 #Variables
 var totalQn = 1 #Total No of Qn
-var newQnSet
-var qnList
-var id = ""
+onready var newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
+onready var qnList = $PlayBoard/Container/QnList #Get qn list node
+var id = "" #Var to store quiz id
+
+#Firebase var
 var getQuiz = false
 var existQuiz = false
 var getQns = false
@@ -47,8 +49,8 @@ func _ready():
 	$PlayBoard.hide() #Hide on startup
 	totalQn = 0 #Get total number of qns here
 	$ConfirmButton/Label.set_text("Save") #Replace Edit Button with Confirm Button
-	newQnSet = load("res://View/util/customQuestionSet.tscn") #Sets Merged scene as custom Qn Set
-	qnList = $PlayBoard/Container/QnList
+	newQnSet 
+	
 	getQuiz = true
 	quizName.text=global.customTitle
 	#check if the user is creating a new quiz or editing an existing quiz
@@ -105,10 +107,8 @@ func _ready():
 		testPerformance.getTimeTaken()
 	showButtons()
 
-
 func _on_BackButton_pressed(): #Exit Scene
 	get_tree().change_scene("res://View/gameModes/CustomModeMyQuizzes.tscn")
-
 
 func _on_AddButton_pressed(): #Add new Qn 
 	totalQn +=1
@@ -120,11 +120,13 @@ func _on_AddButton_pressed(): #Add new Qn
 	#Add qn to the list
 	qnList.add_child(addQn)
 
+#Hide all buttons
 func hideButtons():
 	$BackButton.hide()
 	$AddButton.hide()
 	$ConfirmButton.hide()
 
+#Show all buttons
 func showButtons():
 	$BackButton.show()
 	$AddButton.show()
@@ -238,11 +240,13 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	#Returns to my list
 	yield(get_tree().create_timer(2.0), "timeout")
 	_on_BackButton_pressed()
-	
+
+#Set quiz values	
 func set_Quiz(value: Dictionary) -> void:
 	Quiz=value
 	Id.text = str(Quiz.Id.stringValue)
 
+#HTTP Request
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	print(result_body)
