@@ -144,7 +144,6 @@ func updateFirebaseUserProgress():
 				global.save['World' + str(currentWorldInt)]['stringValue'] = "1"
 		
 		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue']) < global.storyScore):
-			if global.storyScore >= 8:
 				global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue'] = str(global.storyScore)
 		
 	if (global.difficultySelected == "Intermediate"):
