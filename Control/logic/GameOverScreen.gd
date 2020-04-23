@@ -26,7 +26,7 @@ func hideButtons(): #Hide all buttons while loading.
 	$WAButton.hide()
 	$RedditButton.hide()
 	
-func showButtons():
+func showButtons(): #Show buttons after load finishes
 	$QuitButton.show()
 	$LeaderBoardButton.show()
 	$PlayButton.show()
@@ -35,7 +35,7 @@ func showButtons():
 	$WAButton.show()
 	$RedditButton.show()
 
-func showLabels():
+func showLabels(): #Show the labels after data is retrieved
 	$PlayBoard/HighscoreRow.show()
 	$PlayBoard/TimeElapsedRow.show()
 	$PlayBoard/WorldVisitedRow.show()
