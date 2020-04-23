@@ -374,14 +374,14 @@ animations = [ {
 "name": "jump",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 116 ), ExtResource( 119 ), ExtResource( 154 ), ExtResource( 145 ), ExtResource( 73 ), ExtResource( 134 ), ExtResource( 150 ), ExtResource( 142 ), ExtResource( 113 ), ExtResource( 178 ), ExtResource( 186 ), ExtResource( 165 ), ExtResource( 182 ), ExtResource( 153 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 177 ), ExtResource( 184 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 166 ), ExtResource( 109 ), ExtResource( 117 ), ExtResource( 137 ), ExtResource( 111 ) ],
-"loop": true,
-"name": "spell",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 200 ), ExtResource( 144 ), ExtResource( 187 ), ExtResource( 185 ), ExtResource( 151 ), ExtResource( 115 ), ExtResource( 135 ), ExtResource( 141 ) ],
 "loop": true,
 "name": "attack",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 116 ), ExtResource( 119 ), ExtResource( 154 ), ExtResource( 145 ), ExtResource( 73 ), ExtResource( 134 ), ExtResource( 150 ), ExtResource( 142 ), ExtResource( 113 ), ExtResource( 178 ), ExtResource( 186 ), ExtResource( 165 ), ExtResource( 182 ), ExtResource( 153 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 177 ), ExtResource( 184 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 166 ), ExtResource( 109 ), ExtResource( 117 ), ExtResource( 137 ), ExtResource( 111 ) ],
+"loop": true,
+"name": "spell",
 "speed": 25.0
 } ]
 
@@ -716,7 +716,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 6
+frame = 7
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="16"]
@@ -829,7 +829,7 @@ position = Vector2( 0.793945, -1.15308 )
 scale = Vector2( 0.292333, 0.292931 )
 frames = SubResource( 21 )
 animation = "jump"
-frame = 6
+frame = 23
 playing = true
 flip_h = true
 
@@ -838,7 +838,7 @@ visible = false
 position = Vector2( 3.57437, 3.71265 )
 scale = Vector2( 0.292333, 0.292931 )
 frames = SubResource( 22 )
-frame = 7
+frame = 10
 playing = true
 flip_h = true
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]

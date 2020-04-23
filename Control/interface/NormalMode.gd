@@ -4,6 +4,7 @@ var bg
 onready var http : HTTPRequest = $MYHTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$QuestionMenu.hide()
 	bg = $Background7
 	#Start Performance test if true
 	if (testPerformance.performanceCheck):
@@ -17,10 +18,10 @@ func _ready():
 	currentStoryScore = global.storyScore
 	currentQuestionCount = 1
 	#Find music box
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(get_tree().create_timer(2.0), "timeout")
 	var musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
 	musicBox.playTrack()
-	
+	$QuestionMenu.show()
 	pass # Replace with function body.
 
 
