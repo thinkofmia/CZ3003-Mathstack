@@ -545,7 +545,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 8
+frame = 1
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="15"]
@@ -616,7 +616,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 16 )
 animation = "idle"
-frame = 8
+frame = 3
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -625,6 +625,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 17 )
 animation = "idle"
+frame = 11
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -633,7 +634,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 7
+frame = 8
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
@@ -641,7 +642,7 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 19 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
