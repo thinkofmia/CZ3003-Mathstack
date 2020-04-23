@@ -14,6 +14,10 @@ func _ready():
 	times = 0
 	currentStoryScore = global.storyScore
 	currentQuestionCount = 1
+	#Find music box
+	yield(get_tree().create_timer(1.0), "timeout")
+	var musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
+	musicBox.playTrack()
 	
 	pass # Replace with function body.
 
@@ -45,11 +49,14 @@ var currentStoryScore = global.storyScore
 var currentDelta = -1
 var times = 0
 var currentQuestionCount = 1
+var gameEnded = false
 
 func _process(delta):
 	
 	if (global.questionCount == 10):
-		doGameEndedProcess()
+		if gameEnded == false:
+			doGameEndedProcess()
+		gameEnded = true
 	
 	else:
 		if (currentDelta == delta):
@@ -70,17 +77,15 @@ func _process(delta):
 
 func doGameEndedProcess():
 	$QuestionMenu.hide()
-	if currentStoryScore >= 8:
-		$FinishLabel.text = "Congratulations!"
-	else:
-		$FinishLabel.text = "Sorry. Please try again!"
-	# if currentStoryScore >= 8 else "Sorry. Please try again!"
+	$FinishLabel.text = "Congratulations!" if global.storyScore >= 8 else "Sorry. Please try again!"
 	$FinishLabel.show()
-	if currentStoryScore >= 8:
-		$FinishButton.text = "Next Level"
-	else:
-		$FinishButton.text = "Try again"
-	#$FinishButton.text = "Next Level" if currentStoryScore >= 8 else "Try again"
+	$FinishButton.text = "Next Level" if global.storyScore >= 8 else "Try again"
+	
+	if global.difficultySelected == "Advanced":
+		##not enough characters, so 9 and 10 has nothing
+		if global.worldSelected != "World #9" && global.worldSelected != "World #10":
+			$FinishButton.text = "Unlocked Character!"
+	
 	$FinishButton.show()
 	if (global.storyScore >= 8):
 		updateFirebaseUserProgress()
@@ -116,6 +121,7 @@ func updateFirebaseUserProgress():
 			global.save['ScoreWorld' + str(currentWorldInt) + 'c']['stringValue'] = str(global.storyScore)
 	
 	Firebase.update_document("SaveData/%s" % str(global.username),global.save,http)	
+	global.updateUnlockCharsList(global.save)
 	
 func _on_QuitButton_pressed():
 	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
@@ -124,5 +130,13 @@ func _on_QuitButton_pressed():
 
 
 func _on_FinishButton_pressed():
-	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
-	pass # Replace with function body.
+	if global.difficultySelected == "Advanced":
+		##not enough characters, so 9 and 10 has nothing
+		if global.worldSelected != "World #9" && global.worldSelected != "World #10":
+			get_tree().change_scene("res://View/gameModes/NormalModeUnlockCharacter.tscn")
+		else:
+			get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
+	
+	else:
+		get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
+

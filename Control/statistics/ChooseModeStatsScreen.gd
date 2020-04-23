@@ -14,23 +14,23 @@ func _on_Button_pressed(scene_to_load):
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_path_to_load)
-<<<<<<< HEAD
-
 
 func _on_Normal_pressed():
-	get_tree().change_scene("res://View/teachers/ChooseWorldSeeStatsScreen.tscn")
-
+	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 
-
 func _on_Leaderboard_pressed():
 	get_tree().change_scene("res://View/teachers/LeaderboardScene.tscn")
-
 
 func _on_Custom_pressed():
 	global.customViewingStats = true
 	get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
-=======
->>>>>>> randy2
+
+
+func _on_OverallStatistics_pressed():
+	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")
+
+func _on_AnalysisReportButton_pressed():
+	get_tree().change_scene("res://View/teachers/AnalysisReport.tscn")

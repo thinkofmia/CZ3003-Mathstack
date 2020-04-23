@@ -10,7 +10,7 @@ var getAccountType=false
 # var b = "text"
 
 onready var http : HTTPRequest = $HTTPRequest
-onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit
+onready var username : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/LineEdit
 onready var password : LineEdit = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +36,7 @@ func _on_LoginButton_pressed():
 	#Run Func
 	$TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer/LoginButton.hide()
 	global.username = username
-	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit.get_text()
+	var email_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow/LineEdit.get_text()+"@e.ntu.edu.sg"
 	var password_text = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/LineEdit2.get_text()
 	
 	if email_text == "": # or if email_address is not valid in DB
@@ -53,13 +53,16 @@ func _on_LoginButton_pressed():
 		if (testPerformance.performanceCheck):
 			testPerformance.startTime()		
 		loginBool=true
+		#set Username
+		var loginUsername = username.text+"@e.ntu.edu.sg"
 		#http request to login
-		Firebase.login(username.text, password.text, http)
+		Firebase.login(loginUsername, password.text, http)
 		yield(get_tree().create_timer(2.0), "timeout")
 		getDataBool=true
 		#http request to get user progress
 		Firebase.get_save("SaveData/%s" % Firebase.user_info.email, http)
 		yield(get_tree().create_timer(2.0), "timeout")
+		global.updateUnlockCharsList(global.save)
 		getAccountType=true
 		#http request to get account type
 		Firebase.get_document("users/%s" % Firebase.user_info.email, http)
@@ -78,7 +81,7 @@ func _on_ForgotPassButton_pressed():
 
 func goToMainMenu():
 	#Condition
-	if (global.accountType == "Teacher"): #If account type is teacher or admin
+	if (global.accountType == "Teacher"|| global.accountType == "Admin"): #If account type is teacher or admin
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 	else:#If account type is student
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
@@ -95,16 +98,18 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		if loginBool:
 				loginBool = false
 				#added this to be able to access username easily
-				global.username = username.text
+				global.username = username.text+"@e.ntu.edu.sg"
 		if getDataBool:
 			getDataBool = false
 		if getAccountType:
 			getAccountType = false
 			#save account type to global.accountType
 			global.accountType=response_body.result.fields.account.stringValue
+			setCharacter(response_body.result.fields)
+			#Save class to global.class
+			global.userClass = global.classArray[int(response_body.result.fields.classId.integerValue)]
 			$FadeIn.show()
 			$FadeIn.fade_in()
-
 		
 	elif response_code == 400:
 		if loginBool:
@@ -124,3 +129,17 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 
 func _on_FadeIn_fade_finished():
 	goToMainMenu()
+
+
+func setCharacter(field):
+#Set full name
+	var characterExists = false
+	for key in field:
+		print(key)
+		if (key=="character"):
+			characterExists = true
+			
+		if (characterExists):
+			global.characterSelected = (field['character'].values()[0])
+		else:
+			global.characterSelected = "Godot"

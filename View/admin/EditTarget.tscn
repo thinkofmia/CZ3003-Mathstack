@@ -1,0 +1,223 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://textures/avatar.jpeg" type="Texture" id=1]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://View/template.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Model/Labels/Confirm.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Starzy.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Control/logic/EditTargetUser.gd" type="Script" id=9]
+[ext_resource path="res://Model/Labels/Cancel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Model/Labels/Header.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=3]
+default_font = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 8 )
+
+[node name="EditProfileScreen" instance=ExtResource( 4 )]
+script = ExtResource( 9 )
+
+[node name="MarginContainer" parent="TextureRect" index="0"]
+anchor_top = 0.00166151
+anchor_bottom = 1.00166
+margin_top = 4.15393
+margin_right = -172.0
+margin_bottom = -162.844
+
+[node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
+margin_right = 1170.0
+margin_bottom = 963.0
+
+[node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
+margin_right = 1170.0
+margin_bottom = 963.0
+
+[node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
+margin_right = 820.0
+margin_bottom = 763.0
+
+[node name="HeaderRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+margin_right = 770.0
+margin_bottom = 225.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="ProfilePic" type="TextureRect" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HeaderRow" index="0"]
+margin_left = 74.0
+margin_right = 299.0
+margin_bottom = 225.0
+texture = ExtResource( 1 )
+
+[node name="NicknameEdit" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HeaderRow" index="1"]
+margin_left = 329.0
+margin_top = 68.0
+margin_right = 696.0
+margin_bottom = 157.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Nickname"
+align = 1
+expand_to_text_length = true
+
+[node name="MenuOptions" type="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+margin_top = 229.0
+margin_right = 770.0
+margin_bottom = 619.0
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="AccountRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="0"]
+margin_top = 37.0
+margin_right = 770.0
+margin_bottom = 103.0
+
+[node name="AccountTag" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/AccountRow" index="0"]
+margin_top = 4.0
+margin_right = 236.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "Account: "
+
+[node name="AccountOptions" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/AccountRow" index="1"]
+margin_left = 240.0
+margin_right = 468.0
+margin_bottom = 66.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 6 )
+text = "Student"
+
+[node name="EmailRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="1"]
+margin_top = 123.0
+margin_right = 770.0
+margin_bottom = 181.0
+
+[node name="EmailTag" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/EmailRow" index="0"]
+margin_right = 654.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+text = "Email: Email Address Here"
+
+[node name="SchoolRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="2"]
+margin_top = 201.0
+margin_right = 770.0
+margin_bottom = 267.0
+
+[node name="SchoolTag" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/SchoolRow" index="0"]
+margin_top = 4.0
+margin_right = 199.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "School: "
+
+[node name="SchoolOption" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/SchoolRow" index="1"]
+margin_left = 203.0
+margin_right = 338.0
+margin_bottom = 66.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 6 )
+text = "NTU"
+
+[node name="ClassRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" index="3"]
+margin_top = 287.0
+margin_right = 770.0
+margin_bottom = 353.0
+
+[node name="ClassTag" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/ClassRow" index="0"]
+margin_top = 4.0
+margin_right = 165.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "Class: "
+
+[node name="ClassOption" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/ClassRow" index="1"]
+margin_left = 169.0
+margin_right = 276.0
+margin_bottom = 66.0
+theme = SubResource( 3 )
+custom_fonts/font = ExtResource( 6 )
+text = "SS1"
+
+[node name="ButtonsRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+margin_top = 623.0
+margin_right = 770.0
+margin_bottom = 713.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Confirm" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ButtonsRow" index="0" instance=ExtResource( 7 )]
+margin_top = 0.0
+margin_right = 360.0
+margin_bottom = 90.0
+script = null
+
+[node name="Cancel" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ButtonsRow" index="1" instance=ExtResource( 10 )]
+margin_left = 410.0
+margin_top = 0.0
+margin_right = 770.0
+margin_bottom = 90.0
+script = null
+
+[node name="FadeIn" parent="." index="1"]
+script = null
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
+
+[node name="Header" parent="." index="4" instance=ExtResource( 11 )]
+margin_top = 20.0
+custom_fonts/font = SubResource( 4 )
+text = "Manage Database: Edit Profile"
+
+[node name="PopUpControl" type="Control" parent="." index="5"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopUpControl" index="0"]
+margin_left = 229.0
+margin_top = 96.0
+margin_right = 873.0
+margin_bottom = 577.0
+color = Color( 0.192157, 0.392157, 0.552941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopUpDisplay" type="VBoxContainer" parent="PopUpControl" index="1"]
+margin_left = 242.0
+margin_top = 247.0
+margin_right = 854.0
+margin_bottom = 525.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PopUpControl/PopUpDisplay" index="0"]
+margin_right = 612.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 16 )
+text = "User Profile Saved!"
+align = 1
+valign = 1
+autowrap = true
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ButtonsRow/Confirm" to="." method="_on_Confirm_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/MarginContainer/VBoxContainer/ButtonsRow/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

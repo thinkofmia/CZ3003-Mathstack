@@ -12,10 +12,12 @@ var world10
 var qnMenu
 var bg
 var world
+var musicBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hideAccessedWorld()
+	#Set World Buttons
 	world1 = find_node("WorldButton")
 	world2 = find_node("WorldButton2")
 	world3 = find_node("WorldButton3")
@@ -26,31 +28,26 @@ func _ready():
 	world8 = find_node("WorldButton8")
 	world9 = find_node("WorldButton9")
 	world10 = find_node("WorldButton10")
+	#Find Music Box
+	musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
+	#Set Qn Menus and bg
 	qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 	bg = get_tree().get_root().get_node("World").find_node("Background")
 	world = global.worldSelected
-	changeBg(global.worldSelected)
+	#Timeout
+	yield(get_tree().create_timer(1.0), "timeout")
+	changeBg()
 	#Add world selected to list
 	global.worldsVisited = [global.worldSelected]
 	print(global.worldsVisited)
 	#Hide worlds that are already chosen
 	hideAccessedWorld()
 
-func changeBg(world):
-	match world:
-		"World #1":
-			bg.set_texture(preload("res://textures/mountain.png"))
-		"World #2":
-			bg.set_texture(preload("res://textures/mountainView.jpg"))
-		"World #3":
-			bg.set_texture(preload("res://textures/BG.png"))
-		"World #4":
-			bg.set_texture(preload("res://textures/winter.png"))
-		"World #6":
-			bg.set_texture(preload("res://textures/desert.png"))
-		_:
-			bg.set_texture(preload("res://textures/graveyard.png"))
-			
+func changeBg():
+	#Set bg
+	bg.setBackground()
+	#Play music
+	musicBox.playTrack()
 
 func selectWorld(node):
 	#Hides access world
@@ -58,7 +55,7 @@ func selectWorld(node):
 	#Get text from world selected
 	global.worldSelected = node.get_text()
 	print("World Selected: "+global.worldSelected)
-	changeBg(global.worldSelected)
+	changeBg()
 	qnMenu.show()
 	self.hide()
 	#Add world chosen to list

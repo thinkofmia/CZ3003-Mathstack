@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-rumble.ogg-b4ec37a80290d8ab3f66483c67dccef4.oggstr"
+
+[deps]
+
+source_file="res://Model/sounds/music/bensound-rumble.ogg"
+dest_files=[ "res://.import/bensound-rumble.ogg-b4ec37a80290d8ab3f66483c67dccef4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

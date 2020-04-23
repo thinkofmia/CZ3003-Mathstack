@@ -6,9 +6,11 @@ extends Node
 # var b = "text"
 var currentSelectedWorld = "World #0"
 onready var http : HTTPRequest = $MYHTTPRequest
+onready var http2 : HTTPRequest = $MYHTTPRequest2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Firebase.update_document("UnlockedCharactersData/%s" % str(global.username), {"data" : {"values" :[{'integerValue':1}]}}, http2)
 	#Performance Check
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
@@ -51,6 +53,12 @@ func changeBg(selectedBg):
 
 
 func _on_NextButton_pressed():
+	for unlock in global.characterUnlockList:
+		print(unlock.associatedWorld)
+		print(global.worldSelected)
+		if unlock.associatedWorld == global.worldSelected:
+			global.normalModeCharacterSelected = unlock.characterName
+			break
 	get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
 
 
@@ -63,6 +71,8 @@ func _on_MYHTTPRequest_request_completed(result, response_code, headers, body):
 		#success
 		200:
 			global.save = result_body.fields
+			global.updateUnlockCharsList(result_body.fields)
+			
 			calculateAndSetValueForProgress()
 			
 
@@ -96,3 +106,18 @@ func calculateAndSetValueForProgress():
 		
 		
 		
+
+
+func _on_MYHTTPRequest2_request_completed(result, response_code, headers, body):
+	var result_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
+	print(response_code)
+	print(result_body)
+	match response_code:
+		#error
+		404:
+			print("Error")
+			print(result_body)
+			return
+		#success
+		200:
+			print("Success")

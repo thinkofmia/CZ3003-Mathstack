@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-allthat.ogg-28ae25374d43165c6ada4ef9fe652d35.oggstr"
+
+[deps]
+
+source_file="res://Model/sounds/music/bensound-allthat.ogg"
+dest_files=[ "res://.import/bensound-allthat.ogg-28ae25374d43165c6ada4ef9fe652d35.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -22,12 +22,18 @@ func hideButtons(): #Hide all buttons while loading.
 	$LeaderBoardButton.hide()
 	$PlayButton.hide()
 	$ShareButton.hide()
+	$FBButton.hide()
+	$WAButton.hide()
+	$RedditButton.hide()
 	
 func showButtons():
 	$QuitButton.show()
 	$LeaderBoardButton.show()
 	$PlayButton.show()
 	$ShareButton.show()
+	$FBButton.show()
+	$WAButton.show()
+	$RedditButton.show()
 
 func showLabels():
 	$PlayBoard/HighscoreRow.show()
@@ -73,7 +79,6 @@ func _ready():
 		#set Fastest clear time
 		
 		$PlayBoard/WorldVisitedRow.hide()
-		$PlayBoard/FastestClearRow.show()
 		Firebase.update_document("CustomScore_" + global.customTitle + "/" + global.username,{'Score':{'integerValue':hscore}},http2)
 
 	if global.modeSelected == "All Custom" or global.modeSelected == "My Custom":
@@ -111,6 +116,18 @@ func _on_ShareButton_pressed():
 	var tweet = "https://twitter.com/intent/tweet?text="
 	OS.shell_open(tweet+message)
 
+func _on_WAButton_pressed():
+	var url = "https://wa.me/?text="
+	OS.shell_open(url+message)
+
+func _on_RedditButton_pressed():
+	var url = "https://reddit.com/submit?title="
+	OS.shell_open(url+message)
+
+func _on_FBButton_pressed():
+	var facebook = "http://www.facebook.com/sharer.php?u=ntulearn.ntu.edu.sg&t=MyHighScore&ps=100&p[summary]="
+	OS.shell_open(facebook+message)
+
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray):
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	if response_code != 200:
@@ -119,7 +136,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	elif response_code == 200:
 		print("Accessed succesfully")
 		self.nickname = response_body.fields["nickname"]
-	pass # Replace with function body.
 	
 
 
@@ -132,3 +148,4 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 	elif response_code == 200:
 		print("Accessed succesfully")
 		print(response_body)
+	

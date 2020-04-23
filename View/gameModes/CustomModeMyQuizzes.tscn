@@ -69,13 +69,13 @@ custom_constants/separation = 10
 [node name="BackButton" parent="." index="2"]
 script = ExtResource( 2 )
 
-[node name="AddButton" parent="." index="4" instance=ExtResource( 3 )]
+[node name="AddButton" parent="." index="3" instance=ExtResource( 3 )]
 margin_left = 894.538
 margin_top = 489.535
 margin_right = 996.538
 margin_bottom = 577.535
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." index="5"]
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

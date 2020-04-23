@@ -27,6 +27,11 @@ func _ready():
 	else:
 		Firebase.get_document("%s" % "users", http)
 		Firebase.get_document("%s" % "SaveData",http2)
+		#Set Title Label
+		if global.viewingOverallStats:
+			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.set_text("Overall Statistics")
+		else:
+			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.set_text("Class: "+global.userClass)
 
 
 func doViewingCustomStatsSteps():
@@ -62,6 +67,7 @@ func constructListWithData(listData):
 	
 
 func _on_Button_pressed():
+	global.viewingOverallStats = false
 	if global.customViewingStats:
 		get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
 	else:
@@ -86,19 +92,18 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 			for student in tempStudents:
 				print(student.fields.classId)
 				print(student.name.split("/")[-1])
-				if (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username):
+				if (global.accountType == "Admin" || global.viewingOverallStats == true || (student.fields.classId.integerValue == teacherClassId && student.name.split("/")[-1] != global.username)):
 					students.append(student.name.split("/")[-1])
-					$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "ClassId: " + str(student.fields.classId.integerValue)
+					#$TextureRect/MarginContainer/MarginContainer/VBoxContainer/TitleLabel.text = "ClassId: " + str(student.fields.classId.integerValue)
 					classId = student.fields.classId.integerValue
 			
 			
 			totalNumOfStudents = (len(students))
 			
-			if (totalNumOfCompletions != -1):
+			if (totalNumOfCompletions != -1 && totalNumOfStudents>0):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar.value = percentage
-				
 
 
 func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
@@ -133,7 +138,7 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 			if (len(mystudents2) != 0):
 				totalScoreAverage = float(totalScoreCompletions) / float(len(mystudents))
 			$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/AverageLabel.set_text(str(totalScoreAverage) + "/30")
-			if (totalNumOfStudents != -1):
+			if (totalNumOfStudents > 0):
 				var percentage = float(totalNumOfCompletions) / float(totalNumOfStudents)
 				percentage = percentage * 100
 				$TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/ProgressBar.value = percentage

@@ -1,5 +1,6 @@
 extends Node
 
+
 func _on_NormalModeButton_pressed():
 	global.difficulty="Normal"
 	$FadeIn.show()
@@ -19,12 +20,15 @@ func _on_CustomModeButton_pressed():
 	$FadeIn.show()
 	$FadeIn.fade_in()
 
+func _ready():
+	if (global.accountType == "Teacher"): #Hide normal mode if teacher
+		$PlayBoard/Menu/Buttons/NormalModeButton.hide()
 
 
 
 func goToMainMenu():
 	#Condition
-	if (global.accountType == "Teacher"): #If account type is teacher or admin
+	if (global.accountType == "Teacher"|| global.accountType == "Admin"): #If account type is teacher or admin
 		get_tree().change_scene("res://View/Screens_Randy/MainMenuTeachers.tscn")
 	else:#If account type is student
 		get_tree().change_scene("res://View/Screens_Randy/MainMenu.tscn")
@@ -42,3 +46,6 @@ func _on_FadeIn_fade_finished():
 			get_tree().change_scene("res://View/gameModes/ChallengeModeSelect.tscn")
 		"Custom":
 			get_tree().change_scene("res://View/gameModes/CustomModeSelect.tscn")		
+
+
+			

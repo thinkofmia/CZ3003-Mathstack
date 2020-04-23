@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Control/interface/AddQnsDetails.gd" type="Script" id=1]
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://View/util/customQuestionSet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Model/buttons/AddButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=11]
 
 [node name="World" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -54,24 +55,65 @@ __meta__ = {
 
 [node name="QnList" type="VBoxContainer" parent="PlayBoard/MarginContainer/VBoxContainer/Container" index="0"]
 margin_right = 535.0
-margin_bottom = 248.0
+margin_bottom = 328.0
 custom_constants/separation = 20
 
 [node name="Qn1" parent="PlayBoard/MarginContainer/VBoxContainer/Container/QnList" index="0" instance=ExtResource( 4 )]
-margin_bottom = 248.0
+margin_bottom = 328.0
 
-[node name="AddButton" parent="." index="4" instance=ExtResource( 5 )]
+[node name="AddButton" parent="." index="3" instance=ExtResource( 5 )]
 margin_left = 901.0
 margin_top = 488.0
 margin_right = 995.0
 margin_bottom = 576.0
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." index="5"]
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="4"]
 
-[node name="ConfirmButton" parent="." index="6" instance=ExtResource( 3 )]
+[node name="ConfirmButton" parent="." index="5" instance=ExtResource( 3 )]
 margin_left = 897.082
 margin_top = 387.629
 margin_right = 999.082
 margin_bottom = 475.629
+
+[node name="PopUpControl" type="Control" parent="." index="6"]
+visible = false
+margin_left = -3.14642
+margin_top = 4.46556
+margin_right = 36.8536
+margin_bottom = 44.4656
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopUpControl" index="0"]
+margin_left = 231.0
+margin_top = 94.0
+margin_right = 799.0
+margin_bottom = 538.0
+color = Color( 0.192157, 0.392157, 0.552941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopUpDisplay" type="VBoxContainer" parent="PopUpControl" index="1"]
+margin_left = 242.0
+margin_top = 213.0
+margin_right = 779.0
+margin_bottom = 525.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PopUpControl/PopUpDisplay" index="0"]
+margin_right = 537.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 11 )
+text = "Question Added!"
+align = 1
+valign = 1
+autowrap = true
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="ConfirmButton" to="." method="_on_ConfirmButton_pressed"]

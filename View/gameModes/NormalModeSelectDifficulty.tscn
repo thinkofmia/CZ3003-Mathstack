@@ -181,7 +181,7 @@ script = null
 [node name="BackButton" parent="." index="7"]
 script = ExtResource( 2 )
 
-[node name="Header" type="Label" parent="." index="9"]
+[node name="Header" type="Label" parent="." index="8"]
 anchor_right = 1.0
 margin_top = 18.0
 margin_bottom = 87.0

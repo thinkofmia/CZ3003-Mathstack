@@ -7,6 +7,10 @@ var option4
 var level
 var getQuestions
 
+#Pop Up Display
+var correctStatus
+var wrongStatus
+
 var qTextArr=[]
 var op1Arr=[]
 var op2Arr=[]
@@ -44,7 +48,7 @@ func _ready():
 	print(getQuestions)
 	#http request to get question based on the selected difficulty and world
 	Firebase.get_document("%s" % str(getQuestions), http)
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
@@ -57,13 +61,17 @@ func _ready():
 		op3Arr.append(question_display['Option3'].values()[0])
 		op4Arr.append(question_display['Option4'].values()[0])
 		ansArr.append(question_display['Ans'].values()[0])
-		#exArr.append(question_display['Explanation'].values()[0])
+		exArr.append(question_display['Explanation'].values()[0])
+	#Set Nodes	
+	correctStatus = get_tree().get_root().get_node("World").find_node("CorrectStatus")
+	wrongStatus = get_tree().get_root().get_node("World").find_node("WrongStatus")
 	#choose a random question
 	randomizeQuestion()
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Normal Mode - Play")
 		testPerformance.getTimeTaken()
+	
 	
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
@@ -99,6 +107,9 @@ func randomizeQuestion():
 	question = [op1, op2, op3, op4,ans] 
 	level += 1
 	print("")
+	#Set explanation
+	correctStatus.setExplanation(exArr[random])
+	wrongStatus.setExplanation(exArr[random])
 
 func checkAnswer(option):
 	global.questionCount = global.questionCount + 1
@@ -110,15 +121,18 @@ func checkAnswer(option):
 		var scoreBoard = get_tree().get_root().get_node("World").find_node("Score")
 		scoreBoard.set_text("Score: "+str(global.storyScore))
 		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("CorrectStatus")
-		outcome.appear()
+		#temp fix, idk how
+		#temp solution: last question dont show explanation
+		print(global.questionCount)
+		if global.questionCount != 10:
+			correctStatus.appear()
 		randomizeQuestion()
 		
 	else:
 		print("Wrong!")
 		#Display msg
-		var outcome = get_tree().get_root().get_node("World").find_node("WrongStatus")
-		outcome.appear()
+		if global.questionCount != 10:
+			wrongStatus.appear()
 		randomizeQuestion()
 
 

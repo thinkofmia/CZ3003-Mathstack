@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://textures/mountainView.jpg" type="Texture" id=1]
 [ext_resource path="res://Control/interface/BlockTower.gd" type="Script" id=2]
@@ -17,8 +17,7 @@
 [ext_resource path="res://Model/sounds/sfx/wrong_sound.wav" type="AudioStream" id=15]
 [ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://textures/blackboard_c.jpg" type="Texture" id=17]
-[ext_resource path="res://View/util/PlayMusic.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Model/sounds/music/bensound-house.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Model/sounds/music/bensound-endlessmotion.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=20]
 [ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=21]
 
@@ -92,7 +91,6 @@ scale = Vector2( 2.93435, 2.84293 )
 texture = ExtResource( 17 )
 
 [node name="QuestionMenu" parent="GUI/PlayBoard" instance=ExtResource( 11 )]
-visible = false
 margin_left = -1.0
 margin_top = 32.0
 margin_right = 1160.0
@@ -129,6 +127,32 @@ size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 20 )
 text = "Finish"
 script = ExtResource( 10 )
+
+[node name="CustomExplanation" type="VBoxContainer" parent="GUI/PlayBoard"]
+visible = false
+margin_top = 24.0
+margin_right = 590.0
+margin_bottom = 420.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outcome" type="Label" parent="GUI/PlayBoard/CustomExplanation"]
+margin_right = 590.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 21 )
+text = "OUTCOME!"
+align = 1
+
+[node name="Explanation" type="Label" parent="GUI/PlayBoard/CustomExplanation"]
+margin_top = 75.0
+margin_right = 590.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 20 )
+text = "It is what it is."
+align = 1
+autowrap = true
 
 [node name="Header" type="Node2D" parent="GUI"]
 position = Vector2( -393.148, -16.3245 )
@@ -246,14 +270,7 @@ __meta__ = {
 [node name="Block" parent="BlockTower" instance=ExtResource( 12 )]
 position = Vector2( -0.697098, 322.235 )
 
-[node name="PlayMusic" parent="." instance=ExtResource( 18 )]
-
-[node name="FFMusic" parent="." instance=ExtResource( 18 )]
-stream = ExtResource( 19 )
-autoplay = false
-
 [node name="FinishPlatform" parent="." instance=ExtResource( 3 )]
-visible = false
 script = ExtResource( 4 )
 
 [node name="SelectedCharacter" parent="." instance=ExtResource( 9 )]
@@ -278,5 +295,9 @@ volume_db = 6.0
 position = Vector2( -130.596, -482.932 )
 stream = ExtResource( 15 )
 volume_db = 12.0
+
+[node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+autoplay = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
 [connection signal="pressed" from="GUI/PlayBoard/CompleteQuiz/FinishButton" to="GUI/PlayBoard/CompleteQuiz/FinishButton" method="_on_FinishButton_pressed"]

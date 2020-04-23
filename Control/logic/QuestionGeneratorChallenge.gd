@@ -11,6 +11,9 @@ var getEasyQns
 var getNormalQns
 var getHardQns
 
+#Character
+onready var userCharacter = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+
 #For Primary
 var qTextArr=[]
 var op1Arr=[]
@@ -63,6 +66,9 @@ func _ready():
 	global.highscore = 0 #Reset Highscore
 	
 func setQns(): #Set new set of Qns
+	#Hide Qn display
+	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	qnMenu.hide()
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
 	#global.difficulty = "Primary" #Set difficulty to primary
@@ -71,7 +77,7 @@ func setQns(): #Set new set of Qns
 	print(getQuestions)
 	#http request to get Primary Qns
 	Firebase.get_document("%s" % str(getQuestions), http)
-	yield(get_tree().create_timer(2), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	question_info = (questions.values())
 	#print(question_info)
 	#for each questions in the array
@@ -131,7 +137,7 @@ func setQns(): #Set new set of Qns
 	print("Advanced qns = "+str(qTextArr3))
 	randomizeQuestion() #choose a random question
 	
-	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	#Show display
 	qnMenu.show()
 	#Performance Test
 	if (testPerformance.performanceCheck):
@@ -270,6 +276,7 @@ func checkLevelTens(): #Check if the player reaches levels of ten
 			NextWorldBoard.show()
 			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
 			self.hide()
+			userCharacter.addLife()
 
 func correctAnswer():
 	print("Correct!")

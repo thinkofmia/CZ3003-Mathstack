@@ -1,34 +1,57 @@
 extends Node
 var selectedBg = 1
+var musicBox
+var bg
+
+#Character Icons
+onready var sweeSoldier = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/SSIcon
+onready var humbleBee = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/HBIcon
+onready var riderRabbit = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/RRIcon
+onready var zestyZombie = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/ZZIcon
+onready var carefulCyborg = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/CCIcon
+onready var deadlyDino = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/DDIcon
+onready var fireFox = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/FFIcon
+onready var misterI = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/MrIIcon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Find Bg node
+	bg = get_tree().get_root().get_node("World").find_node("Background")
+	#Find music box
+	musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
 	#Set mode select to challenge mode
 	global.modeSelected = "Challenge Mode"
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
-	getWorld()
 	#Initialize worlds visited
 	global.worldsVisited = []
-
-func getWorld():
-	match global.worldSelected:
-		"World #1":
-			selectedBg = 1
-		"World #2":
-			selectedBg = 2
-		"World #3":
-			selectedBg = 3
-		"World #4":
-			selectedBg = 4
-		"World #5":
-			selectedBg = 5
-		"World #6":
-			selectedBg = 6
-		_:
-			selectedBg = 5
+	bg.setBackground()
+	#Timeout
+	yield(get_tree().create_timer(1.0), "timeout")
 	changeBg()
+	showCharacters()
+
+func showCharacters():
+	for character in global.getListOfUnlockedCharactersName():
+		match character:
+			"Swee Soldier":
+				sweeSoldier.show()
+			"Mister I":
+				misterI.show()
+			"Humble B":
+				humbleBee.show()
+			"Rider Rabbit":
+				riderRabbit.show()
+			"Zesty Zombie":
+				zestyZombie.show()
+			"Careful Cyborg":
+				carefulCyborg.show()
+			"Deadly Dino":
+				deadlyDino.show()
+			"Fire Fox":
+				fireFox.show()
+	
 
 func _on_GodotIcon_pressed():
 	global.characterSelected = "Godot"
@@ -55,77 +78,92 @@ func _on_RRIcon_pressed():
 	$SelectedCharacter.displayCharacter()
 	print("Rider Rabbit has been selected!")
 
+#World Button 1
 func _on_WorldButton_pressed():
-	selectedBg = 1
+	global.worldSelected = "World #1"
+	#Set bg
+	changeBg()
+
+#Change Background
+func changeBg():
+	#Set Background
+	bg.setBackground()
+	changeMaterial()
+	#Play Music
+	musicBox.playTrack()
+
+#Change Box Material
+func changeMaterial():
+	var material = $Background/ControlBox
+	match global.worldSelected:
+		"World #1":
+			material.color = Color(0, 0, 0.8, 1)
+		"World #2":
+			material.color = Color(0, 0.8, 0, 1)
+		"World #3":
+			material.color = Color(0, 0.8, 0, 1)
+		"World #4":
+			material.color = Color(0, 0, 0.8, 1)
+		"World #5":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #6":
+			material.color = Color(0.8, 0.8, 0, 1)
+		"World #7":
+			material.color = Color(0.8, 0, 0, 1)
+		"World #8": ###
+			material.color = Color(1, 0, 0, 1)
+		"World #9":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #10":
+			material.color = Color(0.8, 0.8, 0.8, 1)
+		_:
+			material.color = Color(1, 1, 0, 1)
+
+#World Button 2
+func _on_WorldButton2_pressed():
+	global.worldSelected = "World #2"
 	changeBg()
 	
-func changeBg():
-	#Hide all bg
-	$TemplateScreen/TextureRect.hide()
-	$Background2.hide()
-	$Background3.hide()
-	$Background4.hide()
-	$Background5.hide()
-	$Background6.hide()
-	match selectedBg:
-		1:
-			$TemplateScreen/TextureRect.show()
-		2:
-			$Background2.show()
-		3:
-			$Background3.show()
-		4:
-			$Background4.show()
-		5:
-			$Background5.show()
-		_:
-			$Background6.show()
 
-
-func _on_WorldButton2_pressed():
-	selectedBg = 2
-	changeBg()
-
-
+#World Button 4
 func _on_WorldButton4_pressed():
-	selectedBg = 3
+	global.worldSelected = "World #4"
 	changeBg()
 
-
+#World Button 3
 func _on_WorldButton3_pressed():
-	selectedBg = 4
+	global.worldSelected = "World #3"
 	changeBg()
 
-
+#World Button 8
 func _on_WorldButton8_pressed():
-	selectedBg = 5
+	global.worldSelected = "World #8"
 	changeBg()
 
-
+#World Button 7
 func _on_WorldButton7_pressed():
-	selectedBg = 6
+	global.worldSelected = "World #7"
 	changeBg()
 
-
+#World Button 6
 func _on_WorldButton6_pressed():
-	selectedBg = 1
+	global.worldSelected = "World #6"
 	changeBg()
 
-
+#World Button 5
 func _on_WorldButton5_pressed():
-	selectedBg = 2
+	global.worldSelected = "World #5"
 	changeBg()
 
-
+#World Button 10
 func _on_WorldButton10_pressed():
-	selectedBg = 3
+	global.worldSelected = "World #10"
 	changeBg()
 
-
+#World Button 9
 func _on_WorldButton9_pressed():
-	selectedBg = 4
+	global.worldSelected = "World #9"
 	changeBg()
-
 
 func _on_Play_pressed():
 	#Performance check

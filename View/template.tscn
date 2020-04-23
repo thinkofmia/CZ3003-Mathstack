@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Model/sounds/MusicBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/mountain.png" type="Texture" id=2]
-[ext_resource path="res://View/util/MainMusic.tscn" type="PackedScene" id=3]
 [ext_resource path="res://View/Screens_Randy/FadeIn.tscn" type="PackedScene" id=7]
 
 [node name="TemplateScreen" type="Control"]
@@ -68,4 +68,4 @@ margin_bottom = 701.0
 [node name="FadeIn" parent="." instance=ExtResource( 7 )]
 visible = false
 
-[node name="MainMusic" parent="." instance=ExtResource( 3 )]
+[node name="MusicBox" parent="." instance=ExtResource( 1 )]

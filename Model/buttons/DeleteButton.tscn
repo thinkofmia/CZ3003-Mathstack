@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Montserrat_16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Model/buttons/HoverStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://Model/buttons/NormalStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://Model/buttons/PressedStyle.tres" type="StyleBox" id=5]
+
+[node name="DeleteButton" type="Button"]
+margin_left = 1.463
+margin_top = 2.0
+margin_right = 103.463
+margin_bottom = 90.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Label" parent="."]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 101.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0.364706, 0.952941, 1 )
+text = "D:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.77379
+margin_top = 56.8458
+margin_right = 98.7738
+margin_bottom = 77.8458
+custom_fonts/font = ExtResource( 1 )
+text = "Delete"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

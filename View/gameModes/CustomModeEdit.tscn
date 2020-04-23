@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/AddButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://View/util/customQuestionSet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Control/logic/CustomModeEdit.gd" type="Script" id=5]
 [ext_resource path="res://Model/buttons/EditButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Montserrat_24.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=8]
-[ext_resource path="res://Model/buttons/QuitButton.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -54,12 +52,7 @@ __meta__ = {
 }
 
 [node name="QnList" type="VBoxContainer" parent="PlayBoard/Container" index="0"]
-margin_right = 535.0
-margin_bottom = 248.0
 custom_constants/separation = 20
-
-[node name="Qn1" parent="PlayBoard/Container/QnList" index="0" instance=ExtResource( 4 )]
-margin_bottom = 248.0
 
 [node name="IDRow" type="HBoxContainer" parent="PlayBoard" index="2"]
 margin_left = 22.0
@@ -84,21 +77,21 @@ margin_bottom = 39.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 7 )
 
-[node name="AddButton" parent="." index="4" instance=ExtResource( 2 )]
+[node name="AddButton" parent="." index="3" instance=ExtResource( 2 )]
 margin_left = 901.0
 margin_top = 488.0
 margin_right = 995.0
 margin_bottom = 576.0
 
-[node name="ConfirmButton" parent="." index="5" instance=ExtResource( 6 )]
+[node name="ConfirmButton" parent="." index="4" instance=ExtResource( 6 )]
 margin_left = 897.082
 margin_top = 387.629
 margin_right = 999.082
 margin_bottom = 475.629
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." index="6"]
+[node name="HTTPRequest" type="HTTPRequest" parent="." index="5"]
 
-[node name="PopUpControl" type="Control" parent="." index="7"]
+[node name="PopUpControl" type="Control" parent="." index="6"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -133,15 +126,7 @@ text = "Custom Game Saved!"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="QuitButton" parent="PopUpControl" index="2" instance=ExtResource( 9 )]
-margin_left = 671.822
-margin_top = 113.911
-margin_right = 773.822
-margin_bottom = 201.911
-script = null
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]
 [connection signal="pressed" from="ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="PopUpControl/QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=2]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Control/interface/CustomModeSelect.gd" type="Script" id=5]
 
@@ -63,21 +64,37 @@ rect_min_size = Vector2( 125, 181 )
 custom_fonts/font = SubResource( 2 )
 text = "My Quizzes"
 
-[node name="InputBox" type="LineEdit" parent="PlayBoard" index="1"]
-margin_left = 12.234
-margin_top = 390.558
-margin_right = 286.234
-margin_bottom = 416.558
-rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 3 )
-text = "Enter Code ID here"
-align = 1
+[node name="InputRow" type="HBoxContainer" parent="PlayBoard" index="1"]
+margin_left = 22.0
+margin_top = 393.0
+margin_right = 560.0
+margin_bottom = 438.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InputBox" type="LineEdit" parent="PlayBoard/InputRow" index="0"]
+margin_right = 490.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 490, 0 )
+custom_fonts/font = SubResource( 3 )
+align = 1
+placeholder_text = "Enter Code ID here"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SearchButton" type="Button" parent="PlayBoard/InputRow" index="1"]
+margin_left = 494.0
+margin_right = 533.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_disabled = Color( 0.0313726, 0, 0.584314, 1 )
+text = "Q"
 
 [node name="BackButton" parent="." index="2"]
 script = ExtResource( 2 )
 [connection signal="pressed" from="PlayBoard/OptionsRow/AllQuizButton" to="." method="_on_AllQuizButton_pressed"]
 [connection signal="pressed" from="PlayBoard/OptionsRow/MyQuizButton" to="." method="_on_MyQuizButton_pressed"]
+[connection signal="pressed" from="PlayBoard/InputRow/SearchButton" to="." method="_on_SearchButton_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]

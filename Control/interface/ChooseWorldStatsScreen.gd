@@ -22,7 +22,7 @@ func _on_Button_pressed():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://View/teachers/ChooseModeToCheckStatsScene.tscn")
+	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")
 
 
 func _on_Button2_pressed():

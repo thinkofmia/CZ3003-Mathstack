@@ -17,8 +17,15 @@ script/source = "extends Control
 onready var http : HTTPRequest = $HTTPRequest
 onready var rankings = []
 var ranking_info = []
+var ordered_ranking = []
 var ranking_display
-var no_of_display = 10
+var no_of_display
+class RankingSort:
+	static func sort(a, b):
+		if (int((a[\"rank\"].values()[0]))) < (int(b[\"rank\"].values()[0])):
+			return true
+		return false
+		
 func _ready():
 	#Test Performance
 	if (testPerformance.performanceCheck):
@@ -27,10 +34,15 @@ func _ready():
 	Firebase.get_document(\"Leaderboard\", http)
 	yield(get_tree().create_timer(2), \"timeout\")
 	ranking_info = (rankings.values())
-	if len(ranking_info[0])<10:
-		no_of_display = len(ranking_info[0]) 
-	for i in range(0,no_of_display):
-		ranking_display = (ranking_info[0][i]['fields'])
+	##Taking ranking entries from leaderboard and storing them into an array
+	for item in range(0,len(ranking_info[0])):
+		ordered_ranking.append(ranking_info[0][item]['fields'])
+		print(ordered_ranking[item]['rank'].values()[0])
+	##Sorting the array based on Rank
+	ordered_ranking.sort_custom(RankingSort, \"sort\")
+	
+	for i in range(0,len(ranking_info[0])):
+		ranking_display = ordered_ranking[i]
 		var username = ranking_display['username'].values()[0]
 		var highscore = ranking_display['highscore'].values()[0]
 		var timing = ranking_display['time_taken'].values()[0]
@@ -43,9 +55,6 @@ func _ready():
 		var newString = label.instance()
 		var subString = 0
 		#Set Username
-		#username = str(username)
-		#username = username.split(\"@\",true)
-		#newString.get_child(0).set_text(str(username[0]))
 		newString.get_child(0).set_text(str(nickname))
 		get_tree().get_root().get_node(\"LeaderboardScreen\").find_node(\"NameList\").add_child(newString)
 		#Set Highscore
@@ -100,12 +109,17 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		self.rankings = response_body
 		print(\"Accessed succesfully\")
 		
-		
-	pass # Replace with function body.
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
+	goToMainMenu()
+	
+func goToMainMenu():
+	#Condition
+	if (global.accountType == \"Teacher\"|| global.accountType == \"Admin\"): #If account type is teacher or admin
+		get_tree().change_scene(\"res://View/Screens_Randy/MainMenuTeachers.tscn\")
+	else:#If account type is student
+		get_tree().change_scene(\"res://View/Screens_Randy/MainMenu.tscn\")
 "
 
 [node name="LeaderboardScreen" instance=ExtResource( 1 )]
