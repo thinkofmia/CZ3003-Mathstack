@@ -16,10 +16,13 @@ Tests users in a competitive element. Users get health points and try to race to
 ## Custom Mode
 Create your own custom quiz or play against your friends! Create any quiz of your desire and share with your friends.
 
-## Playable Characters:
-- Godog (No Powers) [Default] 
-- Swee Soldier (Add 2 lives)
-- Mister I (Auto-clear 3 levels)
+## Playable Characters
+| Characters        | Powers           | Image  |
+| ----------------- |:----------------:| ------:|
+| Godog             | None             |  $1600 |
+| Swee Soldier      | Add 2 lives      |    $12 |
+| Mister I          | Jump 3 levels    |     $1 |
+
 - Humble B (Randomize questions, 5 uses)
 - Riding Rabbit (Slow timer by 0.5 speed for 30 seconds)
 - Fire Fox (Randomly used someone's else powers)
