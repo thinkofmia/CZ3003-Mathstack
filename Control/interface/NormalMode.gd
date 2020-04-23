@@ -1,15 +1,17 @@
 extends Node
 
+var bg
 onready var http : HTTPRequest = $MYHTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	bg = $Background7
 	#Start Performance test if true
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
 	#Set Header
 	global.questionCount = 0
 	$Header/RichTextLabel.set_text(global.worldSelected+": "+global.difficultySelected)
-	changeBg(global.worldSelected.split("#")[1])
+	changeBg()
 	currentDelta = -1
 	times = 0
 	currentStoryScore = global.storyScore
@@ -21,7 +23,43 @@ func _ready():
 	
 	pass # Replace with function body.
 
-func changeBg(selectedBg):
+
+#Change Background
+func changeBg():
+	#Set Background
+	bg.setBackground()
+	changeMaterial()
+
+
+#Change Box Material
+func changeMaterial():
+	var material = $Background7/ColorRect
+	match global.worldSelected:
+		"World #1":
+			material.color = Color(0, 0, 0.8, 1)
+		"World #2":
+			material.color = Color(0, 0.8, 0, 1)
+		"World #3":
+			material.color = Color(0, 0.8, 0, 1)
+		"World #4":
+			material.color = Color(0, 0, 0.8, 1)
+		"World #5":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #6":
+			material.color = Color(0.8, 0.8, 0, 1)
+		"World #7":
+			material.color = Color(0.8, 0, 0, 1)
+		"World #8": ###
+			material.color = Color(1, 0, 0, 1)
+		"World #9":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #10":
+			material.color = Color(0.8, 0.8, 0.8, 1)
+		_:
+			material.color = Color(1, 1, 0, 1)
+
+
+func changeBg2(selectedBg):
 	#Hide all bg
 	$Background2.hide()
 	$Background3.hide()
