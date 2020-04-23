@@ -122,7 +122,8 @@ func doGameEndedProcess():
 	if global.difficultySelected == "Advanced":
 		##not enough characters, so 9 and 10 has nothing
 		if global.worldSelected != "World #9" && global.worldSelected != "World #10":
-			$FinishButton.text = "Unlocked Character!"
+			if (global.storyScore >= 8):
+				$FinishButton.text = "Unlocked Character!"
 	
 	$FinishButton.show()
 	if (global.storyScore >= 8):

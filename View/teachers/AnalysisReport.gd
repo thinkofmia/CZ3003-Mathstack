@@ -81,10 +81,13 @@ func _on_HTTPRequest2_request_completed(result, response_code, headers, body):
 					var completionStatus = doc.fields['World' + str(world)]['stringValue']
 					if completionStatus == "3":
 						numberOfCompletions = numberOfCompletions + 1
-				completionArray.append(numberOfCompletions * 100 / len(studentsInTheClass))
+				
+				var value = numberOfCompletions * 100 / len(studentsInTheClass)
+				completionArray.append((int(value * 100))/100.0)
 				sum = sum + numberOfCompletions * 100 / len(studentsInTheClass)
 			
-			averageCompletionRateForAll = sum / 10
+			var finalValue = sum / 10
+			averageCompletionRateForAll = int(finalValue * 100) / 100.0
 			
 			#Sixth Step: Time to populate the itemlist
 			populateItemList()
