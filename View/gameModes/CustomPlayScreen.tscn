@@ -271,7 +271,6 @@ __meta__ = {
 position = Vector2( -0.697098, 322.235 )
 
 [node name="FinishPlatform" parent="." instance=ExtResource( 3 )]
-visible = false
 script = ExtResource( 4 )
 
 [node name="SelectedCharacter" parent="." instance=ExtResource( 9 )]
