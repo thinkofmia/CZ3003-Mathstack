@@ -1,9 +1,11 @@
 extends Node
-var selectedBg = 1
-var musicBox
-var bg
 
-#Character Icons
+
+var selectedBg = 1 #Bg Selected Variable
+onready var musicBox = get_tree().get_root().get_node("World").find_node("MusicBox") #Variable Node for music box
+onready var bg = get_tree().get_root().get_node("World").find_node("Background") #Variable Node for back ground
+
+#Get Nodes for Character Icons
 onready var sweeSoldier = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/SSIcon
 onready var humbleBee = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/HBIcon
 onready var riderRabbit = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/RRIcon
@@ -18,25 +20,27 @@ onready var tickyTroll = $PlayBoard/MarginContainer/VBoxContainer/ScrollContaine
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Find Bg node
-	bg = get_tree().get_root().get_node("World").find_node("Background")
-	#Find music box
-	musicBox = get_tree().get_root().get_node("World").find_node("MusicBox")
-	#Set mode select to challenge mode
+	#Set Mode Selected to be Challenge Mode
 	global.modeSelected = "Challenge Mode"
 	#Hide health and power button
 	$SelectedCharacter/healthBar.hide()
 	$SelectedCharacter/PowerButton.hide()
 	#Initialize worlds visited
 	global.worldsVisited = []
+	#Set Background
 	bg.setBackground()
 	#Timeout
 	yield(get_tree().create_timer(1.0), "timeout")
+	#Update Bg accordingly
 	changeBg()
+	#Show Character Icons accordingly
 	showCharacters()
 
+#Show character icons based on account type
 func showCharacters():
-	if (global.accountType == "Student"):
+	#Check if account type is Student, Teacher or Administrator
+	if (global.accountType == "Student"): #If Account type is student
+		#For loop to show the respective unlocked characters icon
 		for character in global.getListOfUnlockedCharactersName():
 			match character:
 				"Swee Soldier":
@@ -59,10 +63,10 @@ func showCharacters():
 					wittyWitch.show()
 				"Ticky Troll":
 					tickyTroll.show()
-	else:
+	else:#If account type is a Teacher or Admin
 		showAllCharacters()
 		
-#Show all characters func
+#Show all characters icons
 func showAllCharacters():
 	sweeSoldier.show()
 	misterI.show()
@@ -75,33 +79,46 @@ func showAllCharacters():
 	wittyWitch.show()
 	tickyTroll.show()	
 
+#Update Character selection
+func updateCharacter():
+	#Show the updated Character
+	$SelectedCharacter.displayCharacter()
+	print(global.characterSelected+" has been selected!")
+	
+#If the user clicks on Godot Icon
 func _on_GodotIcon_pressed():
+	#Changes character to Godot
 	global.characterSelected = "Godot"
-	$SelectedCharacter.displayCharacter()
-	print("Godot has been selected!")
-
+	#Update Changes
+	updateCharacter()
+	
+#If user clicks on Swee Soldier Icon
 func _on_SSIcon_pressed():
+	#Changes Character to Swee Soldier
 	global.characterSelected = "Swee Soldier"
-	$SelectedCharacter.displayCharacter()
-	print("Swee Soldier has been selected!")
+	updateCharacter()
 
+#If user selects Mister I
 func _on_MrIIcon_pressed():
+	#Changes character to Mister I
 	global.characterSelected = "Mister I"
-	$SelectedCharacter.displayCharacter()
-	print("Mister I has been selected!")
+	updateCharacter()
 
+#If user selects Humble B
 func _on_HBIcon_pressed():
+	#Changes character to Humble B
 	global.characterSelected = "Humble B"
-	$SelectedCharacter.displayCharacter()
-	print("Humble B has been selected!")
+	updateCharacter()
 
+#If user selects Rider Rabbit
 func _on_RRIcon_pressed():
+	#Changes Character to Rider Rabbit
 	global.characterSelected = "Rider Rabbit"
-	$SelectedCharacter.displayCharacter()
-	print("Rider Rabbit has been selected!")
+	updateCharacter()
 
-#World Button 1
+#If World #1 was selected
 func _on_WorldButton_pressed():
+	#Set world to World #1
 	global.worldSelected = "World #1"
 	#Set bg
 	changeBg()
@@ -110,14 +127,16 @@ func _on_WorldButton_pressed():
 func changeBg():
 	#Set Background
 	bg.setBackground()
+	#Change menu box color
 	changeMaterial()
 	#Play Music
 	musicBox.playTrack()
 
 #Change Box Material
 func changeMaterial():
+	#Set material node
 	var material = $Background/ControlBox
-	match global.worldSelected:
+	match global.worldSelected:#Check which world user is in and append color accordingly
 		"World #1":
 			material.color = Color(0, 0, 0.8, 1)
 		"World #2":
@@ -141,94 +160,90 @@ func changeMaterial():
 		_:
 			material.color = Color(1, 1, 0, 1)
 
-#World Button 2
+#Selecting World 2
 func _on_WorldButton2_pressed():
 	global.worldSelected = "World #2"
-	changeBg()
+	changeBg() #Changes Background accordingly
 	
 
-#World Button 4
+#Selecting World 4
 func _on_WorldButton4_pressed():
 	global.worldSelected = "World #4"
-	changeBg()
+	changeBg() #Changes Background accordingly
 
-#World Button 3
+#Selecting World 3
 func _on_WorldButton3_pressed():
 	global.worldSelected = "World #3"
-	changeBg()
+	changeBg() #Changes Background accordingly
 
-#World Button 8
+#Selecting World 8
 func _on_WorldButton8_pressed():
 	global.worldSelected = "World #8"
-	changeBg()
+	changeBg()#Changes Background accordingly
 
-#World Button 7
+#Selecting World 7
 func _on_WorldButton7_pressed():
 	global.worldSelected = "World #7"
-	changeBg()
+	changeBg()#Changes Background accordingly
 
-#World Button 6
+#Selecting World 6
 func _on_WorldButton6_pressed():
 	global.worldSelected = "World #6"
-	changeBg()
+	changeBg()#Changes Background accordingly
 
-#World Button 5
+#Selecting World 5
 func _on_WorldButton5_pressed():
 	global.worldSelected = "World #5"
-	changeBg()
+	changeBg()#Changes Background accordingly
 
-#World Button 10
+#Selecting World 10
 func _on_WorldButton10_pressed():
 	global.worldSelected = "World #10"
-	changeBg()
+	changeBg()#Changes Background accordingly
 
-#World Button 9
+#Selecting World 9
 func _on_WorldButton9_pressed():
 	global.worldSelected = "World #9"
-	changeBg()
+	changeBg()#Changes Background accordingly
 
+#When Play button is pressed
 func _on_Play_pressed():
-	#Performance check
+	#Conduct Performance check if mode is on
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
+	#Transfer user to Challenge Mode: Play Scree
 	get_tree().change_scene("res://View/gameModes/ChallengePlayScreen.tscn")
-	#Performance check
+	#Performance check Ends
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Challenge Mode Starting")
 		testPerformance.getTimeTaken()
 
-
+#Select Zesty Zombie as Character
 func _on_ZZIcon_pressed():
 	global.characterSelected = "Zesty Zombie"
-	$SelectedCharacter.displayCharacter()
-	print("Zesty Zombie has been selected!")
+	updateCharacter()
 
-
+#Selecting Careful Cyborg as Character
 func _on_CCIcon_pressed():
 	global.characterSelected = "Careful Cyborg"
-	$SelectedCharacter.displayCharacter()
-	print("Careful Cyborg has been selected!")
+	updateCharacter()
 
-
+#Selecting Danger Dino as Character
 func _on_DDIcon_pressed():
 	global.characterSelected = "Deadly Dino"
-	$SelectedCharacter.displayCharacter()
-	print("Deadly Dino has been selected!")
+	updateCharacter()
 
-
+#Selecting Fire Fox as Character
 func _on_FFIcon_pressed():
 	global.characterSelected = "Fire Fox"
-	$SelectedCharacter.displayCharacter()
-	print("Fire Fox has been selected!")
+	updateCharacter()
 
-
+#Selecting Witty Witch as character
 func _on_WWIcon_pressed():
 	global.characterSelected = "Witty Witch"
-	$SelectedCharacter.displayCharacter()
-	print(global.characterSelected+" has been selected!")
+	updateCharacter()
 
-
+#Selecting Ticky Troll as character
 func _on_TTIcon_pressed():
 	global.characterSelected = "Ticky Troll"
-	$SelectedCharacter.displayCharacter()
-	print(global.characterSelected+" has been selected!")
+	updateCharacter()

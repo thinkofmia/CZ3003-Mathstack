@@ -316,9 +316,13 @@ func addLife():
 
 #Makes character speak
 func characterSpeak(content):
-	$SpeechBubble.show()
+	#Set contents of speech bubble
 	$SpeechBubble/Speech.set_text(content)
+	#Show speech bubble
+	$SpeechBubble.show()
+	#Timeout 2 seconds
 	yield(get_tree().create_timer(2.0), "timeout")
+	#Hide speech bubble
 	$SpeechBubble.hide()
 	
 

@@ -716,7 +716,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 7
+frame = 2
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="16"]
@@ -770,7 +770,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 14 )
-frame = 1
+frame = 4
 playing = true
 flip_h = true
 
@@ -787,7 +787,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 16 )
 animation = "idle"
-frame = 9
+frame = 6
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -796,7 +796,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 17 )
 animation = "idle"
-frame = 8
+frame = 6
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -805,6 +805,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 18 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
@@ -812,7 +813,6 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 19 )
-frame = 7
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
@@ -820,6 +820,7 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 20 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -829,7 +830,7 @@ position = Vector2( 0.793945, -1.15308 )
 scale = Vector2( 0.292333, 0.292931 )
 frames = SubResource( 21 )
 animation = "jump"
-frame = 23
+frame = 2
 playing = true
 flip_h = true
 
@@ -838,7 +839,7 @@ visible = false
 position = Vector2( 3.57437, 3.71265 )
 scale = Vector2( 0.292333, 0.292931 )
 frames = SubResource( 22 )
-frame = 10
+frame = 3
 playing = true
 flip_h = true
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
