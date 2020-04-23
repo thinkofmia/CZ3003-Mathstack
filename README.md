@@ -17,7 +17,8 @@ Tests users in a competitive element. Users get health points and try to race to
 Create your own custom quiz or play against your friends! Create any quiz of your desire and share with your friends.
 
 ## Playable Characters:
-- Godog (No Powers) [Default]
+- Godog (No Powers) [Default] 
+![Godog Sprite](https://github.com/FremontTeng/Mathstack/blob/master/Model/Characters/Godog/00base/e002a_00base_00.png?)
 - Swee Soldier (Add 2 lives)
 - Mister I (Auto-clear 3 levels)
 - Humble B (Randomize questions, 5 uses)
