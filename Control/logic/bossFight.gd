@@ -178,7 +178,7 @@ func checkAnswer(option):
 		wrongAnswer()
 
 func damageBoss():
-	bossHP.value -= 30
+	bossHP.value -= 15
 
 func correctAnswer():
 	print("Correct!")
