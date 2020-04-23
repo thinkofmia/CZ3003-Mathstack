@@ -19,7 +19,7 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 ## Playable Characters
 | Characters        | Powers           | Image  |
 | ----------------- |:----------------:| ------:|
-| Godog             | None             |  $1600 |
+| Godog             | None             |  <img src="/Model/Characters/Godog/00base/e002a_00base_00.png" width="100" height="100" alt="Godog Sprite"/> |
 | Swee Soldier      | Add 2 lives      |    $12 |
 | Mister I          | Jump 3 levels    |     $1 |
 
@@ -32,7 +32,7 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 - Witty Witch (Reduce time spent by 100 seconds by using up 1 life)
 - Ticky Troll (Add 4 lives but spend 2 minutes)
 
-<img src="/Model/Characters/Godog/00base/e002a_00base_00.png" width="100" height="100" alt="Godog Sprite"/>
+
 <img src="/Model/Characters/Warrior/Idle (1).png" width="100" height="100" alt="Swee Soldier Sprite"/>
 
 ## Custom Profile
