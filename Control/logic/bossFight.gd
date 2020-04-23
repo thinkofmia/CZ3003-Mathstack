@@ -46,11 +46,24 @@ func restoreBoss():
 	bossHP.value = 100
 	print(str(bossHP.value))
 
+func checkBoss():
+	var bossNo
+	if (blkTower.getNoOfBoxes()>90):
+		bossNo = 4 #Dark Night dies
+	elif (blkTower.getNoOfBoxes()>70):
+		bossNo = 3	
+	elif (blkTower.getNoOfBoxes()>50):
+		bossNo = 2	
+	else:
+		bossNo = 1
+	return bossNo
+		
 func startBossMode():
 	restoreBoss()
 	bg.show()
 	qnBoard.hide()
 	show()
+	setMap()
 	timer.pauseTime()
 	randomizeQuestion()
 	countdown = 60*15
@@ -89,16 +102,22 @@ func updateTime():
 func bossDies():
 	#Set Array of Boss
 	var bossArr = [boss1,boss2,boss3,boss4]
-	var bossNo
-	if (blkTower.getNoOfBoxes()>90):
-		bossNo = 4 #Dark Night dies
-	elif (blkTower.getNoOfBoxes()>70):
-		bossNo = 3	
-	elif (blkTower.getNoOfBoxes()>50):
-		bossNo = 2	
-	else:
-		bossNo = 1
-	bossArr[bossNo-1].hide()
+	bossArr[checkBoss()-1].hide()
+
+func setMap():
+	bg.find_node("Map1").hide()
+	bg.find_node("Map2").hide()
+	bg.find_node("Map3").hide()
+	bg.find_node("Map4").hide()
+	match checkBoss():
+		2:
+			bg.find_node("Map2").show()
+		3:
+			bg.find_node("Map3").show()
+		4:
+			bg.find_node("Map4").show()
+		_:
+			bg.find_node("Map1").show()
 
 func randomizeQuestion():
 	#Randomize operands
