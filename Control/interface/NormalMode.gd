@@ -126,8 +126,8 @@ func doGameEndedProcess():
 				$FinishButton.text = "Unlocked Character!"
 	
 	$FinishButton.show()
-	if (global.storyScore >= 8):
-		updateFirebaseUserProgress()
+	#if (global.storyScore >= 8):
+	updateFirebaseUserProgress()
 	pass
 	
 func updateFirebaseUserProgress():
@@ -140,21 +140,25 @@ func updateFirebaseUserProgress():
 	
 	if (global.difficultySelected == "Primary"):
 		if (userProgressInt < 1):
-			global.save['World' + str(currentWorldInt)]['stringValue'] = "1"
+			if global.storyScore >= 8:
+				global.save['World' + str(currentWorldInt)]['stringValue'] = "1"
 		
 		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue']) < global.storyScore):
-			global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue'] = str(global.storyScore)
+			if global.storyScore >= 8:
+				global.save['ScoreWorld' + str(currentWorldInt) + 'a']['stringValue'] = str(global.storyScore)
 		
 	if (global.difficultySelected == "Intermediate"):
 		if (userProgressInt < 2):
-			global.save['World' + str(currentWorldInt)]['stringValue'] = "2"
+			if global.storyScore >= 8:
+				global.save['World' + str(currentWorldInt)]['stringValue'] = "2"
 			
 		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'b']['stringValue']) < global.storyScore):
 			global.save['ScoreWorld' + str(currentWorldInt) + 'b']['stringValue'] = str(global.storyScore)
 
 	if (global.difficultySelected == "Advanced"):
 		if (userProgressInt < 3):
-			global.save['World' + str(currentWorldInt)]['stringValue'] = "3"
+			if global.storyScore >= 8:
+				global.save['World' + str(currentWorldInt)]['stringValue'] = "3"
 
 		if (int(global.save['ScoreWorld' + str(currentWorldInt) + 'c']['stringValue']) < global.storyScore):
 			global.save['ScoreWorld' + str(currentWorldInt) + 'c']['stringValue'] = str(global.storyScore)
@@ -171,7 +175,8 @@ func _on_QuitButton_pressed():
 func _on_FinishButton_pressed():
 	if global.difficultySelected == "Advanced":
 		##not enough characters, so 9 and 10 has nothing
-		if global.worldSelected != "World #9" && global.worldSelected != "World #10":
+		if global.worldSelected != "World #9" && global.worldSelected != "World #10" && global.storyScore >= 8:
+			
 			get_tree().change_scene("res://View/gameModes/NormalModeUnlockCharacter.tscn")
 		else:
 			get_tree().change_scene("res://View/gameModes/NormalModeSelectDifficulty.tscn")
