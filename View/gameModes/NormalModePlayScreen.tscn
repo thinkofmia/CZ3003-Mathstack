@@ -374,14 +374,14 @@ animations = [ {
 "name": "jump",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 200 ), ExtResource( 144 ), ExtResource( 187 ), ExtResource( 185 ), ExtResource( 151 ), ExtResource( 115 ), ExtResource( 135 ), ExtResource( 141 ) ],
-"loop": true,
-"name": "attack",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 116 ), ExtResource( 119 ), ExtResource( 154 ), ExtResource( 145 ), ExtResource( 73 ), ExtResource( 134 ), ExtResource( 150 ), ExtResource( 142 ), ExtResource( 113 ), ExtResource( 178 ), ExtResource( 186 ), ExtResource( 165 ), ExtResource( 182 ), ExtResource( 153 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 177 ), ExtResource( 184 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 166 ), ExtResource( 109 ), ExtResource( 117 ), ExtResource( 137 ), ExtResource( 111 ) ],
 "loop": true,
 "name": "spell",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 200 ), ExtResource( 144 ), ExtResource( 187 ), ExtResource( 185 ), ExtResource( 151 ), ExtResource( 115 ), ExtResource( 135 ), ExtResource( 141 ) ],
+"loop": true,
+"name": "attack",
 "speed": 25.0
 } ]
 
@@ -716,7 +716,7 @@ position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 8
+frame = 6
 playing = true
 
 [node name="FinishLabel" type="Label" parent="." index="16"]
@@ -779,7 +779,6 @@ visible = false
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 15 )
-frame = 1
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="Character" index="4"]
@@ -788,7 +787,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 16 )
 animation = "idle"
-frame = 4
+frame = 9
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -797,7 +796,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 17 )
 animation = "idle"
-frame = 4
+frame = 8
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -806,7 +805,6 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 6
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
@@ -814,7 +812,7 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 19 )
-frame = 3
+frame = 7
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
@@ -831,7 +829,7 @@ position = Vector2( 0.793945, -1.15308 )
 scale = Vector2( 0.292333, 0.292931 )
 frames = SubResource( 21 )
 animation = "jump"
-frame = 26
+frame = 6
 playing = true
 flip_h = true
 
@@ -840,7 +838,7 @@ visible = false
 position = Vector2( 3.57437, 3.71265 )
 scale = Vector2( 0.292333, 0.292931 )
 frames = SubResource( 22 )
-frame = 13
+frame = 7
 playing = true
 flip_h = true
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]
