@@ -20,8 +20,8 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 | Characters        | Powers           | Image  |
 | ----------------- |:----------------:| ------:|
 | Godog             | None             |  <img src="/Model/Characters/Godog/00base/e002a_00base_00.png" width="100" height="100" alt="Godog Sprite"/> |
-| Swee Soldier      | Add 2 lives      |    $12 |
-| Mister I          | Jump 3 levels    |     $1 |
+| Swee Soldier      | Add 2 lives      |   <img src="/Model/Characters/Warrior/Idle (1).png" width="100" height="100" alt="Swee Soldier Sprite"/> |
+| Mister I          | Jump 3 levels    |     <img src="/Model/Characters/Mr I.png" width="100" height="100" alt="Mister I Sprite"/> |
 
 - Humble B (Randomize questions, 5 uses)
 - Riding Rabbit (Slow timer by 0.5 speed for 30 seconds)
@@ -33,7 +33,7 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 - Ticky Troll (Add 4 lives but spend 2 minutes)
 
 
-<img src="/Model/Characters/Warrior/Idle (1).png" width="100" height="100" alt="Swee Soldier Sprite"/>
+
 
 ## Custom Profile
 Get your own custom profile with your favourite character, profile picture and nickname! Also includes class, school and email address.
