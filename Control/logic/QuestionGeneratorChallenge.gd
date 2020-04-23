@@ -277,6 +277,9 @@ func checkLevelTens(): #Check if the player reaches levels of ten
 			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
 			self.hide()
 			userCharacter.addLife()
+		if (level%25==0) and level!=0 :
+			var bossMode = get_tree().get_root().get_node("World").find_node("BossBoard")
+			bossMode.startBossMode()
 
 func correctAnswer():
 	print("Correct!")

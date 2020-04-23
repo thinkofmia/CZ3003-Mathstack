@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Model/GUI/yellowButton.png" type="Texture" id=2]
+
+[node name="OptionButton" type="TextureButton"]
+margin_right = 472.0
+margin_bottom = 207.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 469.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 1 )
+text = "Option 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

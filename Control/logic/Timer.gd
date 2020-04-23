@@ -1,6 +1,7 @@
 extends Timer
 #in terms of seconds
 var timer = 0
+var turnOn = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,8 +9,15 @@ func _ready():
 	timer = 0
 	updateTime()
 
+func countTime():
+	turnOn = true
+
+func pauseTime():
+	turnOn = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(turnOn):
 		timer += delta*global.rrPower #Decrement timer by delta
 		if timer<0:
 			timer = 0

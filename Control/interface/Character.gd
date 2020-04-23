@@ -45,6 +45,10 @@ func displayCharacter():
 			$GodotSprite.show()
 			$PowerButton.hide()
 
+#Hide Powers
+func losePower():
+	$PowerButton.hide()
+
 #Recover Powers
 func recoverPower():
 	if (global.characterSelected != "Godot"):

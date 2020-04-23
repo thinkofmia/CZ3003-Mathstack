@@ -10,6 +10,7 @@ onready var track08 = $track08
 onready var track09 = $track09
 onready var track10 = $track10
 onready var trackMenu = $MainMusic
+onready var bossMusic = $BossMusic
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -22,6 +23,10 @@ func _ready():
 
 func playMenuMusic():
 	trackMenu.play()
+
+func bossTheme():
+	stopMusic()
+	bossMusic.play()
 
 func playTrack():
 	#Stop all music
