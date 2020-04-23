@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://View/template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
@@ -9,8 +9,13 @@
 [ext_resource path="res://Model/Labels/ForgotPassword.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=8]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 10 )
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends Button
@@ -25,23 +30,23 @@ script = ExtResource( 6 )
 [node name="MarginContainer" parent="TextureRect" index="0"]
 anchor_top = 0.00166151
 anchor_bottom = 1.00166
-margin_left = 107.333
+margin_left = 2.0
 margin_top = -2.65833
-margin_right = 225.333
+margin_right = 0.0
 margin_bottom = -8.65637
 rect_scale = Vector2( 0.825, 0.825 )
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
 material = SubResource( 1 )
-margin_right = 1460.0
+margin_right = 1341.0
 margin_bottom = 1124.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
-margin_right = 1460.0
+margin_right = 1341.0
 margin_bottom = 1124.0
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-margin_right = 1110.0
+margin_right = 991.0
 margin_bottom = 924.0
 custom_constants/separation = 175
 alignment = 2
@@ -61,7 +66,7 @@ autowrap = true
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="1"]
 margin_top = 244.0
-margin_right = 1060.0
+margin_right = 941.0
 margin_bottom = 374.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 20
@@ -76,7 +81,7 @@ align = 2
 
 [node name="EmailRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="1"]
 margin_left = 400.0
-margin_right = 1060.0
+margin_right = 941.0
 margin_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,9 +96,10 @@ text = "readyplayer1"
 
 [node name="EmailBack" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow" index="1"]
 margin_left = 304.0
-margin_right = 660.0
-margin_bottom = 60.0
-custom_fonts/font = ExtResource( 2 )
+margin_top = 10.0
+margin_right = 541.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 3 )
 text = "@e.ntu.edu.sg"
 align = 2
 
@@ -108,7 +114,7 @@ align = 2
 [node name="LineEdit2" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
 margin_left = 400.0
 margin_top = 70.0
-margin_right = 1060.0
+margin_right = 941.0
 margin_bottom = 130.0
 custom_fonts/font = ExtResource( 8 )
 text = "12345678"
@@ -116,7 +122,7 @@ secret = true
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 549.0
-margin_right = 1060.0
+margin_right = 941.0
 margin_bottom = 639.0
 custom_constants/margin_right = 250
 custom_constants/margin_left = 250
@@ -124,13 +130,13 @@ custom_constants/margin_left = 250
 [node name="LoginButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MarginContainer" index="0" instance=ExtResource( 5 )]
 margin_left = 250.0
 margin_top = 0.0
-margin_right = 810.0
+margin_right = 691.0
 margin_bottom = 90.0
 script = SubResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
 margin_top = 814.0
-margin_right = 1060.0
+margin_right = 941.0
 margin_bottom = 874.0
 custom_constants/separation = 100
 

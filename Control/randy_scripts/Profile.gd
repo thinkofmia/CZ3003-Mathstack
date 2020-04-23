@@ -23,7 +23,7 @@ var profile := {
 } setget set_profile
 
 var class_array = ["SS1","SS2","SSP1"]
-var school_array = ["NTU", "NUS", "SMU"]
+var school_array = ["SCSE", "EEE", "HSS", "MAE", "NBS", "SBS", "SCBE", "SPMS", "WKWSCI"] 
 
 func _ready():
 	#http request to get user profile	

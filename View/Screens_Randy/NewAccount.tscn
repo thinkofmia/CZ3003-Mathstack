@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://View/template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_48.tres" type="DynamicFont" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Model/Labels/CreateAccount.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Control/randy_scripts/NewAccount.gd" type="Script" id=8]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 10 )
 
 [node name="NewAccountScreen" instance=ExtResource( 1 )]
 script = ExtResource( 8 )
@@ -20,21 +25,21 @@ margin_bottom = -62.0
 rect_scale = Vector2( 0.85, 0.85 )
 
 [node name="ColorRect" parent="TextureRect/MarginContainer" index="0"]
-margin_right = 1525.0
+margin_right = 1296.0
 margin_bottom = 1066.0
 
 [node name="MarginContainer" parent="TextureRect/MarginContainer" index="1"]
-margin_right = 1525.0
+margin_right = 1296.0
 margin_bottom = 1066.0
 custom_constants/margin_bottom = 20
 
 [node name="VBoxContainer" parent="TextureRect/MarginContainer/MarginContainer" index="0"]
-margin_right = 1175.0
+margin_right = 946.0
 margin_bottom = 896.0
 custom_constants/separation = 20
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="0"]
-margin_right = 1125.0
+margin_right = 896.0
 margin_bottom = 720.0
 custom_constants/vseparation = 50
 custom_constants/hseparation = 10
@@ -49,20 +54,21 @@ align = 2
 
 [node name="EmailRow" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="1"]
 margin_left = 390.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 60.0
 
 [node name="EmailText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow" index="0"]
-margin_right = 375.0
+margin_right = 250.0
 margin_bottom = 60.0
-rect_min_size = Vector2( 375, 0 )
+rect_min_size = Vector2( 250, 0 )
 custom_fonts/font = ExtResource( 5 )
 
 [node name="EmailBack" type="Label" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer/EmailRow" index="1"]
-margin_left = 379.0
-margin_right = 735.0
-margin_bottom = 60.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = 254.0
+margin_top = 10.0
+margin_right = 491.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
 text = "@e.ntu.edu.sg"
 align = 2
 
@@ -77,7 +83,7 @@ align = 2
 [node name="PasswordText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="3"]
 margin_left = 390.0
 margin_top = 110.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 500, 0 )
 custom_fonts/font = ExtResource( 5 )
@@ -93,7 +99,7 @@ align = 2
 [node name="NicknameText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="5"]
 margin_left = 390.0
 margin_top = 220.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 500, 0 )
 custom_fonts/font = ExtResource( 5 )
@@ -109,7 +115,7 @@ align = 2
 [node name="TeachersText" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="7"]
 margin_left = 390.0
 margin_top = 330.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 390.0
 rect_min_size = Vector2( 500, 0 )
 custom_fonts/font = ExtResource( 5 )
@@ -125,7 +131,7 @@ align = 2
 [node name="SchoolSelect" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="9"]
 margin_left = 390.0
 margin_top = 440.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 0 )
 theme = ExtResource( 4 )
@@ -142,7 +148,7 @@ align = 2
 [node name="ClassSelect" type="OptionButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="11"]
 margin_left = 390.0
 margin_top = 550.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 610.0
 rect_min_size = Vector2( 500, 0 )
 theme = ExtResource( 4 )
@@ -159,7 +165,7 @@ align = 2
 [node name="FullnameEdit" type="LineEdit" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/GridContainer" index="13"]
 margin_left = 390.0
 margin_top = 660.0
-margin_right = 1125.0
+margin_right = 890.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 500, 0 )
 custom_fonts/font = ExtResource( 5 )
@@ -181,22 +187,22 @@ autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="2"]
 margin_top = 756.0
-margin_right = 1125.0
+margin_right = 896.0
 margin_bottom = 846.0
 size_flags_vertical = 10
 custom_constants/separation = 50
 alignment = 1
 
 [node name="Button" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource( 7 )]
-margin_left = 177.0
+margin_left = 63.0
 margin_top = 0.0
-margin_right = 537.0
+margin_right = 423.0
 margin_bottom = 90.0
 
 [node name="Button2" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1" instance=ExtResource( 6 )]
-margin_left = 587.0
+margin_left = 473.0
 margin_top = 0.0
-margin_right = 947.0
+margin_right = 833.0
 margin_bottom = 90.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]

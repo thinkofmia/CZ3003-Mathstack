@@ -24,7 +24,7 @@ var information_sent := false
 
 var classId
 var class_array = ["SS1","SS2","SSP1"]
-var school_array = ["NTU", "NUS", "SMU"]
+var school_array = ["SCSE", "EEE", "HSS", "MAE", "NBS", "SBS", "SCBE", "SPMS", "WKWSCI"] 
 
 var profile := {
 	"account":{},
