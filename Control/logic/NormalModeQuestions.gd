@@ -72,12 +72,13 @@ func _ready():
 		print("Performance Test: Normal Mode - Play")
 		testPerformance.getTimeTaken()
 	
-	
+var random = 0
+
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
 	#questionId = str("1")
 	#generate a random number between 0 and number of questions
-	var random = int(floor(rand_range(0,question_info[0].size())))
+	random = int(floor(rand_range(0,question_info[0].size())))
 	print("a: "+ str(random))
 	#extract the question attribute from the array based on random
 	qText = qTextArr[random]
@@ -107,9 +108,7 @@ func randomizeQuestion():
 	question = [op1, op2, op3, op4,ans] 
 	level += 1
 	print("")
-	#Set explanation
-	correctStatus.setExplanation(exArr[random])
-	wrongStatus.setExplanation(exArr[random])
+	
 
 func checkAnswer(option):
 	global.questionCount = global.questionCount + 1
@@ -126,6 +125,10 @@ func checkAnswer(option):
 		print(global.questionCount)
 		if global.questionCount != 10:
 			correctStatus.appear()
+		
+		#Set explanation
+		correctStatus.setExplanation(exArr[random])
+		wrongStatus.setExplanation(exArr[random])
 		randomizeQuestion()
 		
 	else:
