@@ -116,7 +116,7 @@ func _process(delta):
 
 func doGameEndedProcess():
 	$QuestionMenu.hide()
-	$FinishLabel.text = "Congratulations!" if global.storyScore >= 8 else "Sorry. Please try again!"
+	$FinishLabel.text = "Congratulations!" if global.storyScore >= 8 else "Sorry.\nPlease try again!"
 	$FinishLabel.show()
 	$FinishButton.text = "Next Level" if global.storyScore >= 8 else "Try again"
 	
