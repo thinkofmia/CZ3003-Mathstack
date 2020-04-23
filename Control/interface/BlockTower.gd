@@ -4,6 +4,7 @@ const BASEHEIGHT = 320 #Constant variable of base height
 var noOfBoxes = 1 #Count the number of boxes. Also it is score+1
 onready var newBox = load("res://View/util/Block.tscn") #Set new box instance
 onready var character = get_tree().get_root().get_node("World").find_node("SelectedCharacter") #Character Node
+onready var timer = get_tree().get_root().get_node("World").find_node("Timer")
 
 #Initialization
 func _ready():
@@ -17,7 +18,7 @@ func getNoOfBoxes():
 func selfDestruct():
 	global.highscore = noOfBoxes - 1 #Save number of boxes -1 as highscore
 	#Save time
-	global.time = get_tree().get_root().get_node("World").find_node("Timer").getTime()
+	global.time = timer.getTime()
 	#For debugging
 	print("Gameplay ended. ")
 	print("Highscore: "+str(global.highscore))

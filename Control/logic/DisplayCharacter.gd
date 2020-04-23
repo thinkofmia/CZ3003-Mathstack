@@ -1,14 +1,5 @@
 extends KinematicBody2D
 
-#Set direction of which is up
-const UP = Vector2(0,-1)
-#Set gravity
-const GRAVITY = 20
-const SPEED = 200
-const JUMP_HEIGHT = -500
-# Vector2 holds data of x and y value
-var motion = Vector2()
-
 func _ready():#On start display character
 	displayCharacter()
 
@@ -26,7 +17,7 @@ func characterSpeak(content):
 #Hide all sprites
 func hideAllSprites():
 	$SSSprite.hide()
-	$GodotSprite.hide()
+	$GodogSprite.hide()
 	$MrISprite.hide()
 	$PowerButton.hide()
 	$HBSprite.hide()
@@ -41,24 +32,10 @@ func hideAllSprites():
 	$PowerButton.hide()
 
 func _physics_process(delta):
-	#Adds motion at every frame/gravity
-	motion.y += GRAVITY
-	if is_on_floor():#check if on floor
-		#If up button is pressed, jump
-		if Input.is_action_just_pressed("ui_up"):
-			jump()
 	#Every 10 secons
 	if (int(global.timeSeconds)%10 == 0):
 		#Make character speak
 		characterSpeak("I can't wait to get to the top! ")
-	#Set motion to 0,0 if no motion
-	motion = move_and_slide(motion, UP)
-
-#Jump function
-func jump():
-	#move character
-	motion.y = JUMP_HEIGHT	
-	motion = move_and_slide(motion, UP)
 
 #Display character
 func displayCharacter():
@@ -87,4 +64,4 @@ func displayCharacter():
 		"Ticky Troll":
 			$TTSprite.show()
 		_:
-			$GodotSprite.show()
+			$GodogSprite.show()

@@ -10,8 +10,8 @@ Answer correctly to build blocks. Every 10 blocks you get 1 life. Answer wrongly
 Recover Power every 2 minutes.
 
 Playable Characters:
-- Godot (No Powers) [Default]
-- Swee Soldier (Add 4 lives)
+- Godog (No Powers) [Default]
+- Swee Soldier (Add 2 lives)
 - Mister I (Auto-clear 3 levels)
 - Humble B (Randomize questions, 5 uses)
 - Riding Rabbit (Slow timer by 0.5 speed for 30 seconds)
@@ -39,7 +39,7 @@ Cheats:
 - MadFireOn (night.png)
 - Chico Games (Button sprite)
 - Helianthus Games (planets art)
-- Pipoya (Witty Witch sprite and Ticky Troll sprite)
+- Pipoya (Godog sprite, Witty Witch sprite and Ticky Troll sprite)
 
 - Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg, AllThat.ogg, Dance.ogg, erf.ogg, funkyelement.ogg, groovyhiphop.ogg, perception.ogg, punky.ogg, retrosoul.ogg, rumble.ogg, straight.ogg, extremeaction.ogg)
 - Betrof [Freesound] (correct_sound.wav)

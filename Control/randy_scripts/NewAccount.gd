@@ -125,7 +125,7 @@ func _on_Button_pressed():
 				profile.fullname = {"stringValue":"Jane Doe"}
 			else:
 				profile.fullname = {"stringValue":fullname.get_text()}
-			profile.character = {"stringValue":"Godot"}
+			profile.character = {"stringValue":"Godog"}
 			#http request to save profile
 			Firebase.save_document("users?documentId=%s" % Firebase.user_info.email, profile, http)
 	#get_tree().change_scene("res://menus/Screens_Randy/RegisterSuccess.tscn")

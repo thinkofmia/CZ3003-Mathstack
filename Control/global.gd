@@ -7,7 +7,7 @@ var timeSeconds = 0 #Int form in terms of seconds
 var highscore = 0 #Highscore for challenge mode
 var storyScore = 0 #Storyscore for story mode
 var questionCount = 0 #normal mode current question count
-var characterSelected = "Godot" #Default char
+var characterSelected = "Godog" #Default char
 var worldSelected = "World #2" #Default world
 var worldsVisited = [] #Worlds visited array
 var difficultySelected = "Primary" #Default difficulty, Primary-Intermediate-Advanced
@@ -93,12 +93,12 @@ var difficulty=""
 var world=""
 
 #Normal mode character selected
-var normalModeCharacterSelected = "Godot"
+var normalModeCharacterSelected = "Godog"
 
 #Character Unlock Information
 var characterUnlockList = [
 	{
-		"characterName":"Godot",
+		"characterName":"Godog",
 		"state":"unlocked",
 		"associatedWorld":"None"
 	},

@@ -125,9 +125,9 @@ func _on_CancelButton_pressed():
 	get_tree().change_scene("res://View/Screens_Randy/Profile.tscn")
 
 func _on_GodotIcon_pressed():
-	global.characterSelected = "Godot"
+	global.characterSelected = "Godog"
 	$SelectedCharacter.displayCharacter()
-	print("Godot has been selected!")
+	print("Godog has been selected!")
 
 func _on_SSIcon_pressed():
 	global.characterSelected = "Swee Soldier"

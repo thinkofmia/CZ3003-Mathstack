@@ -87,8 +87,8 @@ func updateCharacter():
 	
 #If the user clicks on Godot Icon
 func _on_GodotIcon_pressed():
-	#Changes character to Godot
-	global.characterSelected = "Godot"
+	#Changes character to Godog
+	global.characterSelected = "Godog"
 	#Update Changes
 	updateCharacter()
 	
