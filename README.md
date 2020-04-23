@@ -20,16 +20,16 @@ Create your own custom quiz or play against your friends! Create any quiz of you
 | Characters        | Powers           | Image  |
 | ----------------- |:----------------:| ------:|
 | Godog             | None             |  <img src="/Model/Characters/Godog/00base/e002a_00base_00.png" width="100" height="100" alt="Godog Sprite"/> |
-| Swee Soldier      | Add 2 lives      |   <img src="/Model/Characters/Warrior/Idle (1).png" width="100" height="100" alt="Swee Soldier Sprite"/> |
-| Mister I          | Jump 3 levels    |     <img src="/Model/Characters/Mr I/Mr I.png" width="100" height="100" alt="Mister I Sprite"/> |
-| Humble B          | Randomize question (5 uses)       |  <img src="/Model/Characters/HumbleB/HumbleBIcon.png" width="100" height="100" alt="Humble B Sprite"/> |
-| Riding Rabbit      | Slow timer by 1/2 speed for 30 real seconds      |   <img src="/Model/Characters/RiderRabbit/RabbitAttack (1).png" width="100" height="100" alt="Rider Rabbit Sprite"/> |
-| Fire Fox          | Randomly activates another powers    |     <img src="/Model/Characters/FireFox/Fox_Sit2.png" width="100" height="100" alt="Fire Fox Sprite"/> |
-| Zesty Zombie      | Sacrifice 1 life for 5 levels             |  <img src="/Model/Characters/ZestyZombie/Attack (6).png" width="100" height="100" alt="Zesty Zombie Sprite"/> |
-| Deadly Dino      | For 15 seconds x2 damage.      |   <img src="/Model/Characters/DeadlyDino/Run (7).png" width="100" height="100" alt="Deadly Dino Sprite"/> |
-| Careful Cyborg          | Reduce time spent by 30 seconds    |     <img src="/Model/Characters/CarefulCyborg/JumpMelee (4).png" width="100" height="100" alt="Careful Cyborg Sprite"/> |
-| Witty Witch         | Sacrifice 1 life for 100 seconds time reduction       |  <img src="/Model/Characters/WittyWitch/13magic/c00b_13magic_07.png" width="100" height="100" alt="Witty Witch Sprite"/> |
-| Ticky Troll      | Add 4 lives but spend additional 2 minutes      |   <img src="/Model/Characters/TickyTroll/07damage/e003a_07damage_03.png" width="100" height="100" alt="Tickly Troll Sprite"/> |
+| Swee Soldier      | Steel Heart: Add 2 lives      |   <img src="/Model/Characters/Warrior/Idle (1).png" width="100" height="100" alt="Swee Soldier Sprite"/> |
+| Mister I          | MIA: Jump 3 levels    |     <img src="/Model/Characters/Mr I/Mr I.png" width="100" height="100" alt="Mister I Sprite"/> |
+| Humble B          | Humble Bundle: Randomize question (5 uses)       |  <img src="/Model/Characters/HumbleB/HumbleBIcon.png" width="100" height="100" alt="Humble B Sprite"/> |
+| Rider Rabbit      | Fast & Steady: Slow timer by 1/2 speed for 30 real seconds      |   <img src="/Model/Characters/RiderRabbit/RabbitAttack (1).png" width="100" height="100" alt="Rider Rabbit Sprite"/> |
+| Fire Fox          | Fatal Furry: Randomly activates another powers    |     <img src="/Model/Characters/FireFox/Fox_Sit2.png" width="100" height="100" alt="Fire Fox Sprite"/> |
+| Zesty Zombie      | Munch Munch: Sacrifice 1 life for 5 levels             |  <img src="/Model/Characters/ZestyZombie/Attack (6).png" width="100" height="100" alt="Zesty Zombie Sprite"/> |
+| Deadly Dino      | Double Damage: For 15 seconds x2 damage.      |   <img src="/Model/Characters/DeadlyDino/Run (7).png" width="100" height="100" alt="Deadly Dino Sprite"/> |
+| Careful Cyborg          | Calculating: Reduce time spent by 30 seconds    |     <img src="/Model/Characters/CarefulCyborg/JumpMelee (4).png" width="100" height="100" alt="Careful Cyborg Sprite"/> |
+| Witty Witch         | Worry Not: Sacrifice 1 life for 100 seconds time reduction       |  <img src="/Model/Characters/WittyWitch/13magic/c00b_13magic_07.png" width="100" height="100" alt="Witty Witch Sprite"/> |
+| Ticky Troll      | Timely Tongue: Add 4 lives but spend additional 2 minutes      |   <img src="/Model/Characters/TickyTroll/07damage/e003a_07damage_03.png" width="100" height="100" alt="Tickly Troll Sprite"/> |
 
 P.S. x2 Damage is equivalent to losing 2 health or gaining 2 levels per qn answered
 
