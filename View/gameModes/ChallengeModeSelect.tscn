@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Control/interface/returnToPlayMenu.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://View/util/Character.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Model/Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Model/Labels/PlayWithBorders.tscn" type="PackedScene" id=8]
+[ext_resource path="res://View/util/Characters/WWIcon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://View/util/Characters/HBIcon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://View/util/Characters/RRIcon.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=12]
@@ -19,6 +20,7 @@
 [ext_resource path="res://View/util/Characters/MrIIcon.tscn" type="PackedScene" id=18]
 [ext_resource path="res://View/util/Characters/ZZIcon.tscn" type="PackedScene" id=19]
 [ext_resource path="res://View/util/Characters/FFIcon.tscn" type="PackedScene" id=20]
+[ext_resource path="res://View/util/Characters/TTIcon.tscn" type="PackedScene" id=21]
 
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 14 )
@@ -99,8 +101,8 @@ __meta__ = {
 }
 
 [node name="GodotIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="0" instance=ExtResource( 3 )]
-margin_left = 232.0
-margin_right = 307.0
+margin_left = 147.0
+margin_right = 222.0
 
 [node name="SSIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="1" instance=ExtResource( 17 )]
 visible = false
@@ -141,6 +143,14 @@ margin_right = 307.0
 visible = false
 margin_left = 274.0
 margin_right = 349.0
+
+[node name="WWIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="9" instance=ExtResource( 9 )]
+margin_left = 232.0
+margin_right = 307.0
+
+[node name="TTIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="10" instance=ExtResource( 21 )]
+margin_left = 317.0
+margin_right = 392.0
 
 [node name="WorldLabel" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="2"]
 margin_top = 159.0
@@ -281,6 +291,8 @@ margin_top = 20.0
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/DDIcon" to="." method="_on_DDIcon_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/FFIcon" to="." method="_on_FFIcon_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/MrIIcon" to="." method="_on_MrIIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/WWIcon" to="." method="_on_WWIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/TTIcon" to="." method="_on_TTIcon_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton" to="." method="_on_WorldButton_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton2" to="." method="_on_WorldButton2_pressed"]
 [connection signal="pressed" from="PlayBoard/MarginContainer/VBoxContainer/WorldSelectContainer/WorldSelectRow/WorldButton3" to="." method="_on_WorldButton3_pressed"]

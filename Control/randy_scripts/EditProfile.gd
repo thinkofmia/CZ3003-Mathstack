@@ -11,6 +11,8 @@ onready var carefulCyborg = $ScrollContainer/MenuOptions/ScrollContainer/Charact
 onready var deadlyDino = $ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow/DDIcon
 onready var fireFox = $ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow/FFIcon
 onready var misterI = $ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow/MrIIcon
+onready var witchyWitch = $ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow/WWIcon
+onready var tickyTroll = $ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow/TTIcon
 
 
 onready var http : HTTPRequest = $HTTPRequest
@@ -167,6 +169,10 @@ func showCharacters():
 				deadlyDino.show()
 			"Fire Fox":
 				fireFox.show()
+			"Witty Witch":
+				witchyWitch.show()
+			"Ticky Troll":
+				tickyTroll.show()
 
 func _on_ZZIcon_pressed():
 	global.characterSelected = "Zesty Zombie"
@@ -190,3 +196,15 @@ func _on_FFIcon_pressed():
 	global.characterSelected = "Fire Fox"
 	$SelectedCharacter.displayCharacter()
 	print("Fire Fox has been selected!")
+
+
+func _on_WWIcon_pressed():
+	global.characterSelected = "Witty Witch"
+	$SelectedCharacter.displayCharacter()
+	print(global.characterSelected+" has been selected!")
+
+
+func _on_TTIcon_pressed():
+	global.characterSelected = "Ticky Troll"
+	$SelectedCharacter.displayCharacter()
+	print(global.characterSelected+" has been selected!")

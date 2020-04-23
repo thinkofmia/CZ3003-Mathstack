@@ -25,6 +25,10 @@ func displayCharacter():
 	hideAllSprites()
 	#Show character and set character
 	match global.characterSelected:
+		"Witty Witch":
+			$WWSprite.show()
+		"Ticky Troll":
+			$TTSprite.show()
 		"Swee Soldier":
 			$SSSprite.show()
 		"Mister I":
@@ -199,6 +203,8 @@ func hideAllSprites():
 	$CCSprite.hide()
 	$DDSprite.hide()
 	$FFSprite.hide()
+	$WWSprite.hide()
+	$TTSprite.hide()
 
 func jump():
 	#move character

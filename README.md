@@ -10,7 +10,7 @@ Answer correctly to build blocks. Every 10 blocks you get 1 life. Answer wrongly
 Recover Power every 2 minutes.
 
 Playable Characters:
-- Godot (No Powers)
+- Godot (No Powers) [Default]
 - Swee Soldier (Add 4 lives)
 - Mister I (Auto-clear 3 levels)
 - Humble B (Randomize questions, 5 uses)
@@ -19,6 +19,8 @@ Playable Characters:
 - Zesty Zombie (Sacrifice 1 life for 5 levels)
 - Deadly Dino (For 15 seconds x2 damage. Lose 2 health or gain 2 levels per qn answered)
 - Careful Cyborg (Reduce time spent by 30 seconds)
+- Witty Witch (No Powers Yet)
+- Ticky Troll (No Powers Yet)
 
 Cheats:
 - Press up button to jump
@@ -37,6 +39,7 @@ Cheats:
 - MadFireOn (night.png)
 - Chico Games (Button sprite)
 - Helianthus Games (planets art)
+- Pipoya (Witty Witch sprite and Ticky Troll sprite)
 
 - Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg, AllThat.ogg, Dance.ogg, erf.ogg, funkyelement.ogg, groovyhiphop.ogg, perception.ogg, punky.ogg, retrosoul.ogg, rumble.ogg, straight.ogg, extremeaction.ogg)
 - Betrof [Freesound] (correct_sound.wav)

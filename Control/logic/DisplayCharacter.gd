@@ -19,6 +19,8 @@ func hideAllSprites():
 	$CCSprite.hide()
 	$DDSprite.hide()
 	$FFSprite.hide()
+	$TTSprite.hide()
+	$WWSprite.hide()
 	$healthBar.hide()
 	$PowerButton.hide()
 
@@ -43,5 +45,9 @@ func displayCharacter():
 			$DDSprite.show()
 		"Fire Fox":
 			$FFSprite.show()
+		"Witty Witch":
+			$WWSprite.show()
+		"Ticky Troll":
+			$TTSprite.show()
 		_:
 			$GodotSprite.show()

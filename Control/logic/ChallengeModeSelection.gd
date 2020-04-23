@@ -198,3 +198,15 @@ func _on_FFIcon_pressed():
 	global.characterSelected = "Fire Fox"
 	$SelectedCharacter.displayCharacter()
 	print("Fire Fox has been selected!")
+
+
+func _on_WWIcon_pressed():
+	global.characterSelected = "Witty Witch"
+	$SelectedCharacter.displayCharacter()
+	print(global.characterSelected+" has been selected!")
+
+
+func _on_TTIcon_pressed():
+	global.characterSelected = "Ticky Troll"
+	$SelectedCharacter.displayCharacter()
+	print(global.characterSelected+" has been selected!")
