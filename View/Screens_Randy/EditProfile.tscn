@@ -119,8 +119,8 @@ __meta__ = {
 }
 
 [node name="GodotIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="0" instance=ExtResource( 18 )]
-margin_left = 165.0
-margin_right = 240.0
+margin_left = 250.0
+margin_right = 325.0
 
 [node name="SSIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="1" instance=ExtResource( 19 )]
 visible = false
@@ -163,12 +163,14 @@ margin_left = 274.0
 margin_right = 349.0
 
 [node name="WWIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="9" instance=ExtResource( 6 )]
+visible = false
 margin_left = 250.0
 margin_right = 325.0
 
 [node name="TTIcon" parent="ScrollContainer/MenuOptions/ScrollContainer/CharacterSelectRow" index="10" instance=ExtResource( 23 )]
-margin_left = 335.0
-margin_right = 410.0
+visible = false
+margin_left = 293.0
+margin_right = 368.0
 
 [node name="Account" type="Label" parent="ScrollContainer/MenuOptions" index="1"]
 margin_top = 90.0

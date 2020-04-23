@@ -101,8 +101,8 @@ __meta__ = {
 }
 
 [node name="GodotIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="0" instance=ExtResource( 3 )]
-margin_left = 147.0
-margin_right = 222.0
+margin_left = 232.0
+margin_right = 307.0
 
 [node name="SSIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="1" instance=ExtResource( 17 )]
 visible = false
@@ -145,12 +145,14 @@ margin_left = 274.0
 margin_right = 349.0
 
 [node name="WWIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="9" instance=ExtResource( 9 )]
+visible = false
 margin_left = 232.0
 margin_right = 307.0
 
 [node name="TTIcon" parent="PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2" index="10" instance=ExtResource( 21 )]
-margin_left = 317.0
-margin_right = 392.0
+visible = false
+margin_left = 274.0
+margin_right = 349.0
 
 [node name="WorldLabel" type="Label" parent="PlayBoard/MarginContainer/VBoxContainer" index="2"]
 margin_top = 159.0
