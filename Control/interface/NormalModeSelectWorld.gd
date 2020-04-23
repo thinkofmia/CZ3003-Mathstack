@@ -4,12 +4,14 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var bg
 var currentSelectedWorld = "World #0"
 onready var http : HTTPRequest = $MYHTTPRequest
 onready var http2 : HTTPRequest = $MYHTTPRequest2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	bg = $Background
 	Firebase.update_document("UnlockedCharactersData/%s" % str(global.username), {"data" : {"values" :[{'integerValue':1}]}}, http2)
 	#Performance Check
 	if (testPerformance.performanceCheck):
@@ -25,11 +27,48 @@ func _ready():
 func _process(delta):
 	if global.worldSelected != currentSelectedWorld:
 		#Firebase.save_document("normalmodeprogress",{"progress":{"integerValue":6}}, http)
-		changeBg(global.worldSelected.split("#")[1])
+		#changeBg(global.worldSelected.split("#")[1])
+		changeBg()
 		currentSelectedWorld = global.worldSelected
 		$NextButton/NextButtonLabel.text = "Enter " + global.worldSelected
-		
-func changeBg(selectedBg):
+
+
+#Change Background
+func changeBg():
+	#Set Background
+	bg.setBackground()
+	changeMaterial()
+
+
+#Change Box Material
+func changeMaterial():
+	var material = $Background/ControlBox
+	match global.worldSelected:
+		"World #1":
+			material.color = Color(0, 0, 0.8, 1)
+		"World #2":
+			material.color = Color(0, 0.8, 0, 1)
+		"World #3":
+			material.color = Color(0, 0.8, 0, 1)
+		"World #4":
+			material.color = Color(0, 0, 0.8, 1)
+		"World #5":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #6":
+			material.color = Color(0.8, 0.8, 0, 1)
+		"World #7":
+			material.color = Color(0.8, 0, 0, 1)
+		"World #8": ###
+			material.color = Color(1, 0, 0, 1)
+		"World #9":
+			material.color = Color(0.3, 0.3, 0.3, 1)
+		"World #10":
+			material.color = Color(0.8, 0.8, 0.8, 1)
+		_:
+			material.color = Color(1, 1, 0, 1)
+
+
+func changeBg2(selectedBg):
 	#Hide all bg
 	$Background2.hide()
 	$Background3.hide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://View/basicPlayScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -45,6 +45,7 @@
 [ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (5).png" type="Texture" id=43]
 [ext_resource path="res://Model/Characters/ZestyZombie/Walk (4).png" type="Texture" id=44]
 [ext_resource path="res://Model/Characters/CarefulCyborg/Melee (3).png" type="Texture" id=45]
+[ext_resource path="res://Control/interface/Background.gd" type="Script" id=46]
 [ext_resource path="res://Model/Characters/CarefulCyborg/Melee (2).png" type="Texture" id=47]
 [ext_resource path="res://Model/Characters/DeadlyDino/Idle (8).png" type="Texture" id=48]
 [ext_resource path="res://Model/Characters/DeadlyDino/Idle (2).png" type="Texture" id=49]
@@ -260,6 +261,7 @@ animations = [ {
 script = ExtResource( 6 )
 
 [node name="TemplateScreen" type="Control" parent="." index="0"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -267,6 +269,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="TemplateScreen" index="0"]
+visible = false
 margin_right = 1642.0
 margin_bottom = 1230.0
 rect_scale = Vector2( 0.75, 0.6 )
@@ -328,7 +331,31 @@ script = SubResource( 1 )
 [node name="Background" parent="." index="1"]
 visible = false
 
-[node name="Background2" type="Sprite" parent="." index="2"]
+[node name="Background7" type="TextureRect" parent="." index="2"]
+margin_left = -95.0
+margin_top = 685.0
+margin_right = 1182.0
+margin_bottom = 1459.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1, -1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+flip_h = true
+flip_v = true
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Background7" index="0"]
+margin_left = 469.0
+margin_top = 162.0
+margin_right = 1098.0
+margin_bottom = 582.0
+
+[node name="Background2" type="Sprite" parent="." index="3"]
 visible = false
 position = Vector2( 511, 302 )
 scale = Vector2( 0.35, 0.35 )
@@ -344,7 +371,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background3" type="Sprite" parent="." index="3"]
+[node name="Background3" type="Sprite" parent="." index="4"]
 visible = false
 position = Vector2( 613, 369 )
 scale = Vector2( 1.23, 0.982 )
@@ -360,7 +387,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background4" type="Sprite" parent="." index="4"]
+[node name="Background4" type="Sprite" parent="." index="5"]
+visible = false
 position = Vector2( 6.10352e-05, 0 )
 scale = Vector2( 0.662806, 0.67561 )
 texture = ExtResource( 33 )
@@ -380,7 +408,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background5" type="Sprite" parent="." index="5"]
+[node name="Background5" type="Sprite" parent="." index="6"]
+visible = false
 scale = Vector2( 0.514326, 0.543106 )
 texture = ExtResource( 34 )
 centered = false
@@ -395,7 +424,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background6" type="Sprite" parent="." index="6"]
+[node name="Background6" type="Sprite" parent="." index="7"]
+visible = false
 scale = Vector2( 0.801069, 0.625479 )
 texture = ExtResource( 35 )
 centered = false
@@ -410,7 +440,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionMenu" parent="." index="7" instance=ExtResource( 2 )]
+[node name="QuestionMenu" parent="." index="8" instance=ExtResource( 2 )]
 anchor_left = -2.98023e-08
 anchor_top = 0.00225599
 anchor_bottom = 0.00225627
@@ -423,7 +453,7 @@ script = ExtResource( 4 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="QuestionMenu" index="2"]
 
-[node name="PlayBoard" parent="." index="8"]
+[node name="PlayBoard" parent="." index="9"]
 visible = false
 margin_left = -134.0
 margin_top = 91.0
@@ -445,7 +475,7 @@ margin_top = 18.0
 margin_right = 247.0
 margin_bottom = 153.0
 
-[node name="Header" parent="." index="9"]
+[node name="Header" parent="." index="10"]
 position = Vector2( -383.625, -19.0452 )
 
 [node name="RichTextLabel" parent="Header" index="0"]
@@ -462,7 +492,7 @@ margin_top = -1.0
 margin_right = -19.0
 margin_bottom = -1.0
 
-[node name="ScoreBoard" type="Node2D" parent="." index="10"]
+[node name="ScoreBoard" type="Node2D" parent="." index="11"]
 position = Vector2( -392.095, 75.2544 )
 
 [node name="Score" type="RichTextLabel" parent="ScoreBoard" index="0"]
@@ -494,7 +524,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PassingBoard" type="Node2D" parent="." index="11"]
+[node name="PassingBoard" type="Node2D" parent="." index="12"]
 position = Vector2( 158.513, -16.9427 )
 __meta__ = {
 "_edit_group_": true
@@ -529,7 +559,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" parent="." index="12"]
+[node name="QuitButton" parent="." index="13"]
 anchor_left = -0.00136214
 anchor_right = -0.00136214
 margin_left = 958.403
@@ -539,16 +569,16 @@ margin_bottom = 94.8605
 rect_scale = Vector2( 0.5, 0.5 )
 script = null
 
-[node name="CharacterSprite" type="AnimatedSprite" parent="." index="14"]
+[node name="CharacterSprite" type="AnimatedSprite" parent="." index="15"]
 visible = false
 position = Vector2( 192.891, 348.246 )
 scale = Vector2( 0.410289, 0.401249 )
 frames = SubResource( 5 )
 animation = "idle"
-frame = 8
+frame = 7
 playing = true
 
-[node name="FinishLabel" type="Label" parent="." index="15"]
+[node name="FinishLabel" type="Label" parent="." index="16"]
 visible = false
 margin_left = 415.0
 margin_top = 107.0
@@ -562,7 +592,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FinishButton" type="Button" parent="." index="16"]
+[node name="FinishButton" type="Button" parent="." index="17"]
 visible = false
 margin_left = 534.407
 margin_top = 310.043
@@ -574,11 +604,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MYHTTPRequest2" type="HTTPRequest" parent="." index="17"]
+[node name="MYHTTPRequest2" type="HTTPRequest" parent="." index="18"]
 
-[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="18"]
+[node name="MYHTTPRequest" type="HTTPRequest" parent="." index="19"]
 
-[node name="Character" type="KinematicBody2D" parent="." index="19"]
+[node name="Character" type="KinematicBody2D" parent="." index="20"]
 position = Vector2( 180, 350 )
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 10 )
@@ -599,7 +629,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 14 )
-frame = 5
+frame = 2
 playing = true
 flip_h = true
 
@@ -608,6 +638,7 @@ visible = false
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 15 )
+frame = 1
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="Character" index="4"]
@@ -616,7 +647,6 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 16 )
 animation = "idle"
-frame = 8
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -625,6 +655,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 17 )
 animation = "idle"
+frame = 9
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -633,7 +664,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 18 )
 animation = "idle"
-frame = 7
+frame = 6
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
@@ -641,7 +672,7 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 19 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
@@ -649,6 +680,7 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 20 )
+frame = 1
 playing = true
 flip_h = true
 [connection signal="request_completed" from="QuestionMenu/HTTPRequest" to="QuestionMenu" method="_on_HTTPRequest_request_completed"]

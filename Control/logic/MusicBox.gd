@@ -70,3 +70,4 @@ func stopMusic():
 	track09.stop()
 	track10.stop()
 	trackMenu.stop()
+	bossMusic.stop()

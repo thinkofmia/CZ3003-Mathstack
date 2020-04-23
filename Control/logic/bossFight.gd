@@ -9,6 +9,8 @@ onready var bg = get_tree().get_root().get_node("World").find_node("BossBg") #Ba
 
 #Timer
 onready var timer = get_tree().get_root().get_node("World").find_node("Timer") #Background
+onready var countdownDisplay = $BossMenu/HProw/TimerVar
+var countdown
 
 #Buttons
 onready var option1 = $BossMenu/MarginContainer/row/columnLeft/Option1/Label
@@ -32,43 +34,19 @@ var bossMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	hideInterface()
+
+func hideInterface():
+	bg.hide()
+	qnBoard.show()
+	hide()
 
 func restoreBoss():
 	qnNo = 1
 	bossHP.value = 100
 	print(str(bossHP.value))
 
-func startBossMode():
-	restoreBoss()
-	bg.show()
-	qnBoard.hide()
-	show()
-	timer.pauseTime()
-	randomizeQuestion()
-	bossMode = true
-	music.bossTheme()
-	character.losePower()
-
-func endBossMode():
-	bg.hide()
-	qnBoard.show()
-	hide()
-	bossDies()
-	bossMode = false
-	timer.countTime()
-	music.playTrack()
-	character.addLife()
-	character.recoverPower()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if (bossMode == true) and bossHP.value<=0:
-		endBossMode()
-
-func bossDies():
-	#Set Array of Boss
-	var bossArr = [boss1,boss2,boss3,boss4]
+func checkBoss():
 	var bossNo
 	if (blkTower.getNoOfBoxes()>90):
 		bossNo = 4 #Dark Night dies
@@ -78,7 +56,68 @@ func bossDies():
 		bossNo = 2	
 	else:
 		bossNo = 1
-	bossArr[bossNo-1].hide()
+	return bossNo
+		
+func startBossMode():
+	restoreBoss()
+	bg.show()
+	qnBoard.hide()
+	show()
+	setMap()
+	timer.pauseTime()
+	randomizeQuestion()
+	countdown = 60*15
+	music.bossTheme()
+	character.losePower()
+	yield(get_tree().create_timer(1.0), "timeout")	
+	bossMode = true
+
+func endBossMode():
+	hideInterface()
+	if bossHP.value<=0 : #If defeat boss
+		bossDies()
+		character.addLife()
+		character.recoverPower()
+	else: #If fails to defeat boss
+		character.hearts -= 1
+		character.fixHearts()
+	bossMode = false
+	timer.countTime()
+	music.playTrack()
+	
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if (bossMode == true) and bossHP.value<=0:
+		endBossMode()
+	elif (bossMode == true):
+		countdown = int(floor(countdown-delta))
+		updateTime()
+
+func updateTime():
+	countdownDisplay.set_text(str(floor(int(countdown/60)))+" secs remaining")
+	if countdown ==0:
+		endBossMode()
+
+func bossDies():
+	#Set Array of Boss
+	var bossArr = [boss1,boss2,boss3,boss4]
+	bossArr[checkBoss()-1].hide()
+
+func setMap():
+	bg.find_node("Map1").hide()
+	bg.find_node("Map2").hide()
+	bg.find_node("Map3").hide()
+	bg.find_node("Map4").hide()
+	match checkBoss():
+		2:
+			bg.find_node("Map2").show()
+		3:
+			bg.find_node("Map3").show()
+		4:
+			bg.find_node("Map4").show()
+		_:
+			bg.find_node("Map1").show()
 
 func randomizeQuestion():
 	#Randomize operands
@@ -158,7 +197,7 @@ func checkAnswer(option):
 		wrongAnswer()
 
 func damageBoss():
-	bossHP.value -= 30
+	bossHP.value -= 15
 
 func correctAnswer():
 	print("Correct!")

@@ -62,7 +62,14 @@ func _ready():
 		op3Arr.append(question_display['Option3'].values()[0])
 		op4Arr.append(question_display['Option4'].values()[0])
 		ansArr.append(question_display['Ans'].values()[0])
-		exArr.append(question_display['Explanation'].values()[0])
+		
+		#Check if explanation exists in database
+		if question_display.has('Explanation'):
+			exArr.append(question_display['Explanation'].values()[0])
+		else:
+			exArr.append("It is what it is.")
+			
+		
 	#Set Nodes	
 	correctStatus = get_tree().get_root().get_node("World").find_node("CorrectStatus")
 	wrongStatus = get_tree().get_root().get_node("World").find_node("WrongStatus")
@@ -73,12 +80,15 @@ func _ready():
 		print("Performance Test: Normal Mode - Play")
 		testPerformance.getTimeTaken()
 	
+
 #function to pick a random question and set it	
+var random = 0
+
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
 	#questionId = str("1")
 	#generate a random number between 0 and number of questions
-	var random = int(floor(rand_range(0,question_info[0].size())))
+	random = int(floor(rand_range(0,question_info[0].size())))
 	print("a: "+ str(random))
 	#extract the question attribute from the array based on random
 	qText = qTextArr[random]
@@ -108,9 +118,7 @@ func randomizeQuestion():
 	question = [op1, op2, op3, op4,ans] 
 	level += 1
 	print("")
-	#Set explanation
-	correctStatus.setExplanation(exArr[random])
-	wrongStatus.setExplanation(exArr[random])
+	
 
 #function to check answer
 func checkAnswer(option):
@@ -128,6 +136,10 @@ func checkAnswer(option):
 		#print(global.questionCount)
 		if global.questionCount != 10:
 			correctStatus.appear()
+		
+		#Set explanation
+		correctStatus.setExplanation(exArr[random])
+		wrongStatus.setExplanation(exArr[random])
 		randomizeQuestion()
 		
 	else:
@@ -135,6 +147,9 @@ func checkAnswer(option):
 		#Display msg
 		if global.questionCount != 10:
 			wrongStatus.appear()
+		#Set explanation
+		correctStatus.setExplanation(exArr[random])
+		wrongStatus.setExplanation(exArr[random])
 		randomizeQuestion()
 
 

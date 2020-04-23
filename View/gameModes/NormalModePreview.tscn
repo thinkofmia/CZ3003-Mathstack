@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Xolonium_32.tres" type="DynamicFont" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://textures/winter.png" type="Texture" id=9]
 [ext_resource path="res://textures/graveyard.png" type="Texture" id=10]
 [ext_resource path="res://textures/desert.png" type="Texture" id=11]
+[ext_resource path="res://Control/interface/Background.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -19,10 +20,38 @@ font_data = ExtResource( 6 )
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
+[node name="TemplateScreen" parent="." index="0"]
+visible = false
+
 [node name="Header" parent="TemplateScreen" index="3"]
 text = "NORMAL MODE"
 
-[node name="Background2" type="Sprite" parent="." index="1"]
+[node name="Background" type="TextureRect" parent="." index="1"]
+margin_left = -95.0
+margin_top = 685.0
+margin_right = 1182.0
+margin_bottom = 1459.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1, -1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+flip_h = true
+flip_v = true
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlBox" type="ColorRect" parent="Background" index="0"]
+margin_left = 286.0
+margin_top = 156.0
+margin_right = 916.0
+margin_bottom = 588.0
+
+[node name="Background2" type="Sprite" parent="." index="2"]
+visible = false
 position = Vector2( 511, 302 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 7 )
@@ -34,12 +63,14 @@ margin_right = 846.0
 margin_bottom = 706.0
 color = Color( 0.133333, 0.411765, 0.384314, 1 )
 
-[node name="Background3" type="Sprite" parent="." index="2"]
+[node name="Background3" type="Sprite" parent="." index="3"]
+visible = false
 position = Vector2( 613, 369 )
 scale = Vector2( 1.23, 0.982 )
 texture = ExtResource( 8 )
 
 [node name="ColorRect" type="ColorRect" parent="Background3" index="0"]
+visible = false
 margin_left = -325.0
 margin_top = -279.0
 margin_right = 166.0
@@ -49,7 +80,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background4" type="Sprite" parent="." index="3"]
+[node name="Background4" type="Sprite" parent="." index="4"]
+visible = false
 scale = Vector2( 0.662806, 0.67561 )
 texture = ExtResource( 9 )
 centered = false
@@ -68,7 +100,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background5" type="Sprite" parent="." index="4"]
+[node name="Background5" type="Sprite" parent="." index="5"]
+visible = false
 scale = Vector2( 0.514326, 0.543106 )
 texture = ExtResource( 10 )
 centered = false
@@ -83,7 +116,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background6" type="Sprite" parent="." index="5"]
+[node name="Background6" type="Sprite" parent="." index="6"]
+visible = false
 scale = Vector2( 0.801069, 0.625479 )
 texture = ExtResource( 11 )
 centered = false
@@ -190,10 +224,10 @@ margin_top = 249.0
 margin_right = 475.0
 margin_bottom = 339.0
 
-[node name="BackButton" parent="." index="7"]
+[node name="BackButton" parent="." index="8"]
 script = ExtResource( 3 )
 
-[node name="Header" type="Label" parent="." index="8"]
+[node name="Header" type="Label" parent="." index="9"]
 anchor_right = 1.0
 margin_top = 16.0
 margin_bottom = 85.0
