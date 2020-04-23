@@ -216,6 +216,8 @@ func wrongAnswer():
 	sound.play()
 	#Make Character speak!
 	character.characterSpeak("SHUCKS! That was wrong. ")
+	#Decrement countdown as penalty
+	countdown -= 60
 	randomizeQuestion()
 
 func _on_Option1_pressed():
