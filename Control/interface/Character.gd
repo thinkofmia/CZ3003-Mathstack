@@ -152,9 +152,7 @@ func zzPower():
 func ssPower():
 	#Shout
 	characterSpeak("Steel Heart! ")
-	#Add 4 lives
-	addLife()
-	addLife()
+	#Adds 2 lives
 	addLife()
 	addLife()
 	$PowerButton.hide()
@@ -200,6 +198,16 @@ func rrPower():
 	header.add_color_override("font_color", Color(1,1,1,1))
 	global.rrPower = 1
 
+func ttPower():
+	addLife()
+	addLife()
+	addLife()
+	addLife()
+	var timer = get_tree().get_root().get_node("World").find_node("Timer")
+	#Reduce global time by 100 seconds by sacricing 1 life
+	timer.timer += 120
+	
+
 func callPower():
 	$PowerButton.hide()
 	#Play Sound
@@ -220,6 +228,8 @@ func callPower():
 			zzPower()
 		"Swee Soldier":
 			ssPower()
+		"Ticky Troll":
+			ttPower()
 		"Humble B":
 			#Shout
 			characterSpeak("Next question please. ")

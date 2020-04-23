@@ -20,7 +20,7 @@ Playable Characters:
 - Deadly Dino (For 15 seconds x2 damage. Lose 2 health or gain 2 levels per qn answered)
 - Careful Cyborg (Reduce time spent by 30 seconds)
 - Witty Witch (Reduce time spent by 100 seconds by using up 1 life)
-- Ticky Troll (No Powers Yet)
+- Ticky Troll (Add 4 lives but spend 2 minutes)
 
 Cheats:
 - Press up button to jump
