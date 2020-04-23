@@ -5,11 +5,18 @@ For our CZ3003
 Our game creates a platform for teaching and learning.
 Students will enhance their knowledge through playing the game and have more fun competing with each other. Teachers will be able to assess the mastery of the course based on students’ playing history. 
 
-## Challenge Mode
-Answer correctly to build blocks. Every 10 blocks you get 1 life. Answer wrongly you lose 1 life.
-Recover Power every 2 minutes.
+Our goal is to bridge the gap between Playing and Learning.
 
-Playable Characters:
+## Normal Mode
+Tests users on the mastery of subjects. Includes three difficulty levels, character unlocks and more!
+
+## Challenge Mode
+Tests users in a competitive element. Users get health points and try to race to the top in the shortest amount of time. Includes selectable characters, powers and boss fights! Scores will be included in a leaderboard.
+
+## Custom Mode
+Create your own custom quiz or play against your friends! Create any quiz of your desire and share with your friends.
+
+## Playable Characters:
 - Godog (No Powers) [Default]
 - Swee Soldier (Add 2 lives)
 - Mister I (Auto-clear 3 levels)
@@ -22,10 +29,18 @@ Playable Characters:
 - Witty Witch (Reduce time spent by 100 seconds by using up 1 life)
 - Ticky Troll (Add 4 lives but spend 2 minutes)
 
-Cheats:
-- Press up button to jump
-- Press down button to add life
+## Custom Profile
+Get your own custom profile with your favourite character, profile picture and nickname! Also includes class, school and email address.
 
+## View Statistics
+Note that this feature is for teachers only.
+
+Allows teachers to view statistics of their class and individual students. Include progress of their normal mode clearance, challenge mode highscores and even an analysis report!
+
+## Manage Question Bank
+Note that this feature is for teachers only.
+
+Rather than editing from FireBase (our database), teachers can also use the game interface to add, edit or delete questions in normal mode.
 
 ## Credits for free images and music
 - Flaticon (returnButton.png)
