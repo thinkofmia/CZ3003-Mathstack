@@ -53,6 +53,8 @@ onready var op4
 onready var ans
 onready var explanation
 
+onready var quitButton = get_tree().get_root().get_node("World").find_node("QuitButton")
+
 onready var http : HTTPRequest = $HTTPRequest
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,6 +71,7 @@ func setQns(): #Set new set of Qns
 	#Hide Qn display
 	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
 	qnMenu.hide()
+	quitButton.hide()
 	if (testPerformance.performanceCheck):
 		testPerformance.startTime()
 	#global.difficulty = "Primary" #Set difficulty to primary
@@ -129,6 +132,7 @@ func setQns(): #Set new set of Qns
 	
 	#Show display
 	qnMenu.show()
+	quitButton.show()
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Challenge Mode Load Questions")

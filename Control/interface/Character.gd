@@ -32,6 +32,7 @@ onready var header = get_tree().get_root().get_node("World").find_node("RichText
 onready var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu") #Question Display Node
 onready var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower") #Block Tower Node
 onready var powerupSound = get_tree().get_root().get_node("World").find_node("PowerupSound") #Power up Sound Node
+onready var quit = get_tree().get_root().get_node("World").find_node("QuitButton") #Quit Button Node
 
 var counter = 5 #Counter for Humble B power
 
@@ -304,6 +305,8 @@ func fixHearts():
 		_: #Default case/Out of life
 			characterSpeak("OH NO! I am falling. :(") #Character Speaks
 			if is_instance_valid(blkTower): #Check if still exists
+				qnMenu.hide()
+				quit.hide()
 				hpBar.hide() #Hide HP Bar
 				addLife() #Add life for debug
 				blkTower.selfDestruct() #Destroys tower
