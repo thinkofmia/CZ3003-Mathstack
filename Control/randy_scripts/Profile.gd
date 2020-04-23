@@ -37,7 +37,7 @@ func _ready():
 	character.get_node("healthBar").hide()
 	character.get_node("PowerButton").hide()
 	yield(get_tree().create_timer(3), "timeout")
-	message = "Hey there! "+nickname.get_text()+" of "+class1.get_text()+". I am using "+global.characterSelected+"! "
+	message = "Hey there! This is "+nickname.get_text()+" ("+class1.get_text()+") and I am using "+global.characterSelected+" on MathStack! "
 	#message = "Hey there! "+nickname.get_text()+" of class "+class1.get_text()+". I am using "+global.characterSelected+"! "
 
 func goToMainMenu():
