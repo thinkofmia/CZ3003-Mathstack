@@ -60,6 +60,11 @@ func recoverPower():
 	if (global.characterSelected != "Humble B"):
 		counter = 5
 
+#Lose Health
+func loseHP():
+	hearts -= 1
+	fixHearts()
+
 func callPower():
 	$PowerButton.hide()
 	#Play Sound
@@ -68,8 +73,16 @@ func callPower():
 	
 	#Check Character
 	match global.characterSelected:
+		"Witty Witch":
+			#Get Timer
+			var timer = get_tree().get_root().get_node("World").find_node("Timer")
+			#Reduce global time by 100 seconds by sacricing 1 life
+			timer.timer -= 100
+			loseHP()
+			#Shout
+			characterSpeak("Rewinding time! ")
+		
 		"Careful Cyborg":
-			
 			#Get Timer
 			var timer = get_tree().get_root().get_node("World").find_node("Timer")
 			#Reduce global time by 30 seconds

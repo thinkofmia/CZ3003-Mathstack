@@ -148,31 +148,47 @@ func _on_RRIcon_pressed():
 	global.characterSelected = "Rider Rabbit"
 	$SelectedCharacter.displayCharacter()
 	print("Rider Rabbit has been selected!")
+
+#Show all characters func
+func showAllCharacters():
+	sweeSoldier.show()
+	misterI.show()
+	humbleBee.show()
+	riderRabbit.show()
+	zestyZombie.show()
+	carefulCyborg.show()
+	deadlyDino.show()
+	fireFox.show()
+	witchyWitch.show()
+	tickyTroll.show()
 	
 func showCharacters():
 	print(global.getListOfUnlockedCharactersName())
-	for character in global.getListOfUnlockedCharactersName():
-		match character:
-			"Swee Soldier":
-				sweeSoldier.show()
-			"Mister I":
-				misterI.show()
-			"Humble B":
-				humbleBee.show()
-			"Rider Rabbit":
-				riderRabbit.show()
-			"Zesty Zombie":
-				zestyZombie.show()
-			"Careful Cyborg":
-				carefulCyborg.show()
-			"Deadly Dino":
-				deadlyDino.show()
-			"Fire Fox":
-				fireFox.show()
-			"Witty Witch":
-				witchyWitch.show()
-			"Ticky Troll":
-				tickyTroll.show()
+	if (global.accountType=="Student"):
+		for character in global.getListOfUnlockedCharactersName():
+			match character:
+				"Swee Soldier":
+					sweeSoldier.show()
+				"Mister I":
+					misterI.show()
+				"Humble B":
+					humbleBee.show()
+				"Rider Rabbit":
+					riderRabbit.show()
+				"Zesty Zombie":
+					zestyZombie.show()
+				"Careful Cyborg":
+					carefulCyborg.show()
+				"Deadly Dino":
+					deadlyDino.show()
+				"Fire Fox":
+					fireFox.show()
+				"Witty Witch":
+					witchyWitch.show()
+				"Ticky Troll":
+					tickyTroll.show()
+	else:
+		showAllCharacters()
 
 func _on_ZZIcon_pressed():
 	global.characterSelected = "Zesty Zombie"

@@ -12,6 +12,9 @@ onready var carefulCyborg = $PlayBoard/MarginContainer/VBoxContainer/ScrollConta
 onready var deadlyDino = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/DDIcon
 onready var fireFox = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/FFIcon
 onready var misterI = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/MrIIcon
+onready var wittyWitch = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/WWIcon
+onready var tickyTroll = $PlayBoard/MarginContainer/VBoxContainer/ScrollContainer/CharacterSelectRow2/TTIcon
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,25 +36,44 @@ func _ready():
 	showCharacters()
 
 func showCharacters():
-	for character in global.getListOfUnlockedCharactersName():
-		match character:
-			"Swee Soldier":
-				sweeSoldier.show()
-			"Mister I":
-				misterI.show()
-			"Humble B":
-				humbleBee.show()
-			"Rider Rabbit":
-				riderRabbit.show()
-			"Zesty Zombie":
-				zestyZombie.show()
-			"Careful Cyborg":
-				carefulCyborg.show()
-			"Deadly Dino":
-				deadlyDino.show()
-			"Fire Fox":
-				fireFox.show()
-	
+	if (global.accountType == "Student"):
+		for character in global.getListOfUnlockedCharactersName():
+			match character:
+				"Swee Soldier":
+					sweeSoldier.show()
+				"Mister I":
+					misterI.show()
+				"Humble B":
+					humbleBee.show()
+				"Rider Rabbit":
+					riderRabbit.show()
+				"Zesty Zombie":
+					zestyZombie.show()
+				"Careful Cyborg":
+					carefulCyborg.show()
+				"Deadly Dino":
+					deadlyDino.show()
+				"Fire Fox":
+					fireFox.show()
+				"Witty Witch":
+					wittyWitch.show()
+				"Ticky Troll":
+					tickyTroll.show()
+	else:
+		showAllCharacters()
+		
+#Show all characters func
+func showAllCharacters():
+	sweeSoldier.show()
+	misterI.show()
+	humbleBee.show()
+	riderRabbit.show()
+	zestyZombie.show()
+	carefulCyborg.show()
+	deadlyDino.show()
+	fireFox.show()
+	wittyWitch.show()
+	tickyTroll.show()	
 
 func _on_GodotIcon_pressed():
 	global.characterSelected = "Godot"

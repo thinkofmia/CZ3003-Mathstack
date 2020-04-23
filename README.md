@@ -19,7 +19,7 @@ Playable Characters:
 - Zesty Zombie (Sacrifice 1 life for 5 levels)
 - Deadly Dino (For 15 seconds x2 damage. Lose 2 health or gain 2 levels per qn answered)
 - Careful Cyborg (Reduce time spent by 30 seconds)
-- Witty Witch (No Powers Yet)
+- Witty Witch (Reduce time spent by 100 seconds by using up 1 life)
 - Ticky Troll (No Powers Yet)
 
 Cheats:
