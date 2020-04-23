@@ -1,21 +1,10 @@
 extends TextureRect
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
 #Set bg
 func setBackground():
 	#Make texture null first
 	set_texture(null)
-	#Set Texture
+	#Set Texture based on world selected
 	match global.worldSelected:
 		"World #1":
 			set_texture(preload("res://textures/mountain.png"))
@@ -33,9 +22,9 @@ func setBackground():
 			set_texture(preload("res://textures/street.png"))
 		"World #8": 
 			set_texture(preload("res://textures/night.png"))
-		"World #9":#TO BE CHANGED
+		"World #9":
 			set_texture(preload("res://textures/bulkhead.png"))
-		"World #10":#TO BE CHANGED
+		"World #10":
 			set_texture(preload("res://textures/hazy.png"))
 		_:
 			set_texture(preload("res://textures/graveyard.png"))
