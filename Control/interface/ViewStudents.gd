@@ -1,32 +1,25 @@
 extends Node
 
 
-# Declare member variables here. Examples:
+# FIrebase var
 onready var http : HTTPRequest = $HTTPRequest
 onready var students = []
 var student_info = []
 var student_display
 var getStudents=false
 var getQuiz=false
-var studentList
 
-var newButton = load("res://Model/buttons/interface/userStatsButtons.tscn")
-
-
+onready var studentList = $PlayBoard/ScrollContainer/ListOfStudents #Set student list node
+var newButton = load("res://Model/buttons/interface/userStatsButtons.tscn") #Set new button instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Set Target type as Student
-	global.targetType = "Student"
-	#Save Node as student List
-	studentList = $PlayBoard/ScrollContainer/ListOfStudents
-	
-	####Requires firebase
+	global.targetType = "Student"	#Set Target type as Student
+	#Firebase func
 	getStudents=true
 	Firebase.get_document("users", http)
-	yield(get_tree().create_timer(5.0), "timeout")
+	yield(get_tree().create_timer(5.0), "timeout") #Timeout for 5secs
 	#Total Number of Teachers
-	#var totalNoUsers = 5
 	student_info = (students.values())
 	var totalNoUsers = student_info[0].size()
 	#Loop based on No of students 
@@ -41,15 +34,14 @@ func _ready():
 				var addButton = newButton.instance()
 				#Change button name to quiz name
 				addButton.set_text(str(temp))
-				#addButton.set_text(str(student_display['nickname'].values()[0]))
 				#Add quiz button to the list
 				studentList.add_child(addButton)
 
-
+#Go back to normal mode option scene
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://View/teachers/NormalModeOptions.tscn")
 
-
+#Firebase request
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	if response_code != 200:
@@ -59,5 +51,3 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		if getStudents==true:
 			#put dictionary into an array
 			self.students = response_body
-			
-			

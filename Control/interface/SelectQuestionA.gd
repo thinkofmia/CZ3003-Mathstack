@@ -1,23 +1,20 @@
 extends Node
 
-
-# Declare member variables here. Examples:
+#Firebase vars
 onready var http : HTTPRequest = $HTTPRequest
 onready var students = []
 var student_info = []
 var student_display
 var getStudents=false
 var getQuiz=false
-var qnList
 
-var newButton = load("res://Model/buttons/interface/editQnButtons.tscn")
+onready var qnList = $PlayBoard/ScrollContainer/qnList #Get qn list node
+onready var header = $TemplateScreen/Header #Get header node
+var newButton = load("res://Model/buttons/interface/editQnButtons.tscn") #Set instance
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Set Header
-	$TemplateScreen/Header.set_text(global.worldSelected+": List of Questions")
-	#Save Node as question List
-	qnList = $PlayBoard/ScrollContainer/qnList
-	
+	header.set_text(global.worldSelected+": List of Questions")#Set Header text
 	####Requires firebase	
 	#Total Number of Questions
 	var totalQuestions = 5
@@ -32,12 +29,11 @@ func _ready():
 		#Add qn button to the list
 		qnList.add_child(addButton)
 
-
-
+#Go back to select world scene
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://View/teachers/AddQnsSelectWorld.tscn")
 
-
+#Firebase request
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	if response_code != 200:
@@ -48,8 +44,6 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			#put dictionary into an array
 			self.students = response_body
 			
-			
-
-
+#Go to add question details scene
 func _on_AddButton_pressed():
 	get_tree().change_scene("res://View/teachers/AddQnsDetails.tscn")

@@ -8,6 +8,7 @@ var totalQn = "" #Variable for Custom Total Questions
 var worlds = "" #Variable for Custom Worlds
 var ID = "" #Variable for Custom ID
 
+#For debug usage
 func _ready():
 	#Set Title
 	title = get_text() 
@@ -21,17 +22,6 @@ func _ready():
 	ID = "1231135151"
 
 func _on_CustomQuizButton_pressed():
-		#Debug
-	#print("Quiz Selected: "+title)
-	#Set globals
-	#global.customTitle = title
-	#global.customCreator = creator
-	#global.customDate = date
-	#global.customTotalQn = totalQn
-	#global.customWorlds = worlds
-	#global.customID = ID
-	#Sent user to custom quiz preview
-	
 	#get the quiz name and store it in global customTitle
 	global.customTitle=get_text() 
 	#print(global.customTitle)

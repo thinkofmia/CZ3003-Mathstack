@@ -1,25 +1,19 @@
 extends Node
 
-
-# Declare member variables here. Examples:
+# Firebase var
 onready var http : HTTPRequest = $HTTPRequest
 onready var teachers= []
 var teacher_info = []
 var teacher_display
 var getTeachers=false
-var teacherList
 
-var newButton = load("res://Model/buttons/interface/userButtons.tscn")
-
+onready var teacherList = $PlayBoard/ScrollContainer/ListOfTeachers #Set teacher list node
+var newButton = load("res://Model/buttons/interface/userButtons.tscn") #Set new button instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Set Target type as Teacher
-	global.targetType = "Teacher"
-	#Save Node as student List
-	teacherList = $PlayBoard/ScrollContainer/ListOfTeachers
-	
-	####Requires firebase
+	global.targetType = "Teacher"#Set Target type as Teacher
+	#Firebase func
 	getTeachers=true
 	#http request get all user profiles
 	Firebase.get_document("users", http)
@@ -42,11 +36,11 @@ func _ready():
 				#Add quiz button to the list
 				teacherList.add_child(addButton)
 
-
+#Go to select user type scene
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://View/admin/SelectUserType.tscn")
 
-
+#Firebase request
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	if response_code != 200:
