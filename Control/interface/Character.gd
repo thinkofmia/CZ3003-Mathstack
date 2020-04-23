@@ -290,6 +290,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_down"):
 			addLife()
 			fixHearts()
+			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+			qnMenu.correctAnswer()
 		
 	#Set motion to 0,0 if no motion
 	motion = move_and_slide(motion, UP)

@@ -9,6 +9,8 @@ onready var bg = get_tree().get_root().get_node("World").find_node("BossBg") #Ba
 
 #Timer
 onready var timer = get_tree().get_root().get_node("World").find_node("Timer") #Background
+onready var countdownDisplay = $BossMenu/HProw/TimerVar
+var countdown
 
 #Buttons
 onready var option1 = $BossMenu/MarginContainer/row/columnLeft/Option1/Label
@@ -32,7 +34,12 @@ var bossMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	hideInterface()
+
+func hideInterface():
+	bg.hide()
+	qnBoard.show()
+	hide()
 
 func restoreBoss():
 	qnNo = 1
@@ -46,15 +53,16 @@ func startBossMode():
 	show()
 	timer.pauseTime()
 	randomizeQuestion()
-	bossMode = true
+	countdown = 60*15
 	music.bossTheme()
 	character.losePower()
+	yield(get_tree().create_timer(1.0), "timeout")	
+	bossMode = true
 
 func endBossMode():
-	bg.hide()
-	qnBoard.show()
-	hide()
-	bossDies()
+	hideInterface()
+	if bossHP.value<=0 :
+		bossDies()
 	bossMode = false
 	timer.countTime()
 	music.playTrack()
@@ -64,6 +72,14 @@ func endBossMode():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (bossMode == true) and bossHP.value<=0:
+		endBossMode()
+	elif (bossMode == true):
+		countdown = int(floor(countdown-delta))
+		updateTime()
+
+func updateTime():
+	countdownDisplay.set_text(str(floor(int(countdown/60)))+" secs remaining")
+	if countdown ==0:
 		endBossMode()
 
 func bossDies():

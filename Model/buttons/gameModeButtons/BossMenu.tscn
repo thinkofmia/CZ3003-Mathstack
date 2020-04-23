@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Model/GUI/energy_bar_fill.png" type="Texture" id=1]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Model/GUI/energy_bar_bg.png" type="Texture" id=3]
 [ext_resource path="res://Model/GUI/label_HP.png" type="Texture" id=4]
 [ext_resource path="res://Model/buttons/gameModeButtons/OptionButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Model/GUI/energy_bar_fill.png" type="Texture" id=6]
 
 [node name="BossMenu" type="VBoxContainer"]
 margin_right = 1025.0
@@ -18,11 +19,26 @@ __meta__ = {
 [node name="HProw" type="HBoxContainer" parent="."]
 margin_right = 1025.0
 margin_bottom = 40.0
+custom_constants/separation = 20
 alignment = 2
 
+[node name="TimerLabel" type="Label" parent="HProw"]
+margin_left = 289.0
+margin_right = 401.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Timer: "
+
+[node name="TimerVar" type="Label" parent="HProw"]
+margin_left = 421.0
+margin_right = 702.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "0 secs remaining"
+
 [node name="HPLabel" type="TextureRect" parent="HProw"]
-margin_left = 738.0
-margin_right = 773.0
+margin_left = 722.0
+margin_right = 757.0
 margin_bottom = 40.0
 texture = ExtResource( 4 )
 
@@ -35,7 +51,7 @@ rounded = true
 allow_greater = true
 allow_lesser = true
 texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 1 )
+texture_progress = ExtResource( 6 )
 
 [node name="QuestionLabel" type="Label" parent="."]
 margin_top = 50.0
