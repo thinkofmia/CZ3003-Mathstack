@@ -1,8 +1,17 @@
 extends Node
 
-var message
+var message #Message to be put in social sharing
 
+#Firebase var
 onready var http : HTTPRequest = $HTTPRequest
+onready var quizzes = []
+var quiz_info = []
+var quiz_display
+var getByTitle = false
+var getById = false
+var delete = false
+
+#Quiz Info var
 var Quiz := {
 	"Creator":{},
 	"Date":{},
@@ -11,45 +20,56 @@ var Quiz := {
 	"World":{}
 }
 
+#External Nodes vars
+onready var tShare = $ShareButton #Twitter Share Node
+onready var fbShare = $FBButton #FaceBook Share Node
+onready var waShare = $WAButton #WhatsApp Share Node
+onready var rShare = $RedditButton #Reddit share node
+onready var backButton = $BackButton #Back Button
+onready var editButton = $EditButton #Edit Button
+onready var deleteButton = $DeleteButton #Delete Button
+onready var playButton = $PlayBoard/MarginContainer/VBoxContainer/Button #Play Button
 
-onready var quizzes = []
-var quiz_info = []
-var quiz_display
+#Interface
+onready var customTitle = $PlayBoard/MarginContainer/VBoxContainer/QuizName #Custom Title Node
+onready var customCreator = $PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName #Custom Creator Node
+onready var customDate = $PlayBoard/MarginContainer/VBoxContainer/CreationDateRow/CreationDate #Custom Date Node
+onready var customNo = $PlayBoard/MarginContainer/VBoxContainer/NumberQnsRow/NumberOfQns #Total number of qns Node
+onready var customWorld = $PlayBoard/MarginContainer/VBoxContainer/WorldsRow/Worlds #Custom World Node
+onready var customID = $PlayBoard/MarginContainer/VBoxContainer/IdRow/Id #Custom ID Node
 
-var getByTitle = false
-var getById = false
-var delete = false
-
+#Hide all the buttons
 func hideButtons():
-	$ShareButton.hide()
-	$FBButton.hide()
-	$WAButton.hide()
-	$RedditButton.hide()
-	$BackButton.hide()
-	$EditButton.hide()
-	$DeleteButton.hide()
-	$PlayBoard/MarginContainer/VBoxContainer/Button.hide()
-	
+	tShare.hide()
+	fbShare.hide()
+	waShare.hide()
+	rShare.hide()
+	backButton.hide()
+	editButton.hide()
+	deleteButton.hide()
+	playButton.hide()
+
+#Show default buttons
 func showButtons():
-	$ShareButton.show()
-	$FBButton.show()
-	$WAButton.show()
-	$RedditButton.show()
-	$BackButton.show()
+	tShare.show()
+	fbShare.show()
+	waShare.show()
+	rShare.show()
+	backButton.show()
 
-
+#On Load
 func _ready():
-	hideButtons()
-	if global.customTitle!="":
+	hideButtons() #Hide All buttons
+	if global.customTitle!="": #Check if search/accessed by title
 		getByTitle = true
 		#http request to get custom quiz details
 		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
-		yield(get_tree().create_timer(2), "timeout")
-	else:
+		yield(get_tree().create_timer(2), "timeout") #Timeout 2sec
+	else: #If accessed by id
 		getById = true
 		#http request to get all custom quiz
 		Firebase.get_document("CustomQuiz/", http)
-		yield(get_tree().create_timer(5), "timeout")
+		yield(get_tree().create_timer(5), "timeout")#timeout 5sec
 		#get values from custom quiz array and put into quiz_info
 		quiz_info = (quizzes.values())
 		#for each quiz in the array
@@ -65,50 +85,43 @@ func _ready():
 					global.customTotalQn = str(quiz_display['NumQns'].values()[0])
 					global.customWorlds = str(quiz_display['World'].values()[0])
 					global.customID = str(quiz_display['Id'].values()[0])
-					$PlayBoard/MarginContainer/VBoxContainer/Button.show()
+					playButton.show() #Show play button if valid quiz
 					continue
-	#Set Texts
-	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text(global.customTitle)
-	$PlayBoard/MarginContainer/VBoxContainer/AuthorRow/AuthorName.set_text(global.customCreator)
-	$PlayBoard/MarginContainer/VBoxContainer/CreationDateRow/CreationDate.set_text(global.customDate)
-	$PlayBoard/MarginContainer/VBoxContainer/NumberQnsRow/NumberOfQns.set_text(global.customTotalQn)
-	$PlayBoard/MarginContainer/VBoxContainer/WorldsRow/Worlds.set_text(global.customWorlds)
-	$PlayBoard/MarginContainer/VBoxContainer/IdRow/Id.set_text(global.customID)
+	#Update interface with text
+	customTitle.set_text(global.customTitle)
+	customCreator.set_text(global.customCreator)
+	customDate.set_text(global.customDate)
+	customNo.set_text(global.customTotalQn)
+	customWorld.set_text(global.customWorlds)
+	customID.set_text(global.customID)
 	#Check if player is owner of quiz
-	if (global.customCreator == global.username):
-		$EditButton.show()
-		$DeleteButton.show()
+	if (global.customCreator == global.username):#If so, allow them to edit or delete quiz
+		editButton.show()
+		deleteButton.show()
 	else:
-		$EditButton.hide()
-		$DeleteButton.hide()
-	#Display Play button
-	showButtons()
-	#Set Message
+		editButton.hide()
+		deleteButton.hide()
+	showButtons()#Show rest of the buttons
+	#Set Message for social sharing
 	message = "Hey! Try '"+global.customTitle+"' out by"+global.customCreator+". The Quiz ID is "+global.customID+"!"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
+#Starts playing
 func _on_Button_pressed():
 	get_tree().change_scene("res://View/gameModes/CustomPlayScreen.tscn")
 
-
+#Returns back to selection menu
 func _on_BackButton_pressed():#Back button pressed
 	if (global.modeSelected == "My Custom"):#If my custom mode
 		get_tree().change_scene("res://View/gameModes/CustomModeMyQuizzes.tscn")
 	else:#Else if All custom
 		get_tree().change_scene("res://View/gameModes/CustomModeAllQuizzes.tscn")
 
-
+#Goes to edit quiz scene
 func _on_EditButton_pressed():
 	get_tree().change_scene("res://View/gameModes/CustomModeEdit.tscn")
-	pass # Replace with function body.
 
-
+#Firebase
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
-	
 	if response_code == 200:
 		if getByTitle:
 			var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
@@ -129,30 +142,31 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			delete = false
 			return 
 
-
+#Deletes the custom quiz
 func _on_DeleteButton_pressed():
-	##Fire base delete here
+	##Firebase access
 	Firebase.delete_document("CustomQuiz/%s"%global.customTitle,http)
-	hideButtons()
-	$PlayBoard/MarginContainer/VBoxContainer/QuizName.set_text("Deleting... ")
-	yield(get_tree().create_timer(2), "timeout")
-	#Return to quiz list
-	_on_BackButton_pressed()
+	hideButtons() #Hide all buttons
+	customTitle.set_text("Deleting... ") #Show deletion msg
+	yield(get_tree().create_timer(2), "timeout") #Timeout 2 sec
+	_on_BackButton_pressed()#Return to quiz list
 
-
-func _on_ShareButton_pressed():#For Twitter
+#Share via twitter
+func _on_ShareButton_pressed():
 	var tweet = "https://twitter.com/intent/tweet?text="
 	OS.shell_open(tweet+message)
 
+#Share via whatsapp
 func _on_WAButton_pressed():
 	var url = "https://wa.me/?text="
 	OS.shell_open(url+message)
 
+#Share via reddit
 func _on_RedditButton_pressed():
 	var url = "https://reddit.com/submit?title="
 	OS.shell_open(url+message)
 
+#Share via facebook
 func _on_FBButton_pressed():
 	var facebook = "http://www.facebook.com/sharer.php?u=ntulearn.ntu.edu.sg&t=PlayThisQuiz&ps=100&p[title]=&p[summary]="
 	OS.shell_open(facebook+message)
-
