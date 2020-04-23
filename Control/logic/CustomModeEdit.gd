@@ -51,12 +51,15 @@ func _ready():
 	qnList = $PlayBoard/Container/QnList
 	getQuiz = true
 	quizName.text=global.customTitle
+	#check if the user is creating a new quiz or editing an existing quiz
 	if global.customTitle != "":
+		#http request to get quiz
 		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
 		yield(get_tree().create_timer(2), "timeout")
 	if existQuiz == true:
 		quizDatabase+global.customTitle
 		getQns = true
+		#http request to get questions
 		Firebase.get_document("Custom%s"%global.customTitle, http)
 		yield(get_tree().create_timer(2), "timeout")
 		#get values from questions array and put into question_info
@@ -145,8 +148,9 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 	var format_string
 	var actual_string 
 	var start
-	
+	#check if the user is creating a new quiz or editing an existing quiz
 	if existQuiz==false:
+		#if false
 		#set Quiz attributes
 		Quiz.Creator={"stringValue":username}
 		Quiz.Date={"stringValue":str(date)}
@@ -159,8 +163,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		yield(get_tree().create_timer(2.0), "timeout")
 		start=1
 	else:
-		
-		
+		#if true
 		for i in range(1,numLoadedQns+1): #Loop For Number of Qn Loaded
 			var qnSet = qnList.get_child(i-1) #Save as qn set
 			var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
@@ -186,12 +189,13 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 			qnNum+=1
 			start=numLoadedQns+1
 	
-	print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
-	print(" ")
+	#print("Quiz ID: "+str(id)+" Created By: "+str(username)) #Print quiz ID
+	#print(" ")
 	q=totalQn
-	for i in range(start,totalQn+1): #Loop For Total Number of Qn Or Remaining Qm
+	for i in range(start,totalQn+1): #Loop For Total Number of Qn Or Remaining Qn
 		var qnSet = qnList.get_child(i-1) #Save as qn set
 		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
+		#skip if question title is empty 
 		if qnTitle == "":
 			q-=1
 			continue
@@ -209,6 +213,7 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		Question.Option4={"stringValue": option4}
 		Question.Ans={"stringValue": ans}
 		Question.Explanation={"stringValue": explanation}
+		#format http request string
 		format_string = "%s?documentId=%s"
 		actual_string = format_string % ["Custom"+str(name),str(qnNum)]
 		#http request to save the question
@@ -217,11 +222,11 @@ func _on_ConfirmButton_pressed(): #Save Quiz
 		qnNum+=1
 		
 		#For Debugging and getting each vars
-		print("Q"+str(i)+": "+str(qnTitle)) #Print Qn No and Text
-		print(">Options: ["+str(option1)+", "+str(option2)+", "+str(option3)+", "+str(option4)+"]") #Print options 
-		print(">Ans: "+str(ans)) #Print correct ans
-		print(">Explanation: "+str(explanation)) #Print correct ans
-		print(" ")
+		#print("Q"+str(i)+": "+str(qnTitle)) #Print Qn No and Text
+		#print(">Options: ["+str(option1)+", "+str(option2)+", "+str(option3)+", "+str(option4)+"]") #Print options 
+		#print(">Ans: "+str(ans)) #Print correct ans
+		#print(">Explanation: "+str(explanation)) #Print correct ans
+		#print(" ")
 	#Performance Test
 	if (testPerformance.performanceCheck):
 		print("Performance Test: Custom Mode Edit Quiz Saved")

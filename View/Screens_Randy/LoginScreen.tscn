@@ -25,9 +25,9 @@ script = ExtResource( 6 )
 [node name="MarginContainer" parent="TextureRect" index="0"]
 anchor_top = 0.00166151
 anchor_bottom = 1.00166
-margin_left = 2.0
+margin_left = 107.333
 margin_top = -2.65833
-margin_right = 0.0
+margin_right = 225.333
 margin_bottom = -8.65637
 rect_scale = Vector2( 0.825, 0.825 )
 

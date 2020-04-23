@@ -28,6 +28,7 @@ var school_array = ["NTU", "NUS", "SMU"]
 func _ready():
 	#http request to get user profile	
 	Firebase.get_document("users/%s" % global.username, http)
+	#set text for email and account
 	email.text = "Email: " + Firebase.user_info.email
 	account.text = "Account: "+ global.accountType
 	#test for global save data
@@ -94,9 +95,11 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			self.profile = result_body.fields
 			setFullName(result_body.fields)
 			
-
+#function set set and display profile values base on http response
 func set_profile(value: Dictionary) -> void:
+	#set values
 	profile = value
+	#display the attibutes
 	account.text = "Account: %s" % str(profile.account.stringValue)
 	nickname.text = str(profile.nickname.stringValue)
 	school.text = "School: %s" % str(school_array[int(profile.schoolId.integerValue)])

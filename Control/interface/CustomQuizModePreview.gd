@@ -42,18 +42,23 @@ func _ready():
 	hideButtons()
 	if global.customTitle!="":
 		getByTitle = true
+		#http request to get custom quiz details
 		Firebase.get_document("CustomQuiz/%s"%global.customTitle, http)
 		yield(get_tree().create_timer(2), "timeout")
 	else:
 		getById = true
+		#http request to get all custom quiz
 		Firebase.get_document("CustomQuiz/", http)
 		yield(get_tree().create_timer(5), "timeout")
+		#get values from custom quiz array and put into quiz_info
 		quiz_info = (quizzes.values())
-		#for each questions in the array
+		#for each quiz in the array
 		for i in range(0,quiz_info[0].size()):
-				#extract question attribute based on i
+				#extract quiz attribute based on i
 				quiz_display= (quiz_info[0][i]['fields'])
+				#check if the quiz id contains the search string
 				if  str(quiz_display['Id'].values()[0]).findn(global.customID,0) != -1:
+					#set quiz values
 					global.customTitle = str(quiz_display['QuizName'].values()[0])
 					global.customCreator = str(quiz_display['Creator'].values()[0])
 					global.customDate = str(quiz_display['Date'].values()[0])

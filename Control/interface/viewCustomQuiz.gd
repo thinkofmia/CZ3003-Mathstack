@@ -22,7 +22,7 @@ func _ready():
 
 func _on_CustomQuizButton_pressed():
 		#Debug
-	print("Quiz Selected: "+title)
+	#print("Quiz Selected: "+title)
 	#Set globals
 	#global.customTitle = title
 	#global.customCreator = creator
@@ -31,9 +31,10 @@ func _on_CustomQuizButton_pressed():
 	#global.customWorlds = worlds
 	#global.customID = ID
 	#Sent user to custom quiz preview
-	#get the quiz name
+	
+	#get the quiz name and store it in global customTitle
 	global.customTitle=get_text() 
-	print(global.customTitle)
+	#print(global.customTitle)
 	if global.customViewingStats:
 		print("Viewing Stats for custom mode")
 		get_tree().change_scene("res://View/teachers/StatisticScene.tscn")

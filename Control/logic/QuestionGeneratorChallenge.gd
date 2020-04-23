@@ -74,10 +74,11 @@ func setQns(): #Set new set of Qns
 	#global.difficulty = "Primary" #Set difficulty to primary
 	#Get questions based on codes
 	getQuestions="ChallengeWorld"+global.worldSelected.substr(7,1)
-	print(getQuestions)
+	#print(getQuestions)
 	#http request to get Primary Qns
 	Firebase.get_document("%s" % str(getQuestions), http)
 	yield(get_tree().create_timer(3), "timeout")
+	#get values from question array and put into question_info
 	question_info = (questions.values())
 	#print(question_info)
 	#for each questions in the array

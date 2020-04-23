@@ -24,18 +24,18 @@ func _ready():
 	$AddButton/Label.set_text("Add")
 	var newButton = load("res://Model/buttons/gameModeButtons/CustomQuizButton.tscn")
 	getQns=true
-	#http call to get all questions
+	#http call to get all custom quiz
 	Firebase.get_document("CustomQuiz", http)
 	yield(get_tree().create_timer(2), "timeout")
-	#get values from questions array and put into question_info
+	#get values from custom quiz array and put into container
 	question_info = (questions.values())
-	#for each questions in the array
+	#for each custom quiz in the array
 	for i in range(0,question_info[0].size()):
-		#extract question attribute based on i
+		#extract custom quiz attribute based on i
 		question_display= (question_info[0][i]['fields'])
 		#check if the quiz is ceated by the user
 		if str(question_display['Creator'].values()[0]) == global.username:
-			print(str(question_display['QuizName'].values()[0]))
+			#print(str(question_display['QuizName'].values()[0]))
 			#Add new instance
 			addButton = newButton.instance()
 			#Change button name to quiz name
@@ -64,8 +64,9 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 	#conver json into a dictionary
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	if response_code != 200:
-		print(response_body)
-		print("error!")
+		return
+		#print(response_body)
+		#print("error!")
 	elif response_code == 200:
 		if getQns==true:
 			#put dictionary into an array

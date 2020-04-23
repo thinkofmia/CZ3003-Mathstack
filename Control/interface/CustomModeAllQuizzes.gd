@@ -28,7 +28,7 @@ func _ready():
 	#Select Mode
 	global.modeSelected = "All Custom"
 	getQns=true
-	#http call to get all questions
+	#http call to get all custom quiz
 	Firebase.get_document("CustomQuiz", http)
 	#yield(get_tree().create_timer(2), "timeout")
 	#get values from questions array and put into question_info
@@ -59,12 +59,13 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 		if getQns==true:
 			#put dictionary into an array
 			self.questions = response_body
+			#get values from questions array and put into question_info
 			question_info = (questions.values())
 			#for each questions in the array
 			for i in range(0,question_info[0].size()):
 				#extract question attribute based on i
 				question_display= (question_info[0][i]['fields'])
-				print(str(question_display['QuizName'].values()[0]))
+				#print(str(question_display['QuizName'].values()[0]))
 				#Add new instance
 				var addButton = newButton.instance()
 				#Change button name to quiz name

@@ -49,6 +49,7 @@ func _ready():
 	#http request to get question based on the selected difficulty and world
 	Firebase.get_document("%s" % str(getQuestions), http)
 	yield(get_tree().create_timer(2), "timeout")
+	#get values from question array and put into question_info
 	question_info = (questions.values())
 	#for each questions in the array
 	for i in range(0,question_info[0].size()):
@@ -72,7 +73,7 @@ func _ready():
 		print("Performance Test: Normal Mode - Play")
 		testPerformance.getTimeTaken()
 	
-	
+#function to pick a random question and set it	
 func randomizeQuestion():
 	#questionId = str("DM-N-02-E-01")
 	#questionId = str("1")
@@ -111,9 +112,10 @@ func randomizeQuestion():
 	correctStatus.setExplanation(exArr[random])
 	wrongStatus.setExplanation(exArr[random])
 
+#function to check answer
 func checkAnswer(option):
 	global.questionCount = global.questionCount + 1
-	print(question)
+	#print(question)
 	if (str(question[4])==option.get_text()):#Check if correct answer was click
 		print("Correct!")
 		#Update score
@@ -123,13 +125,13 @@ func checkAnswer(option):
 		#Display msg
 		#temp fix, idk how
 		#temp solution: last question dont show explanation
-		print(global.questionCount)
+		#print(global.questionCount)
 		if global.questionCount != 10:
 			correctStatus.appear()
 		randomizeQuestion()
 		
 	else:
-		print("Wrong!")
+		#print("Wrong!")
 		#Display msg
 		if global.questionCount != 10:
 			wrongStatus.appear()

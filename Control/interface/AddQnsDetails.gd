@@ -64,9 +64,10 @@ func _on_ConfirmButton_pressed():
 	#Added qn stuff
 	var getQuestions="NormalWorld"+global.worldSelected.substr(7,2)
 	for i in range(1,totalQn+1): #Loop For Total Number of Qn 
-		print(i)
+		#print(i)
 		var qnSet = qnList.get_child(i-1) #Save as qn set
 		var qnTitle = qnSet.get_child(0).get_child(1).get_text() #Qn Title
+		#skip if question title is empty
 		if qnTitle == "":
 			continue
 		var option1 = qnSet.get_child(1).get_child(1).get_text() #Option 1
@@ -81,12 +82,14 @@ func _on_ConfirmButton_pressed():
 		Question.Option3={"stringValue": option3}
 		Question.Option4={"stringValue": option4}
 		Question.Ans={"stringValue": ans}
+		#set difficulty
 		dID = difficultySelected.get_selected_id()
 		difficulty = difficultySelected.get_item_text(dID)
 		match difficulty:
 			"Easy":d="E"
 			"Intermediate":d="I"
 			"Advanced":d="A"
+		#format question id
 		var format_string = "%s?documentId=DM-N-%s-%s-%s"
 		var random = int(floor(rand_range(0,100)))
 		var world
@@ -94,6 +97,7 @@ func _on_ConfirmButton_pressed():
 			world = "0"+global.worldSelected.substr(7,2)
 		else:
 			world =global.worldSelected.substr(7,2)
+		#format request string
 		var actual_string = format_string % [getQuestions,world,d,random]
 		#http request to save the question
 		Firebase.save_document(actual_string, Question, http)

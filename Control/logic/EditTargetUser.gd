@@ -37,22 +37,27 @@ func _ready():
 	#Initalization
 	fillOptions()
 	getUsers=true
+	#http request to get all user profile
 	Firebase.get_document("users", http)
 	yield(get_tree().create_timer(5.0), "timeout")
-	#Total Number of Teachers
 	#var totalNoUsers = 5
+	#get values from user array and put into user_info
 	user_info = (users.values())
+	#Total Number of Teachers
 	var totalNoUsers = user_info[0].size()
-	#Loop based on No of students 
+	#Loop based on No of users
 	for i in range (0,totalNoUsers):
-		#extract question attribute based on i
+		#extract user based on i
 		user_display= (user_info[0][i]['fields'])
+		#check if it is the selected user
 		if user_display['nickname'].values()[0] == global.selectUserEdit:
+				#get and format user email
 				getEmail = user_info[0][i]['name']
 				var a = getEmail.find_last("/")
 				var b = getEmail.length()
 				getEmail = getEmail.substr((a+1),(b-a+1))
 				email.text=(getEmail)
+				#display user account
 				account = user_display['account'].values()[0]
 				print(account)
 				if account=="Student":
@@ -61,9 +66,12 @@ func _ready():
 					accountType.select(1)
 				elif account=="Admin":
 					accountType.select(2)
+				#display user's nickname
 				nickname.text=user_display['nickname'].values()[0]
+				#display user's school
 				schoolId = user_display['schoolId'].values()[0]
 				school.select(int(schoolId))
+				#dispay user's class
 				classId = user_display['classId'].values()[0]
 				selectedClass.select(int(classId))
 				continue				
@@ -109,25 +117,10 @@ func _on_Confirm_pressed():
 func _on_HTTPRequest_request_completed(result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	var response_body := JSON.parse(body.get_string_from_ascii()).result as Dictionary
 	if response_code != 200:
-		print(response_body)
-		print("error!")
+		return
+		#print(response_body)
+		#print("error!")
 	elif response_code == 200:
 		if getUsers==true:
 			#put dictionary into an array
 			self.users = response_body
-
-func set_profile(value: Dictionary) -> void:
-	#display the profile attributes
-	profile = value
-	account = profile.account.stringValue
-	if account=="Student":
-		accountType.select(0)
-	elif account=="Teacher":
-		accountType.select(1)
-	elif account=="Admin":
-		accountType.select(2)
-	nickname.text=profile.nickname.stringValue
-	schoolId = profile.schoolId.integerValue
-	school.select(int(schoolId))
-	classId = profile.classId.integerValue
-	selectedClass.select(int(classId))

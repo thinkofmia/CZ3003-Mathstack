@@ -87,10 +87,12 @@ func _on_HTTPRequest_request_completed(result: int, response_code: int, headers:
 			#loading the response into the fields	
 			self.profile = result_body.fields
 			setFullName(self.profile)
-	
+
+#function to set profile from http response	
 func set_profile(value: Dictionary) -> void:
-	#display the profile attributes
+	#set profile value
 	profile = value
+	#display the profile attributes
 	account.text = "Account: %s" % str(profile.account.stringValue)
 	nickname.text=profile.nickname.stringValue
 	school.text = "School: %s" % str(school_array[int(profile.schoolId.integerValue)])
