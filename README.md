@@ -1,5 +1,5 @@
 # Mathstack
-For our CZ3003
+A CZ3003 Project
 
 ## Mission Statement
 Our game creates a platform for teaching and learning.
