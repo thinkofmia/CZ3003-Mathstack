@@ -13,11 +13,11 @@
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 10 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Button
 
 export(String) var scene_to_load
@@ -99,7 +99,7 @@ margin_left = 304.0
 margin_top = 10.0
 margin_right = 541.0
 margin_bottom = 50.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "@e.ntu.edu.sg"
 align = 2
 
@@ -132,7 +132,7 @@ margin_left = 250.0
 margin_top = 0.0
 margin_right = 691.0
 margin_bottom = 90.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer" index="3"]
 margin_top = 814.0
@@ -144,14 +144,14 @@ custom_constants/separation = 100
 margin_top = 0.0
 margin_right = 360.0
 margin_bottom = 60.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 
 [node name="ForgotPassButton" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" index="1" instance=ExtResource( 7 )]
 margin_left = 460.0
 margin_top = 0.0
 margin_right = 940.0
 margin_bottom = 60.0
-script = SubResource( 2 )
+script = SubResource( 3 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." index="3"]
 
