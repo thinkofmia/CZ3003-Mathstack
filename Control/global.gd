@@ -142,6 +142,16 @@ var characterUnlockList = [
 		"state":"locked",
 		"associatedWorld":"World #8"
 	},
+	{
+		"characterName":"Witty Witch",
+		"state":"locked",
+		"associatedWorld":"World #9"
+	},
+	{
+		"characterName":"Ticky Troll",
+		"state":"locked",
+		"associatedWorld":"World #10"
+	},
 	
 ]
 
