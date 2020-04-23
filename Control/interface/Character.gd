@@ -65,6 +65,141 @@ func loseHP():
 	hearts -= 1
 	fixHearts()
 
+func wwPower():
+	#Get Timer
+	var timer = get_tree().get_root().get_node("World").find_node("Timer")
+	#Reduce global time by 100 seconds by sacricing 1 life
+	timer.timer -= 100
+	loseHP()
+	#Shout
+	characterSpeak("Rewinding time! ")
+
+func ccPower():
+	#Get Timer
+	var timer = get_tree().get_root().get_node("World").find_node("Timer")
+	#Reduce global time by 30 seconds
+	timer.timer -= 30
+	#Shout
+	characterSpeak("Re-calculating time... ")
+
+func ffPower():
+	var random = int(floor(rand_range(1,5)))
+	match random:
+		2:
+			ccPower()
+		3:
+			MrIPower()
+		4:
+			ssPower()
+		5:
+			ddPower()
+		_:
+			rrPower()
+
+
+func ddPower():
+	#Shout
+	characterSpeak("Deadly Damage! ")
+	#Gives x2 Damage
+	global.ddPower = 1
+	#Change music and color
+	var mainMusic = get_tree().get_root().get_node("World").find_node("MusicBox")
+	mainMusic.fastForward()
+	var bg = get_tree().get_root().get_node("World").find_node("Texture")
+	var header = get_tree().get_root().get_node("World").find_node("RichTextLabel")
+	bg.set_self_modulate(Color( 1, 0, 1, 1 )) 
+	header.add_color_override("font_color", Color(1,0,0,1))
+	$DDSprite.set_self_modulate(Color( 1, 0, 1, 1 )) 
+	yield(get_tree().create_timer(15.0), "timeout")
+	mainMusic.playTrack()
+	$DDSprite.set_self_modulate(Color( 1, 1, 1, 1 )) 
+	bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
+	header.add_color_override("font_color", Color(1,1,1,1))
+	#Return
+	global.ddPower = 0
+
+func zzPower():
+#Shout
+	characterSpeak("*munch munch* ")
+	#Sacrifice 1 health for 5 levels
+	hearts = hearts - 1
+	fixHearts()
+	if (hearts>0):
+		var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+		var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+		qnMenu.hide()
+		#Jump three times
+		blkTower.addBlock()
+		self.jump()
+		yield(get_tree().create_timer(1.0), "timeout")
+		blkTower.addBlock()
+		self.jump()
+		yield(get_tree().create_timer(1.0), "timeout")
+		blkTower.addBlock()
+		self.jump()
+		yield(get_tree().create_timer(1.0), "timeout")
+		blkTower.addBlock()
+		self.jump()
+		yield(get_tree().create_timer(1.0), "timeout")
+		blkTower.addBlock()
+		self.jump()
+		yield(get_tree().create_timer(1.0), "timeout")
+		#Randomise Qn
+		qnMenu.show()
+		qnMenu.randomizeQuestion()
+	$PowerButton.hide()
+
+func ssPower():
+	#Shout
+	characterSpeak("Steel Heart! ")
+	#Add 4 lives
+	addLife()
+	addLife()
+	addLife()
+	addLife()
+	$PowerButton.hide()
+
+func MrIPower():
+	#Shout
+	characterSpeak("MIA! ")
+	$PowerButton.hide()
+	var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
+	var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
+	qnMenu.hide()
+	#Jump three times
+	blkTower.addBlock()
+	self.jump()
+	yield(get_tree().create_timer(1.0), "timeout")
+	blkTower.addBlock()
+	self.jump()
+	yield(get_tree().create_timer(1.0), "timeout")
+	blkTower.addBlock()
+	self.jump()
+	yield(get_tree().create_timer(1.0), "timeout")
+	#Randomise Qn
+	qnMenu.show()
+	qnMenu.randomizeQuestion()
+
+func rrPower():
+	#Shout
+	characterSpeak("Fast and steady wins the race. ")
+	#Slow time for 30 seconds
+	global.rrPower = 0.5
+	$PowerButton.hide()
+	var mainMusic = get_tree().get_root().get_node("World").find_node("MusicBox")
+	mainMusic.fastForward()
+	var bg = get_tree().get_root().get_node("World").find_node("Texture")
+	var header = get_tree().get_root().get_node("World").find_node("RichTextLabel")
+	bg.set_self_modulate(Color( 1, 0, 1, 1 )) 
+	header.add_color_override("font_color", Color(1,0,0,1))
+	$RRSprite.set_self_modulate(Color( 1, 0, 1, 1 )) 
+	yield(get_tree().create_timer(30.0), "timeout")
+	mainMusic.playTrack()
+	$RRSprite.set_self_modulate(Color( 1, 1, 1, 1 )) 
+	bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
+	header.add_color_override("font_color", Color(1,1,1,1))
+	global.rrPower = 1
+
 func callPower():
 	$PowerButton.hide()
 	#Play Sound
@@ -73,84 +208,18 @@ func callPower():
 	
 	#Check Character
 	match global.characterSelected:
+		"Fire Fox":
+			ffPower()
 		"Witty Witch":
-			#Get Timer
-			var timer = get_tree().get_root().get_node("World").find_node("Timer")
-			#Reduce global time by 100 seconds by sacricing 1 life
-			timer.timer -= 100
-			loseHP()
-			#Shout
-			characterSpeak("Rewinding time! ")
-		
+			wwPower()
 		"Careful Cyborg":
-			#Get Timer
-			var timer = get_tree().get_root().get_node("World").find_node("Timer")
-			#Reduce global time by 30 seconds
-			timer.timer -= 30
-			#Shout
-			characterSpeak("Re-calculating time... ")
+			ccPower()
 		"Deadly Dino":
-			#Shout
-			characterSpeak("Deadly Damage! ")
-			#Gives x2 Damage
-			global.ddPower = 1
-			#Change music and color
-			var mainMusic = get_tree().get_root().get_node("World").find_node("PlayMusic")
-			mainMusic.stop()
-			var ffMusic = get_tree().get_root().get_node("World").find_node("FFMusic")
-			ffMusic.play()
-			var bg = get_tree().get_root().get_node("World").find_node("Texture")
-			var header = get_tree().get_root().get_node("World").find_node("RichTextLabel")
-			bg.set_self_modulate(Color( 1, 0, 1, 1 )) 
-			header.add_color_override("font_color", Color(1,0,0,1))
-			$DDSprite.set_self_modulate(Color( 1, 0, 1, 1 )) 
-			yield(get_tree().create_timer(15.0), "timeout")
-			ffMusic.stop()
-			mainMusic.play()
-			$DDSprite.set_self_modulate(Color( 1, 1, 1, 1 )) 
-			bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
-			header.add_color_override("font_color", Color(1,1,1,1))
-			#Return
-			global.ddPower = 0
+			ddPower()
 		"Zesty Zombie":
-			#Shout
-			characterSpeak("*munch munch* ")
-			#Sacrifice 1 health for 5 levels
-			hearts = hearts - 1
-			fixHearts()
-			if (hearts>0):
-				var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
-				var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-				qnMenu.hide()
-				#Jump three times
-				blkTower.addBlock()
-				self.jump()
-				yield(get_tree().create_timer(1.0), "timeout")
-				blkTower.addBlock()
-				self.jump()
-				yield(get_tree().create_timer(1.0), "timeout")
-				blkTower.addBlock()
-				self.jump()
-				yield(get_tree().create_timer(1.0), "timeout")
-				blkTower.addBlock()
-				self.jump()
-				yield(get_tree().create_timer(1.0), "timeout")
-				blkTower.addBlock()
-				self.jump()
-				yield(get_tree().create_timer(1.0), "timeout")
-				#Randomise Qn
-				qnMenu.show()
-				qnMenu.randomizeQuestion()
-			$PowerButton.hide()
+			zzPower()
 		"Swee Soldier":
-			#Shout
-			characterSpeak("Steel Heart! ")
-			#Add 4 lives
-			addLife()
-			addLife()
-			addLife()
-			addLife()
-			$PowerButton.hide()
+			ssPower()
 		"Humble B":
 			#Shout
 			characterSpeak("Next question please. ")
@@ -161,47 +230,9 @@ func callPower():
 			if (counter>0):
 				$PowerButton.show()
 		"Rider Rabbit":
-			#Shout
-			characterSpeak("Fast and steady wins the race. ")
-			#Slow time for 30 seconds
-			global.rrPower = 0.5
-			$PowerButton.hide()
-			var mainMusic = get_tree().get_root().get_node("World").find_node("PlayMusic")
-			mainMusic.stop()
-			var ffMusic = get_tree().get_root().get_node("World").find_node("FFMusic")
-			ffMusic.play()
-			var bg = get_tree().get_root().get_node("World").find_node("Texture")
-			var header = get_tree().get_root().get_node("World").find_node("RichTextLabel")
-			bg.set_self_modulate(Color( 1, 0, 1, 1 )) 
-			header.add_color_override("font_color", Color(1,0,0,1))
-			$RRSprite.set_self_modulate(Color( 1, 0, 1, 1 )) 
-			yield(get_tree().create_timer(30.0), "timeout")
-			ffMusic.stop()
-			mainMusic.play()
-			$RRSprite.set_self_modulate(Color( 1, 1, 1, 1 )) 
-			bg.set_self_modulate(Color( 1, 1, 1, 1 )) 
-			header.add_color_override("font_color", Color(1,1,1,1))
-			global.rrPower = 1
+			rrPower()
 		"Mister I": #Jump 3 levels
-			#Shout
-			characterSpeak("MIA! ")
-			$PowerButton.hide()
-			var qnMenu = get_tree().get_root().get_node("World").find_node("QuestionMenu")
-			var blkTower = get_tree().get_root().get_node("World").find_node("BlockTower")
-			qnMenu.hide()
-			#Jump three times
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			blkTower.addBlock()
-			self.jump()
-			yield(get_tree().create_timer(1.0), "timeout")
-			#Randomise Qn
-			qnMenu.show()
-			qnMenu.randomizeQuestion()
+			MrIPower()
 		_:
 			pass
 

@@ -65,7 +65,6 @@ autoplay = false
 [node name="FFMusic" parent="." instance=ExtResource( 2 )]
 stream = ExtResource( 4 )
 autoplay = false
-stream_paused = true
 
 [node name="MainMusic" parent="." instance=ExtResource( 14 )]
 

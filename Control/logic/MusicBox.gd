@@ -11,6 +11,7 @@ onready var track09 = $track09
 onready var track10 = $track10
 onready var trackMenu = $MainMusic
 onready var bossMusic = $BossMusic
+onready var fastForward = $FFMusic
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -71,3 +72,8 @@ func stopMusic():
 	track10.stop()
 	trackMenu.stop()
 	bossMusic.stop()
+	fastForward.stop()
+
+func fastForward():
+	stopMusic()
+	fastForward.play()
