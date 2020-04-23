@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://Model/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/buttons/gameModeButtons/QuestionMenu.tscn" type="PackedScene" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Model/sounds/sfx/correct_sound.wav" type="AudioStream" id=10]
 [ext_resource path="res://Model/sounds/MusicBox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Model/sounds/sfx/wrong_sound.wav" type="AudioStream" id=12]
-[ext_resource path="res://View/util/BossBlock.tscn" type="PackedScene" id=13]
+[ext_resource path="res://View/util/BossFights/GoDamBlock.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Model/sounds/sfx/powerup_sound.wav" type="AudioStream" id=14]
 [ext_resource path="res://View/util/NextWorldBoard.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Montserrat-SemiBold.ttf" type="DynamicFontData" id=16]
@@ -90,6 +90,9 @@
 [ext_resource path="res://textures/boss/bigPlanet.png" type="Texture" id=88]
 [ext_resource path="res://textures/boss/Ocean.png" type="Texture" id=89]
 [ext_resource path="res://Model/buttons/gameModeButtons/BossMenu.tscn" type="PackedScene" id=90]
+[ext_resource path="res://View/util/BossFights/LythonBlock.tscn" type="PackedScene" id=91]
+[ext_resource path="res://View/util/BossFights/CsharkBlock.tscn" type="PackedScene" id=92]
+[ext_resource path="res://View/util/BossFights/LavascriptBlock.tscn" type="PackedScene" id=93]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -387,55 +390,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BossBlock" parent="BossContainter" instance=ExtResource( 13 )]
-position = Vector2( 7.5, 499.819 )
+[node name="LythonBlock" parent="BossContainter" instance=ExtResource( 91 )]
+position = Vector2( 6.6678, 500.167 )
 
-[node name="BossSprite1" type="AnimatedSprite" parent="BossContainter/BossBlock"]
+[node name="BossSprite1" type="AnimatedSprite" parent="BossContainter/LythonBlock"]
 modulate = Color( 0.705882, 0.807843, 0, 1 )
-position = Vector2( 35.9943, -16.0024 )
+position = Vector2( 35.9, -25.1528 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 4 )
 animation = "attack"
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 
-[node name="BossBlock2" parent="BossContainter" instance=ExtResource( 13 )]
-position = Vector2( 7.5, -1625 )
+[node name="CsharkBlock" parent="BossContainter" instance=ExtResource( 92 )]
+position = Vector2( 6.66786, -1624.54 )
 
-[node name="BossSprite2" type="AnimatedSprite" parent="BossContainter/BossBlock2"]
+[node name="BossSprite2" type="AnimatedSprite" parent="BossContainter/CsharkBlock"]
 modulate = Color( 0.729412, 0.737255, 0.870588, 1 )
 self_modulate = Color( 0.301961, 0.321569, 0.807843, 1 )
-position = Vector2( 28.6423, -8.29443 )
+position = Vector2( 29.4744, -8.75781 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 flip_h = true
 
-[node name="BossBlock3" parent="BossContainter" instance=ExtResource( 13 )]
-position = Vector2( 7.5, -3750 )
+[node name="LavascriptBlock" parent="BossContainter" instance=ExtResource( 93 )]
+position = Vector2( 6.6679, -3750.46 )
 
-[node name="BossSprite3" type="AnimatedSprite" parent="BossContainter/BossBlock3"]
+[node name="BossSprite3" type="AnimatedSprite" parent="BossContainter/LavascriptBlock"]
 modulate = Color( 0.929412, 0.203922, 0.203922, 1 )
-position = Vector2( 36.0744, -22.748 )
+position = Vector2( 36.9065, -22.2842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 2
+frame = 4
 playing = true
 flip_h = true
 
-[node name="BossBlock4" parent="BossContainter" instance=ExtResource( 13 )]
-position = Vector2( 7.5, -5875 )
+[node name="GoDamBlock" parent="BossContainter" instance=ExtResource( 13 )]
+position = Vector2( 7.13119, -5876.39 )
 
-[node name="BossSprite4" type="AnimatedSprite" parent="BossContainter/BossBlock4"]
+[node name="BossSprite4" type="AnimatedSprite" parent="BossContainter/GoDamBlock"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 35.408, -18.3281 )
+position = Vector2( 35.7768, -17.0161 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 4
+frame = 9
 playing = true
 flip_h = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
