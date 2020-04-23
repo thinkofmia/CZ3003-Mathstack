@@ -396,56 +396,65 @@ position = Vector2( -0.250336, -0.751038 )
 texture = ExtResource( 1 )
 
 [node name="MrISprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1.63672, -8.40723 )
 scale = Vector2( 0.0491765, 0.0551799 )
 texture = ExtResource( 5 )
 
 [node name="HBSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 7 )
+frame = 1
 playing = true
 flip_h = true
 
 [node name="RRSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 2
+frame = 9
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 6
+frame = 9
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 12 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 13 )
@@ -457,25 +466,27 @@ position = Vector2( 11.6098, -23.9304 )
 scale = Vector2( 0.4385, 0.439396 )
 frames = SubResource( 17 )
 animation = "jump"
-frame = 1
+frame = 7
 playing = true
 flip_h = true
 
 [node name="TTSprite" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 11.6098, -23.9304 )
 scale = Vector2( 0.4385, 0.439396 )
 frames = SubResource( 15 )
-frame = 2
+frame = 8
 playing = true
 flip_h = true
 
 [node name="GodogSprite" type="AnimatedSprite" parent="."]
+visible = false
 modulate = Color( 0, 0.623529, 1, 1 )
 position = Vector2( 1.16631, -44.9045 )
 scale = Vector2( 0.586917, 0.565048 )
 frames = SubResource( 18 )
 animation = "walk"
-frame = 6
+frame = 12
 playing = true
 flip_h = true
 

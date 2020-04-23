@@ -253,8 +253,8 @@ __meta__ = {
 [node name="Texture" type="Sprite" parent="GUI/PlayBoard"]
 modulate = Color( 0.501961, 0.419608, 0.419608, 1 )
 show_behind_parent = true
-position = Vector2( 406.27, 222.547 )
-scale = Vector2( 0.28096, 0.126991 )
+position = Vector2( 403.937, 223.13 )
+scale = Vector2( 0.282985, 0.126654 )
 texture = ExtResource( 8 )
 
 [node name="QuestionMenu" parent="GUI/PlayBoard" instance=ExtResource( 2 )]
@@ -285,68 +285,11 @@ __meta__ = {
 }
 
 [node name="BossMenu" parent="GUI/BossBoard" instance=ExtResource( 90 )]
-margin_left = 19.0
-margin_top = -27.0
-margin_right = 988.0
-margin_bottom = 554.0
+margin_left = -6.34668
+margin_top = -20.6267
+margin_right = 1018.65
+margin_bottom = 599.373
 rect_scale = Vector2( 0.65, 0.814 )
-
-[node name="HProw" parent="GUI/BossBoard/BossMenu" index="0"]
-margin_right = 969.0
-
-[node name="TimerLabel" parent="GUI/BossBoard/BossMenu/HProw" index="0"]
-margin_left = 233.0
-margin_right = 345.0
-
-[node name="TimerVar" parent="GUI/BossBoard/BossMenu/HProw" index="1"]
-margin_left = 365.0
-margin_right = 646.0
-
-[node name="HPLabel" parent="GUI/BossBoard/BossMenu/HProw" index="2"]
-margin_left = 666.0
-margin_right = 701.0
-
-[node name="BossHealth" parent="GUI/BossBoard/BossMenu/HProw" index="3"]
-margin_left = 721.0
-margin_right = 969.0
-
-[node name="QuestionLabel" parent="GUI/BossBoard/BossMenu" index="1"]
-margin_right = 969.0
-
-[node name="MarginContainer" parent="GUI/BossBoard/BossMenu" index="2"]
-margin_right = 969.0
-margin_bottom = 581.0
-
-[node name="row" parent="GUI/BossBoard/BossMenu/MarginContainer" index="0"]
-margin_right = 939.0
-margin_bottom = 426.0
-
-[node name="columnLeft" parent="GUI/BossBoard/BossMenu/MarginContainer/row" index="0"]
-margin_right = 444.0
-margin_bottom = 396.0
-
-[node name="Option1" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnLeft" index="0"]
-margin_right = 444.0
-margin_bottom = 188.0
-
-[node name="Option3" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnLeft" index="1"]
-margin_top = 208.0
-margin_right = 444.0
-margin_bottom = 396.0
-
-[node name="columnRight" parent="GUI/BossBoard/BossMenu/MarginContainer/row" index="1"]
-margin_left = 464.0
-margin_right = 909.0
-margin_bottom = 396.0
-
-[node name="Option2" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnRight" index="0"]
-margin_right = 445.0
-margin_bottom = 188.0
-
-[node name="Option4" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnRight" index="1"]
-margin_top = 208.0
-margin_right = 445.0
-margin_bottom = 396.0
 
 [node name="Header" type="Node2D" parent="GUI"]
 position = Vector2( -393.148, -16.3245 )
@@ -453,7 +396,7 @@ position = Vector2( 35.9943, -16.0024 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 4 )
 animation = "attack"
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 
@@ -466,6 +409,7 @@ self_modulate = Color( 0.301961, 0.321569, 0.807843, 1 )
 position = Vector2( 28.6423, -8.29443 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -478,7 +422,6 @@ position = Vector2( 36.0744, -22.748 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 4
 playing = true
 flip_h = true
 
@@ -491,7 +434,7 @@ position = Vector2( 35.408, -18.3281 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 7
+frame = 1
 playing = true
 flip_h = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]

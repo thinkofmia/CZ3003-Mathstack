@@ -254,6 +254,7 @@ func randomizeQuestion():
 		option4.set_text(str(op4))
 		#set question
 		question = [op1, op2, op3, op4,ans] 
+		print("Answer: "+ans)
 		#Set Question Label
 		find_node("QuestionLabel").set_text("Q"+str(level+1)+") "+str(qText)+"?")
 
