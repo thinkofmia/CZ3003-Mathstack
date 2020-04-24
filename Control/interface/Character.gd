@@ -314,6 +314,8 @@ func fixHearts():
 				hpBar.hide() #Hide HP Bar
 				addLife() #Add life for debug
 				blkTower.selfDestruct() #Destroys tower
+				yield(get_tree().create_timer(2.0), "timeout") #Set timeout 2 seconds
+				get_tree().change_scene("res://View/gameModes/Gameover.tscn")
 
 #Add one health
 func addLife():
@@ -353,7 +355,8 @@ func _physics_process(delta):
 		#	addLife()
 		#	fixHearts()
 	motion = move_and_slide(motion, UP)#Set motion to 0,0 if no motion
-	if motion.y > 1000: #If keeps falling, go to gameover
+	if hearts<=0 or get_position()[1]>700: #If out of hearts or falling
+		yield(get_tree().create_timer(2.0), "timeout") #Set timeout 2 seconds
 		get_tree().change_scene("res://View/gameModes/Gameover.tscn")
 
 #If activates power button, call power

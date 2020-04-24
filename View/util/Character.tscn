@@ -439,7 +439,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 7 )
-frame = 5
+frame = 1
 playing = true
 flip_h = true
 
@@ -457,7 +457,7 @@ position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 8 )
 animation = "attack"
-frame = 5
+frame = 1
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
@@ -466,7 +466,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 1
+frame = 5
 playing = true
 
 [node name="Darknight" type="AnimatedSprite" parent="."]
@@ -476,7 +476,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 9 )
 animation = "attack"
-frame = 7
+frame = 1
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="."]
@@ -485,6 +485,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 10 )
 animation = "walk"
+frame = 6
 playing = true
 
 [node name="Burnbie" type="AnimatedSprite" parent="."]
@@ -494,7 +495,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 10 )
 animation = "attack"
-frame = 3
+frame = 5
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="."]
@@ -503,7 +504,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 7
+frame = 3
 playing = true
 
 [node name="Goldminator" type="AnimatedSprite" parent="."]
@@ -513,7 +514,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 11 )
 animation = "attack"
-frame = 3
+frame = 4
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="."]
@@ -521,7 +522,6 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 12 )
-frame = 4
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="."]
@@ -529,7 +529,7 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 13 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 
@@ -538,7 +538,7 @@ position = Vector2( 11.6098, -23.9304 )
 scale = Vector2( 0.4385, 0.439396 )
 frames = SubResource( 14 )
 animation = "jump"
-frame = 17
+frame = 10
 playing = true
 flip_h = true
 
@@ -547,7 +547,7 @@ visible = false
 position = Vector2( 11.6098, -23.9304 )
 scale = Vector2( 0.4385, 0.439396 )
 frames = SubResource( 15 )
-frame = 4
+frame = 11
 playing = true
 flip_h = true
 
@@ -558,7 +558,7 @@ position = Vector2( 1.16631, -44.9045 )
 scale = Vector2( 0.586917, 0.565048 )
 frames = SubResource( 18 )
 animation = "walk"
-frame = 22
+frame = 15
 playing = true
 flip_h = true
 
