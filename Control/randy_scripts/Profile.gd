@@ -2,7 +2,7 @@ extends Control
 
 onready var http : HTTPRequest = $HTTPRequest
 #Social Media
-var message
+var message = ""
 
 onready var email : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Leaderboard
 onready var account : Label = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/Play
