@@ -13,6 +13,8 @@ var getHardQns
 
 #Character
 onready var userCharacter = get_tree().get_root().get_node("World").find_node("SelectedCharacter")
+#Material
+onready var texture = get_tree().get_root().get_node("World").find_node("Texture")
 
 #For Primary
 var qTextArr=[]
@@ -66,6 +68,7 @@ func _ready():
 	option4 = $MarginContainer/row/columnRight/Option4
 	setQns()
 	global.highscore = 0 #Reset Highscore
+	changeMaterial()#Change material of play board
 	
 func setQns(): #Set new set of Qns
 	#Hide Qn display
@@ -138,6 +141,32 @@ func setQns(): #Set new set of Qns
 		print("Performance Test: Challenge Mode Load Questions")
 		testPerformance.getTimeTaken()
 
+#Change Box Material
+func changeMaterial():
+	match global.worldSelected:#Check which world user is in and append color accordingly
+		"World #1":
+			texture.color = Color(0, 0, 0.8, 1)
+		"World #2":
+			texture.color = Color(0, 0.8, 0, 1)
+		"World #3":
+			texture.color = Color(0, 0.8, 0, 1)
+		"World #4":
+			texture.color = Color(0, 0, 0.8, 1)
+		"World #5":
+			texture.color = Color(0.3, 0.3, 0.3, 1)
+		"World #6":
+			texture.color = Color(0.8, 0.8, 0, 1)
+		"World #7":
+			texture.color = Color(0.8, 0, 0, 1)
+		"World #8": ###
+			texture.color = Color(1, 0, 0, 1)
+		"World #9":
+			texture.color = Color(0.3, 0.3, 0.3, 1)
+		"World #10":
+			texture.color = Color(0.8, 0.8, 0.8, 1)
+		_:
+			texture.color = Color(1, 1, 0, 1)
+
 func resetQnArray(): #Resets the qn Array
 		#Primary Difficulty
 		qTextArr = []
@@ -167,6 +196,7 @@ func resetQnArray(): #Resets the qn Array
 		totalNoAdvQns = 0
 
 func randomizeQuestion():
+	changeMaterial() #Change box display
 	#Get level
 	var blockTower = get_tree().get_root().get_node("World").find_node("BlockTower")
 	if is_instance_valid(blockTower):
@@ -271,7 +301,7 @@ func checkLevelTens(): #Check if the player reaches levels of ten
 			NextWorldBoard.show()
 			NextWorldBoard.find_node("Title").set_text("Level "+str(level)+" complete!")
 			self.hide()
-			userCharacter.addLife()
+			userCharacter.addLife()#Add 1 life after complete
 		if (level%25==0) and level!=0 :
 			var bossMode = get_tree().get_root().get_node("World").find_node("BossBoard")
 			bossMode.startBossMode()

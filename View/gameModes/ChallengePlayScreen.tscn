@@ -457,7 +457,7 @@ position = Vector2( 35.9, -25.1528 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 4 )
 animation = "attack"
-frame = 3
+frame = 6
 playing = true
 flip_h = true
 
@@ -495,7 +495,7 @@ position = Vector2( 35.7768, -17.0161 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 9
+frame = 8
 playing = true
 flip_h = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
