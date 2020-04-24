@@ -294,6 +294,53 @@ margin_right = 1018.65
 margin_bottom = 599.373
 rect_scale = Vector2( 0.65, 0.814 )
 
+[node name="HProw" parent="GUI/BossBoard/BossMenu" index="0"]
+margin_right = 1024.0
+
+[node name="TimerLabel" parent="GUI/BossBoard/BossMenu/HProw" index="0"]
+margin_left = 288.0
+margin_right = 400.0
+
+[node name="TimerVar" parent="GUI/BossBoard/BossMenu/HProw" index="1"]
+margin_left = 420.0
+margin_right = 701.0
+
+[node name="HPLabel" parent="GUI/BossBoard/BossMenu/HProw" index="2"]
+margin_left = 721.0
+margin_right = 756.0
+
+[node name="BossHealth" parent="GUI/BossBoard/BossMenu/HProw" index="3"]
+margin_left = 776.0
+margin_right = 1024.0
+
+[node name="QuestionLabel" parent="GUI/BossBoard/BossMenu" index="1"]
+margin_right = 1024.0
+
+[node name="MarginContainer" parent="GUI/BossBoard/BossMenu" index="2"]
+margin_right = 1024.0
+margin_bottom = 619.0
+
+[node name="row" parent="GUI/BossBoard/BossMenu/MarginContainer" index="0"]
+margin_right = 994.0
+margin_bottom = 464.0
+
+[node name="columnLeft" parent="GUI/BossBoard/BossMenu/MarginContainer/row" index="0"]
+margin_bottom = 434.0
+
+[node name="Option3" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnLeft" index="1"]
+margin_bottom = 434.0
+
+[node name="columnRight" parent="GUI/BossBoard/BossMenu/MarginContainer/row" index="1"]
+margin_right = 964.0
+margin_bottom = 434.0
+
+[node name="Option2" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnRight" index="0"]
+margin_right = 472.0
+
+[node name="Option4" parent="GUI/BossBoard/BossMenu/MarginContainer/row/columnRight" index="1"]
+margin_right = 472.0
+margin_bottom = 434.0
+
 [node name="Header" type="Node2D" parent="GUI"]
 position = Vector2( -393.148, -16.3245 )
 __meta__ = {
@@ -352,7 +399,7 @@ margin_bottom = 590.617
 script = ExtResource( 6 )
 
 [node name="SelectedCharacter" parent="." instance=ExtResource( 3 )]
-position = Vector2( 130.596, 482.932 )
+position = Vector2( 123.376, 485.64 )
 
 [node name="Camera2D" type="Camera2D" parent="SelectedCharacter"]
 offset = Vector2( 380, -170 )
@@ -399,7 +446,7 @@ position = Vector2( 35.9, -25.1528 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 4 )
 animation = "attack"
-frame = 6
+frame = 2
 playing = true
 flip_h = true
 
@@ -412,7 +459,6 @@ self_modulate = Color( 0.301961, 0.321569, 0.807843, 1 )
 position = Vector2( 29.4744, -8.75781 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 flip_h = true
 
@@ -425,7 +471,7 @@ position = Vector2( 36.9065, -22.2842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 6
+frame = 2
 playing = true
 flip_h = true
 
@@ -438,7 +484,6 @@ position = Vector2( 35.7768, -17.0161 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 6
 playing = true
 flip_h = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
