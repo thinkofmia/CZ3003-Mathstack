@@ -10,7 +10,7 @@ onready var school = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/
 onready var selectedClass = $TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions/ClassRow/ClassOption
 var account_array = ["Student","Teacher","Admin"]
 var class_array = ["SS1","SS2","SSP1"]
-var school_array = ["NTU", "NUS", "SMU"]
+var school_array = ["SCSE", "EEE", "HSS", "MAE", "NBS", "SBS", "SCBE", "SPMS", "WKWSCI"] 
 var information_sent := false
 var account
 var classId
