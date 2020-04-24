@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Control/interface/Others.gd" type="Script" id=1]
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=3]
+
+[node name="World" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "Others Menu"
+
+[node name="ButtonBox" type="VBoxContainer" parent="PlayBoard" index="0"]
+margin_left = 19.0
+margin_top = -7.0
+margin_right = 557.0
+margin_bottom = 376.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoreButton" type="Button" parent="PlayBoard/ButtonBox" index="0"]
+margin_right = 538.0
+margin_bottom = 176.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Lore"
+
+[node name="SettingsButton" type="Button" parent="PlayBoard/ButtonBox" index="1"]
+margin_top = 206.0
+margin_right = 538.0
+margin_bottom = 383.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Settings"
+[connection signal="pressed" from="PlayBoard/ButtonBox/LoreButton" to="." method="_on_LoreButton_pressed"]
+[connection signal="pressed" from="PlayBoard/ButtonBox/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

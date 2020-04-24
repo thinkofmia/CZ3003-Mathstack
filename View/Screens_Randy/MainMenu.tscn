@@ -103,7 +103,7 @@ scene_to_load = "res://View/Screens_Randy/Profile.tscn"
 margin_top = 404.0
 margin_right = 672.0
 margin_bottom = 464.0
-scene_to_load = "res://View/Screens_Randy/SettingsScreen.tscn"
+scene_to_load = "res://View/Others/OthersSelection.tscn"
 
 [node name="Button6" parent="TextureRect/MarginContainer/MarginContainer/VBoxContainer/MenuOptions" instance=ExtResource( 1 )]
 margin_top = 514.0
