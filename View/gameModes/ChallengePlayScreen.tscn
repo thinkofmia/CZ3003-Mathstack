@@ -253,12 +253,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Texture" type="Sprite" parent="GUI/PlayBoard"]
+[node name="Texture_Old" type="Sprite" parent="GUI/PlayBoard"]
+visible = false
 modulate = Color( 0.501961, 0.419608, 0.419608, 1 )
 show_behind_parent = true
 position = Vector2( 403.937, 223.13 )
 scale = Vector2( 0.282985, 0.126654 )
 texture = ExtResource( 8 )
+
+[node name="Texture" type="ColorRect" parent="GUI/PlayBoard"]
+margin_left = 76.0
+margin_top = 5.0
+margin_right = 729.0
+margin_bottom = 449.0
+color = Color( 0.756863, 0.784314, 0.521569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="QuestionMenu" parent="GUI/PlayBoard" instance=ExtResource( 2 )]
 visible = false
@@ -446,6 +457,7 @@ position = Vector2( 35.9, -25.1528 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 4 )
 animation = "attack"
+frame = 3
 playing = true
 flip_h = true
 
@@ -471,7 +483,6 @@ position = Vector2( 36.9065, -22.2842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 6 )
 animation = "walk"
-frame = 2
 playing = true
 flip_h = true
 
@@ -484,7 +495,7 @@ position = Vector2( 35.7768, -17.0161 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 7
+frame = 9
 playing = true
 flip_h = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
