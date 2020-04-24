@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Control/interface/LoreTypeSelection.gd" type="Script" id=2]
+[ext_resource path="res://Montserrat_72.tres" type="DynamicFont" id=3]
+
+[node name="World" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Header" parent="TemplateScreen" index="3"]
+text = "Others: Lore Types"
+
+[node name="ButtonBox" type="VBoxContainer" parent="." index="3"]
+margin_left = 239.0
+margin_top = 110.0
+margin_right = 785.0
+margin_bottom = 526.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldsButton" type="Button" parent="ButtonBox" index="0"]
+margin_right = 546.0
+margin_bottom = 118.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Worlds"
+
+[node name="CharactersButton" type="Button" parent="ButtonBox" index="1"]
+margin_top = 148.0
+margin_right = 546.0
+margin_bottom = 266.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Characters"
+
+[node name="MusicButton" type="Button" parent="ButtonBox" index="2"]
+margin_top = 296.0
+margin_right = 546.0
+margin_bottom = 416.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Music Box"
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ButtonBox/MusicButton" to="." method="_on_MusicButton_pressed"]

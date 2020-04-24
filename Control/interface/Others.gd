@@ -19,6 +19,6 @@ func _on_BackButton_pressed():
 func _on_SettingsButton_pressed():
 	get_tree().change_scene("res://View/Screens_Randy/SettingsScreen.tscn")
 
-#Go to lore screen
+#Go to lore type screen
 func _on_LoreButton_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://View/Others/LoreTypeSelection.tscn")

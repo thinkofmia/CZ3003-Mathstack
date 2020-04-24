@@ -21,6 +21,7 @@ func _ready():
 
 #Main menu music
 func playMenuMusic():
+	stopMusic()
 	trackMenu.play()
 
 #Boss theme

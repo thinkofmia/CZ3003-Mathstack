@@ -1,0 +1,419 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Control/logic/BrowseMusicScene.gd" type="Script" id=1]
+[ext_resource path="res://Model/Labels/ChallengeModeHeader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Model/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Model/GUI/musicFire.png" type="Texture" id=5]
+[ext_resource path="res://Model/buttons/BackButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Model/sounds/MusicBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Model/GUI/MusicButton.png" type="Texture" id=9]
+
+[node name="World" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="ControlBox" type="ColorRect" parent="Background"]
+margin_left = 266.0
+margin_top = 107.0
+margin_right = 980.0
+margin_bottom = 663.0
+color = Color( 0.756863, 0.784314, 0.521569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBoard" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -290.216
+margin_top = 93.0
+margin_right = 288.784
+margin_bottom = -57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard"]
+margin_left = -44.0
+margin_right = 658.0
+margin_bottom = 477.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicOptions" type="VBoxContainer" parent="PlayBoard/ScrollContainer"]
+margin_right = 683.0
+margin_bottom = 467.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicRow1" type="HBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions"]
+margin_right = 668.0
+margin_bottom = 153.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton1" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1"]
+margin_right = 146.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W1" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton1"]
+margin_left = 18.0
+margin_right = 127.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton1"]
+margin_top = 113.0
+margin_right = 146.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton2" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1"]
+margin_left = 166.0
+margin_right = 319.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W2" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton2"]
+margin_left = 22.0
+margin_right = 131.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton2"]
+margin_top = 113.0
+margin_right = 153.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton3" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1"]
+margin_left = 339.0
+margin_right = 492.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W3" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton3"]
+margin_left = 22.0
+margin_right = 131.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton3"]
+margin_top = 113.0
+margin_right = 153.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton4" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1"]
+margin_left = 512.0
+margin_right = 668.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W4" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton4"]
+margin_left = 23.0
+margin_right = 132.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton4"]
+margin_top = 113.0
+margin_right = 156.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #4"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicRow2" type="HBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions"]
+margin_top = 157.0
+margin_right = 675.0
+margin_bottom = 310.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton5" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2"]
+margin_right = 153.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W5" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton5"]
+margin_left = 22.0
+margin_right = 131.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton5"]
+margin_top = 113.0
+margin_right = 153.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #5"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton6" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2"]
+margin_left = 173.0
+margin_right = 327.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W6" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton6"]
+margin_left = 22.0
+margin_right = 131.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton6"]
+margin_top = 113.0
+margin_right = 154.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #6"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton7" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2"]
+margin_left = 347.0
+margin_right = 500.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W7" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton7"]
+margin_left = 22.0
+margin_right = 131.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton7"]
+margin_top = 113.0
+margin_right = 153.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #7"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton8" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2"]
+margin_left = 520.0
+margin_right = 675.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W8" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton8"]
+margin_left = 23.0
+margin_right = 132.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton8"]
+margin_top = 113.0
+margin_right = 155.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #8"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicRow3" type="HBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions"]
+margin_top = 314.0
+margin_right = 683.0
+margin_bottom = 467.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton9" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3"]
+margin_right = 154.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W9" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/WorldButton9"]
+margin_left = 22.0
+margin_right = 131.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/WorldButton9"]
+margin_top = 113.0
+margin_right = 154.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #9"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldButton10" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3"]
+margin_left = 184.0
+margin_right = 352.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="W10" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/WorldButton10"]
+margin_left = 29.0
+margin_right = 138.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/WorldButton10"]
+margin_top = 113.0
+margin_right = 168.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "World #10"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BossButton" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3"]
+margin_left = 382.0
+margin_right = 491.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="Boss" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/BossButton"]
+margin_right = 109.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/BossButton"]
+margin_top = 113.0
+margin_right = 109.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "Boss"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerupButton" type="VBoxContainer" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3"]
+margin_left = 521.0
+margin_right = 683.0
+margin_bottom = 153.0
+alignment = 1
+
+[node name="PU" type="TextureButton" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/PowerupButton"]
+margin_left = 26.0
+margin_right = 135.0
+margin_bottom = 109.0
+size_flags_horizontal = 4
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/PowerupButton"]
+margin_top = 113.0
+margin_right = 162.0
+margin_bottom = 153.0
+custom_fonts/font = ExtResource( 8 )
+text = "Power Up"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" parent="." instance=ExtResource( 6 )]
+margin_left = 32.463
+margin_top = 492.0
+margin_right = 134.463
+margin_bottom = 580.0
+
+[node name="Header" parent="." instance=ExtResource( 3 )]
+margin_top = 20.0
+text = "Others: Music Box"
+
+[node name="MusicBox" parent="." instance=ExtResource( 7 )]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton1/W1" to="." method="_on_W1_pressed"]
+[connection signal="toggled" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton1/W1" to="." method="_on_W1_toggled"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton2/W2" to="." method="_on_W2_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton3/W3" to="." method="_on_W3_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow1/WorldButton4/W4" to="." method="_on_W4_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton5/W5" to="." method="_on_W5_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton6/W6" to="." method="_on_W6_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton7/W7" to="." method="_on_W7_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow2/WorldButton8/W8" to="." method="_on_W8_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/WorldButton9/W9" to="." method="_on_W9_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/WorldButton10/W10" to="." method="_on_W10_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/BossButton/Boss" to="." method="_on_Boss_pressed"]
+[connection signal="pressed" from="PlayBoard/ScrollContainer/MusicOptions/MusicRow3/PowerupButton/PU" to="." method="_on_PU_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
