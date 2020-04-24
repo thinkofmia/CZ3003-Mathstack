@@ -355,8 +355,7 @@ func _physics_process(delta):
 		#	addLife()
 		#	fixHearts()
 	motion = move_and_slide(motion, UP)#Set motion to 0,0 if no motion
-	if hearts<=0 or get_position()[1]>700: #If out of hearts or falling
-		yield(get_tree().create_timer(2.0), "timeout") #Set timeout 2 seconds
+	if get_position()[1]>700: #If hit ground
 		get_tree().change_scene("res://View/gameModes/GameOver.tscn")
 
 #If activates power button, call power

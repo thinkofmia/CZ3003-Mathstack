@@ -446,7 +446,6 @@ position = Vector2( 35.9, -25.1528 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 4 )
 animation = "attack"
-frame = 2
 playing = true
 flip_h = true
 
@@ -459,6 +458,7 @@ self_modulate = Color( 0.301961, 0.321569, 0.807843, 1 )
 position = Vector2( 29.4744, -8.75781 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -484,6 +484,7 @@ position = Vector2( 35.7768, -17.0161 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 7 )
 animation = "idle"
+frame = 7
 playing = true
 flip_h = true
 [connection signal="request_completed" from="GUI/PlayBoard/QuestionMenu/HTTPRequest" to="GUI/PlayBoard/QuestionMenu" method="_on_HTTPRequest_request_completed"]
