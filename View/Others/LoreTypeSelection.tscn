@@ -43,4 +43,5 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Music Box"
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ButtonBox/WorldsButton" to="." method="_on_WorldsButton_pressed"]
 [connection signal="pressed" from="ButtonBox/MusicButton" to="." method="_on_MusicButton_pressed"]

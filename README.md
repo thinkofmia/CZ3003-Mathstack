@@ -56,7 +56,7 @@ Rather than editing from FireBase (our database), teachers can also use the game
 - gameart2D (Swee Solder sprite, Deadly Dino Sprite, Zesty Zombie Sprite, Careful Cyborg sprite, winter bg, desert bg, graveyard bg)
 - ansimuz (street.png, bulkhead.png, hazy.png, space art)
 - MadFireOn (night.png)
-- Chico Games (Button sprite)
+- Chico Games (Buttons sprite)
 - Helianthus Games (planets art)
 - Pipoya (Godog sprite, Witty Witch sprite and Ticky Troll sprite)
 

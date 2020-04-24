@@ -7,3 +7,7 @@ func _on_BackButton_pressed():
 #Go to browse music scene
 func _on_MusicButton_pressed():
 	get_tree().change_scene("res://View/Others/BrowseMusicScene.tscn")
+
+#Go to browse world scene
+func _on_WorldsButton_pressed():
+	get_tree().change_scene("res://View/Others/BrowseWorldScene.tscn")
