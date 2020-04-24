@@ -1,0 +1,207 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Montserrat_52.tres" type="DynamicFont" id=1]
+[ext_resource path="res://View/util/Characters/DDIcon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Model/Labels/ChallengeModeHeader.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Model/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://View/util/Characters/FFIcon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Model/buttons/BackButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Model/sounds/MusicBox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Montserrat_32.tres" type="DynamicFont" id=8]
+[ext_resource path="res://View/util/Characters/WWIcon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://View/util/Characters/MrIIcon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://View/util/CharacterIcon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://View/util/Characters/HBIcon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://View/util/Characters/SSIcon.tscn" type="PackedScene" id=13]
+[ext_resource path="res://View/util/Character.tscn" type="PackedScene" id=14]
+[ext_resource path="res://View/util/Characters/CCIcon.tscn" type="PackedScene" id=15]
+[ext_resource path="res://View/util/Characters/RRIcon.tscn" type="PackedScene" id=16]
+[ext_resource path="res://View/util/Characters/ZZIcon.tscn" type="PackedScene" id=17]
+[ext_resource path="res://View/util/BossFights/LythonIcon.tscn" type="PackedScene" id=18]
+[ext_resource path="res://View/util/BossFights/CsharkIcon.tscn" type="PackedScene" id=19]
+[ext_resource path="res://View/util/BossFights/GoDamIcon.tscn" type="PackedScene" id=20]
+[ext_resource path="res://View/util/BossFights/LavascriptIcon.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Control/logic/BrowseCharacterScene.gd" type="Script" id=22]
+[ext_resource path="res://View/util/Characters/TTIcon.tscn" type="PackedScene" id=23]
+
+[node name="World" type="Node"]
+script = ExtResource( 22 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="ControlBox" type="ColorRect" parent="Background"]
+margin_left = 281.0
+margin_top = 121.0
+margin_right = 974.0
+margin_bottom = 663.0
+color = Color( 0.756863, 0.784314, 0.521569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBoard" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -290.216
+margin_top = 93.0
+margin_right = 288.784
+margin_bottom = -57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterSelectRow" type="VBoxContainer" parent="PlayBoard"]
+margin_left = 148.0
+margin_top = 20.0
+margin_right = 603.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 0, 150 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterLabel" type="Label" parent="PlayBoard/CharacterSelectRow"]
+margin_right = 490.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+text = "Select a Character"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard/CharacterSelectRow"]
+margin_top = 80.0
+margin_right = 490.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 0, 90 )
+size_flags_vertical = 0
+
+[node name="CharacterSelectRow2" type="HBoxContainer" parent="PlayBoard/CharacterSelectRow/ScrollContainer"]
+margin_right = 1265.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 500, 75 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GDIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 11 )]
+
+[node name="SSIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 13 )]
+margin_left = 85.0
+margin_right = 160.0
+
+[node name="HBIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 12 )]
+margin_left = 170.0
+margin_right = 245.0
+
+[node name="RRIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 16 )]
+margin_left = 255.0
+margin_right = 330.0
+
+[node name="ZZIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 17 )]
+margin_left = 340.0
+margin_right = 415.0
+
+[node name="CCIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 15 )]
+margin_left = 425.0
+margin_right = 500.0
+
+[node name="DDIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 2 )]
+margin_left = 510.0
+margin_right = 585.0
+
+[node name="FFIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 5 )]
+margin_left = 595.0
+margin_right = 670.0
+
+[node name="MrIIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 10 )]
+margin_left = 680.0
+margin_right = 755.0
+
+[node name="WWIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 9 )]
+margin_left = 765.0
+margin_right = 840.0
+
+[node name="TTIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 23 )]
+margin_left = 850.0
+margin_right = 925.0
+
+[node name="LythonIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 18 )]
+margin_left = 935.0
+margin_right = 1010.0
+
+[node name="CsharkIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 19 )]
+margin_left = 1020.0
+margin_right = 1095.0
+
+[node name="LavascriptIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 21 )]
+margin_left = 1105.0
+margin_right = 1180.0
+
+[node name="GoDamIcon" parent="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2" instance=ExtResource( 20 )]
+margin_left = 1190.0
+margin_right = 1265.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlayBoard"]
+margin_left = 7.0
+margin_top = 203.0
+margin_right = 632.0
+margin_bottom = 453.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="PlayBoard/ScrollContainer"]
+margin_right = 625.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 8 )
+text = "Waiting for character selection."
+autowrap = true
+
+[node name="BackButton" parent="." instance=ExtResource( 6 )]
+margin_left = 32.463
+margin_top = 492.0
+margin_right = 134.463
+margin_bottom = 580.0
+
+[node name="DisplayCharacter" parent="." instance=ExtResource( 14 )]
+position = Vector2( 264.158, 173.51 )
+scale = Vector2( 2, 2 )
+script = null
+
+[node name="Header" parent="." instance=ExtResource( 3 )]
+margin_left = 107.304
+margin_top = 29.3308
+margin_right = 107.304
+margin_bottom = 98.3308
+text = "Others: Characters Info"
+
+[node name="MusicBox" parent="." instance=ExtResource( 7 )]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/GDIcon" to="." method="_on_GodotIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/SSIcon" to="." method="_on_SSIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/HBIcon" to="." method="_on_HBIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/RRIcon" to="." method="_on_RRIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/ZZIcon" to="." method="_on_ZZIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/CCIcon" to="." method="_on_CCIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/DDIcon" to="." method="_on_DDIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/FFIcon" to="." method="_on_FFIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/MrIIcon" to="." method="_on_MrIIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/WWIcon" to="." method="_on_WWIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/TTIcon" to="." method="_on_TTIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/LythonIcon" to="." method="_on_LythonIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/CsharkIcon" to="." method="_on_CsharkIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/LavascriptIcon" to="." method="_on_LavascriptIcon_pressed"]
+[connection signal="pressed" from="PlayBoard/CharacterSelectRow/ScrollContainer/CharacterSelectRow2/GoDamIcon" to="." method="_on_GoDamIcon_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

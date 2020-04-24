@@ -11,3 +11,7 @@ func _on_MusicButton_pressed():
 #Go to browse world scene
 func _on_WorldsButton_pressed():
 	get_tree().change_scene("res://View/Others/BrowseWorldScene.tscn")
+
+#Go to browse character scene
+func _on_CharactersButton_pressed():
+	get_tree().change_scene("res://View/Others/BrowseCharacterScene.tscn")
