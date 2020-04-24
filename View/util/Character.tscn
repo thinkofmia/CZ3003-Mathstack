@@ -1,5 +1,6 @@
-[gd_scene load_steps=248 format=2]
+[gd_scene load_steps=272 format=2]
 
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitAttack (2).png" type="Texture" id=1]
 [ext_resource path="res://Control/interface/Character.gd" type="Script" id=2]
 [ext_resource path="res://textures/heart.png" type="Texture" id=3]
 [ext_resource path="res://Model/Characters/Warrior/Idle (2).png" type="Texture" id=4]
@@ -230,6 +231,29 @@
 [ext_resource path="res://Model/Characters/Godog/02walk/e002a_02walk_25.png" type="Texture" id=229]
 [ext_resource path="res://Model/Characters/Godog/02walk/e002a_02walk_27.png" type="Texture" id=230]
 [ext_resource path="res://Model/Characters/Godog/02walk/e002a_02walk_22.png" type="Texture" id=231]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitAttack (5).png" type="Texture" id=232]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitAttack(0).png" type="Texture" id=233]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitAttack (3).png" type="Texture" id=234]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitAttack (1).png" type="Texture" id=235]
+[ext_resource path="res://Model/Characters/RiderRabbit/RabbitAttack (4).png" type="Texture" id=236]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (1).png" type="Texture" id=237]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (2).png" type="Texture" id=238]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (4).png" type="Texture" id=239]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (6).png" type="Texture" id=240]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (5).png" type="Texture" id=241]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (7).png" type="Texture" id=242]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (3).png" type="Texture" id=243]
+[ext_resource path="res://Model/Characters/ZestyZombie/Attack (8).png" type="Texture" id=244]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (4).png" type="Texture" id=245]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (9).png" type="Texture" id=246]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (2).png" type="Texture" id=247]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (3).png" type="Texture" id=248]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (5).png" type="Texture" id=249]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (1).png" type="Texture" id=250]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (6).png" type="Texture" id=251]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (7).png" type="Texture" id=252]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (8).png" type="Texture" id=253]
+[ext_resource path="res://Model/Characters/Warrior/JumpAttack (10).png" type="Texture" id=254]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -275,6 +299,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 235 ), ExtResource( 1 ), ExtResource( 234 ), ExtResource( 236 ), ExtResource( 232 ), ExtResource( 233 ) ],
+"loop": true,
+"name": "attack",
+"speed": 25.0
 } ]
 
 [sub_resource type="SpriteFrames" id=9]
@@ -284,6 +313,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 250 ), ExtResource( 247 ), ExtResource( 248 ), ExtResource( 245 ), ExtResource( 249 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ), ExtResource( 246 ), ExtResource( 254 ) ],
+"loop": true,
+"name": "attack",
+"speed": 25.0
 } ]
 
 [sub_resource type="SpriteFrames" id=10]
@@ -297,6 +331,11 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 237 ), ExtResource( 238 ), ExtResource( 243 ), ExtResource( 239 ), ExtResource( 241 ), ExtResource( 240 ), ExtResource( 242 ), ExtResource( 244 ) ],
+"loop": true,
+"name": "attack",
+"speed": 25.0
 } ]
 
 [sub_resource type="SpriteFrames" id=11]
@@ -314,7 +353,7 @@ animations = [ {
 "frames": [ ExtResource( 64 ), ExtResource( 57 ), ExtResource( 55 ), ExtResource( 65 ), ExtResource( 46 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 67 ) ],
 "loop": true,
 "name": "attack",
-"speed": 13.0
+"speed": 25.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
@@ -369,7 +408,7 @@ animations = [ {
 "speed": 25.0
 } ]
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
 "frames": [ ExtResource( 217 ), ExtResource( 210 ), ExtResource( 193 ), ExtResource( 201 ), ExtResource( 199 ), ExtResource( 205 ), ExtResource( 202 ), ExtResource( 216 ), ExtResource( 194 ), ExtResource( 212 ), ExtResource( 203 ), ExtResource( 197 ), ExtResource( 204 ), ExtResource( 200 ) ],
 "loop": true,
@@ -400,7 +439,6 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 7 )
-frame = 4
 playing = true
 flip_h = true
 
@@ -409,7 +447,18 @@ visible = false
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 8 )
-frame = 2
+animation = "attack"
+frame = 3
+playing = true
+
+[node name="Seaplusplus" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 0.0313726, 0.0941176, 0.772549, 1 )
+position = Vector2( 6.5836, -0.731506 )
+scale = Vector2( 1.67817, 1.51053 )
+frames = SubResource( 8 )
+animation = "attack"
+frame = 3
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="."]
@@ -417,8 +466,18 @@ visible = false
 position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 9 )
-animation = "idle"
-frame = 6
+animation = "attack"
+frame = 7
+playing = true
+
+[node name="Darknight" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 6.4165, -8.2478 )
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 9 )
+animation = "attack"
+frame = 7
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="."]
@@ -426,7 +485,18 @@ visible = false
 position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 10 )
-animation = "idle"
+animation = "attack"
+frame = 5
+playing = true
+
+[node name="Burnbie" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 0.862745, 0.0156863, 0.0156863, 1 )
+position = Vector2( -1.74048, -15.1842 )
+scale = Vector2( 0.243826, 0.177875 )
+frames = SubResource( 10 )
+animation = "attack"
+frame = 5
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="."]
@@ -435,7 +505,17 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 7
+frame = 1
+playing = true
+
+[node name="Goldminator" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 0.796078, 0.752941, 0.0823529, 1 )
+position = Vector2( 10.7845, -12.8518 )
+scale = Vector2( 0.210295, 0.191248 )
+frames = SubResource( 11 )
+animation = "attack"
+frame = 4
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="."]
@@ -443,7 +523,7 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 12 )
-frame = 4
+frame = 8
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="."]
@@ -451,7 +531,7 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 13 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 
@@ -460,7 +540,7 @@ position = Vector2( 11.6098, -23.9304 )
 scale = Vector2( 0.4385, 0.439396 )
 frames = SubResource( 14 )
 animation = "jump"
-frame = 24
+frame = 22
 playing = true
 flip_h = true
 
@@ -469,7 +549,7 @@ visible = false
 position = Vector2( 11.6098, -23.9304 )
 scale = Vector2( 0.4385, 0.439396 )
 frames = SubResource( 15 )
-frame = 11
+frame = 9
 playing = true
 flip_h = true
 
@@ -478,9 +558,9 @@ visible = false
 modulate = Color( 0, 0.623529, 1, 1 )
 position = Vector2( 1.16631, -44.9045 )
 scale = Vector2( 0.586917, 0.565048 )
-frames = SubResource( 16 )
+frames = SubResource( 18 )
 animation = "walk"
-frame = 1
+frame = 27
 playing = true
 flip_h = true
 

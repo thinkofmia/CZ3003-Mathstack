@@ -20,6 +20,9 @@ onready var deadlyDino = $DDSprite
 onready var fireFox = $FFSprite
 onready var godog = $GodogSprite
 
+#Secret Sprites
+onready var seaplusplus = $Seaplusplus
+
 #Other interfaces
 onready var power = $PowerButton
 onready var hpBar = $healthBar
@@ -261,6 +264,7 @@ func hideAllSprites():
 	fireFox.hide()
 	wittyWitch.hide()
 	tickyTroll.hide()
+	seaplusplus.hide()
 
 #Makes character jump
 func jump():

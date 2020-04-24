@@ -21,6 +21,12 @@ onready var deadlyDino = $DisplayCharacter/DDSprite
 onready var fireFox = $DisplayCharacter/FFSprite
 onready var godog = $DisplayCharacter/GodogSprite
 
+#Boss Sprites
+onready var seaplusplus = $DisplayCharacter/Seaplusplus
+onready var goldminator = $DisplayCharacter/Goldminator
+onready var burnbie = $DisplayCharacter/Burnbie
+onready var darknight = $DisplayCharacter/Darknight
+
 var selected = "Witty Witch"#Selection var for character
 
 # Called when the node enters the scene tree for the first time.
@@ -51,33 +57,58 @@ func hideAllCharacters():#Hide all characters
 	deadlyDino.hide()
 	fireFox.hide()
 	godog.hide()
+	seaplusplus.hide()
+	goldminator.hide()
+	burnbie.hide()
+	darknight.hide()
 
 func showCharacter():#Show selected character
 	hideAllCharacters()#Hide all characters
 	match selected:
 		"Witty Witch":
+			changeBg()
 			wittyWitch.show()
 		"Ticky Troll":
+			changeBg()
 			tickyTroll.show()
 		"Swee Soldier":
+			changeBg()
 			sweeSoldier.show()
 		"Mister I":
+			changeBg()
 			misterI.show()
 		"Humble B":
+			changeBg()
 			humbleB.show()
 		"Rider Rabbit":
+			changeBg()
 			riderRabbit.show()
 		"Zesty Zombie":
+			changeBg()
 			zestyZombie.show()
 		"Careful Cyborg":
+			changeBg()
 			carefulCyborg.show()
 		"Deadly Dino":
+			changeBg()
 			deadlyDino.show()
 		"Fire Fox":
+			changeBg()
 			fireFox.show()
+		"Goldminator (Lython)":
+			goldminator.show()
+			musicBox.bossTheme()
+		"Seaplusplus (Cshark)" :
+			seaplusplus.show()
+			musicBox.bossTheme()
+		"Burnbie (Lavascript)":
+			burnbie.show()
+			musicBox.bossTheme()
+		"Darknight (GoDam)":
+			darknight.show()
+			musicBox.bossTheme()
 		_:
 			godog.show()
-	changeBg()
 
 func setupCharacter():#Display character
 	#Hide HP and power bar
@@ -87,17 +118,43 @@ func setupCharacter():#Display character
 func characterAnimation():
 	#Witty Witch
 	wittyWitch.animation = "attack"	
+	#Seaplusplus
+	seaplusplus.animation = "attack"
 
 func updateText():#Update text according to character selected
-	changeBg()#Change bg
 	showCharacter()#Show Character
-	match selected:
+	selectHeader.set_text(selected)#Set header as text
+	match selected:#Set text based on character
 		"Witty Witch":#Witty Witch selected
-			selectHeader.set_text("Witty Witch")
-			text.set_text("Unlock: World #9\nPower: Worry Not\n- Sacrifice 1 life for 100 seconds time reduction.")
+			text.set_text("Unlock: World #9\nPower: Worry Not\n- Sacrifices 1 life for 100 seconds time reduction.")
 		"Ticky Troll":
-			selectHeader.set_text("Witty Witch")
-			text.set_text("Unlock: World #10\nPower: Timely Tongue\nAdd 4 lives but spend additional 2 minutes.")
+			text.set_text("Unlock: World #10\nPower: Timely Tongue\nAdds 4 lives but spend additional 2 minutes.")
+		"Careful Cyborg":
+			text.set_text("Unlock: World #6\nCalculating\nReduces time spent by 30 seconds")
+		"Swee Soldier":
+			text.set_text("Unlock: World #1\nSteel Heart\n Adds 2 lives")
+		"Mister I":
+			text.set_text("Unlock: World #2\nMIA\nJumps 3 levels")
+		"Humble B":
+			text.set_text("Unlock: World #3\nHumble Bundle\nRandomizes question (5 uses)")
+		"Rider Rabbit":
+			text.set_text("Unlock: World #4\nFast & Steady\nSlow timer by 1/2 speed for 30 real seconds")
+		"Zesty Zombie":
+			text.set_text("Unlock: World #5\nMunch Munch\nSacrifice 1 life for 5 levels")
+		"Deadly Dino":
+			text.set_text("Unlock: World #7\nDouble Damage\nFor 15 seconds x2 damage.")
+		"Fire Fox":
+			text.set_text("Unlock: World #8\nFatal Furry: Randomly activates another powers")
+		"Godog":
+			text.set_text("Default\nNo Powers")
+		"Goldminator (Lython)":
+			text.set_text("Cannot be unlocked. Secret boss of Lython. ")
+		"Seaplusplus (Cshark)" :
+			text.set_text("Cannot be unlocked. Secret boss of Cshark. ")
+		"Burnbie (Lavascript)":
+			text.set_text("Cannot be unlocked. Secret boss of Lavascript. ")
+		"Darknight (GoDam)":
+			text.set_text("Cannot be unlocked. Secret boss of GoDam. ")
 		_:#Default
 			selectHeader.set_text("Select a Character")
 			text.set_text("Waiting for character selection. ")
