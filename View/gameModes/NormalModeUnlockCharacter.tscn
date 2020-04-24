@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://View/basicMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Model/Characters/ZestyZombie/Walk (4).png" type="Texture" id=2]
@@ -90,6 +90,7 @@
 [ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (6).png" type="Texture" id=88]
 [ext_resource path="res://Model/Characters/CarefulCyborg/JumpMelee (5).png" type="Texture" id=89]
 [ext_resource path="res://Model/Characters/CarefulCyborg/Melee (1).png" type="Texture" id=90]
+[ext_resource path="res://Control/interface/Background.gd" type="Script" id=91]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -200,11 +201,42 @@ animations = [ {
 [node name="World" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
+[node name="Background" type="TextureRect" parent="." index="0"]
+margin_left = -95.0
+margin_top = 685.0
+margin_right = 1182.0
+margin_bottom = 1459.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 1, -1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+flip_h = true
+flip_v = true
+script = ExtResource( 91 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlBox" type="ColorRect" parent="Background" index="0"]
+margin_left = 338.0
+margin_top = 170.0
+margin_right = 860.0
+margin_bottom = 510.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TemplateScreen" parent="." index="1"]
+visible = false
+
 [node name="Header" parent="TemplateScreen" index="3"]
 visible = false
 text = "NORMAL MODE"
 
-[node name="Background2" type="Sprite" parent="." index="1"]
+[node name="Background2" type="Sprite" parent="." index="2"]
+visible = false
 position = Vector2( 511, 302 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 7 )
@@ -216,7 +248,8 @@ margin_right = 846.0
 margin_bottom = 706.0
 color = Color( 0.133333, 0.411765, 0.384314, 1 )
 
-[node name="Background3" type="Sprite" parent="." index="2"]
+[node name="Background3" type="Sprite" parent="." index="3"]
+visible = false
 position = Vector2( 613, 369 )
 scale = Vector2( 1.23, 0.982 )
 texture = ExtResource( 8 )
@@ -231,7 +264,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background4" type="Sprite" parent="." index="3"]
+[node name="Background4" type="Sprite" parent="." index="4"]
+visible = false
 scale = Vector2( 0.662806, 0.67561 )
 texture = ExtResource( 9 )
 centered = false
@@ -251,7 +285,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background5" type="Sprite" parent="." index="4"]
+[node name="Background5" type="Sprite" parent="." index="5"]
+visible = false
 scale = Vector2( 0.514326, 0.543106 )
 texture = ExtResource( 10 )
 centered = false
@@ -266,7 +301,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background6" type="Sprite" parent="." index="5"]
+[node name="Background6" type="Sprite" parent="." index="6"]
+visible = false
 scale = Vector2( 0.801069, 0.625479 )
 texture = ExtResource( 11 )
 centered = false
@@ -281,11 +317,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PlayBoard" parent="." index="7"]
+visible = false
+
 [node name="MarginContainer" type="MarginContainer" parent="PlayBoard" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
 margin_top = -48.0
-margin_right = -4.0
+margin_right = -2.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 custom_constants/margin_right = 50
@@ -296,10 +336,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" parent="." index="7"]
+[node name="BackButton" parent="." index="8"]
 script = ExtResource( 3 )
 
-[node name="Header" type="Label" parent="." index="8"]
+[node name="Header" type="Label" parent="." index="9"]
 anchor_right = 1.0
 margin_top = 16.0
 margin_bottom = 85.0
@@ -315,8 +355,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Character" type="KinematicBody2D" parent="." index="9"]
-position = Vector2( 520, 320 )
+[node name="Character" type="KinematicBody2D" parent="." index="10"]
+position = Vector2( 488, 402 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 14 )
 
@@ -336,7 +376,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 8 )
-frame = 3
+frame = 1
 playing = true
 flip_h = true
 
@@ -345,7 +385,7 @@ visible = false
 position = Vector2( 6.5836, -0.731506 )
 scale = Vector2( 1.67817, 1.51053 )
 frames = SubResource( 9 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="SSSprite" type="AnimatedSprite" parent="Character" index="4"]
@@ -354,7 +394,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 9
+frame = 5
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -363,7 +403,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 1
+frame = 13
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -372,7 +412,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 3
+frame = 5
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
@@ -380,6 +420,7 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 13 )
+frame = 2
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
@@ -387,7 +428,7 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 14 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
