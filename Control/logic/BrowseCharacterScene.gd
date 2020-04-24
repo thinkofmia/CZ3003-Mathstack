@@ -128,33 +128,33 @@ func updateText():#Update text according to character selected
 		"Witty Witch":#Witty Witch selected
 			text.set_text("Unlock: World #9\nPower: Worry Not\n- Sacrifices 1 life for 100 seconds time reduction.")
 		"Ticky Troll":
-			text.set_text("Unlock: World #10\nPower: Timely Tongue\nAdds 4 lives but spend additional 2 minutes.")
+			text.set_text("Unlock: World #10\nPower: Timely Tongue\n- Adds 4 lives but spend additional 2 minutes.")
 		"Careful Cyborg":
-			text.set_text("Unlock: World #6\nCalculating\nReduces time spent by 30 seconds")
+			text.set_text("Unlock: World #6\nCalculating\n- Reduces time spent by 30 seconds")
 		"Swee Soldier":
-			text.set_text("Unlock: World #1\nSteel Heart\n Adds 2 lives")
+			text.set_text("Unlock: World #1\nSteel Heart\n- Adds 2 lives")
 		"Mister I":
-			text.set_text("Unlock: World #2\nMIA\nJumps 3 levels")
+			text.set_text("Unlock: World #2\nMIA\n- Jumps 3 levels")
 		"Humble B":
-			text.set_text("Unlock: World #3\nHumble Bundle\nRandomizes question (5 uses)")
+			text.set_text("Unlock: World #3\nHumble Bundle\n- Randomizes question (5 uses)")
 		"Rider Rabbit":
-			text.set_text("Unlock: World #4\nFast & Steady\nSlow timer by 1/2 speed for 30 real seconds")
+			text.set_text("Unlock: World #4\nFast & Steady\n- Slow timer by 1/2 speed for 30 real seconds")
 		"Zesty Zombie":
-			text.set_text("Unlock: World #5\nMunch Munch\nSacrifice 1 life for 5 levels")
+			text.set_text("Unlock: World #5\nMunch Munch\n- Sacrifice 1 life for 5 levels")
 		"Deadly Dino":
-			text.set_text("Unlock: World #7\nDouble Damage\nFor 15 seconds x2 damage.")
+			text.set_text("Unlock: World #7\nDouble Damage\n- For 15 seconds x2 damage.")
 		"Fire Fox":
-			text.set_text("Unlock: World #8\nFatal Furry: Randomly activates another powers")
+			text.set_text("Unlock: World #8\nFatal Furry\n- Randomly activates another powers")
 		"Godog":
 			text.set_text("Default\nNo Powers")
 		"Goldminator (Lython)":
-			text.set_text("Cannot be unlocked. Secret boss of Lython. ")
+			text.set_text("Cannot be unlocked\nSecret boss of Lython. ")
 		"Seaplusplus (Cshark)" :
-			text.set_text("Cannot be unlocked. Secret boss of Cshark. ")
+			text.set_text("Cannot be unlocked\nSecret boss of Cshark. ")
 		"Burnbie (Lavascript)":
-			text.set_text("Cannot be unlocked. Secret boss of Lavascript. ")
+			text.set_text("Cannot be unlocked\nSecret boss of Lavascript. ")
 		"Darknight (GoDam)":
-			text.set_text("Cannot be unlocked. Secret boss of GoDam. ")
+			text.set_text("Cannot be unlocked\nSecret boss of GoDam. ")
 		_:#Default
 			selectHeader.set_text("Select a Character")
 			text.set_text("Waiting for character selection. ")
