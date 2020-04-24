@@ -1,6 +1,20 @@
 extends Node
 
 var bg
+
+var power = {
+	'Godog':'None',
+	'Swee Soldier':'Steel Heart: Add 2 lives',
+	'Mister I' : 'MIA: Jump 3 levels',
+	'Humble B' : 'Humble Bundle: Randomize question (5 uses)',
+	'Rider Rabbit' : 'Fast & Steady: Slow timer by 1/2 speed for 30 real seconds',
+	'Fire Fox' : 'Fatal Furry: Randomly activates another powers',
+	'Zesty Zombie' : 'Munch Munch: Sacrifice 1 life for 5 levels',
+	'Deadly Dino' : 'Double Damage: For 15 seconds x2 damage',
+	'Careful Cyborg' : 'Calculating: Reduce time spent by 30 seconds',
+	'Witty Witch' : 'Worry Not: Sacrifice 1 life for 100 seconds time reduction',
+	'Ticky Troll' : 'Timely Tongue: Add 4 lives but spend additional 2 minutes'
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bg = $Background
@@ -11,7 +25,7 @@ func _ready():
 
 #Change Background
 func changeBg():
-	$Header.text = "Congratulations on unlocking\n" + global.normalModeCharacterSelected
+	$Header.text = "Congratulations on unlocking\n" + global.normalModeCharacterSelected + '\nPower - ' + power[global.normalModeCharacterSelected]
 	#Set Background
 	bg.setBackground()
 	changeMaterial()

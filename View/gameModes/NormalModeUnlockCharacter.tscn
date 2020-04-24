@@ -223,7 +223,7 @@ __meta__ = {
 margin_left = 338.0
 margin_top = 170.0
 margin_right = 860.0
-margin_bottom = 510.0
+margin_bottom = 408.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -351,6 +351,7 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "CONGRATULATIONS!"
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -376,7 +377,7 @@ visible = false
 position = Vector2( -1.70687, -8.04667 )
 scale = Vector2( 3.3696, 2.77188 )
 frames = SubResource( 8 )
-frame = 1
+frame = 5
 playing = true
 flip_h = true
 
@@ -394,7 +395,7 @@ position = Vector2( 6.4165, -8.2478 )
 scale = Vector2( 0.15, 0.15 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 5
+frame = 9
 playing = true
 
 [node name="ZZSprite" type="AnimatedSprite" parent="Character" index="5"]
@@ -403,7 +404,7 @@ position = Vector2( -1.74048, -15.1842 )
 scale = Vector2( 0.243826, 0.177875 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 13
+frame = 1
 playing = true
 
 [node name="CCSprite" type="AnimatedSprite" parent="Character" index="6"]
@@ -412,7 +413,7 @@ position = Vector2( 10.7845, -12.8518 )
 scale = Vector2( 0.210295, 0.191248 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 5
+frame = 8
 playing = true
 
 [node name="DDSprite" type="AnimatedSprite" parent="Character" index="7"]
@@ -420,7 +421,7 @@ visible = false
 position = Vector2( 22.696, -11.1734 )
 scale = Vector2( 0.22464, 0.236564 )
 frames = SubResource( 13 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="FFSprite" type="AnimatedSprite" parent="Character" index="8"]
@@ -428,7 +429,6 @@ visible = false
 position = Vector2( 12.5701, -6.63424 )
 scale = Vector2( 2.3312, 2.64764 )
 frames = SubResource( 14 )
-frame = 1
 playing = true
 flip_h = true
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
