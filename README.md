@@ -7,6 +7,11 @@ Students will enhance their knowledge through playing the game and have more fun
 
 Our goal is to bridge the gap between Playing and Learning.
 
+## Instructions
+- Go to releases and download the latest version of the game.
+- Ensure the .exe file is in the same folder as .pck file
+- Run the .exe file
+
 ## Normal Mode
 Tests users on the mastery of subjects. Includes three difficulty levels, character unlocks and more!
 
