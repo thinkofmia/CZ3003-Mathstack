@@ -1,9 +1,20 @@
 # Mathstack
-A CZ3003 Project
+A CZ3003 Project brought by the following group members:
+
+* Teo Kai Jie
+* Tham Wei Jie Marcus
+* Kwek Dan Yi Germaine
+* Sun Jinghan
+* Suthakar Shiny Gladdys
+* Fremont Teng Qian He
+* Ng Yi Liang Randy
+* Koh Swee Sen
+* Yap Rong Yu
+* Pang Kia Le Jordan
 
 ## Mission Statement
 Our game creates a platform for teaching and learning.
-Students will enhance their knowledge through playing the game and have more fun competing with each other. Teachers will be able to assess the mastery of the course based on students’ playing history. 
+Students will enhance their knowledge through playing the game and have more fun competing with each other. Teachers will be able to assess the mastery of the course based on students’ playing history and performance. 
 
 Our goal is to bridge the gap between Playing and Learning.
 
@@ -64,7 +75,6 @@ Rather than editing from FireBase (our database), teachers can also use the game
 - Chico Games (Buttons sprite)
 - Helianthus Games (planets art)
 - Pipoya (Godog sprite, Witty Witch sprite and Ticky Troll sprite)
-
 - Bensound (Energy.ogg, EndlessMotion.ogg, House.ogg, AllThat.ogg, Dance.ogg, erf.ogg, funkyelement.ogg, groovyhiphop.ogg, perception.ogg, punky.ogg, retrosoul.ogg, rumble.ogg, straight.ogg, extremeaction.ogg)
 - Betrof [Freesound] (correct_sound.wav)
 - Autistic Lucario [Freesound] (wrong_sound.wav)
