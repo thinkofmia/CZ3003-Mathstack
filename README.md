@@ -18,6 +18,8 @@ Students will enhance their knowledge through playing the game and have more fun
 
 Our goal is to bridge the gap between Playing and Learning.
 
+The application's System Requirement Specification is accessible through this [link](https://github.com/FremontTeng/Mathstack/blob/master/System%20Requirement%20Specification.pdf).
+
 ## Instructions
 - Go to releases and download the latest version of the game.
 - Ensure the .exe file is in the same folder as .pck file
