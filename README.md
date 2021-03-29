@@ -6,7 +6,7 @@ A CZ3003 Project brought by the following group members:
 * Kwek Dan Yi Germaine
 * Sun Jinghan
 * Suthakar Shiny Gladdys
-* Fremont Teng Qian He
+* Mianna Teng
 * Ng Yi Liang Randy
 * Koh Swee Sen
 * Yap Rong Yu
